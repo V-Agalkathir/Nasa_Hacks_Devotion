@@ -118,18 +118,48 @@ This lets both teams work in parallel. **Don't change these shapes without telli
 
 ---
 
-## Task split (6 people)
+## Data references
 
-| # | Lane | Owner | Saturday | Sunday AM |
-|---|---|---|---|---|
-| 1 | **Lead / pitch / submission** | Agal | Lock scope, keep lanes unblocked, start slides + submission text | Rehearse pitch, record backup video, submit |
-| 2 | **NISAR data** | _____ | `search.py` → confirm GUNW coverage over Tuk **(first 30 min!)**, download, `inspect_h5.py`, fill config | `process.py` for 2026, sanity-check sign + values (expect a few cm) |
-| 3 | **Sentinel-1 history** | _____ | `hyp3_submit.py` for 2023–2025 **ASAP** (slow queue) | `--download`, process, compare with published 2–6 cm/season |
-| 4 | **GIS / zones / coastline** | _____ | Digitize real outlines for the Point, town core, Reindeer Point (QGIS / geojson.io) | Coastline-change layer (stretch); final `export_web.py` |
-| 5 | **Frontend: map** | _____ | `MapView`, `TimeSlider`: overlay, zone click, opacity toggle, before/after | Mobile/low-bandwidth polish, deploy (Vercel) + custom domain |
-| 6 | **Frontend: panel + story** | _____ | `ZonePanel`, `Legend`, `AboutModal`: risk badge, chart, plain-language summary | Distance-to-services note, final copy, screenshots for slides |
+**Method: measure → explain → prove → project.** SAR measures past sinking. Local temperature explains it through the Stefan relation, `subsidence(pixel, summer) ≈ E(pixel) · √TDD(summer) + trend(pixel) · year`, where TDD is accumulated thawing degree-days. Fit on 2017–2022, test on 2023–2025, then drive the model with climate scenarios to 2050. Outputs are **scenarios, not forecasts**. Abrupt thermokarst collapse is not captured.
 
-**Fallback rule:** if NISAR GUNW has no usable Tuk coverage by **2 PM Saturday**, lane 2 joins lane 3 and the 2026 season comes from Sentinel-1. NISAR stays in the story as "the next step" plus whatever product we *can* show.
+### Measure: radar
+| Dataset | Access / coverage of Tuk | Licence & credit | Notes |
+|---|---|---|---|
+| **NISAR L-band** GUNW / GSLC (ASF) | Free via Vertex / `asf_search`. ~11 GUNW + ~10 GSLC over Tuk. Gap 27 Jul–10 Aug 2026 | NASA open data, no restrictions | One season only (2026). **Required NASA source** |
+| **Sentinel-1** via ASF HyP3 | Free Earthdata login. 8,000 credits/month, 10–15 per interferogram. ~40 SLCs over Tuk in summer 2025 | Credit: "Contains modified Copernicus Sentinel data" | Products **expire after 14 days**, so download promptly. History 2017–2025 |
+
+### Explain + project: drivers
+| Dataset | Access / coverage | Licence & credit | Notes |
+|---|---|---|---|
+| **ECCC Tuktoyaktuk climate stations** | No account. Bulk CSV or api.weather.gc.ca. Stn 26987 daily 1995–Nov 2026; 53582 from 2018; older back to 1957 | ECCC licence; credit ECCC | **Best TDD source** |
+| **ERA5-Land** (Copernicus CDS) | Free account + API token. 9 km hourly, 1950–now | CC-BY 4.0 | Gap-filling only. Send requests **one at a time** (parallel requests get the account suspended) |
+| **CanDCS-M6** downscaled CMIP6 | No login. Point CSV from PAVICS THREDDS. ~10 km daily 1950–2100, 26 models, 4 SSPs | OGL-Canada + CMIP6 terms; cite ECCC/PCIC | Use SSP2-4.5 + SSP5-8.5 and show the model spread |
+| Ground ice (GSC OF 8713), ESA CCI permafrost v5, Rampton Map 1647A | Open | OGL-Canada; ESA CCI with acknowledgement | Regional context only. The town pixel is NoData |
+
+### Validate
+| Dataset | Access / coverage | Licence & credit | Notes |
+|---|---|---|---|
+| **ArcticDEM** (PGC) | Open S3 / STAC, no account. 22 snow-free 2 m strips over Tuk, 2010–2024 | CC-BY 4.0; NSF acknowledgement | Ellipsoidal heights, need co-registration |
+| Ground truth | Tuk Island active-layer probes (Boike et al., PANGAEA 2021); boreholes 16–20 km away (NWT Permafrost DB, GTN-P); CALM ≥55 km; ICESat-2 | CC-BY / per-dataset citation | Sparse, mostly off-town |
+
+### Coastline + ocean
+| Dataset | Access / coverage | Licence & credit | Notes |
+|---|---|---|---|
+| **NRCan Tuktoyaktuk air photos** | 14 mosaics 1947–2004, 10–50 cm, COG/WMS/STAC | OGL-Canada | Mosaics are not co-registered. Use the mosaics (individual scans are paid) |
+| Landsat / Sentinel-2 + CoastSat, DSAS v6.2 | Free imagery. CoastSat needs a Google Earth Engine non-commercial project | USGS open; Copernicus attribution; CoastSat GPL-3 | July–Sept scenes only. Allow time for Earth Engine setup |
+| JRC Global Surface Water v1.5 | 30 m, 1984–2024 | Unrestricted; cite Pekel et al. 2016 | Pond/wetness history for the watch list |
+| Sea ice (NSIDC v4), ERA5 waves, CHS stn 06485 water level | NSIDC no login; CHS IWLS API (3-min data from ~2019) | NSIDC cite; ERA5 CC-BY; **CHS: no raw-data redistribution** | Show CHS as **charts only**, labelled "not for navigation" |
+
+### People + buildings
+| Dataset | Access / coverage | Licence & credit | Notes |
+|---|---|---|---|
+| OpenStreetMap buildings | 436 buildings in Tuk | ODbL (attribution, share-alike) | Ready |
+| Microsoft building footprints | Open | ODbL | Ready |
+| GNWT ATLAS footprints | ~900 via REST | Licence not stated | **Ask permission before use** |
+| Statistics Canada 2021 Census | 937 residents, 88% Inuvialuit | OGL-Canada | Context |
+| Basemap imagery | Esri World Imagery | Credit "Imagery © Esri" | |
+
+**Attribution page must credit:** Copernicus, NASA/ASF, PGC (ArcticDEM), ECCC/PCIC, OSM, CHS, Esri.
 
 ---
 
