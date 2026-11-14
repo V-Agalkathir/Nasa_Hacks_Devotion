@@ -1,0 +1,11 @@
+asf_search>=8.0
+hyp3_sdk>=7.0
+h5py
+numpy
+rasterio
+shapely>=2.0
+geopandas
+pyproj
+matplotlib
+pyyaml
+requests

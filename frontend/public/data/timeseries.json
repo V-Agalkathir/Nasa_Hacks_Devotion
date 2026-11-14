@@ -1,0 +1,80 @@
+{
+ "point": [
+  {
+   "season": "2023",
+   "mean_cm": -7.11,
+   "p10_cm": -7.99,
+   "valid_pct": 95.0
+  },
+  {
+   "season": "2024",
+   "mean_cm": -7.89,
+   "p10_cm": -8.76,
+   "valid_pct": 97.5
+  },
+  {
+   "season": "2025",
+   "mean_cm": -8.68,
+   "p10_cm": -9.6,
+   "valid_pct": 96.3
+  },
+  {
+   "season": "2026",
+   "mean_cm": -9.44,
+   "p10_cm": -10.41,
+   "valid_pct": 93.7
+  }
+ ],
+ "core": [
+  {
+   "season": "2023",
+   "mean_cm": -5.42,
+   "p10_cm": -6.42,
+   "valid_pct": 95.9
+  },
+  {
+   "season": "2024",
+   "mean_cm": -5.9,
+   "p10_cm": -6.93,
+   "valid_pct": 95.1
+  },
+  {
+   "season": "2025",
+   "mean_cm": -6.42,
+   "p10_cm": -7.6,
+   "valid_pct": 94.5
+  },
+  {
+   "season": "2026",
+   "mean_cm": -6.94,
+   "p10_cm": -8.18,
+   "valid_pct": 95.1
+  }
+ ],
+ "reindeer": [
+  {
+   "season": "2023",
+   "mean_cm": -2.45,
+   "p10_cm": -3.22,
+   "valid_pct": 95.6
+  },
+  {
+   "season": "2024",
+   "mean_cm": -2.48,
+   "p10_cm": -3.26,
+   "valid_pct": 93.9
+  },
+  {
+   "season": "2025",
+   "mean_cm": -2.59,
+   "p10_cm": -3.39,
+   "valid_pct": 95.7
+  },
+  {
+   "season": "2026",
+   "mean_cm": -2.66,
+   "p10_cm": -3.42,
+   "valid_pct": 95.3
+  }
+ ]
+}

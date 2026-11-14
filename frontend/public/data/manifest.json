@@ -1,0 +1,123 @@
+{
+ "aoi": {
+  "name": "Tuktoyaktuk, NWT",
+  "bbox": [
+   -133.2,
+   69.38,
+   -132.9,
+   69.48
+  ],
+  "center": [
+   -133.05,
+   69.43
+  ],
+  "zoom": 11.5
+ },
+ "units": "cm (line-of-sight, negative = subsidence)",
+ "colour_range_cm": [
+  -8,
+  8
+ ],
+ "seasons": [
+  {
+   "id": "2023",
+   "label": "Summer 2023",
+   "source": "S1",
+   "image": "rasters/disp_2023.png",
+   "coordinates": [
+    [
+     -133.2,
+     69.48
+    ],
+    [
+     -132.9,
+     69.48
+    ],
+    [
+     -132.9,
+     69.38
+    ],
+    [
+     -133.2,
+     69.38
+    ]
+   ]
+  },
+  {
+   "id": "2024",
+   "label": "Summer 2024",
+   "source": "S1",
+   "image": "rasters/disp_2024.png",
+   "coordinates": [
+    [
+     -133.2,
+     69.48
+    ],
+    [
+     -132.9,
+     69.48
+    ],
+    [
+     -132.9,
+     69.38
+    ],
+    [
+     -133.2,
+     69.38
+    ]
+   ]
+  },
+  {
+   "id": "2025",
+   "label": "Summer 2025",
+   "source": "S1",
+   "image": "rasters/disp_2025.png",
+   "coordinates": [
+    [
+     -133.2,
+     69.48
+    ],
+    [
+     -132.9,
+     69.48
+    ],
+    [
+     -132.9,
+     69.38
+    ],
+    [
+     -133.2,
+     69.38
+    ]
+   ]
+  },
+  {
+   "id": "2026",
+   "label": "Summer 2026",
+   "source": "NISAR",
+   "image": "rasters/disp_2026.png",
+   "coordinates": [
+    [
+     -133.2,
+     69.48
+    ],
+    [
+     -132.9,
+     69.48
+    ],
+    [
+     -132.9,
+     69.38
+    ],
+    [
+     -133.2,
+     69.38
+    ]
+   ]
+  }
+ ],
+ "zones": "zones.geojson",
+ "timeseries": "timeseries.json",
+ "coastline": "coastline.geojson",
+ "generated_by": "data-pipeline/src/export_web.py"
+}

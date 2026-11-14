@@ -1,0 +1,37 @@
+# Single source of truth for the pipeline. Edit here, not in the scripts.
+aoi:
+  name: Tuktoyaktuk, NWT
+  # [west, south, east, north] in lon/lat (EPSG:4326). Rough box around the hamlet + Reindeer Point.
+  bbox: [-133.20, 69.38, -132.90, 69.48]
+
+seasons:            # thaw seasons only (InSAR does not work under snow)
+  - {id: "2026", source: NISAR, start: "2026-06-17", end: "2026-09-30"}
+  - {id: "2025", source: S1, start: "2025-06-01", end: "2025-09-30"}
+  - {id: "2024", source: S1, start: "2024-06-01", end: "2024-09-30"}
+  - {id: "2023", source: S1, start: "2023-06-01", end: "2023-09-30"}
+
+nisar:
+  dataset: NISAR
+  product_type: GUNW           # L2 geocoded unwrapped interferogram
+  wavelength_m: 0.2384         # L-band
+  # Run src/inspect_h5.py on one file and paste the real paths here:
+  unwrapped_phase_path: "TODO/fill/me/unwrappedPhase"
+  coherence_path: "TODO/fill/me/coherenceMagnitude"
+  x_path: "TODO/fill/me/xCoordinates"
+  y_path: "TODO/fill/me/yCoordinates"
+  epsg_path: "TODO/fill/me/projection"   # dataset/attr holding the EPSG code
+
+sentinel1:
+  wavelength_m: 0.0555         # C-band
+  hyp3_project_name: devotion-tuk
+
+processing:
+  min_coherence: 0.3           # mask pixels below this
+  colour_range_cm: [-8, 8]     # diverging palette anchored at 0
+  grid_res_deg: 0.0005         # common output grid (~20-50 m at this latitude)
+
+paths:
+  raw: data/raw
+  interim: data/interim
+  web_out: ../frontend/public/data
+  zones: ../frontend/public/data/zones.geojson

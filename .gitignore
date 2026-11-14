@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+# Raw / intermediate data (too big for git)
+data-pipeline/data/raw/
+data-pipeline/data/interim/
+*.h5
+*.zip
+*.tif
+!frontend/public/data/**/*.tif
+# Node
+node_modules/
+frontend/dist/
+.DS_Store
+_to_delete/
