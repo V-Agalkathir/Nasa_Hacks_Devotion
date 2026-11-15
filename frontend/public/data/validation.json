@@ -1,0 +1,128 @@
+{
+ "schema": "validation/2",
+ "prereg_tag": "prereg-eval",
+ "prereg_commit": "ac2ad888aa8c16d987699cba4d50b2e4450c1f72",
+ "cards": [
+  {
+   "id": "radar_checks",
+   "title": "Radar processing checks",
+   "status": "pass",
+   "headline": "median slope 0.9994 over 97 pairs",
+   "baseline": "HyP3's own displacement maps",
+   "sentence": "Our radar processing matches the provider's own maps (slope 1.00). The airport reference reads zero, lakes are masked, and there are no unwrapping jumps."
+  },
+  {
+   "id": "test_a",
+   "title": "Do the radar patterns repeat? (Sentinel-1, 2021\u201323 \u2192 2024\u201325)",
+   "status": "fail",
+   "headline": "Block \u03c1 0.306, \u03ba 0.138, skill -0.24",
+   "baseline": "Zero-motion baseline error 0.381 cm vs model 0.424 cm",
+   "sentence": "Ground moves within about 1 cm of the airport pad each summer, and which areas move more did not repeat reliably between years. So radar can't yet tell stable from degrading ground here.",
+   "posthoc": {
+    "title": "Post-hoc variant (ramp removed)",
+    "status": "fail",
+    "headline": "Block \u03c1 0.516",
+    "note": "Chosen after the official test failed; reported, not used for the official result."
+   },
+   "ci": {
+    "rho": [
+     0.251,
+     0.358
+    ],
+    "kappa": [
+     0.106,
+     0.169
+    ],
+    "skill": [
+     -0.278,
+     -0.209
+    ]
+   }
+  },
+  {
+   "id": "test_b",
+   "title": "Does NISAR agree with Sentinel-1? (2026)",
+   "status": "fail",
+   "headline": "Block \u03c1 0.009",
+   "baseline": "Pass needs \u03c1 \u2265 0.60",
+   "sentence": "NISAR's first summer over Tuk didn't produce a usable series: one pair failed to unwrap and several lost coherence. Its few usable pairs show no agreement."
+  },
+  {
+   "id": "model_b",
+   "title": "Predicting ground where radar can't see",
+   "status": "not_run",
+   "headline": "110 degrading examples (needs 300)",
+   "baseline": "Nearest measured pixel",
+   "sentence": "Not run: radar found too few examples of degrading ground to learn from, so no predicted layer is shown."
+  },
+  {
+   "id": "model_c",
+   "title": "Shoreline forecast (fit 1985\u20132004, predict 2005\u20132025)",
+   "status": "fail",
+   "headline": "Forecast error 48.2 m vs no-change 13.8 m",
+   "baseline": "No change since 2004",
+   "sentence": "The 30 m satellite waterline is too noisy to project a trend, so arrival years are hidden. Measured change since 2005 is shown instead."
+  },
+  {
+   "id": "reindeer",
+   "title": "Reindeer Point consistency",
+   "status": "not_available",
+   "headline": "0.0 of measured cells degrading",
+   "baseline": "Public reports of sinking homes (Canadian Geographic, Oct 2026)",
+   "sentence": "Homes sit on gravel pads. At 80 m, radar can't separate pad settling from ground thaw, so this is not a test of the reports."
+  }
+ ],
+ "deviations": [
+  {
+   "date": "2026-11-15",
+   "what": "Training years 2021-2023 instead of 2018-2023; min_seasons 3 instead of 4",
+   "why": "Sentinel-1 2018-2020 were never processed by HyP3 (no Earthdata access overnight); only three training summers exist"
+  },
+  {
+   "date": "2026-11-15",
+   "what": "Thaw onset from air temperature only",
+   "why": "Station snow depth reports 3-4 cm in late June at 14 C daily mean; judged unusable on training data"
+  },
+  {
+   "date": "2026-11-15",
+   "what": "Computation on the shared EPSG:4326 grid with distances and blocks from UTM 8N cell coordinates",
+   "why": "Part 1 and Part 2 rasters are on the shared grid; every distance is still in metres"
+  },
+  {
+   "date": "2026-11-15",
+   "what": "Confidence c_fit floor uses tau instead of 2*sigma_ref",
+   "why": "Motion is referenced to the airport, so sigma_ref is ~0 and the spec formula would give zero confidence to every stable cell"
+  },
+  {
+   "date": "2026-11-15",
+   "what": "Test B uses NISAR sensitivity from 12-day increments; the class comparison (kappa) is not available",
+   "why": "The 2026 NISAR chain breaks (24 Aug-5 Sep pair failed to unwrap; several pairs lost coherence), so no cell has the five connected dates the class rules need"
+  },
+  {
+   "date": "2026-11-15",
+   "what": "This-season expectation demonstrated on Sentinel-1 2025",
+   "why": "NISAR 2026 has no connected series of three or more passes over most of the area"
+  },
+  {
+   "date": "2026-11-15",
+   "what": "Model C uses the satellite waterline 1985-2025; hindcast fits <= 2004 and predicts 2005-2025 (spec: air photos 1947-1985 fit)",
+   "why": "Automatic air-photo shorelines failed visual review (traced mosaic edges and an inner harbour); decided before any hindcast error was seen"
+  },
+  {
+   "date": "2026-11-15",
+   "what": "Sentinel-1 2022 to mid-2025 cover only the northern half of the area (town); the highway corridor has 2021 and 2025 only",
+   "why": "HyP3 products for those dates were single-frame; corridor cells fall back to short-record rules"
+  }
+ ],
+ "limits": [
+  "Block scale, not houses",
+  "Thaw season only",
+  "Motion is relative to a reference area (airport gravel pad)",
+  "A screen for where to look, not a sign-off"
+ ],
+ "what_we_dont_predict": [
+  "Ground sinking in 2050",
+  "Single houses",
+  "Sudden collapse or storms"
+ ]
+}

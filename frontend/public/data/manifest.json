@@ -1,124 +1,206 @@
 {
- "aoi": {
-  "name": "Tuktoyaktuk, NWT",
+ "schema": 2,
+ "generated_at": "2026-11-15T06:36:46Z",
+ "mock": false,
+ "area": {
+  "name": "Tuktoyaktuk and the Inuvik\u2013Tuktoyaktuk Highway corridor",
   "bbox": [
-   -133.2,
-   69.38,
-   -132.9,
+   -133.3,
+   69.2,
+   -132.85,
    69.48
   ],
   "center": [
-   -133.05,
-   69.43
+   -133.03,
+   69.41
   ],
-  "zoom": 11.5
+  "zoom": 11.3,
+  "image_coordinates": [
+   [
+    -133.3,
+    69.48
+   ],
+   [
+    -132.85,
+    69.48
+   ],
+   [
+    -132.85,
+    69.2
+   ],
+   [
+    -133.3,
+    69.2
+   ]
+  ]
  },
- "units": "cm (line-of-sight, negative = subsidence)",
- "colour_range_cm": [
-  -8,
-  8
+ "freshness": {
+  "latest_pass": "2025-10-05",
+  "sensor": "Sentinel-1",
+  "status": "paused for winter",
+  "line": "Last radar pass: 2025-10-05, Sentinel-1. Updates every 12 days, June to September.",
+  "nisar_note": "NISAR 2026 passes are checked automatically; none formed a usable series this summer."
+ },
+ "units": "cm per summer, relative to the airport gravel pad",
+ "motion_range_cm": [
+  -2.0,
+  2.0
  ],
- "seasons": [
+ "years": [
   {
-   "id": "2023",
-   "label": "Summer 2023",
-   "source": "S1",
-   "image": "rasters/disp_2023.png",
-   "coordinates": [
-    [
-     -133.2,
-     69.48
-    ],
-    [
-     -132.9,
-     69.48
-    ],
-    [
-     -132.9,
-     69.38
-    ],
-    [
-     -133.2,
-     69.38
-    ]
-   ]
+   "year": 2021,
+   "status": "measured",
+   "sensor": "Sentinel-1",
+   "band": "C",
+   "image": "rasters/motion_2021.png",
+   "window": [
+    "2021-06-16",
+    "2021-09-08"
+   ],
+   "valid_share": 0.872,
+   "label": "Summer 2021: 06-16 to 09-08",
+   "note": null
   },
   {
-   "id": "2024",
-   "label": "Summer 2024",
-   "source": "S1",
-   "image": "rasters/disp_2024.png",
-   "coordinates": [
-    [
-     -133.2,
-     69.48
-    ],
-    [
-     -132.9,
-     69.48
-    ],
-    [
-     -132.9,
-     69.38
-    ],
-    [
-     -133.2,
-     69.38
-    ]
-   ]
+   "year": 2022,
+   "status": "measured",
+   "sensor": "Sentinel-1",
+   "band": "C",
+   "image": "rasters/motion_2022.png",
+   "window": [
+    "2022-06-23",
+    "2022-09-15"
+   ],
+   "valid_share": 0.269,
+   "label": "Summer 2022: 06-23 to 09-15",
+   "note": "Town only: this summer's radar files cover the northern half of the area"
   },
   {
-   "id": "2025",
-   "label": "Summer 2025",
-   "source": "S1",
-   "image": "rasters/disp_2025.png",
-   "coordinates": [
-    [
-     -133.2,
-     69.48
-    ],
-    [
-     -132.9,
-     69.48
-    ],
-    [
-     -132.9,
-     69.38
-    ],
-    [
-     -133.2,
-     69.38
-    ]
-   ]
+   "year": 2023,
+   "status": "measured",
+   "sensor": "Sentinel-1",
+   "band": "C",
+   "image": "rasters/motion_2023.png",
+   "window": [
+    "2023-05-25",
+    "2023-09-10"
+   ],
+   "valid_share": 0.268,
+   "label": "Summer 2023: 05-25 to 09-10",
+   "note": "Town only: this summer's radar files cover the northern half of the area"
   },
   {
-   "id": "2026",
-   "label": "Summer 2026",
-   "source": "NISAR",
-   "image": "rasters/disp_2026.png",
-   "coordinates": [
-    [
-     -133.2,
-     69.48
-    ],
-    [
-     -132.9,
-     69.48
-    ],
-    [
-     -132.9,
-     69.38
-    ],
-    [
-     -133.2,
-     69.38
-    ]
-   ]
+   "year": 2024,
+   "status": "measured",
+   "sensor": "Sentinel-1",
+   "band": "C",
+   "image": "rasters/motion_2024.png",
+   "window": [
+    "2024-06-12",
+    "2024-09-04"
+   ],
+   "valid_share": 0.265,
+   "label": "Summer 2024: 06-12 to 09-04",
+   "note": "Town only: this summer's radar files cover the northern half of the area"
+  },
+  {
+   "year": 2025,
+   "status": "measured",
+   "sensor": "Sentinel-1",
+   "band": "C",
+   "image": "rasters/motion_2025.png",
+   "window": [
+    "2025-06-19",
+    "2025-09-11"
+   ],
+   "valid_share": 0.996,
+   "label": "Summer 2025: 06-19 to 09-11",
+   "note": null
+  },
+  {
+   "year": 2026,
+   "status": "missing",
+   "sensor": "NISAR",
+   "band": "L",
+   "image": null,
+   "window": [
+    "2026-06-25",
+    "2026-10-11"
+   ],
+   "valid_share": 0.03,
+   "label": "Summer 2026 (NISAR)",
+   "note": "Not enough data: one pair failed to unwrap and several lost coherence, so no connected series exists. The sensor also changes here (C-band to L-band)."
   }
  ],
- "zones": "zones.geojson",
- "timeseries": "timeseries.json",
- "coastline": "coastline.geojson",
- "generated_by": "data-pipeline/src/export_web.py",
- "mock": true
+ "layers": [
+  {
+   "id": "behaviour",
+   "label": "Ground behaviour (measured)",
+   "image": "rasters/behaviour.png",
+   "provenance": "measured",
+   "status": "fail"
+  },
+  {
+   "id": "lowlying",
+   "label": "Below the 2.5 m storm-surge reference",
+   "image": "rasters/lowlying.png",
+   "provenance": "measured",
+   "status": "measured"
+  }
+ ],
+ "models": {
+  "behaviour": "fail",
+  "nisar_check": "fail",
+  "ground_prediction": "not_run",
+  "shoreline_forecast": "fail",
+  "show_arrival_years": false
+ },
+ "screening": {
+  "n_cells": 3578,
+  "n_promising": 763,
+  "promising_km2": 43.9,
+  "settings": {
+   "cell_m": 240,
+   "corridor_m": 2000,
+   "min_land_share": 0.5,
+   "surge_m": 2.5,
+   "low_margin_m": 1.5,
+   "coast_near_m": 100,
+   "coast_mid_m": 300,
+   "wet_high": 0.4,
+   "conf": {
+    "high": 0.7,
+    "medium": 0.45
+   },
+   "filters_default": {
+    "ground": "any",
+    "min_height_m": 4.0,
+    "max_highway_m": 1000,
+    "min_conf": "medium",
+    "coast_horizon_yr": 25
+   },
+   "can_measure_min": 0.5
+  }
+ },
+ "files": {
+  "areas": "areas.geojson",
+  "cells": "cells.json",
+  "timeseries": "timeseries.json",
+  "validation": "validation.json",
+  "coastline": "coastline.geojson"
+ },
+ "provenance": {
+  "measured": "From satellite or survey data",
+  "predicted": "Model output, tested on unseen data",
+  "demo": "Simulated for the demo"
+ },
+ "credits": [
+  "Contains modified Copernicus Sentinel data 2021\u20132025, processed by ASF HyP3",
+  "NISAR data courtesy NASA/JPL-Caltech and ISRO, via ASF DAAC",
+  "Elevation: NRCan HRDEM (Open Government Licence \u2013 Canada)",
+  "Climate: Environment and Climate Change Canada",
+  "Map data \u00a9 OpenStreetMap contributors (ODbL)",
+  "Surface water: EC JRC Global Surface Water",
+  "Landsat: USGS; Sentinel-2: Copernicus"
+ ]
 }
