@@ -89,6 +89,7 @@ jobs:
           python screening.py
           python borehole_check.py
           python export_web_v2.py
+          python export_tool_v3.py
           if [ -f export_nisar_web.py ]; then python export_nisar_web.py; fi
 
       - name: Validation gate

@@ -1,424 +1,342 @@
-// NISAR researcher view (#nisar): the raw 2026 L-band evidence behind Test B, pair by pair.
-// Reads data/nisar/nisar.json (written by data-pipeline/src/export_nisar_web.py) plus roads and named areas for context.
-// Nothing here feeds the screening tiers.
-import { Fragment, useEffect, useMemo, useRef, useState } from "react";
-import maplibregl from "maplibre-gl";
-import { STATUS } from "../lib/tokens.js";
-import { fmtDate } from "../lib/data.js";
+// NISAR researcher view (#nisar), built to the design canvas (Nisar.dc.html).
+// Data quality only: nothing here feeds the screening tool. Images share tool.json's SVG frame.
+import { useEffect, useMemo, useRef, useState } from "react";
+import * as G from "../lib/tool.js";
+import "../tool.css";
 import "../nisar.css";
 
-const base = "./data/";
-const STYLE = {
-  version: 8,
-  sources: { sat: { type: "raster", tileSize: 256, attribution: "Imagery © Esri",
-    tiles: ["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"] } },
-  layers: [{ id: "sat", type: "raster", source: "sat", paint: { "raster-saturation": -0.5, "raster-brightness-max": 0.9 } }],
-};
-const BLANK = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
-const REF = { airport: "Airport gravel pad", s1_stable_patches: "Sentinel-1 stable patches" };
-const VIEWS = [["pair", "Pairs"], ["cum", "Cumulative"], ["coh", "Coherence"], ["valid", "Valid share"]];
-const pct = (v) => (v == null ? "–" : v > 0 && v < 0.01 ? "under 1%" : `${Math.round(v * 100)}%`);
-const cm = (v) => (v == null ? "–" : `${v > 0 ? "+" : ""}${v.toFixed(2)} cm`);
-const short = (iso) => new Date(iso + "T00:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
+const BASE = "./data/";
+const get = (f) => fetch(BASE + f).then((r) => { if (!r.ok) throw new Error(`${f}: HTTP ${r.status}`); return r.json(); });
+const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const short = (iso) => { const a = iso.split("-"); return Number(a[2]) + " " + MON[Number(a[1]) - 1]; };
+const pct = (v) => (v == null ? "–" : v < 0.01 ? "under 1%" : Math.round(v * 100) + "%");
+const CUT = 0.35;
 
-function pairStatus(p) {
-  if (!p.used) return { key: "rejected", label: "Rejected", cls: "chip-fail" };
-  if (p.ramp_flag || (p.coherent_fraction ?? 1) < 0.35) return { key: "weak", label: "Used, weak", cls: "chip-partial" };
-  return { key: "used", label: "Used", cls: "chip-pass" };
+const Ic = ({ d, children }) => <svg className="ic" viewBox="0 0 24 24" aria-hidden="true">{d ? <path d={d} /> : children}</svg>;
+const InfoIc = () => <Ic><circle cx="12" cy="12" r="9" /><path d="M12 11v6M12 7.5v.5" /></Ic>;
+
+function status(p) {
+  if (p.conn_share === 0) return { k: "never", t: "Never unwrapped", g: "–" };
+  if (!p.used) return { k: "drop", t: "Dropped", g: "✕" };
+  if (p.ramp_flag || (p.coh_median ?? 0) < CUT) return { k: "weak", t: "Kept, weak", g: "◐" };
+  return { k: "kept", t: "Kept", g: "✓" };
+}
+function why(p) {
+  if (p.conn_share === 0) return "Never unwrapped: no connected components over land.";
+  if (!p.used) {
+    if (p.land_median_cm != null && /offset/.test(p.reason || "")) return `Dropped: land median sat ${Math.abs(p.land_median_cm).toFixed(1)} cm off after referencing (limit 2 cm).`;
+    return "Dropped: " + (p.reason || "failed a check") + ".";
+  }
+  return "Kept: passed the coherence, unwrapping and referencing checks" + (p.ramp_flag && p.ramp_cm != null ? `, after removing a ${p.ramp_cm.toFixed(1)} cm ramp` : "") + ".";
 }
 
 export default function NisarView() {
-  const [d, setD] = useState(null);
-  const [err, setErr] = useState(null);
-  const [view, setView] = useState("pair");
-  const [pairI, setPairI] = useState(null);
-  const [dateI, setDateI] = useState(null);
-
+  const [D, setD] = useState(null);
+  const [err, setErr] = useState("");
   useEffect(() => {
-    fetch(base + "nisar/nisar.json").then((r) => { if (!r.ok) throw new Error(`nisar/nisar.json: HTTP ${r.status}`); return r.json(); })
-      .then((j) => {
-        setD(j);
-        const best = j.pairs.map((p, i) => [p.valid_share ?? -1, i]).sort((a, b) => b[0] - a[0])[0];
-        setPairI(best ? best[1] : 0);
-        setDateI(j.dates.length - 1);
-      })
-      .catch((e) => setErr(e.message));
-    const prev = document.title;
-    document.title = "NISAR 2026 for researchers · Ground Check";
-    return () => { document.title = prev; };
+    document.body.classList.add("gk-lock");
+    Promise.all([get("nisar/nisar.json"), get("tool.json")]).then(([nz, T]) => setD({ nz, M: G.decode(T) })).catch((e) => setErr(String(e.message || e)));
+    return () => document.body.classList.remove("gk-lock");
+  }, []);
+  if (err) return <div className="gk"><div className="gk-wait"><h1>The NISAR data didn’t load</h1><p>{err}</p><p><a href="#">Back to the tool</a></p></div></div>;
+  if (!D) return <div className="gk"><div className="gk-wait" role="status"><p>Loading the NISAR view…</p></div></div>;
+  return <Board nz={D.nz} M={D.M} />;
+}
+
+function fit(b, asp) {
+  let [x, y, w, h] = b;
+  const cx = x + w / 2, cy = y + h / 2;
+  if (w / h > asp) h = w / asp; else w = h * asp;
+  return [cx - w / 2, cy - h / 2, w, h];
+}
+
+function Board({ nz, M }) {
+  const T = M.T, P = nz.pairs, S1 = nz.s1 || {}, S1P = S1.pairs_2025 || [];
+  const best = useMemo(() => { let b = 0; P.forEach((p, i) => { if (p.used && (p.mv_valid_share || 0) > (P[b].mv_valid_share || 0)) b = i; }); return b; }, [nz]);
+  const [view, setView] = useState("mv");
+  const [pi, setPi] = useState(best);
+  const [zoom, setZoom] = useState("region");
+  const [tab, setTab] = useState("pair");
+  const [m, setM] = useState("pairs");
+  const [about, setAbout] = useState(false);
+  const [asp, setAsp] = useState(0.8);
+  const [aspS, setAspS] = useState(0.5);
+  const box = useRef(null);
+  useEffect(() => {
+    const el = box.current; if (!el) return;
+    const ro = new ResizeObserver(() => { const r = el.getBoundingClientRect(); if (r.width && r.height) { setAsp(r.width / r.height); setAspS(window.innerWidth <= 760 ? r.width / (r.height / 2) : r.width / 2 / r.height); } });
+    ro.observe(el);
+    return () => ro.disconnect();
   }, []);
 
-  if (err) return <div className="loading"><p>The NISAR diagnostics didn't load. Try again in a minute.</p><p className="small">{err}</p><p><a href="#">Back to the ground check</a></p></div>;
-  if (!d) return <div className="loading" role="status">Loading the NISAR diagnostics…</div>;
+  const p = P[pi], st = status(p);
+  const town = zoom === "town";
+  const W = nz.frame?.svg_w || T.W, H = nz.frame?.svg_h || T.H;
+  const tc = T.named?.town_core?.c || [W / 2, 60];
+  // leave the bottom of the map for the pass-by-pass timeline
+  const regionBox = [-10, -10, W + 20, (H + 20) / 0.7];
+  const townBox = [tc[0] - 75, tc[1] - 40, 150, 210 / 0.7];
+  const vb = fit(town ? townBox : regionBox, asp);
+  const vbS = fit(town ? townBox : regionBox, aspS);
+  const z = vb[2] / (W + 20);
+  const img = view === "mv" ? p.mv_img : view === "iono" ? p.iono_img : p.coh_img;
+  const pairWord = short(p.ref) + "→" + short(p.sec);
+  const noImg = view !== "cmp" && !img;
+  const gridTf = `matrix(${T.grid.join(" ")})`;
+  const gap = nz.instrument_gap || { from: "2026-07-27", to: "2026-08-10" };
+  const spansGap = p.ref < gap.from && p.sec > gap.to;
+  const ionoJump = p.iono_p95_cm != null && p.iono_p95_cm > 30;
+  const lim = nz.scale || { pair_cm: 3, iono_cm: 15 };
 
-  const used = d.pairs.filter((p) => p.used).length;
-  const weak = d.pairs.filter((p) => pairStatus(p).key === "weak").length;
-  const tb = d.test_b;
-  return (
-    <div className="page nz">
-      <div className="strip" role="status"><span className="pill">RESEARCHER VIEW</span> Raw NISAR diagnostics for summer 2026: data quality, not ground risk. Nothing on this page feeds the ground screen.</div>
-      <header className="hdr">
-        <div>
-          <p className="brand">Ground Check <span>· NISAR for researchers</span></p>
-          <p className="fresh">{d.acquisition.sensor} {d.acquisition.band}-band · track {d.acquisition.track}, frame {d.acquisition.frame} · {d.acquisition.flight_dir.toLowerCase()} · {d.acquisition.polarisation}. Exported {fmtDate(d.generated_at.slice(0, 10))}.</p>
-        </div>
-        <a className="nz-back" href="#">← Back to the ground check</a>
-      </header>
+  // timeline: 10 Jun – 12 Nov 2026
+  const T0 = Date.UTC(2026, 5, 10), T1 = Date.UTC(2026, 10, 12), L = 30, R = 970;
+  const X = (iso) => { const a = iso.split("-").map(Number); return L + ((Date.UTC(a[0], a[1] - 1, a[2]) - T0) / (T1 - T0)) * (R - L); };
+  const AX = 96, BASE_Y = 206, BH = 34;
+  const arcs = P.map((q, i) => {
+    const a = X(q.ref), b = X(q.sec), k = status(q).k, on = i === pi, c = q.coh_median ?? 0;
+    const h = 10 + (b - a) * 0.2, dull = k === "drop" || k === "never";
+    return { i, d: `M${a.toFixed(1)} ${AX} Q${((a + b) / 2).toFixed(1)} ${(AX - h * 2).toFixed(1)} ${b.toFixed(1)} ${AX}`,
+      stroke: dull ? "#8B8C89" : "#274C77", sw: on ? 5 : 2.6, dash: k === "drop" ? "2 5" : k === "never" ? "1 7" : k === "weak" ? "7 5" : undefined,
+      bx: a + 3, bw: Math.max(4, b - a - 6), by: BASE_Y - c * BH, bh: c * BH, bfill: dull ? "url(#nzH)" : "#274C77", bop: on ? 1 : 0.55, bst: on ? "#13243A" : "none",
+      tx: (a + b) / 2, ty: BASE_Y - c * BH - 4, t: c.toFixed(2), label: `${short(q.ref)} to ${short(q.sec)}, ${status(q).t}, coherence ${c.toFixed(2)}` };
+  });
+  const acq = Array.from(new Set(P.flatMap((q) => [q.ref, q.sec]))).sort().map((d) => ({ d, x: X(d), t: short(d) }));
+  const g1 = X(gap.from), g2 = X(gap.to);
+  const marks = [[X("2026-06-17"), "Provisional", "from 17 Jun", 0], [X("2026-10-21"), "Validated", "from 21 Oct", 0], [X("2026-11-06"), "Released", "6 Nov", 1]]
+    .map(([x, t, sub, r]) => ({ x, tx: r ? x - 4 : x + 4, anc: r ? "end" : "start", t, sub, ty: r ? 54 : 18, sy: r ? 72 : 36 }));
 
-      <section className="hero">
-        <h1>NISAR 2026, pair by pair.</h1>
-        <p className="lead">{d.pairs.length} interferograms from {short(d.pairs[0].ref)} to {short(d.pairs[d.pairs.length - 1].sec)}. {d.pairs.length - used} were rejected and {weak} more kept little coherence, so the summer {d.season.network?.connected ? "forms" : "never forms"} one connected series. Here is the raw evidence, unsmoothed.</p>
-        <div className="tiles">
-          <div className="tile"><b>{used} of {d.pairs.length}</b><span>pairs used; {d.pairs.length - used} rejected for unwrapping or reference errors</span></div>
-          <div className="tile"><b>{pct(d.season.stats.valid_cell_fraction)}</b><span>of the area stays valid from {short(d.season.first_usable_date)} to {short(d.season.last_usable_date)}</span></div>
-          <div className="tile"><b>ρ {tb.rho_block?.toFixed(2)}</b><span>ordering agreement with Sentinel-1 across {tb.n_blocks?.toLocaleString("en-GB")} blocks. Test B {STATUS[tb.status]?.label.toLowerCase()}</span></div>
-        </div>
-      </section>
+  const facts = [
+    { k: "Median coherence", v: p.coh_median?.toFixed(2) ?? "–", s: `Over land. Pixels under ${CUT} are dropped from movement.` },
+    { k: "Connected land", v: pct(p.conn_share), s: "Share of land in a connected component after unwrapping." },
+    { k: "Ionosphere correction", v: p.iono_p95_cm == null ? "–" : p.iono_p95_cm.toFixed(1) + " cm", s: "95th percentile of the phase screen removed, as line-of-sight cm around its median." },
+    { k: "Area with movement", v: p.mv_img ? pct(p.mv_valid_share) : "Not shown", s: p.mv_img ? "Share of land with a kept movement value." : "Dropped pairs carry no movement." },
+    { k: "Within ±1 cm", v: p.mv_img ? pct(p.mv_in_noise) : "–", s: "Share of mapped movement inside the noise." },
+    { k: "Median movement", v: p.median_cm == null ? "–" : (p.median_cm > 0 ? "+" : "") + p.median_cm.toFixed(2) + " cm",
+      s: "Referenced to " + (p.reference === "airport" ? "the airport gravel pad" : p.reference === "s1_stable_patches" ? "Sentinel-1 stable patches" : "nothing usable") + "." },
+  ];
 
-      <Network d={d} pairI={pairI} onPair={(i) => { setPairI(i); setView("pair"); }} />
+  const cx = (v) => (v * 100).toFixed(2) + "%";
+  const rng = (a) => { const v = a.map((q) => q.coh_median).filter((x) => x != null); return v.length ? Math.min(...v).toFixed(2) + "–" + Math.max(...v).toFixed(2) : "–"; };
+  const tb = nz.test_b || {};
+  const legend = view === "mv"
+    ? { title: "Movement, " + pairWord, ramp: "linear-gradient(90deg, #E66101, #FFFFFF 33%, #FFFFFF 67%, #2166AC)", lo: `Sank ${lim.pair_cm} cm`, mid: "±1 noise", hi: `Rose ${lim.pair_cm} cm`, note: "Vertical, against this pair’s own reference. ±1 cm is within the noise." }
+    : view === "iono"
+    ? { title: "Ionosphere, " + pairWord, ramp: "linear-gradient(90deg, #E66101, #FFFFFF, #2166AC)", lo: `−${lim.iono_cm} cm`, mid: "0", hi: `+${lim.iono_cm} cm`, note: "Phase screen removed by the correction, line-of-sight cm around its median." }
+    : { title: view === "cmp" ? "Coherence, both sensors" : "Coherence, " + pairWord, ramp: "linear-gradient(90deg, #E9D8A6, #274C77)", lo: "0", mid: "", hi: "1", note: view === "cmp" ? `Same scale on both maps. Sentinel-1: ${S1.pair ? S1.pair.split("→").map(short).join("–") + " 2025" : "2025"}.` : `How much signal survived the ${p.days} days. Under ${CUT} is dropped.` };
+  const kms = T.kms.filter((k) => k[2] > 0 && (town ? k[2] % 2 === 0 : k[2] % 4 === 0));
+  const fs = 9 * Math.min(z, 1.2), fsS = 7.5 * Math.min(z, 1.2);
+  const kept = P.filter((q) => q.used).length;
+  const dropped = P.filter((q) => !q.used);
+  const th = nz.acquisition?.thresholds || {};
+  const checks = nz.season?.checks || [];
+  const CHK = { tundra_sinks: "Tundra sinks over the summer", reference_near_zero: "Reference area stays near zero", lakes_masked: "Lakes masked", no_cycle_jumps: "No phase-cycle jumps" };
+  const tdd = nz.season?.tdd_before_first_date;
 
-      <div className="cols nz-cols">
-        <MapCard d={d} view={view} setView={setView} pairI={pairI} setPairI={setPairI} dateI={dateI} setDateI={setDateI} />
-        <div className="nz-side">
-          <Outlook d={d} />
-          <CumChart d={d} dateI={dateI} onDate={(i) => { setDateI(i); setView("cum"); }} />
-          <TestB tb={tb} />
-          <Checks season={d.season} />
-        </div>
-      </div>
-
-      <PairTable d={d} pairI={pairI} onPair={(i) => { setPairI(i); setView("pair"); }} />
-      <Acquisition d={d} />
-
-      <div className="limits"><ul>
-        <li>L-band (24 cm), ionosphere corrected</li><li>Each pair referenced on its own: airport pad or Sentinel-1 stable patches</li>
-        <li>One summer, no connected series</li><li>80 m grid ({d.acquisition.grid.res_deg}°), not single houses</li><li>Not used in any tier</li>
-      </ul></div>
-    </div>
+  const MapBase = ({ children, v, aria }) => (
+    <svg className="gk-map" viewBox={v.map((q) => q.toFixed(1)).join(" ")} role="img" aria-label={aria} style={{ cursor: "default" }}>
+      <rect x="-600" y="-600" width={W + 1200} height={H + 1800} fill="#BCDAF2" />
+      <g transform={gridTf}><path d={M.landD} fill="#F6F7F4" /></g>
+      {children}
+      <path d={T.hwy} fill="none" stroke="#13243A" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+      <path d={T.hwy} fill="none" stroke="#FFFFFF" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+    </svg>
   );
-}
 
-// ---------- pair network: acquisitions on a time axis, pairs as arcs, coherence as bars ----------
-function Network({ d, pairI, onPair }) {
-  const W = 1000, H = 230, pad = 40;
-  const t0 = Date.parse(d.pairs[0].ref), t1 = Date.parse(d.pairs[d.pairs.length - 1].sec);
-  const x = (iso) => pad + ((Date.parse(iso) - t0) / (t1 - t0)) * (W - 2 * pad);
-  const axisY = 120;
-  const acq = [...new Set(d.pairs.flatMap((p) => [p.ref, p.sec]))].sort();
-  const wet = new Set(d.dates.filter((q) => q.wet_flag).map((q) => q.date));
-  const gaps = d.season.gaps || [];
   return (
-    <section className="card">
-      <h2>Pair network</h2>
-      <p className="muted">Each arc is one interferogram. Below the axis: the share of land that stayed coherent. Click a pair to map it. The shaded band is NISAR's permanent instrument data gap; the pair across it spans 24 days instead of 12.</p>
-      <div className="nz-net">
-        <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Pair network: ${d.pairs.map((p) => `${p.ref} to ${p.sec} ${pairStatus(p).label}, coherent ${pct(p.coherent_fraction)}`).join("; ")}`}>
-          {d.instrument_gap && (
-            <g>
-              <rect x={x(d.instrument_gap.from)} y={axisY - 100} width={x(d.instrument_gap.to) - x(d.instrument_gap.from)} height={100} fill="#E9B94955" />
-              <text x={(x(d.instrument_gap.from) + x(d.instrument_gap.to)) / 2} y={axisY - 86} textAnchor="middle" className="nz-ann">NISAR data gap</text>
-              <text x={(x(d.instrument_gap.from) + x(d.instrument_gap.to)) / 2} y={axisY - 74} textAnchor="middle" className="nz-ann">{short(d.instrument_gap.from)}–{short(d.instrument_gap.to)}</text>
-            </g>
-          )}
-          {gaps.map((g) => (
-            <g key={g.from}>
-              <rect x={x(g.from)} y={axisY - 4} width={x(g.to) - x(g.from)} height={8} fill="#E9B94966" />
-            </g>
-          ))}
-          <line x1={pad} x2={W - pad} y1={axisY} y2={axisY} stroke="#311E10" strokeWidth="1.5" />
-          <line x1={pad} x2={W - pad} y1={axisY + 90} y2={axisY + 90} stroke="#D8CDA0" />
-          <line x1={pad} x2={W - pad} y1={axisY + 90 - 0.35 * 80} y2={axisY + 90 - 0.35 * 80} stroke="#5E4733" strokeDasharray="4 3" />
-          <text x={W - pad} y={axisY + 90 - 0.35 * 80 - 4} textAnchor="end" className="nz-ann">0.35 coherence threshold</text>
-          {d.pairs.map((p, i) => {
-            const a = x(p.ref), b = x(p.sec), st = pairStatus(p), on = i === pairI;
-            const h = 26 + (b - a) * 0.28;
-            const col = st.key === "rejected" ? "#7A3214" : "#1F6F7D";
-            const bh = (p.coherent_fraction ?? 0) * 80;
-            return (
-              <g key={p.ref + p.sec} className="nz-pair" onClick={() => onPair(i)} role="button" tabIndex={0}
-                onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && (e.preventDefault(), onPair(i))}
-                aria-label={`${short(p.ref)} to ${short(p.sec)}: ${st.label}`} aria-pressed={on}>
-                <path d={`M${a} ${axisY} Q${(a + b) / 2} ${axisY - h * 2} ${b} ${axisY}`} fill="none" stroke={col}
-                  strokeWidth={on ? 5 : 3} strokeDasharray={st.key === "rejected" ? "2 5" : st.key === "weak" ? "8 5" : undefined} strokeLinecap="round" />
-                <rect x={a + 3} y={axisY + 90 - bh} width={Math.max(4, b - a - 6)} height={bh} rx="3"
-                  fill={st.key === "rejected" ? "url(#nzHatch)" : col} opacity={on ? 1 : 0.7} stroke={on ? "#311E10" : "none"} strokeWidth="2" />
-                <text x={(a + b) / 2} y={axisY + 86 - bh} textAnchor="middle" className="nz-val">{(p.coherent_fraction ?? 0).toFixed(2)}</text>
-              </g>
-            );
-          })}
-          {acq.map((q) => (
-            <g key={q}>
-              <circle cx={x(q)} cy={axisY} r="5" fill="#FFFCF0" stroke="#311E10" strokeWidth="2" />
-              <text x={x(q)} y={axisY + 18} textAnchor="middle" className="nz-tick">{short(q)}</text>
-              {wet.has(q) && <text x={x(q)} y={axisY + 32} textAnchor="middle" className="nz-ann">wet date</text>}
-            </g>
-          ))}
-          <defs>
-            <pattern id="nzHatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-              <rect width="6" height="6" fill="#EBC6A6" /><rect width="2.5" height="6" fill="#7A3214" />
-            </pattern>
-          </defs>
-        </svg>
-      </div>
-      <div className="legend">
-        <span><svg width="26" height="10" aria-hidden="true"><path d="M2 5h22" stroke="#1F6F7D" strokeWidth="3" /></svg>Used</span>
-        <span><svg width="26" height="10" aria-hidden="true"><path d="M2 5h22" stroke="#1F6F7D" strokeWidth="3" strokeDasharray="8 5" /></svg>Used, weak (ramp or low coherence)</span>
-        <span><svg width="26" height="10" aria-hidden="true"><path d="M2 5h22" stroke="#7A3214" strokeWidth="3" strokeDasharray="2 5" strokeLinecap="round" /></svg>Rejected</span>
-        <span className="pill pill-unconf">NETWORK {d.season.network?.connected ? "CONNECTED" : "NOT CONNECTED"}</span>
-      </div>
-    </section>
-  );
-}
+    <div className="gk">
+      <div className="gk-app">
+        <header className="gk-bar">
+          <div className="gk-brand">
+            <svg width="30" height="30" viewBox="0 0 34 34" aria-hidden="true"><rect x="1" y="1" width="32" height="32" rx="9" fill="#FFFFFF" /><path d="M7 23c4-1 6-5 10-5s6 3 10 2" fill="none" stroke="#274C77" strokeWidth="2.4" strokeLinecap="round" /><path d="M7 16.5c4-1 5-6 10-6s6 3 10 2" fill="none" stroke="#6096BA" strokeWidth="2.4" strokeLinecap="round" /><path d="M7 27.5h20" stroke="#13243A" strokeWidth="2.4" strokeLinecap="round" /></svg>
+            <b>Ground Check</b>
+          </div>
+          <span className="div" />
+          <span className="ctx">For researchers: NISAR data quality — not ground risk</span>
+          <div className="gk-sum"><span className="num"><b>{kept} of {P.length}</b> <span className="t">pairs kept</span></span><span className="l">Not ground risk</span></div>
+          <a className="gk-barbtn" href="#"><Ic d="M19 12H5M11 6l-6 6 6 6" /><span>Back to the tool</span></a>
+          <button type="button" className="gk-barbtn" onClick={() => setAbout(true)}><InfoIc /><span>About the data</span></button>
+        </header>
 
-// ---------- map ----------
-function MapCard({ d, view, setView, pairI, setPairI, dateI, setDateI }) {
-  const el = useRef(null);
-  const map = useRef(null);
-  const ready = useRef(false);
-  const pair = d.pairs[pairI];
-  const date = d.dates[dateI];
-  const layer = (id) => d.layers.find((l) => l.id === id);
-  const img = view === "pair" ? pair?.image : view === "cum" ? date?.image : layer(view)?.image;
-  const url = img ? `${base}nisar/${img}` : BLANK;
-  const latestUrl = useRef(url);
-  latestUrl.current = url;
-
-  useEffect(() => {
-    ready.current = false;
-    const [w, s, e, n] = d.bounds;
-    const m = new maplibregl.Map({ container: el.current, style: STYLE, attributionControl: { compact: true },
-      bounds: [[w, s], [e, n]], fitBoundsOptions: { padding: 12 }, dragRotate: false, touchPitch: false,
-      cooperativeGestures: true });  // long page: Ctrl/⌘ + scroll (two fingers on phones) zooms, a plain scroll moves the page
-    map.current = m;
-    m.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-left");
-    m.addControl(new maplibregl.ScaleControl({ unit: "metric" }), "bottom-right");
-    let done = false;
-    const init = () => {
-      if (done) return;
-      done = true;
-      m.addSource("nz", { type: "image", url: latestUrl.current, coordinates: [[w, n], [e, n], [e, s], [w, s]] });
-      m.addLayer({ id: "nz", type: "raster", source: "nz", paint: { "raster-opacity": 0.92, "raster-fade-duration": 0, "raster-resampling": "nearest" } });
-      m.addSource("roads", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
-      m.addLayer({ id: "roads", type: "line", source: "roads", paint: { "line-color": "#311E10", "line-width": 1.4, "line-opacity": 0.7 } });
-      m.addSource("named", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
-      m.addLayer({ id: "named", type: "line", source: "named", paint: { "line-color": "#FFFCF0", "line-width": 2, "line-dasharray": [3, 2] } });
-      const ctx = (f, src) => fetch(base + f).then((r) => (r.ok ? r.json() : null)).then((g) => g && m.getSource(src)?.setData(g)).catch(() => {});
-      ctx("roads.geojson", "roads");
-      ctx("areas.geojson", "named");
-      ready.current = true;
-    };
-    // add layers once the inline style is parsed; never wait for slow basemap tiles
-    const tryInit = () => { if (m.style && m.style._loaded) init(); };
-    tryInit();
-    m.on("styledata", tryInit);
-    m.once("load", init);
-    // the lazy chunk's CSS can land after the map is created: resize whenever the box changes
-    const ro = new ResizeObserver(() => m.resize());
-    ro.observe(el.current);
-    return () => { ro.disconnect(); m.remove(); };
-  }, []);
-
-  useEffect(() => {
-    if (ready.current) map.current?.getSource("nz")?.updateImage({ url });
-  }, [url]);
-
-  const s = view === "pair" ? pair : view === "cum" ? date : null;
-  return (
-    <section className="card mapcard nz-map" aria-label="NISAR map">
-      <div className="seg" role="group" aria-label="Map view">
-        {VIEWS.map(([k, label]) => <button key={k} className={view === k ? "on" : ""} aria-pressed={view === k} onClick={() => setView(k)}>{label}</button>)}
-      </div>
-      <div className="map-shell"><div ref={el} className="map" role="region" aria-label={`Map of ${VIEWS.find((v) => v[0] === view)[1].toLowerCase()} over Tuktoyaktuk`} />
-        {!img && view === "pair" && <div className="map-note"><b>No map for this pair</b><span>{pair?.reason ? `Rejected: ${pair.reason}.` : "Not exported."}</span></div>}
-      </div>
-      {view === "pair" && (
-        <div className="stepbar"><div className="steps" role="group" aria-label="Pair">
-          {d.pairs.map((p, i) => (
-            <button key={p.ref} className={i === pairI ? "on" : ""} aria-pressed={i === pairI} onClick={() => setPairI(i)}>
-              <span>{short(p.ref)}→{short(p.sec)}</span><small>{p.used ? pct(p.valid_share) + " valid" : "rejected"}</small>
-            </button>
-          ))}
-        </div></div>
-      )}
-      {view === "cum" && (
-        <div className="stepbar"><div className="steps" role="group" aria-label="Date">
-          {d.dates.map((q, i) => (
-            <button key={q.date} className={i === dateI ? "on" : ""} aria-pressed={i === dateI} onClick={() => setDateI(i)}>
-              <span>{short(q.date)}</span><small>{q.wet_flag ? "wet · " : ""}{pct(q.valid_share)}</small>
-            </button>
-          ))}
-        </div></div>
-      )}
-      <MapLegend view={view} d={d} />
-      <p className="readout" aria-live="polite">
-        {s ? <>Valid {pct(s.valid_share)} · median {cm(s.median_cm)} · 5–95%: {cm(s.p05_cm)} to {cm(s.p95_cm)}
-          {view === "pair" && s.reference && <> · referenced to {REF[s.reference] ?? s.reference}</>}
-          {view === "pair" && s.ramp_cm != null && <> · ramp {s.ramp_cm.toFixed(2)} cm{s.ramp_flag ? " (flagged)" : ""}</>}</>
-          : view === "coh" ? <>Median coherence over land {layer("coh")?.median?.toFixed(2)}; {pct(layer("coh")?.valid_share)} of the grid has a value.</>
-          : <>Share of the season's pairs that were valid at each pixel.</>}
-      </p>
-    </section>
-  );
-}
-
-function MapLegend({ view, d }) {
-  const lim = view === "pair" ? d.scale.pair_cm : d.scale.cum_cm;
-  if (view === "pair" || view === "cum") return (
-    <div className="legend">
-      <span className="nz-ramp" style={{ background: "linear-gradient(90deg, rgb(230,97,1), #fff, rgb(33,102,172))" }} aria-hidden="true" />
-      <span className="nz-ramp-l"><span>Sank {lim} cm more</span><span>0</span><span>Rose {lim} cm</span></span>
-      <p className="note">{view === "pair" ? "Vertical displacement over one pair, relative to that pair's own reference (airport pad or Sentinel-1 stable patches)." : `Cumulative since ${short(d.dates[0].date)}, chained through each pair's own reference. Very few pixels survive the chain: check the valid share.`} ±1 cm is within the noise. Transparent: incoherent, water or masked.</p>
-    </div>
-  );
-  const l = d.layers.find((x) => x.id === view);
-  const rgb = view === "coh" ? "31,111,125" : "94,71,51";
-  return (
-    <div className="legend">
-      <span className="nz-ramp" style={{ background: `linear-gradient(90deg, rgb(255,252,240), rgb(${rgb}))` }} aria-hidden="true" />
-      <span className="nz-ramp-l"><span>{l.range[0]}</span><span>{l.range[1]}</span></span>
-      <p className="note">{l.label}.{view === "coh" ? " Pixels under 0.35 are dropped from each pair." : ""}</p>
-    </div>
-  );
-}
-
-// ---------- cumulative median by date ----------
-function CumChart({ d, dateI, onDate }) {
-  const W = 420, H = 190, l = 46, r = 28, t = 16, b = 34;
-  const pts = d.dates;
-  // a rejected pair ending on an acquisition breaks the chain: the cumulative series restarts there
-  const restarts = new Set(d.pairs.filter((p) => !p.used).map((p) => p.sec));
-  const vals = pts.map((p) => p.median_cm ?? 0);
-  const lo = Math.min(-2.5, ...vals), hi = Math.max(0.5, ...vals);
-  const x = (i) => l + (i / (pts.length - 1)) * (W - l - r);
-  const y = (v) => t + ((hi - v) / (hi - lo)) * (H - t - b);
-  const ticks = [];
-  for (let v = Math.ceil(lo); v <= Math.floor(hi); v += 1) ticks.push(v);
-  return (
-    <section className="card">
-      <h3>Cumulative median over land</h3>
-      <p className="note">Chained through each pair's own reference. Dot size: share of the area still valid. Every point here rests on under 2% of the land, so read the line as anecdotal, not as a season total. A rejected pair breaks the chain, so the line restarts at zero after it.</p>
-      <svg viewBox={`0 0 ${W} ${H}`} className="nz-chart" role="img"
-        aria-label={`Cumulative median: ${pts.map((p) => `${short(p.date)} ${cm(p.median_cm)}, ${pct(p.valid_share)} valid`).join("; ")}`}>
-        {ticks.map((v) => <g key={v}><line x1={l} x2={W - r} y1={y(v)} y2={y(v)} stroke={v === 0 ? "#311E10" : "#D8CDA0"} strokeWidth={v === 0 ? 1.5 : 1} />
-          <text x={l - 6} y={y(v) + 4} textAnchor="end" className="nz-tick">{v} cm</text></g>)}
-        <path d={pts.map((p, i) => `${i && !restarts.has(p.date) ? "L" : "M"}${x(i)} ${y(p.median_cm ?? 0)}`).join("")} fill="none" stroke="#311E10" strokeWidth="2" />
-        {pts.map((p, i) => restarts.has(p.date) && i > 0 && (
-          <g key={"r" + p.date}><line x1={x(i)} x2={x(i)} y1={t} y2={H - b} stroke="#7A3214" strokeDasharray="3 3" />
-            <text x={x(i) - 4} y={t + 10} textAnchor="end" className="nz-ann">chain restarts</text></g>
-        ))}
-        {pts.map((p, i) => (
-          <g key={p.date} onClick={() => onDate(i)} className="nz-pair" role="button" tabIndex={0} aria-pressed={i === dateI}
-            onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && (e.preventDefault(), onDate(i))} aria-label={`${short(p.date)}: ${cm(p.median_cm)}`}>
-            <circle cx={x(i)} cy={y(p.median_cm ?? 0)} r={4 + Math.sqrt(p.valid_share || 0) * 30} fill={i === dateI ? "#DD6031" : "#FFFCF0"} stroke="#311E10" strokeWidth="2" />
-            <text x={x(i)} y={H - 12} textAnchor="middle" className="nz-tick">{short(p.date)}</text>
-          </g>
-        ))}
-      </svg>
-    </section>
-  );
-}
-
-function Outlook({ d }) {
-  if (!d.outlook) return null;
-  return (
-    <section className="card">
-      <h3>What changes as data builds up</h3>
-      <p className="note">This page updates itself every 12 days as new NISAR passes arrive. These are the dates that matter for Tuk:</p>
-      <ol className="nz-outlook">
-        {d.outlook.map((o) => <li key={o.date}><b>{/^\d{4}-\d{2}-\d{2}$/.test(o.date) ? fmtDate(o.date) : o.date}</b> {o.text}</li>)}
-      </ol>
-      <p className="note">What we expect to gain: flagging land inside a candidate site that keeps sinking year after year, and watching a new site's gravel pads after construction. We expect this to improve; we can't promise it. <a href={d.outlook_source}>Source: NISAR data availability</a>.</p>
-    </section>
-  );
-}
-
-function TestB({ tb }) {
-  const st = STATUS[tb.status] ?? STATUS.pending;
-  return (
-    <section className="card">
-      <span className={st.cls}>{st.label}</span>
-      <h3 style={{ marginTop: 8 }}>Test B: does NISAR order the ground like Sentinel-1?</h3>
-      <p className="nz-big">ρ {tb.rho_block?.toFixed(3)} <small>block, 95% CI {tb.rho_block_ci95?.map((v) => v.toFixed(2)).join(" to ")}</small></p>
-      <dl className="nz-dl">
-        <dt>Blocks</dt><dd>{tb.n_blocks?.toLocaleString("en-GB")}</dd>
-        <dt>Pixel ρ</dt><dd>{tb.rho_pixel?.toFixed(2)}</dd>
-        <dt>Sign r vs S1 2025</dt><dd>{tb.cross_sensor_sign_r_vs_s1_2025?.toFixed(3)}</dd>
-        <dt>Pre-registered</dt><dd>tag {tb.prereg_tag}</dd>
-      </dl>
-      <p className="note">{tb.method}.</p>
-      <p className="notebox">Class agreement (κ) is not available: {tb.kappa_note?.replace(/^[^;]*;\s*/, "")}</p>
-    </section>
-  );
-}
-
-function Checks({ season }) {
-  const LBL = { tundra_sinks: "Tundra sinks over the summer", reference_near_zero: "Reference area stays near zero", lakes_masked: "Lakes masked", no_cycle_jumps: "No phase-cycle jumps" };
-  return (
-    <section className="card">
-      <h3>Stack checks</h3>
-      <ul className="nz-checks">
-        {(season.checks || []).map((c) => (
-          <li key={c.name}><span className={c.pass ? "chip-pass" : "chip-fail"}>{c.pass ? "✓ Pass" : "✕ Fail"}</span>
-            <span>{LBL[c.name] ?? c.name}{c.value != null ? ` (${c.value})` : ""}</span></li>
-        ))}
-      </ul>
-      <p className="note">Thaw had started before the first usable date ({short(season.first_usable_date)}; {season.tdd_before_first_date} thawing degree-days earlier), so early-season sinking is missing.</p>
-    </section>
-  );
-}
-
-function PairTable({ d, pairI, onPair }) {
-  return (
-    <section className="card">
-      <h2>Every pair</h2>
-      <p className="muted">All eight interferograms, including the rejected ones, with the reason.</p>
-      <div className="table-wrap">
-        <table className="funnel nz-table">
-          <thead><tr><th>Pair</th><th>Days</th><th>Status</th><th>Coherent</th><th>Valid</th><th>Median</th><th>Ramp</th><th>Reference</th><th>Note</th><th /></tr></thead>
-          <tbody>
-            {d.pairs.map((p, i) => {
-              const st = pairStatus(p);
+        <aside className={"gk-left" + (m === "pairs" ? " m-on" : "")} aria-label="Pairs">
+          <div className="gk-ph"><div><h2>Summer 2026 pairs</h2><small className="num">Track {nz.acquisition?.track ?? 159} · frame {nz.acquisition?.frame ?? 53} · 12-day repeat</small></div></div>
+          <div className="gk-note"><InfoIc /><span>Provisional data. Validated NISAR products start on 21 Oct 2026.</span></div>
+          <div className="gk-scroll">
+            <div className="gk-cols" style={{ gridTemplateColumns: "44px minmax(0,1fr) 54px" }}><span /><span>Pair · why</span><span style={{ textAlign: "right" }}>Coh.</span></div>
+            {P.map((q, i) => {
+              const k = status(q), dull = k.k === "drop" || k.k === "never";
               return (
-                <tr key={p.ref} className={i === pairI ? "nz-on" : ""}>
-                  <td>{short(p.ref)} → {short(p.sec)}</td><td>{p.days}</td>
-                  <td><span className={st.cls}>{st.label}</span></td>
-                  <td>{p.coherent_fraction?.toFixed(2) ?? "–"}</td><td>{p.used ? pct(p.valid_share) : "–"}</td>
-                  <td>{cm(p.median_cm ?? null)}</td><td>{p.ramp_cm == null ? "–" : `${p.ramp_cm.toFixed(2)} cm${p.ramp_flag ? " ⚑" : ""}`}</td>
-                  <td>{REF[p.reference] ?? "–"}</td><td className="small">{p.reason ? p.reason.replace(/^./, (c) => c.toUpperCase()) : ""}</td>
-                  <td><button onClick={() => onPair(i)} disabled={!p.image}>Map</button></td>
-                </tr>
+                <button key={q.ref} type="button" className={i === pi ? "nz-row is-on" : "nz-row"} aria-pressed={i === pi} onClick={() => { setPi(i); setTab("pair"); }}>
+                  <span className={"nz-st " + k.k}>{k.g}</span>
+                  <span className="gk-rt"><b>{short(q.ref)} → {short(q.sec)}{q.days !== 12 ? ` · ${q.days} days` : ""}</b><span>{k.t}{q.mv_img ? ` · ${pct(q.mv_in_noise)} within ±1 cm` : ""}</span>
+                    <span className="nz-cohbar" aria-hidden="true"><i style={{ width: Math.round((q.coh_median ?? 0) * 100) + "%", background: dull ? "#8B8C89" : "#274C77" }} /><em /></span></span>
+                  <span className="gk-rn num">{q.coh_median?.toFixed(2) ?? "–"}</span>
+                </button>
               );
             })}
-          </tbody>
-        </table>
+            <p className="gk-dnote">Coherence is the median over land. The dashed tick on each bar is the {CUT} cut-off: pixels below it are dropped. Movement is mapped only for the {kept} kept pairs.</p>
+          </div>
+        </aside>
+
+        <div className="gk-mapw" ref={box}>
+          {view !== "cmp" && (
+            <MapBase v={vb} aria={legend.title + " over Tuktoyaktuk and the highway. The Pairs list on the left selects the same pairs by keyboard."}>
+              {img && <image href={BASE + "nisar/" + img} x="0" y="0" width={W} height={H} preserveAspectRatio="none" />}
+              <path d={T.roads} fill="none" stroke="#8B8C89" strokeWidth="0.8" opacity=".75" vectorEffect="non-scaling-stroke" />
+              <path d={T.airport} fill="#FFFFFF" fillOpacity=".6" stroke="#46566A" strokeWidth="1.2" vectorEffect="non-scaling-stroke" />
+              <g fontFamily="Atkinson Hyperlegible Next, Verdana, sans-serif" fontWeight="700" stroke="#FFFFFF" strokeWidth={2.2 * Math.min(z, 1.2)} paintOrder="stroke" strokeLinejoin="round">
+                {kms.map((k) => <g key={k[2]}><circle cx={k[0]} cy={k[1]} r={1.8 * Math.max(Math.min(z, 1.2), 0.4)} fill="#13243A" /><text x={k[0] + 5 * z + 1} y={k[1] + 2.6 * z} fontSize={fsS} fill="#13243A">km {k[2]}</text></g>)}
+                {!town && <text x={tc[0] - 150} y={tc[1] + 90} fontSize={fs} fontStyle="italic" fontWeight="400" fill="#274C77">Beaufort Sea</text>}
+                <text x={tc[0] + 10} y={tc[1] + 3} fontSize={fs} fill="#13243A">Tuktoyaktuk</text>
+              </g>
+            </MapBase>
+          )}
+          {view === "cmp" && (
+            <div className="nz-split">
+              <div><MapBase v={vbS} aria="NISAR coherence for the selected pair">{p.coh_img && <image href={BASE + "nisar/" + p.coh_img} x="0" y="0" width={W} height={H} preserveAspectRatio="none" />}</MapBase><span className="lbl">NISAR · {pairWord} 2026 · {p.coh_median?.toFixed(2)}</span></div>
+              <div><MapBase v={vbS} aria="Sentinel-1 coherence for a 12-day pair in July 2025">{S1.img && <image href={BASE + "nisar/" + S1.img} x="0" y="0" width={W} height={H} preserveAspectRatio="none" />}</MapBase><span className="lbl">Sentinel-1 · {S1.pair ? S1.pair.split("→").map(short).join("–") : ""} 2025 · {S1.coh_median?.toFixed(2)}</span></div>
+            </div>
+          )}
+
+          <div className="gk-ov gk-tools nz-tools2">
+            <div className="gk-seg" role="group" aria-label="Map layer">
+              {[["mv", "Movement"], ["coh", "Coherence"], ["iono", "Ionosphere"], ["cmp", "vs Sentinel-1"]].map(([k, t]) => <button key={k} type="button" aria-pressed={view === k} onClick={() => setView(k)}>{t}</button>)}
+            </div>
+          </div>
+          <div className="gk-ov nz-zoomov"><div className="gk-seg nz-zoom" role="group" aria-label="Zoom">
+            <button type="button" aria-pressed={!town} onClick={() => setZoom("region")}>Whole area</button>
+            <button type="button" aria-pressed={town} onClick={() => setZoom("town")}>Town</button>
+          </div></div>
+          <div className="gk-ov gk-legend nz-legend">
+            <b style={{ color: "#13243A", fontSize: 13 }}>{legend.title}</b>
+            <span className="nz-ramp" style={{ background: legend.ramp }} />
+            <span className="nz-rampl"><span>{legend.lo}</span><span>{legend.mid}</span><span>{legend.hi}</span></span>
+            <span style={{ display: "block", lineHeight: 1.4 }}>{legend.note}</span>
+            <span><i style={{ background: "#F6F7F4", boxShadow: "inset 0 0 0 1.5px #B6C1CB" }} />No value: masked or incoherent</span>
+            <span><i style={{ background: "#BCDAF2", boxShadow: "inset 0 0 0 1.5px #B6C1CB" }} />Water</span>
+          </div>
+          {noImg && <div className="gk-ov nz-mapmsg"><b>{view === "mv" ? "No movement map for " + pairWord : "No image for " + pairWord}</b>{view === "mv" ? why(p).replace(/\.$/, "") + `. Movement is shown only for the ${kept} kept pairs; its coherence and ionosphere are still here.` : "This layer was not exported for this pair."}</div>}
+
+          <div className="gk-ov nz-tl">
+            <div className="nz-tlh"><b>Pass by pass</b><span>Tap an arc to map that pair. Bars: median coherence over land.</span></div>
+            <svg viewBox="0 0 1000 214" role="img" aria-label={`Timeline of the ${P.length} NISAR pairs in summer 2026, with the instrument gap from ${short(gap.from)} to ${short(gap.to)}, provisional products from 17 June and validated products from 21 October.`}>
+              <defs><pattern id="nzH" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#F4F7F9" /><rect width="2.2" height="6" fill="#8B8C89" /></pattern></defs>
+              <rect x={g1} y="6" width={g2 - g1} height="200" fill="#13243A" opacity=".08" />
+              <text x={(g1 + g2) / 2} y="146" textAnchor="middle" className="mk">Instrument gap</text>
+              <text x={(g1 + g2) / 2} y="164" textAnchor="middle" className="an">{short(gap.from)} – {short(gap.to)}</text>
+              {marks.map((mk) => <g key={mk.t}><line x1={mk.x} x2={mk.x} y1="4" y2="206" stroke="#46566A" strokeWidth="1.2" strokeDasharray="2 4" /><text x={mk.tx} y={mk.ty} textAnchor={mk.anc} className="mk">{mk.t}</text><text x={mk.tx} y={mk.sy} textAnchor={mk.anc} className="an">{mk.sub}</text></g>)}
+              <line x1="30" x2="970" y1="96" y2="96" stroke="#13243A" strokeWidth="1.5" />
+              <line x1="30" x2="970" y1="206" y2="206" stroke="#D3DAE0" />
+              <line x1="30" x2="970" y1={BASE_Y - CUT * BH} y2={BASE_Y - CUT * BH} stroke="#13243A" strokeDasharray="4 3" opacity=".6" />
+              {arcs.map((a) => (
+                <g key={a.i} className="nz-arc" tabIndex={0} role="button" aria-label={a.label} onClick={() => setPi(a.i)} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setPi(a.i); } }}>
+                  <path d={a.d} fill="none" stroke={a.stroke} strokeWidth={a.sw} strokeDasharray={a.dash} strokeLinecap="round" />
+                  <rect x={a.bx} y={a.by} width={a.bw} height={a.bh} rx="2.5" fill={a.bfill} opacity={a.bop} stroke={a.bst} strokeWidth="2" />
+                  <text x={a.tx} y={a.ty} textAnchor="middle" className="vl">{a.t}</text>
+                </g>
+              ))}
+              {acq.map((q) => <g key={q.d}><circle cx={q.x} cy="96" r="4.5" fill="#FFFFFF" stroke="#13243A" strokeWidth="2" /><text x={q.x} y="118" textAnchor="middle" className="tk">{q.t}</text></g>)}
+            </svg>
+          </div>
+        </div>
+
+        <nav className="gk-mtabs" role="tablist" aria-label="Panels">
+          <button type="button" role="tab" aria-selected={m === "pairs"} onClick={() => setM("pairs")}>Pairs · {P.length}</button>
+          <button type="button" role="tab" aria-selected={m === "det"} onClick={() => setM("det")}>Details</button>
+        </nav>
+
+        <aside className={"gk-right" + (m === "det" ? " m-on" : "")} aria-label="Details">
+          <div className="gk-tabs" role="tablist" aria-label="Details panel">
+            <button type="button" role="tab" aria-selected={tab === "pair"} onClick={() => setTab("pair")}>This pair</button>
+            <button type="button" role="tab" aria-selected={tab === "coh"} onClick={() => setTab("coh")}>Coherence</button>
+            <button type="button" role="tab" aria-selected={tab === "next"} onClick={() => setTab("next")}>What’s next</button>
+          </div>
+
+          {tab === "pair" && <div className="gk-scroll">
+            <div className="gk-dt"><span className={"nz-st " + st.k} style={{ width: 42, height: 42, fontSize: 16 }}>{st.g}</span><div><h3>{short(p.ref)} → {short(p.sec)} 2026</h3><p>{st.t} · {p.days}-day pair</p></div></div>
+            <p className="gk-dnote" style={{ paddingBottom: 12, color: "#13243A", fontSize: 13.5 }}>{why(p)}</p>
+            {spansGap && <div className="nz-box" style={{ marginTop: 0, marginBottom: 12 }}>This pair spans the permanent instrument gap ({short(gap.from)}–{short(gap.to)}), which is why it is {p.days} days long and its coherence is low.</div>}
+            {ionoJump && <div className="nz-iono">The ionosphere screen for this pair jumps sharply between two levels ({p.iono_p95_cm.toFixed(0)} cm at the 95th percentile, against 3–10 cm for most pairs). That looks like an unwrapping jump in the product{p.used ? ", and the movement map may carry it" : ""}.</div>}
+            {facts.map((f) => <div key={f.k} className="gk-fact"><span className="gk-m">{f.k}</span><b className="num">{f.v}</b><small>{f.s}</small></div>)}
+            <p className="gk-dnote">Movement is vertical, ionosphere-corrected and referenced on its own within each pair. ±1 cm is within the noise. Nothing here is used in the ground screen.</p>
+          </div>}
+
+          {tab === "coh" && <div className="gk-scroll">
+            <div className="nz-sec">
+              <h3>Coherence, as measured</h3>
+              <p>Median over land for every 12-day summer pair. Same land mask, same map frame.</p>
+              <div className="nz-strip" role="img" aria-label={`Median coherence: NISAR 2026 ${rng(P)}, Sentinel-1 2025 ${rng(S1P)}`}>
+                <span className="rw" style={{ top: 14 }}>{P.map((q, i) => <span key={q.ref} className={i === pi ? "nz-dot on" : "nz-dot n"} style={{ left: cx(q.coh_median ?? 0) }} title={`${short(q.ref)}→${short(q.sec)}: ${q.coh_median?.toFixed(2)}`} />)}</span>
+                <span className="rw" style={{ top: 34 }}>{S1P.map((q) => <span key={q.ref} className="nz-dot s" style={{ left: cx(q.coh_median) }} title={`${short(q.ref)}→${short(q.sec)} 2025: ${q.coh_median.toFixed(2)}`} />)}</span>
+                <span className="ax" />
+                <span className="th" style={{ left: "35%" }} />
+                <span className="tl" style={{ left: 0, transform: "none" }}>0</span><span className="tl" style={{ left: "35%" }}>{CUT} cut-off</span><span className="tl" style={{ left: "100%", transform: "translateX(-100%)" }}>1</span>
+              </div>
+              <div className="nz-key"><span><span className="nz-dot n" />NISAR 2026 · {rng(P)}</span><span><span className="nz-dot s" />Sentinel-1 2025 · {rng(S1P)}</span><span><span className="nz-dot on" style={{ boxShadow: "none" }} />Selected pair</span></div>
+            </div>
+            <div className="nz-box">This is one provisional summer of 12-day pairs. L-band’s documented strengths are coherence over long intervals and through taller vegetation (<b>NISAR Science Users’ Handbook, JPL 2018</b>). These pairs don’t test either, so they say nothing yet about how NISAR will do here.</div>
+            <div className="nz-sec" style={{ borderTop: "1px solid #D3DAE0", marginTop: 14 }}>
+              <span><span className="nz-fail">{tb.status === "fail" ? "✕ Test B failed" : "Test B: " + (tb.status || "not run")}</span></span>
+              <h3>Does NISAR order the ground like Sentinel-1?</h3>
+              {tb.rho_block != null && <span><span className="nz-big num">ρ {tb.rho_block.toFixed(3)}</span> <span style={{ fontSize: 13, color: "#46566A" }}>block, 95% CI {(tb.rho_block_ci95 || []).map((v) => v.toFixed(2)).join(" to ")} · {tb.n_blocks?.toLocaleString("en-GB")} blocks</span></span>}
+              <p>Pixel ρ {tb.rho_pixel?.toFixed(2)} · sign agreement with Sentinel-1 2025, r = {tb.cross_sensor_sign_r_vs_s1_2025?.toFixed(3)}. Class agreement (κ) needs five dates on one connected chain, and 2026 has none. Pre-registered at tag {tb.prereg_tag || "prereg-eval"}.</p>
+            </div>
+          </div>}
+
+          {tab === "next" && <div className="gk-scroll">
+            <div className="gk-lh"><h3 className="gd" style={{ fontSize: 18, fontWeight: 600 }}>Here’s what changes as data builds up</h3><small>Dates from the <a href={nz.outlook_source} target="_blank" rel="noreferrer">ASF NISAR availability overview</a>.</small></div>
+            <div className="nz-out"><span className="w">21 Oct 2026</span><b>Validated products start</b><p>Released 6 Nov 2026. Everything on this page is the provisional stream.</p></div>
+            <div className="nz-out"><span className="w">2027</span><b>2026 is reprocessed</b><p>The two referencing drops and the unwrapping failure may change.</p></div>
+            <div className="nz-out"><span className="w">Summer 2027</span><b>First validated thaw season</b><p>With five or more dates on one connected chain, Test B can be rerun as pre-registered, including class agreement. The tool checks for new passes automatically.</p></div>
+            <div className="nz-out"><span className="w">Stays</span><b>The {short(gap.from)}–{short(gap.to)} gap</b><p>The instrument gap is permanent, so the 24-day pair across it can’t be repaired.</p></div>
+            <div className="nz-sec">
+              <h3>Stack checks</h3>
+              <div>{checks.map((c) => <div key={c.name} className="nz-chk"><i className={c.pass ? "ok" : "no"}>{c.pass ? "✓" : "✕"}</i>{CHK[c.name] || c.name}</div>)}</div>
+              <p>{tdd ? `Thaw began before the first usable date (${Math.round(tdd)} thawing degree-days earlier), so early-season sinking is missed. ` : ""}There is no season total: the chain breaks.</p>
+            </div>
+          </div>}
+        </aside>
+
+        <footer className="gk-status">
+          <span className="gk-m">Measured</span>
+          <span className="sep" />
+          <span>Data quality, not ground risk</span>
+          <span className="sep opt" />
+          <span className="opt">Provisional NISAR products · instrument gap {short(gap.from)}–{short(gap.to)} 2026</span>
+          <span className="r">NISAR via ASF DAAC · Sentinel-1 for comparison</span>
+        </footer>
+
+        {about && <About onClose={() => setAbout(false)} dropped={dropped} th={th} />}
       </div>
-      <details><summary>Granule IDs</summary>
-        <ul className="nz-ids">{d.pairs.map((p) => <li key={p.granule}><code>{p.granule}</code></li>)}</ul>
-      </details>
-    </section>
+    </div>
   );
 }
 
-function Acquisition({ d }) {
-  const a = d.acquisition;
-  const rows = useMemo(() => [
-    ["Sensor", `${a.sensor}, ${a.band}-band, λ ${(a.wavelength_m * 100).toFixed(2)} cm`],
-    ["Geometry", `Track ${a.track}, frame ${a.frame}, ${a.flight_dir.toLowerCase()}, ${a.polarisation}`],
-    ["Incidence", a.incidence_deg ? `${a.incidence_deg.min}–${a.incidence_deg.max}° (mean ${a.incidence_deg.mean}°)` : "–"],
-    ["Product", "L2 GUNW, unwrapped, 12-day repeat"],
-    ["Component", `${a.component}; ${a.sign}`],
-    ["Corrections", Object.entries(a.corrections).map(([k, v]) => `${k}: ${v}`).join(" · ")],
-    ["Thresholds", `coherence ≥ ${a.thresholds.coherence_min} · valid pairs ≥ ${a.thresholds.min_valid_pair_fraction} · closure ${a.thresholds.closure_cm} cm · slope flag ${a.thresholds.slope_flag_deg}° · coast flag ${a.thresholds.coast_flag_m} m`],
-    ["Reference", `${a.reference.meaning} (${a.reference.n_cells} cells)${a.reference_diag_cm ? `; airport minus coherent land ${a.reference_diag_cm.airport_minus_coherent_land_median_cm} cm` : ""}`],
-    ["Grid", `${a.grid.crs}, ${a.grid.res_deg}°, ${a.grid.width} × ${a.grid.height}, bbox ${a.grid.bbox.join(", ")}`],
-    ["Season", `${fmtDate(d.season.first_usable_date)} to ${fmtDate(d.season.last_usable_date)}; network ${d.season.network?.connected ? "connected" : "not connected"}`],
-    ["Code", `${d.code_version} · export ${d.schema}`],
-  ], [d]);
+function About({ onClose, dropped, th }) {
+  const x = useRef(null);
+  useEffect(() => {
+    x.current?.focus();
+    const k = (e) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", k);
+    return () => window.removeEventListener("keydown", k);
+  }, []);
   return (
-    <section className="card">
-      <h2>Acquisition and processing</h2>
-      <dl className="nz-dl nz-meta">{rows.map(([k, v]) => <Fragment key={k}><dt>{k}</dt><dd>{v}</dd></Fragment>)}</dl>
-      <p className="note">Data: NISAR via the Alaska Satellite Facility DAAC. Contains modified Copernicus Sentinel data for the comparison. Imagery © Esri.</p>
-    </section>
+    <div className="gk-scrim" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="gk-dlg" role="dialog" aria-modal="true" aria-labelledby="nz-about-h">
+        <button type="button" className="gk-x" onClick={onClose} aria-label="Close" ref={x}><Ic d="M6 6l12 12M18 6L6 18" /></button>
+        <h2 id="nz-about-h">About the NISAR data</h2>
+        <p>A data-quality view for researchers. It doesn’t change any place in the tool, and it isn’t a judgement of the ground.</p>
+        <div className="gk-know">
+          <div><h3>What we used</h3><ul><li><b>NISAR L-band</b> GUNW interferograms, 80 m, HH, track 159 frame 53, descending, 12-day pairs.</li><li><b>Ionosphere</b> phase screen removed; main connected component only; ramps removed.</li><li><b>Reference:</b> airport gravel pad, or Sentinel-1 stable patches.</li></ul></div>
+          <div><h3>What we dropped</h3><ul>{dropped.map((p) => <li key={p.ref}><b>{short(p.ref)}→{short(p.sec)}</b>: {why(p).replace(/^(Dropped|Never unwrapped): ?/, "")}</li>)}</ul></div>
+          <div><h3>What this isn’t</h3><ul><li>Not ground risk, and not used in any rule.</li><li>Not a season total: the chain breaks.</li><li>Not a verdict on NISAR: one provisional summer.</li></ul></div>
+        </div>
+        <dl className="nz-dl">
+          <dt>Product status</dt><dd>Provisional from 17 Jun 2026 (to be reprocessed in 2027); validated from 21 Oct 2026, released 6 Nov 2026</dd>
+          <dt>Thresholds</dt><dd>Coherence ≥ {th.coherence_min ?? CUT} · land median within 2 cm after referencing{th.closure_cm ? ` · closure ${th.closure_cm} cm` : ""}</dd>
+          <dt>Comparison</dt><dd>Sentinel-1 C-band, relative orbit 137, 2025 12-day pairs, same map frame and land mask</dd>
+        </dl>
+        <p className="gk-fine">NISAR data courtesy of NASA/JPL-Caltech and ISRO, via the Alaska Satellite Facility DAAC. Contains modified Copernicus Sentinel data, processed with ASF HyP3. Map data © OpenStreetMap contributors. <b>Student prototype</b>, not endorsed by the Hamlet of Tuktoyaktuk.</p>
+      </div>
+    </div>
   );
 }

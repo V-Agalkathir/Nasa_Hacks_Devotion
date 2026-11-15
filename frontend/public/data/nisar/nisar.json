@@ -1,5 +1,5 @@
 {
- "schema": "nisar/1",
+ "schema": "nisar/2",
  "generated_at": "2026-11-15T05:57:01Z",
  "code_version": "39efd8f",
  "bounds": [
@@ -8,6 +8,18 @@
   -132.85,
   69.48
  ],
+ "frame": {
+  "crs": "EPSG:32608",
+  "e0": 566400.0,
+  "n0": 7707720.0,
+  "px_m": 25.0,
+  "width": 778,
+  "height": 1210,
+  "unit_m": 50.0,
+  "svg_w": 389.0,
+  "svg_h": 605.0,
+  "note": "Draw each image at SVG (0,0) with size svg_w x svg_h; same space as tool.json"
+ },
  "acquisition": {
   "sensor": "NISAR",
   "band": "L",
@@ -110,6 +122,43 @@
    }
   ]
  },
+ "dates": [
+  {
+   "date": "2026-07-07",
+   "wet_flag": false,
+   "freeze_flag": false
+  },
+  {
+   "date": "2026-07-19",
+   "wet_flag": false,
+   "freeze_flag": false
+  },
+  {
+   "date": "2026-08-12",
+   "wet_flag": false,
+   "freeze_flag": false
+  },
+  {
+   "date": "2026-08-24",
+   "wet_flag": true,
+   "freeze_flag": false
+  },
+  {
+   "date": "2026-09-05",
+   "wet_flag": false,
+   "freeze_flag": false
+  },
+  {
+   "date": "2026-09-17",
+   "wet_flag": false,
+   "freeze_flag": false
+  },
+  {
+   "date": "2026-09-29",
+   "wet_flag": false,
+   "freeze_flag": false
+  }
+ ],
  "pairs": [
   {
    "ref": "2026-06-25",
@@ -123,7 +172,18 @@
    "reference": "airport",
    "land_median_cm": 5.47,
    "granule": "NISAR_L2_PR_GUNW_023_159_D_053_024_4000_SH_20260625T053321_20260625T053357_20260707T053320_20260707T053357_P05023_N_F_J_001",
-   "image": null
+   "coh_img": "coh_2026-06-25_2026-07-07.png",
+   "iono_img": "iono_2026-06-25_2026-07-07.png",
+   "mv_img": null,
+   "image": null,
+   "coh_median": 0.653,
+   "iono_p95_cm": 3.67,
+   "iono_offset_cm": 80.1,
+   "valid_share": 0.88,
+   "median_cm": null,
+   "p05_cm": null,
+   "p95_cm": null,
+   "conn_share": 0.986
   },
   {
    "ref": "2026-07-07",
@@ -137,11 +197,20 @@
    "reference": "s1_stable_patches",
    "land_median_cm": 0.01,
    "granule": "NISAR_L2_PR_GUNW_024_159_D_053_025_4000_SH_20260707T053320_20260707T053357_20260719T053319_20260719T053356_P05023_N_F_J_001",
-   "image": "pair_2026-07-07_2026-07-19.png",
-   "valid_share": 0.41,
+   "coh_img": "coh_2026-07-07_2026-07-19.png",
+   "iono_img": "iono_2026-07-07_2026-07-19.png",
+   "mv_img": "mv_2026-07-07_2026-07-19.png",
+   "image": "mv_2026-07-07_2026-07-19.png",
+   "coh_median": 0.626,
+   "iono_p95_cm": 10.38,
+   "iono_offset_cm": -73.6,
+   "valid_share": 0.898,
    "median_cm": 0.01,
-   "p05_cm": -0.92,
-   "p95_cm": 0.68
+   "p05_cm": -0.91,
+   "p95_cm": 0.67,
+   "conn_share": 0.961,
+   "mv_valid_share": 0.877,
+   "mv_in_noise": 0.95
   },
   {
    "ref": "2026-07-19",
@@ -155,11 +224,20 @@
    "reference": "s1_stable_patches",
    "land_median_cm": -0.03,
    "granule": "NISAR_L2_PR_GUNW_025_159_D_053_027_4000_SH_20260719T053319_20260719T053356_20260812T053318_20260812T053355_P05023_N_F_J_001",
-   "image": "pair_2026-07-19_2026-08-12.png",
-   "valid_share": 0.0,
-   "median_cm": -0.03,
-   "p05_cm": -0.96,
-   "p95_cm": 0.87
+   "coh_img": "coh_2026-07-19_2026-08-12.png",
+   "iono_img": "iono_2026-07-19_2026-08-12.png",
+   "mv_img": "mv_2026-07-19_2026-08-12.png",
+   "image": "mv_2026-07-19_2026-08-12.png",
+   "coh_median": 0.252,
+   "iono_p95_cm": 5.77,
+   "iono_offset_cm": 53.4,
+   "valid_share": 0.32,
+   "median_cm": -0.04,
+   "p05_cm": -0.88,
+   "p95_cm": 0.76,
+   "conn_share": 0.318,
+   "mv_valid_share": 0.0,
+   "mv_in_noise": 0.984
   },
   {
    "ref": "2026-08-12",
@@ -173,11 +251,20 @@
    "reference": "airport",
    "land_median_cm": 0.28,
    "granule": "NISAR_L2_PR_GUNW_027_159_D_053_028_4000_SH_20260812T053318_20260812T053355_20260824T053317_20260824T053354_P05023_N_F_J_001",
-   "image": "pair_2026-08-12_2026-08-24.png",
-   "valid_share": 0.319,
-   "median_cm": 0.37,
-   "p05_cm": -1.57,
-   "p95_cm": 1.46
+   "coh_img": "coh_2026-08-12_2026-08-24.png",
+   "iono_img": "iono_2026-08-12_2026-08-24.png",
+   "mv_img": "mv_2026-08-12_2026-08-24.png",
+   "image": "mv_2026-08-12_2026-08-24.png",
+   "coh_median": 0.515,
+   "iono_p95_cm": 6.06,
+   "iono_offset_cm": -37.8,
+   "valid_share": 0.68,
+   "median_cm": 0.41,
+   "p05_cm": -1.56,
+   "p95_cm": 1.46,
+   "conn_share": 0.926,
+   "mv_valid_share": 0.676,
+   "mv_in_noise": 0.708
   },
   {
    "ref": "2026-08-24",
@@ -191,7 +278,18 @@
    "reference": null,
    "land_median_cm": null,
    "granule": "NISAR_L2_PR_GUNW_028_159_D_053_029_4000_SH_20260824T053317_20260824T053354_20260905T053317_20260905T053354_P05023_N_F_J_002",
-   "image": null
+   "coh_img": "coh_2026-08-24_2026-09-05.png",
+   "iono_img": "iono_2026-08-24_2026-09-05.png",
+   "mv_img": null,
+   "image": null,
+   "coh_median": 0.184,
+   "iono_p95_cm": 58.32,
+   "iono_offset_cm": -50.1,
+   "valid_share": 0.237,
+   "median_cm": null,
+   "p05_cm": null,
+   "p95_cm": null,
+   "conn_share": 0.0
   },
   {
    "ref": "2026-09-05",
@@ -205,11 +303,20 @@
    "reference": "s1_stable_patches",
    "land_median_cm": -0.26,
    "granule": "NISAR_L2_PR_GUNW_029_159_D_053_030_4000_SH_20260905T053317_20260905T053354_20260917T053317_20260917T053354_P05023_N_F_J_001",
-   "image": "pair_2026-09-05_2026-09-17.png",
-   "valid_share": 0.082,
-   "median_cm": -0.34,
-   "p05_cm": -3.69,
-   "p95_cm": 3.6
+   "coh_img": "coh_2026-09-05_2026-09-17.png",
+   "iono_img": "iono_2026-09-05_2026-09-17.png",
+   "mv_img": "mv_2026-09-05_2026-09-17.png",
+   "image": "mv_2026-09-05_2026-09-17.png",
+   "coh_median": 0.211,
+   "iono_p95_cm": 61.56,
+   "iono_offset_cm": 6.7,
+   "valid_share": 0.254,
+   "median_cm": -0.29,
+   "p05_cm": -3.48,
+   "p95_cm": 3.61,
+   "conn_share": 0.642,
+   "mv_valid_share": 0.176,
+   "mv_in_noise": 0.334
   },
   {
    "ref": "2026-09-17",
@@ -223,11 +330,20 @@
    "reference": "airport",
    "land_median_cm": -0.31,
    "granule": "NISAR_L2_PR_GUNW_030_159_D_053_031_4000_SH_20260917T053317_20260917T053354_20260929T053317_20260929T053354_P05023_N_F_J_001",
-   "image": "pair_2026-09-17_2026-09-29.png",
-   "valid_share": 0.305,
-   "median_cm": -0.41,
-   "p05_cm": -2.01,
-   "p95_cm": 0.57
+   "coh_img": "coh_2026-09-17_2026-09-29.png",
+   "iono_img": "iono_2026-09-17_2026-09-29.png",
+   "mv_img": "mv_2026-09-17_2026-09-29.png",
+   "image": "mv_2026-09-17_2026-09-29.png",
+   "coh_median": 0.507,
+   "iono_p95_cm": 9.89,
+   "iono_offset_cm": 77.2,
+   "valid_share": 0.648,
+   "median_cm": -0.44,
+   "p05_cm": -2.03,
+   "p95_cm": 0.51,
+   "conn_share": 0.912,
+   "mv_valid_share": 0.646,
+   "mv_in_noise": 0.747
   },
   {
    "ref": "2026-09-29",
@@ -241,97 +357,94 @@
    "reference": "airport",
    "land_median_cm": 2.98,
    "granule": "NISAR_L2_PR_GUNW_031_159_D_053_032_4000_SH_20260929T053317_20260929T053354_20261011T053317_20261011T053354_P05023_N_F_J_001",
-   "image": null
+   "coh_img": "coh_2026-09-29_2026-10-11.png",
+   "iono_img": "iono_2026-09-29_2026-10-11.png",
+   "mv_img": null,
+   "image": null,
+   "coh_median": 0.308,
+   "iono_p95_cm": 3.43,
+   "iono_offset_cm": -41.9,
+   "valid_share": 0.263,
+   "median_cm": null,
+   "p05_cm": null,
+   "p95_cm": null,
+   "conn_share": 0.985
   }
  ],
- "dates": [
-  {
-   "date": "2026-07-07",
-   "wet_flag": false,
-   "freeze_flag": false,
-   "image": "cum_2026-07-07.png",
-   "valid_share": 0.0,
-   "median_cm": 0.0,
-   "p05_cm": 0.0,
-   "p95_cm": 0.0
-  },
-  {
-   "date": "2026-07-19",
-   "wet_flag": false,
-   "freeze_flag": false,
-   "image": "cum_2026-07-19.png",
-   "valid_share": 0.0,
-   "median_cm": -0.19,
-   "p05_cm": -0.61,
-   "p95_cm": 0.12
-  },
-  {
-   "date": "2026-08-12",
-   "wet_flag": false,
-   "freeze_flag": false,
-   "image": "cum_2026-08-12.png",
-   "valid_share": 0.0,
-   "median_cm": -0.23,
-   "p05_cm": -0.79,
-   "p95_cm": 0.63
-  },
-  {
-   "date": "2026-08-24",
-   "wet_flag": true,
-   "freeze_flag": false,
-   "image": "cum_2026-08-24.png",
-   "valid_share": 0.0,
-   "median_cm": -0.77,
-   "p05_cm": -1.24,
-   "p95_cm": 0.01
-  },
-  {
-   "date": "2026-09-05",
-   "wet_flag": false,
-   "freeze_flag": false,
-   "image": "cum_2026-09-05.png",
-   "valid_share": 0.014,
-   "median_cm": 0.0,
-   "p05_cm": 0.0,
-   "p95_cm": 0.0
-  },
-  {
-   "date": "2026-09-17",
-   "wet_flag": false,
-   "freeze_flag": false,
-   "image": "cum_2026-09-17.png",
-   "valid_share": 0.014,
-   "median_cm": -1.53,
-   "p05_cm": -15.13,
-   "p95_cm": 0.14
-  },
-  {
-   "date": "2026-09-29",
-   "wet_flag": false,
-   "freeze_flag": false,
-   "image": "cum_2026-09-29.png",
-   "valid_share": 0.014,
-   "median_cm": -1.87,
-   "p05_cm": -14.9,
-   "p95_cm": -0.29
-  }
- ],
+ "s1": {
+  "img": "s1_coh_2025-07-01_2025-07-13.png",
+  "coh_median": 0.917,
+  "pair": "2025-07-01\u21922025-07-13",
+  "granule": "S1AA_20250701T020839_20250713T020838_VVP012_INT80_G_ueF_455B",
+  "valid_share": 0.993,
+  "pairs_2025": [
+   {
+    "ref": "2025-06-07",
+    "sec": "2025-06-19",
+    "coh_median": 0.935
+   },
+   {
+    "ref": "2025-06-19",
+    "sec": "2025-07-01",
+    "coh_median": 0.901
+   },
+   {
+    "ref": "2025-07-01",
+    "sec": "2025-07-13",
+    "coh_median": 0.917
+   },
+   {
+    "ref": "2025-07-13",
+    "sec": "2025-07-25",
+    "coh_median": 0.885
+   },
+   {
+    "ref": "2025-07-25",
+    "sec": "2025-08-06",
+    "coh_median": 0.917
+   },
+   {
+    "ref": "2025-08-06",
+    "sec": "2025-08-18",
+    "coh_median": 0.935
+   },
+   {
+    "ref": "2025-08-18",
+    "sec": "2025-08-30",
+    "coh_median": 0.953
+   },
+   {
+    "ref": "2025-08-30",
+    "sec": "2025-09-11",
+    "coh_median": 0.944
+   },
+   {
+    "ref": "2025-09-11",
+    "sec": "2025-09-23",
+    "coh_median": 0.974
+   },
+   {
+    "ref": "2025-09-23",
+    "sec": "2025-10-05",
+    "coh_median": 0.943
+   }
+  ]
+ },
  "layers": [
   {
    "id": "coh",
    "label": "Median coherence, summer 2026",
-   "image": "coh_2026.png",
+   "image": "season_coh_2026.png",
    "range": [
-    0.1,
-    0.7
+    0,
+    1
    ],
-   "valid_share": 0.466,
-   "median": 0.416
+   "median": 0.413
   },
   {
    "id": "valid",
    "label": "Share of pairs valid per pixel",
-   "image": "valid_2026.png",
+   "image": "season_valid_2026.png",
    "range": [
     0,
     1
@@ -354,7 +467,21 @@
  },
  "scale": {
   "pair_cm": 3.0,
-  "cum_cm": 5.0
+  "iono_cm": 15.0,
+  "coh": [
+   0,
+   1
+  ]
+ },
+ "definitions": {
+  "coh_median": "Median coherence over land in the frame",
+  "valid_share": "Share of land in the frame with coherence at least 0.35",
+  "mv_valid_share": "Share of land in the frame with a movement value after the stack's masks",
+  "mv_in_noise": "Share of mapped movement within \u00b11 cm (inside the noise)",
+  "conn_share": "Share of land inside a connected component after unwrapping",
+  "iono_p95_cm": "95th percentile of |ionosphere| along the line of sight in the frame, after removing the frame median",
+  "iono_offset_cm": "The frame median removed from the ionosphere map (a constant cancels in referenced maps)",
+  "iono_conversion": "radians x 0.2384 / (4 pi) x 100 = cm along the line of sight"
  },
  "instrument_gap": {
   "from": "2026-07-27",
