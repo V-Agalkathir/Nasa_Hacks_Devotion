@@ -4,27 +4,21 @@
  "prereg_commit": "ac2ad888aa8c16d987699cba4d50b2e4450c1f72",
  "cards": [
   {
-   "id": "radar_checks",
-   "title": "Radar processing checks",
-   "status": "pass",
-   "headline": "median slope 0.9994 over 97 pairs",
-   "baseline": "HyP3's own displacement maps",
-   "sentence": "Our radar processing matches the provider's own maps (slope 1.00). The airport reference reads zero, lakes are masked, and there are no unwrapping jumps."
-  },
-  {
    "id": "test_a",
-   "title": "Do the radar patterns repeat? (Sentinel-1, 2021\u201323 \u2192 2024\u201325)",
+   "title": "Do radar patterns repeat?",
    "status": "fail",
-   "headline": "Block \u03c1 0.306, \u03ba 0.138, skill -0.24",
-   "baseline": "Zero-motion baseline error 0.381 cm vs model 0.424 cm",
-   "sentence": "Ground moves within about 1 cm of the airport pad each summer, and which areas move more did not repeat reliably between years. So radar can't yet tell stable from degrading ground here.",
-   "posthoc": {
-    "title": "Post-hoc variant (ramp removed)",
-    "status": "fail",
-    "headline": "Block \u03c1 0.516",
-    "note": "Chosen after the official test failed; reported, not used for the official result."
+   "headline": {
+    "value": "-0.24",
+    "unit": "skill"
    },
-   "ci": {
+   "baseline": "Baseline: \"no motion\" (skill 0). Block \u03c1 0.31 \u00b7 \u03ba 0.14. Post-hoc deramp: \u03c1 0.52, still fails.",
+   "plain": "Radar can't yet tell stable from degrading ground here at 80 m.",
+   "method": "Sensitivity to warmth fitted on Sentinel-1 2021\u201323, tested on 2024\u201325 at 500 m blocks; 95% block-bootstrap intervals.",
+   "ci95": {
+    "skill": [
+     -0.278,
+     -0.209
+    ],
     "rho": [
      0.251,
      0.358
@@ -32,44 +26,68 @@
     "kappa": [
      0.106,
      0.169
-    ],
-    "skill": [
-     -0.278,
-     -0.209
     ]
    }
   },
   {
    "id": "test_b",
-   "title": "Does NISAR agree with Sentinel-1? (2026)",
+   "title": "Does NISAR agree?",
    "status": "fail",
-   "headline": "Block \u03c1 0.009",
-   "baseline": "Pass needs \u03c1 \u2265 0.60",
-   "sentence": "NISAR's first summer over Tuk didn't produce a usable series: one pair failed to unwrap and several lost coherence. Its few usable pairs show no agreement."
+   "headline": {
+    "value": "0.01",
+    "unit": "\u03c1"
+   },
+   "baseline": "Needs a connected series of at least five dates.",
+   "plain": "One pair failed to unwrap and several lost coherence, so 2026 has no connected series.",
+   "method": "NISAR 2026 12-day pairs, ionosphere-corrected, ordering compared with the Sentinel-1 fit at 500 m blocks."
   },
   {
    "id": "model_b",
-   "title": "Predicting ground where radar can't see",
+   "title": "Predict where radar can't see",
    "status": "not_run",
-   "headline": "110 degrading examples (needs 300)",
-   "baseline": "Nearest measured pixel",
-   "sentence": "Not run: radar found too few examples of degrading ground to learn from, so no predicted layer is shown."
+   "headline": {
+    "value": "110 of 300",
+    "unit": "examples"
+   },
+   "baseline": "Needs 300 measured examples of degrading ground in 15 blocks.",
+   "plain": "Too few examples to learn from, so no predicted layer exists.",
+   "method": "Random forest on terrain, water and vegetation, tested on held-out 2 km blocks (not run)."
   },
   {
    "id": "model_c",
-   "title": "Shoreline forecast (fit 1985\u20132004, predict 2005\u20132025)",
+   "title": "Can we forecast the shoreline?",
    "status": "fail",
-   "headline": "Forecast error 48.2 m vs no-change 13.8 m",
-   "baseline": "No change since 2004",
-   "sentence": "The 30 m satellite waterline is too noisy to project a trend, so arrival years are hidden. Measured change since 2005 is shown instead."
+   "headline": {
+    "value": "48 m",
+    "unit": "average error"
+   },
+   "baseline": "Baseline: \"no change\", 14 m error.",
+   "plain": "The 30 m satellite waterline is too noisy. Arrival years are hidden; measured change is shown instead.",
+   "method": "207 transects; trend fitted on 1985\u20132004 waterlines, checked at every date 2005\u20132025."
   },
   {
    "id": "reindeer",
-   "title": "Reindeer Point consistency",
+   "title": "Reindeer Point reports",
    "status": "not_available",
-   "headline": "0.0 of measured cells degrading",
-   "baseline": "Public reports of sinking homes (Canadian Geographic, Oct 2026)",
-   "sentence": "Homes sit on gravel pads. At 80 m, radar can't separate pad settling from ground thaw, so this is not a test of the reports."
+   "headline": {
+    "value": "0%",
+    "unit": "degrading by radar"
+   },
+   "baseline": "Needs the ground prediction. A consistency check, never proof.",
+   "plain": "Homes sit on gravel pads; at 80 m radar can't separate pad settling from ground thaw.",
+   "method": "Share of measured Reindeer Point cells classed degrading, against public reports (Canadian Geographic, Oct 2026)."
+  },
+  {
+   "id": "radar_checks",
+   "title": "Is the radar processing right?",
+   "status": "pass",
+   "headline": {
+    "value": "1.00",
+    "unit": "slope vs provider"
+   },
+   "baseline": "HyP3's own displacement maps (slope must be 1.00 \u00b1 0.01).",
+   "plain": "Our processing matches the provider's maps; the airport reads zero, lakes are masked, no unwrapping jumps.",
+   "method": "median slope 0.9994 over 97 pairs"
   }
  ],
  "deviations": [
@@ -120,9 +138,10 @@
   "Motion is relative to a reference area (airport gravel pad)",
   "A screen for where to look, not a sign-off"
  ],
+ "what_still_works": "Height above sea, distance to the 2025 shoreline, measured shoreline change and distance to the highway are measured directly. The screen leans on these.",
  "what_we_dont_predict": [
-  "Ground sinking in 2050",
-  "Single houses",
-  "Sudden collapse or storms"
+  "Ground condition under a single house",
+  "When the coast arrives",
+  "Sudden collapse or the damage from one storm"
  ]
 }

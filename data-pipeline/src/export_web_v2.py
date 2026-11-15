@@ -161,15 +161,19 @@ def main():
             minx, miny, maxx, maxy = g.bounds
             half = [round((maxx - minx) / 2, 6), round((maxy - miny) / 2, 6)]
         mv = i["ground"]["summer_move_vs_airport_cm"]
+        ps = i["ground"].get("per_summer_cm", {})
         cells.append([round(c.x, 5), round(c.y, 5), TIER[p["tier"]], COR[p["coring"]], i["height"]["median_m"],
                       i["access"]["to_highway_m"], i["access"]["to_town_core_m"], i["coast"]["distance_to_sea_m"],
                       round(i["wetness"]["water_share_250m"], 2), round(i["confidence"]["radar_coverage"], 2),
-                      GND[i["ground"]["dominant"]], None if mv is None else round(mv, 2), int(bool(i["this_season"]["flag"]))])
+                      GND[i["ground"]["dominant"]], None if mv is None else round(mv, 2), int(bool(i["this_season"]["flag"])),
+                      p["id"], i["height"]["p10_m"], round(i["height"]["share_below_surge"], 2),
+                      i["coast"]["measured_change_m"], [ps.get(str(y)) for y in range(2021, 2026)]])
     json.dump({"type": "FeatureCollection", "schema": "areas/2", "settings": A.get("settings"), "features": feats},
               open(OUT / "areas.geojson", "w"), separators=(",", ":"))
     json.dump({"schema": "cells/2", "cell_m": A["settings"]["cell_m"], "half_deg": half,
                "columns": ["lon", "lat", "tier", "coring", "height_m", "to_highway_m", "to_core_m", "to_sea_m",
-                           "water_share", "radar_coverage", "ground", "move_cm", "season_flag"],
+                           "water_share", "radar_coverage", "ground", "move_cm", "season_flag",
+                           "id", "p10_m", "low_share", "coast_change_m", "mv_2021_2025"],
                "codes": {"tier": ["lower", "moderate", "higher", "not_enough_data"],
                          "coring": [None, "promising_unconfirmed", "conflicting_evidence"],
                          "ground": ["cant_measure", "stable", "seasonal_only", "degrading"]},
@@ -213,35 +217,48 @@ def main():
     ta, tb = ma["test_a"], ma["test_b"]
     ph = ev.get("model_a_posthoc_deramp", {}).get("test_a", {})
     six = json.load(open(MOT / "s1_p137" / "index.json"))
+    f2 = lambda v: None if v is None else round(v, 2)
+    sk, rb, kp = ta["metrics"]["skill_vs_best_baseline"], ta["metrics"]["rho_block"], ta["metrics"]["kappa"]
+    phr = ph.get("metrics", {}).get("rho_block", {}).get("value") if ph else None
+    rp = ev.get("reindeer_point_consistency") or {}
     cards = [
-        {"id": "radar_checks", "title": "Radar processing checks", "status": "pass",
-         "headline": six.get("sign_check", {}).get("detail", ""),
-         "baseline": "HyP3's own displacement maps", "sentence": "Our radar processing matches the provider's own maps (slope 1.00). The airport reference reads zero, lakes are masked, and there are no unwrapping jumps."},
-        {"id": "test_a", "title": "Do the radar patterns repeat? (Sentinel-1, 2021–23 → 2024–25)", "status": ta["status"],
-         "headline": f"Block ρ {ta['metrics']['rho_block']['value']}, κ {ta['metrics']['kappa']['value']}, skill {ta['metrics']['skill_vs_best_baseline']['value']}",
-         "baseline": f"Zero-motion baseline error {ta['baselines_block_rmse_cm']['zero_motion']} cm vs model {ta['baselines_block_rmse_cm']['model']} cm",
-         "sentence": "Ground moves within about 1 cm of the airport pad each summer, and which areas move more did not repeat reliably between years. So radar can't yet tell stable from degrading ground here.",
-         "posthoc": None if not ph else {"title": "Post-hoc variant (ramp removed)", "status": ph.get("status"),
-                                         "headline": f"Block ρ {ph.get('metrics', {}).get('rho_block', {}).get('value')}",
-                                         "note": "Chosen after the official test failed; reported, not used for the official result."},
-         "ci": {"rho": ta["metrics"]["rho_block"]["ci95"], "kappa": ta["metrics"]["kappa"]["ci95"], "skill": ta["metrics"]["skill_vs_best_baseline"]["ci95"]}},
-        {"id": "test_b", "title": "Does NISAR agree with Sentinel-1? (2026)", "status": tb.get("status"),
-         "headline": f"Block ρ {tb.get('metrics', {}).get('rho_block', {}).get('value')}",
-         "baseline": "Pass needs ρ ≥ 0.60", "sentence": "NISAR's first summer over Tuk didn't produce a usable series: one pair failed to unwrap and several lost coherence. Its few usable pairs show no agreement."},
-        {"id": "model_b", "title": "Predicting ground where radar can't see", "status": mb["status"],
-         "headline": f"{mb['n_labels']['degrading']} degrading examples (needs 300)", "baseline": "Nearest measured pixel",
-         "sentence": "Not run: radar found too few examples of degrading ground to learn from, so no predicted layer is shown."},
-        {"id": "model_c", "title": "Shoreline forecast (fit 1985–2004, predict 2005–2025)", "status": mc["status"],
-         "headline": f"Forecast error {mc['metrics']['mae_m']} m vs no-change {mc['baselines']['persistence_mae_m']} m",
-         "baseline": "No change since 2004", "sentence": "The 30 m satellite waterline is too noisy to project a trend, so arrival years are hidden. Measured change since 2005 is shown instead."},
-        {"id": "reindeer", "title": "Reindeer Point consistency", "status": "not_available",
-         "headline": f"{(ev.get('reindeer_point_consistency') or {}).get('m_A_share_degrading')} of measured cells degrading",
-         "baseline": "Public reports of sinking homes (Canadian Geographic, Oct 2026)",
-         "sentence": "Homes sit on gravel pads. At 80 m, radar can't separate pad settling from ground thaw, so this is not a test of the reports."},
+        {"id": "test_a", "title": "Do radar patterns repeat?", "status": ta["status"],
+         "headline": {"value": f"{sk['value']:+.2f}".replace("+", ""), "unit": "skill"},
+         "baseline": f"Baseline: \"no motion\" (skill 0). Block ρ {rb['value']:.2f} · κ {kp['value']:.2f}."
+                     + (f" Post-hoc deramp: ρ {phr:.2f}, still fails." if phr is not None else ""),
+         "plain": "Radar can't yet tell stable from degrading ground here at 80 m.",
+         "method": "Sensitivity to warmth fitted on Sentinel-1 2021–23, tested on 2024–25 at 500 m blocks; 95% block-bootstrap intervals.",
+         "ci95": {"skill": sk["ci95"], "rho": rb["ci95"], "kappa": kp["ci95"]}},
+        {"id": "test_b", "title": "Does NISAR agree?", "status": tb.get("status"),
+         "headline": {"value": f"{(tb.get('metrics', {}).get('rho_block', {}).get('value') or 0):.2f}", "unit": "ρ"},
+         "baseline": "Needs a connected series of at least five dates.",
+         "plain": "One pair failed to unwrap and several lost coherence, so 2026 has no connected series.",
+         "method": "NISAR 2026 12-day pairs, ionosphere-corrected, ordering compared with the Sentinel-1 fit at 500 m blocks."},
+        {"id": "model_b", "title": "Predict where radar can't see", "status": mb["status"],
+         "headline": {"value": f"{mb['n_labels']['degrading']} of 300", "unit": "examples"},
+         "baseline": "Needs 300 measured examples of degrading ground in 15 blocks.",
+         "plain": "Too few examples to learn from, so no predicted layer exists.",
+         "method": "Random forest on terrain, water and vegetation, tested on held-out 2 km blocks (not run)."},
+        {"id": "model_c", "title": "Can we forecast the shoreline?", "status": mc["status"],
+         "headline": {"value": f"{mc['metrics']['mae_m']:.0f} m", "unit": "average error"},
+         "baseline": f"Baseline: \"no change\", {mc['baselines']['persistence_mae_m']:.0f} m error.",
+         "plain": "The 30 m satellite waterline is too noisy. Arrival years are hidden; measured change is shown instead.",
+         "method": f"{mc['n_transects']} transects; trend fitted on 1985–2004 waterlines, checked at every date 2005–2025."},
+        {"id": "reindeer", "title": "Reindeer Point reports", "status": "not_available",
+         "headline": {"value": f"{round((rp.get('m_A_share_degrading') or 0) * 100)}%", "unit": "degrading by radar"},
+         "baseline": "Needs the ground prediction. A consistency check, never proof.",
+         "plain": "Homes sit on gravel pads; at 80 m radar can't separate pad settling from ground thaw.",
+         "method": "Share of measured Reindeer Point cells classed degrading, against public reports (Canadian Geographic, Oct 2026)."},
+        {"id": "radar_checks", "title": "Is the radar processing right?", "status": "pass",
+         "headline": {"value": "1.00", "unit": "slope vs provider"},
+         "baseline": "HyP3's own displacement maps (slope must be 1.00 ± 0.01).",
+         "plain": "Our processing matches the provider's maps; the airport reads zero, lakes are masked, no unwrapping jumps.",
+         "method": six.get("sign_check", {}).get("detail", "")},
     ]
     json.dump({"schema": "validation/2", "prereg_tag": ev.get("prereg_tag"), "prereg_commit": ev.get("prereg_commit"),
                "cards": cards, "deviations": ev.get("deviations"), "limits": ev.get("limits"),
-               "what_we_dont_predict": ["Ground sinking in 2050", "Single houses", "Sudden collapse or storms"]},
+               "what_still_works": "Height above sea, distance to the 2025 shoreline, measured shoreline change and distance to the highway are measured directly. The screen leans on these.",
+               "what_we_dont_predict": ["Ground condition under a single house", "When the coast arrives", "Sudden collapse or the damage from one storm"]},
               open(OUT / "validation.json", "w"), indent=1)
 
     # ---------------- coastline
@@ -267,6 +284,16 @@ def main():
     json.dump({"type": "FeatureCollection", "schema": "coastline/2", "features": cf}, open(OUT / "coastline.geojson", "w"),
               separators=(",", ":"))
 
+    # ---------------- roads (map context; ODbL)
+    hw = json.load(open(ROOT / "data/interim/context/highway.geojson"))["features"]
+    rf = []
+    for f in hw:
+        if f["geometry"]["type"] != "LineString":
+            continue
+        g = shape(f["geometry"]).simplify(0.00005)
+        rf.append({"type": "Feature", "properties": {"main": "Inuvik" in f["properties"].get("name", "")}, "geometry": rnd(mapping(g))})
+    json.dump({"type": "FeatureCollection", "features": rf}, open(OUT / "roads.geojson", "w"), separators=(",", ":"))
+
     # ---------------- manifest (written last; owns every field the UI reads)
     s1 = json.load(open(MOT / "s1_p137" / "index.json"))
     last_s1 = max(d["date"] for v in s1["seasons"].values() for d in v["dates"])
@@ -277,6 +304,11 @@ def main():
         "area": {"name": "Tuktoyaktuk and the Inuvik–Tuktoyaktuk Highway corridor", "bbox": bbox,
                  "center": [-133.03, 69.41], "zoom": 11.3, "image_coordinates": corners},
         "freshness": freshness(last_s1),
+        "bounds": bbox, "town_bounds": [-133.10, 69.36, -132.92, 69.47],
+        "latest_pass": {"date": last_s1, "sensor": "Sentinel-1"},
+        "limits": ["Block scale: 240 m squares, 80 m radar", "Thaw season only (June to September)",
+                   "Motion is relative to the airport gravel pad", "A screen, not an engineering sign-off",
+                   "\u201cLower-risk\u201d doesn\u2019t mean \u201csafe\u201d"],
         "units": "cm per summer, relative to the airport gravel pad", "motion_range_cm": [-lim, lim],
         "years": years, "layers": layers,
         "models": {"behaviour": ma["test_a"]["status"], "nisar_check": tb.get("status"), "ground_prediction": mb["status"],

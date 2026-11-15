@@ -1,6 +1,6 @@
 {
  "schema": 2,
- "generated_at": "2026-11-15T06:38:39Z",
+ "generated_at": "2026-11-15T06:54:06Z",
  "mock": false,
  "area": {
   "name": "Tuktoyaktuk and the Inuvik\u2013Tuktoyaktuk Highway corridor",
@@ -89,6 +89,29 @@
   "nisar_note": "NISAR passes are checked automatically; the 2026 summer did not form a usable series.",
   "run_url": null
  },
+ "bounds": [
+  -133.3,
+  69.2,
+  -132.85,
+  69.48
+ ],
+ "town_bounds": [
+  -133.1,
+  69.36,
+  -132.92,
+  69.47
+ ],
+ "latest_pass": {
+  "date": "2025-10-05",
+  "sensor": "Sentinel-1"
+ },
+ "limits": [
+  "Block scale: 240 m squares, 80 m radar",
+  "Thaw season only (June to September)",
+  "Motion is relative to the airport gravel pad",
+  "A screen, not an engineering sign-off",
+  "\u201cLower-risk\u201d doesn\u2019t mean \u201csafe\u201d"
+ ],
  "units": "cm per summer, relative to the airport gravel pad",
  "motion_range_cm": [
   -2.0,
