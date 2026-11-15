@@ -1,21 +1,18 @@
-# Part 1 (data acquisition)
 asf_search>=8.0
 hyp3_sdk>=7.0
-earthaccess>=0.12
+earthaccess
 h5py
-fsspec
-aiohttp
-requests
-pandas
 numpy
-shapely>=2.0
-pyproj
-pyyaml
-rasterio
-pystac-client
-planetary-computer
-geopandas
-# Parts 2-6
-matplotlib
+pandas
 scipy
+scikit-learn
+rasterio
+shapely>=2.0
+geopandas
+pyproj
+matplotlib
+pillow
+pyyaml
+requests
+pystac-client
 scikit-image

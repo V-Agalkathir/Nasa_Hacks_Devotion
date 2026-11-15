@@ -1,0 +1,120 @@
+# Ground Check: automatic update and deploy (docs/architecture/specs/05-automation.md).
+# Stateless by design: each run restores the team's data release, asks NASA's catalogue for new
+# NISAR passes, fetches any new in-season pair (needs Earthdata secrets), rebuilds radar stacks,
+# models, screening and the web data, validates them, and deploys GitHub Pages. A failed run never
+# deploys, so the last good site stays live.
+name: update
+
+on:
+  schedule:
+    - cron: "47 14 * * *"          # daily; NISAR repeats every 12 days and L2 lands 36-72 h later
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "full = check + rebuild + deploy; search_only = report only; deploy_only = rebuild site from committed data"
+        type: choice
+        options: [full, search_only, deploy_only]
+        default: full
+      force_season_open:
+        description: "Ignore the calendar window (testing only)"
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths: ["frontend/**", "data-pipeline/src/**", "data-pipeline/static/**", ".github/workflows/update.yml"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ground-check
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      EARTHDATA_USER: ${{ secrets.EARTHDATA_USER }}
+      EARTHDATA_PASS: ${{ secrets.EARTHDATA_PASS }}
+      MODE: ${{ inputs.mode || (github.event_name == 'push' && 'deploy_only') || 'full' }}
+      RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11", cache: pip, cache-dependency-path: data-pipeline/requirements.txt }
+      - name: Install
+        run: pip install -r data-pipeline/requirements.txt
+
+      - name: Restore data release (data-v1)
+        if: env.MODE != 'deploy_only'
+        working-directory: data-pipeline
+        run: |
+          gh release download data-v1 -R "${{ github.repository }}" -p tuk-data.zip
+          unzip -q -o tuk-data.zip && rm tuk-data.zip
+          mkdir -p data/interim/context data/interim/screening
+          cp static/context/*.geojson data/interim/context/
+          cp static/screening/*.geojson data/interim/screening/
+          mkdir -p data/raw/boreholes/Result && cp static/boreholes/* data/raw/boreholes/Result/
+
+      - name: Earthdata login file
+        if: env.EARTHDATA_USER != '' && env.MODE == 'full'
+        run: |
+          umask 077
+          printf 'machine urs.earthdata.nasa.gov login %s password %s\n' "$EARTHDATA_USER" "$EARTHDATA_PASS" > ~/.netrc
+
+      - name: Check NASA catalogue (season gate, new NISAR pairs)
+        if: env.MODE != 'deploy_only'
+        working-directory: data-pipeline/src
+        run: python pipeline_check.py ${{ inputs.force_season_open && '--force-season-open' || '' }}
+
+      - name: Fetch new NISAR pairs (AOI crop only)
+        if: env.MODE == 'full' && env.EARTHDATA_USER != ''
+        working-directory: data-pipeline/src
+        run: |
+          if python -c "import json,sys; sys.exit(0 if json.load(open('../data/interim/run_status.json'))['action']=='fetch' else 1)"; then
+            python fetch_nisar.py
+          else
+            echo "[fetch] nothing new to fetch"
+          fi
+
+      - name: Rebuild radar stacks, models, screening, web data
+        if: env.MODE == 'full'
+        working-directory: data-pipeline/src
+        run: |
+          python radar_stack.py
+          python radar_stack.py --stack s1_p137 --s1-deramp
+          python run_models.py
+          python screening.py
+          python borehole_check.py
+          python export_web_v2.py
+          python export_tool_v3.py
+          if [ -f export_nisar_web.py ]; then python export_nisar_web.py; fi
+
+      - name: Validation gate
+        working-directory: data-pipeline/src
+        run: python validate_web.py
+
+      - uses: actions/upload-artifact@v4
+        with: { name: web-data, path: frontend/public/data, retention-days: 30 }
+
+  deploy:
+    needs: update
+    if: needs.update.result == 'success' && inputs.mode != 'search_only'
+    runs-on: ubuntu-latest
+    permissions: { contents: read, pages: write, id-token: write }
+    environment: { name: github-pages, url: "${{ steps.dep.outputs.page_url }}" }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { name: web-data, path: frontend/public/data }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: npm, cache-dependency-path: frontend/package-lock.json }
+      - run: npm ci && npm run build
+        working-directory: frontend
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: frontend/dist }
+      - id: dep
+        uses: actions/deploy-pages@v4

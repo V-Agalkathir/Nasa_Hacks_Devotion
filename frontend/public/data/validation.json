@@ -1,0 +1,159 @@
+{
+ "schema": "validation/2",
+ "prereg_tag": "prereg-eval",
+ "prereg_commit": "ac2ad888aa8c16d987699cba4d50b2e4450c1f72",
+ "cards": [
+  {
+   "id": "test_a",
+   "title": "Do radar patterns repeat?",
+   "status": "fail",
+   "headline": {
+    "value": "-0.24",
+    "unit": "skill"
+   },
+   "baseline": "Baseline: \"no motion\" (skill 0). Block \u03c1 0.31 \u00b7 \u03ba 0.14. Post-hoc deramp: \u03c1 0.52, still fails.",
+   "plain": "Radar can't yet tell stable from degrading ground here at 80 m.",
+   "method": "Sensitivity to warmth fitted on Sentinel-1 2021\u201323, tested on 2024\u201325 at 500 m blocks; 95% block-bootstrap intervals.",
+   "ci95": {
+    "skill": [
+     -0.278,
+     -0.209
+    ],
+    "rho": [
+     0.251,
+     0.358
+    ],
+    "kappa": [
+     0.106,
+     0.169
+    ]
+   }
+  },
+  {
+   "id": "test_b",
+   "title": "Does NISAR agree?",
+   "status": "fail",
+   "headline": {
+    "value": "0.01",
+    "unit": "\u03c1"
+   },
+   "baseline": "Needs a connected series of at least five dates.",
+   "plain": "One pair failed to unwrap and several lost coherence, so 2026 has no connected series.",
+   "method": "NISAR 2026 12-day pairs, ionosphere-corrected, ordering compared with the Sentinel-1 fit at 500 m blocks."
+  },
+  {
+   "id": "boreholes",
+   "title": "Does radar match the boreholes?",
+   "status": "fail",
+   "headline": {
+    "value": "-0.52",
+    "unit": "\u03c1"
+   },
+   "baseline": "Rule fixed before running: \u03c1 \u2265 0.4 consistent, \u2264 0 not consistent. 11 highway boreholes (about 6 separate places).",
+   "plain": "Ice-rich boreholes did not sink more on radar; if anything less. Radar movement doesn't track measured ground ice here.",
+   "method": "Top-5 m moisture content from NWT Permafrost Database logs (ITH 2013 and 2017 drilling, data owner GNWT) against radar summer sinking within 120 m."
+  },
+  {
+   "id": "model_b",
+   "title": "Predict where radar can't see",
+   "status": "not_run",
+   "headline": {
+    "value": "110 of 300",
+    "unit": "examples"
+   },
+   "baseline": "Needs 300 measured examples of degrading ground in 15 blocks.",
+   "plain": "Too few examples to learn from, so no predicted layer exists.",
+   "method": "Random forest on terrain, water and vegetation, tested on held-out 2 km blocks (not run)."
+  },
+  {
+   "id": "model_c",
+   "title": "Can we forecast the shoreline?",
+   "status": "fail",
+   "headline": {
+    "value": "48 m",
+    "unit": "average error"
+   },
+   "baseline": "Baseline: \"no change\", 14 m error.",
+   "plain": "The 30 m satellite waterline is too noisy. Arrival years are hidden; measured change is shown instead.",
+   "method": "207 transects; trend fitted on 1985\u20132004 waterlines, checked at every date 2005\u20132025."
+  },
+  {
+   "id": "reindeer",
+   "title": "Reindeer Point reports",
+   "status": "not_available",
+   "headline": {
+    "value": "0%",
+    "unit": "degrading by radar"
+   },
+   "baseline": "Needs the ground prediction. A consistency check, never proof.",
+   "plain": "Homes sit on gravel pads; at 80 m radar can't separate pad settling from ground thaw.",
+   "method": "Share of measured Reindeer Point cells classed degrading, against public reports (Canadian Geographic, Oct 2026)."
+  },
+  {
+   "id": "radar_checks",
+   "title": "Is the radar processing right?",
+   "status": "pass",
+   "headline": {
+    "value": "1.00",
+    "unit": "slope vs provider"
+   },
+   "baseline": "HyP3's own displacement maps (slope must be 1.00 \u00b1 0.01).",
+   "plain": "Our processing matches the provider's maps; the airport reads zero, lakes are masked, no unwrapping jumps.",
+   "method": "median slope 0.9994 over 97 pairs"
+  }
+ ],
+ "deviations": [
+  {
+   "date": "2026-11-15",
+   "what": "Training years 2021-2023 instead of 2018-2023; min_seasons 3 instead of 4",
+   "why": "Sentinel-1 2018-2020 were never processed by HyP3 (no Earthdata access overnight); only three training summers exist"
+  },
+  {
+   "date": "2026-11-15",
+   "what": "Thaw onset from air temperature only",
+   "why": "Station snow depth reports 3-4 cm in late June at 14 C daily mean; judged unusable on training data"
+  },
+  {
+   "date": "2026-11-15",
+   "what": "Computation on the shared EPSG:4326 grid with distances and blocks from UTM 8N cell coordinates",
+   "why": "Part 1 and Part 2 rasters are on the shared grid; every distance is still in metres"
+  },
+  {
+   "date": "2026-11-15",
+   "what": "Confidence c_fit floor uses tau instead of 2*sigma_ref",
+   "why": "Motion is referenced to the airport, so sigma_ref is ~0 and the spec formula would give zero confidence to every stable cell"
+  },
+  {
+   "date": "2026-11-15",
+   "what": "Test B uses NISAR sensitivity from 12-day increments; the class comparison (kappa) is not available",
+   "why": "The 2026 NISAR chain breaks (24 Aug-5 Sep pair failed to unwrap; several pairs lost coherence), so no cell has the five connected dates the class rules need"
+  },
+  {
+   "date": "2026-11-15",
+   "what": "This-season expectation demonstrated on Sentinel-1 2025",
+   "why": "NISAR 2026 has no connected series of three or more passes over most of the area"
+  },
+  {
+   "date": "2026-11-15",
+   "what": "Model C uses the satellite waterline 1985-2025; hindcast fits <= 2004 and predicts 2005-2025 (spec: air photos 1947-1985 fit)",
+   "why": "Automatic air-photo shorelines failed visual review (traced mosaic edges and an inner harbour); decided before any hindcast error was seen"
+  },
+  {
+   "date": "2026-11-15",
+   "what": "Sentinel-1 2022 to mid-2025 cover only the northern half of the area (town); the highway corridor has 2021 and 2025 only",
+   "why": "HyP3 products for those dates were single-frame; corridor cells fall back to short-record rules"
+  }
+ ],
+ "limits": [
+  "Block scale, not houses",
+  "Thaw season only",
+  "Motion is relative to a reference area (airport gravel pad)",
+  "A screen for where to look, not a sign-off"
+ ],
+ "what_still_works": "Height above sea, distance to the 2025 shoreline, measured shoreline change and distance to the highway are measured directly. The screen leans on these.",
+ "what_we_dont_predict": [
+  "Ground condition under a single house",
+  "When the coast arrives",
+  "Sudden collapse or the damage from one storm"
+ ]
+}
