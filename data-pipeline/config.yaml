@@ -76,3 +76,98 @@ seasons:
   - {id: "2024", source: S1, start: "2024-06-01", end: "2024-09-30"}
   - {id: "2023", source: S1, start: "2023-06-01", end: "2023-09-30"}
 sentinel1: {wavelength_m: 0.0555, hyp3_project_name: devotion-tuk}
+
+# --- Part 3 models (spec 03 section 6). Adapted to the data we have: Sentinel-1 2021-2025 only
+# (2018-2020 were never processed), so training = 2021-2023 and min_seasons = 3. Deviations are
+# recorded in eval.json. Thresholds under models.thresholds are frozen at git tag prereg-eval.
+models:
+  seed: 0
+  crs: {compute: "EPSG:32608 distances on the shared EPSG:4326 grid", publish: "EPSG:4326"}
+  tdd:
+    onset_search_from: "04-01"
+    onset_min_run_days: 3
+    snow_off_run_days: 5
+    freeze_search_from: "08-15"
+    freeze_min_run_days: 3
+    max_filled_share: 0.10
+    max_gap_days: 7
+    bias_correct_filled: false      # no ERA5 fill in Part 1 output; hourly fill flagged 'hourly'
+    use_snow: false                 # station snow depth reports 3-4 cm in late June at 14 C mean: not usable
+  behaviour:
+    stack_id: s1_p137
+    train_years: [2021, 2022, 2023]
+    test_a_years: [2024, 2025]
+    test_b: {stack_id: nisar_t159, season: 2026}
+    min_dates_per_season: 5
+    min_A_span: 8.0
+    min_seasons: 3
+    min_seasons_high_coh: 3
+    season_weight_cap: 2.0
+    late_md: "08-10"
+    late_A_share: 0.25
+    min_early_dates: 4
+    late_k_multi: 2.0
+    late_k_single: 3.0
+    coh_min: {C: 0.30, L: 0.35}
+    coh_good: {C: 0.60, L: 0.50}
+    valid_share_min: 0.6
+    E_floor_cm_per_season: 1.0
+    slope_alpha: 0.10
+    slope_fdr_q: 0.10
+    slope_min_change_share: 0.25
+    conf_bins: {high: 0.70, medium: 0.45}
+    single_season_conf_cap: 0.69
+    temp_low_conf_factor: 0.85
+    bootstrap: {n: 1000, block_m: 500}
+  expectation:
+    pixel_z: -2.0
+    area_share: 0.30
+    area_median_z: -1.5
+    consecutive_passes: 2
+    min_passes: 3
+    gain_bounds: [0.3, 3.0]
+    named_area_buffer_m: 500
+    gain_block_m: 500
+  ground_pred:
+    block_km: 2.0
+    folds: 5
+    repeats: 5
+    origin_shift_m: 400
+    buffer_m: 500
+    min_labels_per_class: 300
+    min_blocks_per_class: 15
+    min_test_degrading: 30
+    calibration: sigmoid
+    domain_weight_clip: [0.1, 10]
+    domain: {k: 10, quantiles: [0.50, 0.80, 0.95], feature_range: [1, 99]}
+    thin_cols: 4                    # one sample per ~80 m radar pixel (grid is 20 m x 56 m)
+  shoreline:
+    spacing_m: 50
+    smooth_m: 200
+    inland_m: 600
+    inland_long_m: 1000
+    seaward_min_m: 150
+    seaward_margin_m: 50
+    hindcast_fit_to: 1985
+    hindcast_min_dates: 3
+    select_fit_to: 2004
+    select_recent_from: 1985
+    select_recent_min_dates: 3
+    recent_from: 2005
+    recent_min_dates: 5
+    protection_cutoff_year: 2023
+    smooth_transects: 5
+    r_floor_m_yr: 0.01
+    r_none_m_yr: 0.05
+    mc_draws: 10000
+    mix: {central: 0.7, other: 0.3}
+    mix_accel: {central: 0.5, other: 0.3, accelerated: 0.2}
+    percentiles: [10, 90]
+    round_years: 5
+    horizon_cap_year: 2100
+    search_window_m: 300            # shoreline intersections kept within this distance of the OSM coast
+  thresholds:   # frozen at tag prereg-eval
+    test_a: {skill_pass: 0.25, skill_partial: 0.0, rho_pass: 0.70, rho_partial: 0.50, kappa_pass: 0.40, kappa_partial: 0.25}
+    test_b: {rho_pass: 0.60, rho_partial: 0.40, kappa_pass: 0.30, kappa_partial: 0.15}
+    ground_pred: {margin_over_nn: 0.05, ece_pass: 0.10, ece_partial: 0.15, min_folds_above_chance: 4}
+    shoreline: {coverage_pass: 0.80, coverage_partial: 0.60, min_epochs_beating: 2}
