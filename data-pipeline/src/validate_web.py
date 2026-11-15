@@ -69,8 +69,13 @@ for aid, a in ts.get("areas", {}).items():
             if pnt["measured"] is not None and abs(pnt["measured"]) > 30:
                 errors.append(f"{aid} {pnt['date']}: {pnt['measured']} cm is not physical for one summer")
 size = sum(p.stat().st_size for p in D.rglob("*") if p.is_file())
-check(size < 4e6, f"data folder is {size/1e6:.1f} MB (budget 4 MB total, 2 MB first load)")
-print(f"[validate] {checks - len(errors)} of {checks} checks passed; {size/1e6:.2f} MB")
+# first load = the manifest, the files it lists and the default layer image; yearly rasters and the
+# NISAR researcher view (data/nisar/) load only when opened
+first = ["manifest.json", *(m.get("files") or {}).values(), "rasters/behaviour.png"]
+first_size = sum((D / f).stat().st_size for f in first if (D / f).exists())
+check(first_size < 2e6, f"first load is {first_size/1e6:.2f} MB (budget 2 MB)")
+check(size < 10e6, f"data folder is {size/1e6:.1f} MB (budget 10 MB including on-demand layers)")
+print(f"[validate] {checks - len(errors)} of {checks} checks passed; first load {first_size/1e6:.2f} MB, all data {size/1e6:.2f} MB")
 for e in errors:
     print("  FAIL", e)
 sys.exit(1 if errors else 0)

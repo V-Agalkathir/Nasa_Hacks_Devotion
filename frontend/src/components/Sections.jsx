@@ -25,6 +25,7 @@ export function Header({ manifest, onAbout }) {
         <p className="fresh muted">NISAR passes are checked automatically; the 2026 summer gave no usable series.</p>
       </div>
       <span className="season-chip">{winter ? "Winter pause" : "Watching for passes"}</span>
+      <a className="research-link" href="#nisar">For researchers: NISAR view</a>
       <button onClick={onAbout}>About</button>
     </header>
   );
@@ -113,6 +114,7 @@ export function TestCards({ validation }) {
             <div className="notebox"><b>What still works</b><p>{validation.what_still_works}</p></div>
             <div className="notebox"><b>What we don't predict</b><p>{(validation.what_we_dont_predict || []).join(" · ")}</p></div>
           </div>
+          <p className="small"><a href="#nisar">For researchers: explore NASA's NISAR data over Tuk, pass by pass</a></p>
           <details><summary className="small">Changes from the original plan ({validation.deviations?.length ?? 0})</summary>
             <ul className="small">{validation.deviations?.map((d, i) => <li key={i}><b>{d.what}.</b> {d.why}.</li>)}</ul>
           </details>
