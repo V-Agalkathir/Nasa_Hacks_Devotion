@@ -188,7 +188,7 @@ The hero tile counts passes over entries whose status is pass, partial or fail (
 **Strip and header**
 - Real-data strip: pill `REAL RESULTS`, text "Tests were fixed before we looked at the answers (tag prereg-eval). Every failed test is shown below with its number."
 - Demo banner (only when `mock: true`): pill `DEMO`, text "Demo data: every number on this page is simulated until the radar pipeline delivers."
-- Freshness line, exact: "Last radar pass: 11 Oct 2026, NISAR. Updates every 12 days, June to September." The date and sensor come from `manifest.latest_pass`. The season chip reads "Winter pause" from 1 Oct to 31 May and "Watching for passes" otherwise.
+- Freshness line, exact: "Last radar pass: 5 Oct 2025, Sentinel-1. Updates every 12 days, June to September." The date and sensor come from `manifest.latest_pass` (last usable pass). Second line: "NISAR passes are checked automatically; the 2026 summer gave no usable series." The season chip reads "Winter pause" from 1 Oct to 31 May and "Watching for passes" otherwise.
 
 **Hero**
 - H1: "Satellites can't yet certify ground in Tuk."
