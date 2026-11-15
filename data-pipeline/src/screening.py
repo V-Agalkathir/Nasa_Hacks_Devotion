@@ -54,6 +54,33 @@ def dist_m(mask, cfg):
     return ndimage.distance_transform_edt(~mask, sampling=(dy, dx))
 
 
+def flood_threshold(elev, sea):
+    """Priority-flood minimax: the lowest sea level at which each pixel floods via a connected path (8-neighbour)."""
+    import heapq
+    H, W = elev.shape
+    e = np.where(np.isfinite(elev), elev, 0.0).astype("float64")
+    cost = np.full((H, W), np.inf)
+    heap = []
+    ys, xs = np.nonzero(sea)
+    for y, x in zip(ys, xs):
+        cost[y, x] = 0.0
+        heap.append((0.0, int(y), int(x)))
+    heapq.heapify(heap)
+    nb = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
+    while heap:
+        c, y, x = heapq.heappop(heap)
+        if c > cost[y, x]:
+            continue
+        for dy, dx in nb:
+            yy, xx = y + dy, x + dx
+            if 0 <= yy < H and 0 <= xx < W:
+                nc = max(c, e[yy, xx])
+                if nc < cost[yy, xx]:
+                    cost[yy, xx] = nc
+                    heapq.heappush(heap, (nc, yy, xx))
+    return cost.astype("float32")
+
+
 def main():
     cfg = load_config()
     tr, H, W = grid(cfg)
@@ -75,6 +102,13 @@ def main():
         if ds:
             summers[int(y)] = read_grid_tif(mot / ds[-1]["file"])
     elev = read_grid_tif(feat / "elevation.tif")
+    fl_path = md / "flood_threshold.tif"
+    if fl_path.exists():
+        flood = read_grid_tif(fl_path)
+    else:
+        from common import write_tif
+        flood = flood_threshold(elev, read_grid_tif(feat / "distance_to_coast.tif") <= 0)
+        write_tif(cfg, fl_path, flood)
     occ = read_grid_tif(feat / "water_occurrence.tif")
     dco = read_grid_tif(feat / "distance_to_coast.tif")
     water = water_mask(cfg)
@@ -148,6 +182,10 @@ def main():
         el = elev[land]
         h_med = float(np.nanmedian(el))
         h_p10 = float(np.nanpercentile(el, 10))
+        fv = flood[land]
+        fv = fv[np.isfinite(fv)]
+        fl_p10 = float(np.percentile(fv, 10)) if fv.size else None
+        fl_med = float(np.median(fv)) if fv.size else None
         low_share = float((el < SC["surge_m"]).mean())
         wet = float(np.nanmean(wet_near[m]))
         d_hw_m = float(np.nanmin(d_hw[m]))
@@ -240,6 +278,8 @@ def main():
                 "coast": {"distance_to_sea_m": round(d_sea_m), "measured_change_m": None if coast_change is None else round(coast_change, 1),
                           "arrival": None, "arrival_note": "Arrival-year ranges hidden: the shoreline forecast failed its hindcast test",
                           "provenance": "measured"},
+                "flood": {"p10_m": None if fl_p10 is None else round(fl_p10, 2), "median_m": None if fl_med is None else round(fl_med, 2),
+                          "provenance": "measured (elevation) + bathtub model"},
                 "height": {"median_m": round(h_med, 1), "p10_m": round(h_p10, 1), "share_below_surge": round(low_share, 3),
                            "surge_reference_m": SC["surge_m"], "provenance": "measured"},
                 "wetness": {"water_share_250m": round(wet, 3), "provenance": "measured"},

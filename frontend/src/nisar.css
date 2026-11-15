@@ -1,39 +1,89 @@
-/* NISAR researcher view (#nisar). Builds on styles.css tokens and classes; everything here is prefixed nz-. */
-.nz-back { align-self: center; font-weight: 700; color: var(--text); white-space: nowrap; padding: 10px 12px; border: 1.5px solid var(--muted); border-radius: 8px; text-decoration: none; }
-.nz-back:hover { background: var(--inset); }
-.nz-back:focus-visible { outline: 3px solid var(--text); outline-offset: 2px; }
-.nz .tile { cursor: default; border: 1px solid var(--line); }
-.nz-net { overflow-x: auto; margin-top: 8px; }
-.nz-net svg { display: block; width: 100%; min-width: 680px; height: auto; }
-.nz-pair { cursor: pointer; }
-.nz-pair:focus-visible { outline: none; }
-.nz-pair:focus-visible path, .nz-pair:focus-visible rect, .nz-pair:focus-visible circle { stroke: var(--text); stroke-width: 4; }
-.nz-tick { font: 12px var(--sans); fill: var(--muted); }
-.nz-ann { font: italic 12px var(--sans); fill: var(--muted); }
-.nz-val { font: 700 12px var(--sans); fill: var(--text); }
-.nz-cols { margin-top: 16px; }
-.nz-side > .card:first-child { margin-top: 0; }
-.nz-map .map { height: 560px; }
-.nz-ramp { display: inline-block; width: 100%; height: 12px; border-radius: 3px; border: 1px solid #311E1033; }
-.nz-ramp-l { display: flex; justify-content: space-between; width: 100%; font-size: 12px; color: var(--muted); margin-top: -4px; }
-.nz-chart { display: block; width: 100%; max-width: 560px; height: auto; margin-top: 6px; }
-.nz-big { font-family: var(--serif); font-size: 34px; font-weight: 700; margin: 6px 0; }
-.nz-big small { font-family: var(--sans); font-size: 14px; font-weight: 400; color: var(--muted); margin-left: 6px; }
-.nz-dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; font-size: 14px; margin: 8px 0; }
-.nz-dl dt { color: var(--muted); font-weight: 700; } .nz-dl dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
-.nz-meta { gap: 8px 18px; }
-.nz-checks { list-style: none; padding: 0; margin: 8px 0; display: grid; gap: 8px; font-size: 14px; }
-.nz-checks li { display: flex; gap: 10px; align-items: center; }
-.nz-table td, .nz-table th { white-space: nowrap; } .nz-table td.small { white-space: normal; min-width: 200px; }
-.nz-table tr.nz-on td { background: var(--inset); }
-.nz-table button { min-height: 32px; padding: 2px 10px; font-size: 14px; }
-.nz-ids { font-size: 12px; padding-left: 18px; overflow-wrap: anywhere; }
-.nz-ids code { font-size: 11.5px; }
-@container (max-width: 720px) {
-  .nz-map .map { height: 420px; }
-  .nz-big { font-size: 28px; }
-  .nz-dl { grid-template-columns: 1fr; gap: 0 0; } .nz-dl dd { margin-bottom: 8px; }
-  .nz .hdr { flex-wrap: wrap; } .nz .hdr > div { flex-basis: 100%; }
-  .nz-back { padding: 8px 10px; font-size: 14px; }
+/* NISAR researcher view: additions on top of tool.css, from the design canvas (Nisar.dc.html). */
+
+/* NISAR researcher view: additions on top of the Ground Check tool stylesheet */
+.gk-sum span.l.warn{background:#FFFFFF;color:var(--dusk)}
+.nz-row{display:grid;grid-template-columns:44px minmax(0,1fr) 54px;gap:8px;align-items:center;width:100%;min-height:62px;padding:8px 14px;border:0;border-bottom:1px solid var(--line);background:none;text-align:left;cursor:pointer}
+.nz-row:hover{background:var(--icyt)}
+.nz-row.is-on{background:var(--icyt);box-shadow:inset 3px 0 0 var(--dusk)}
+.nz-st{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;font-family:'Geologica',system-ui,sans-serif;font-size:13px;font-weight:700}
+.nz-st.kept{background:var(--dusk);color:#fff}
+.nz-st.weak{background:var(--paper);color:var(--dusk);box-shadow:inset 0 0 0 2px var(--dusk);outline:2px dashed var(--dusk);outline-offset:-2px}
+.nz-st.drop{background:var(--paper);color:var(--ink);box-shadow:inset 0 0 0 2px var(--olive)}
+.nz-st.never{background:var(--paper2);color:var(--soft);outline:2px dotted var(--olive);outline-offset:-2px}
+.nz-cohbar{display:block;height:6px;margin-top:5px;border-radius:3px;background:var(--line);position:relative;overflow:hidden}
+.nz-cohbar i{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:var(--dusk)}
+.nz-cohbar em{position:absolute;top:-2px;bottom:-2px;left:35%;border-left:1.5px dashed var(--ink)}
+.nz-tl{left:14px;right:14px;bottom:14px;padding:10px 14px 8px}
+.nz-tl svg{display:block;width:100%;height:auto}
+.nz-tl text{font-family:'Atkinson Hyperlegible Next',Verdana,sans-serif}
+.nz-tl .tk{font-size:12px;fill:#46566A}
+.nz-tl .an{font-size:12px;font-style:italic;fill:#46566A}
+.nz-tl .mk{font-size:12.5px;font-weight:700;fill:#13243A}
+.nz-tl .vl{font-size:11.5px;font-weight:700;fill:#13243A}
+.nz-arc{cursor:pointer}
+.nz-tlh{display:flex;align-items:baseline;justify-content:space-between;gap:10px;font-size:12.5px;color:var(--soft)}
+.nz-tlh b{font-family:'Geologica',system-ui,sans-serif;font-size:14px;color:var(--ink)}
+.nz-tools2{display:flex;align-items:center;gap:8px}
+.nz-tools2 .dv{width:1px;height:24px;background:var(--line)}
+.nz-ramp{display:block;width:150px;height:10px;border-radius:3px;box-shadow:inset 0 0 0 1px rgba(19,36,58,.15)}
+.nz-rampl{display:flex;justify-content:space-between;width:150px;font-size:11.5px}
+.nz-legend{max-width:200px}
+.nz-split{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line2)}
+.nz-split > div{position:relative;background:var(--sea);overflow:hidden}
+.nz-split svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.nz-split .lbl{position:absolute;left:50%;top:70px;transform:translateX(-50%);padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.96);font-size:12.5px;font-weight:700;color:var(--dusk);white-space:nowrap;box-shadow:0 1px 2px rgba(19,36,58,.08),0 8px 24px rgba(19,36,58,.12)}
+.nz-mapmsg{left:50%;top:50%;transform:translate(-50%,-50%);max-width:320px;padding:16px 18px;font-size:13.5px;color:var(--ink);text-align:center}
+.nz-mapmsg b{display:block;font-family:'Geologica',system-ui,sans-serif;font-size:15px;margin-bottom:4px}
+.nz-strip{position:relative;height:66px;margin:8px 8px 0}
+.nz-strip .ax{position:absolute;left:0;right:0;top:46px;height:2px;background:var(--line2)}
+.nz-strip .rw{position:absolute;left:0;right:0;height:0}
+.nz-dot{position:absolute;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%}
+.nz-dot.n{background:var(--paper);box-shadow:inset 0 0 0 2.5px var(--dusk)}
+.nz-dot.s{background:var(--olive)}
+.nz-dot.on{background:var(--dusk);width:16px;height:16px;margin:-8px 0 0 -8px;box-shadow:0 0 0 2px #fff,0 0 0 4px var(--dusk);z-index:2}
+.nz-strip .th{position:absolute;top:2px;height:50px;border-left:1.5px dashed var(--ink)}
+.nz-strip .tl{position:absolute;top:52px;font-size:11.5px;color:var(--soft);transform:translateX(-50%);white-space:nowrap}
+.nz-key{display:flex;flex-wrap:wrap;gap:6px 14px;padding:14px 8px 0;font-size:12.5px;color:var(--soft)}
+.nz-key span{display:inline-flex;align-items:center;gap:7px}
+.nz-key .nz-dot{position:static;margin:0}
+.nz-box{margin:12px 18px 0;padding:12px 14px;border-radius:14px;background:var(--paper2);font-size:13px;line-height:1.45;color:var(--soft)}
+.nz-box b{color:var(--ink)}
+.nz-fail{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;background:var(--ink);color:#fff;font-size:12px;font-weight:700}
+.nz-big{font-family:'Geologica',system-ui,sans-serif;font-size:30px;font-weight:700;color:var(--dusk);line-height:1}
+.nz-sec{padding:16px 18px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+.nz-sec h3{font-size:16px;font-weight:600}
+.nz-sec p{font-size:13.5px;color:var(--soft)}
+.nz-out{display:grid;grid-template-columns:96px minmax(0,1fr);gap:4px 12px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.nz-out .w{font-family:'Geologica',system-ui,sans-serif;font-size:13.5px;font-weight:700;color:var(--dusk)}
+.nz-out b{font-size:14px}
+.nz-out p{grid-column:2;font-size:13px;color:var(--soft)}
+.nz-chk{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:13.5px}
+.nz-chk i{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;font-style:normal;font-size:12px;font-weight:700}
+.nz-chk i.ok{background:var(--dusk);color:#fff}
+.nz-chk i.no{background:var(--paper);box-shadow:inset 0 0 0 1.5px var(--olive)}
+.nz-dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 14px;margin:8px 0 0;font-size:13.5px}
+.nz-dl dt{font-weight:700;color:var(--ink)}
+.nz-dl dd{margin:0;color:var(--soft)}
+@media (max-width: 760px){
+  .nz-tl{display:none}
+  .nz-legend{display:none}
+  .nz-tools2 .dv,.nz-zoom{display:none}
+  .nz-split{grid-template-columns:1fr;grid-template-rows:1fr 1fr}
+  .nz-split .lbl{top:8px}
+  .gk-tools{right:8px}
+  .gk-seg button{padding:0 9px;font-size:12.5px}
+  .nz-dl{grid-template-columns:minmax(0,1fr)}
 }
-.nz-outlook { margin: 8px 0; padding-left: 20px; display: grid; gap: 6px; font-size: 14px; }
+.nz-zoomov{left:14px;top:70px;padding:5px}
+.nz-split .lbl{top:auto;bottom:226px}
+.nz-legend{width:214px;max-width:214px}
+.nz-ramp,.nz-rampl{width:184px}
+.nz-rampl{font-size:11.5px;white-space:nowrap}
+.nz-tl .tk{font-size:17px}
+.nz-tl .an{font-size:16px}
+.nz-tl .mk{font-size:17px}
+.nz-tl .vl{font-size:16px}
+@media (max-width: 760px){ .nz-zoomov{display:none} .nz-split .lbl{bottom:auto;top:62px} }
+.nz-iono{margin:0 18px 12px;padding:12px 14px;border-radius:14px;background:var(--paper);box-shadow:inset 0 0 0 1.5px var(--olive);font-size:13px;line-height:1.45;color:var(--ink)}
+.nz-arc:focus-visible{outline:none}
+.nz-arc:focus-visible path{stroke:#13243A}

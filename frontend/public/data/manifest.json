@@ -1,6 +1,6 @@
 {
  "schema": 2,
- "generated_at": "2026-11-15T16:05:47Z",
+ "generated_at": "2026-11-15T19:20:40Z",
  "mock": false,
  "area": {
   "name": "Tuktoyaktuk and the Inuvik\u2013Tuktoyaktuk Highway corridor",
@@ -259,7 +259,8 @@
   "boreholes": "boreholes.geojson",
   "timeseries": "timeseries.json",
   "validation": "validation.json",
-  "coastline": "coastline.geojson"
+  "coastline": "coastline.geojson",
+  "tool": "tool.json"
  },
  "provenance": {
   "measured": "From satellite or survey data",

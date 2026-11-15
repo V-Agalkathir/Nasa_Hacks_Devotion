@@ -1,7 +1,5 @@
 import React, { Suspense, lazy, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
-import "maplibre-gl/dist/maplibre-gl.css";
-import "./styles.css";
 import App from "./App.jsx";
 
 // #nisar opens the researcher view; it loads on demand so the main page's first load stays small.
@@ -15,7 +13,7 @@ function Root() {
     return () => window.removeEventListener("hashchange", on);
   }, []);
   if (hash === "#nisar") {
-    return <Suspense fallback={<div className="loading" role="status">Loading the NISAR diagnostics…</div>}><NisarView /></Suspense>;
+    return <Suspense fallback={<div className="gk"><div className="gk-wait" role="status"><p>Loading the NISAR view…</p></div></div>}><NisarView /></Suspense>;
   }
   return <App />;
 }
