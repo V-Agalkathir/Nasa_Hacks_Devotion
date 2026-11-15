@@ -56,6 +56,7 @@ jobs:
           mkdir -p data/interim/context data/interim/screening
           cp static/context/*.geojson data/interim/context/
           cp static/screening/*.geojson data/interim/screening/
+          mkdir -p data/raw/boreholes/Result && cp static/boreholes/* data/raw/boreholes/Result/
 
       - name: Earthdata login file
         if: env.EARTHDATA_USER != '' && env.MODE == 'full'
@@ -86,6 +87,7 @@ jobs:
           python radar_stack.py --stack s1_p137 --s1-deramp
           python run_models.py
           python screening.py
+          python borehole_check.py
           python export_web_v2.py
 
       - name: Validation gate

@@ -1,0 +1,1208 @@
+﻿SITE_ID,DEPTH_M,SOIL_BOTTOM_M,BOUNDARY,SOIL_DESCRIPTION,ROCK_DEPTH_M,COMMENTS
+177_Pit_NTGS11,0,6.3,,"CLAY (TILL) - silty, sandy, trace gravel, brown",,TILL ; Value in BOUNDARY field in Open Report: 0
+177_Pit_NTGS11,2.4,,,- gravel to 40 mm diameter,,
+177_Pit_NTGS11,6,,,- (Gravel - 2%; Sand - 45%; Silt - 34%; Clay - 20%),,
+177_Pit_NTGS11,6.3,10.1,,"SAND - gravelly, some silt, gravel to 50 mm diameter",,SP ; Value in BOUNDARY field in Open Report: 0
+177_Pit_NTGS11,8.5,,,"- trace fines, friable",,
+177_Pit_NTGS11,9,,,- (Gravel 7%; Sand - 24%; Silt - 46%; Clay - 24%),,
+177_Pit_NTGS11,10.1,,,END OF BOREHOLE   (10.10 metres);;   25 mm diameter PVC pipe installed to 10.00 metres for installation of future ground temperature cable.,,Value in BOUNDARY field in Open Report: 0
+177_Pond_NTGS12,0,0.2,,"PEAT - surface vegetation, roots, grass, organic odour, (200 mm thick)",,PEAT ; Value in BOUNDARY field in Open Report: 0
+177_Pond_NTGS12,0.2,0.9,,"ICE AND PEAT - brown, organic odour",,PEAT ; Value in BOUNDARY field in Open Report: 0
+177_Pond_NTGS12,0.9,3,,ICE AND CLAY - brown,,TILL ; Value in BOUNDARY field in Open Report: 0
+177_Pond_NTGS12,1.2,,,- becomes grey,,
+177_Pond_NTGS12,2.99,,,- (Gravel - 1%; Sand - 17%; Silt - 51%; Clay - 30%),,
+177_Pond_NTGS12,3,9.9,,"CLAY (TILL)- silty, some sand, some gravel, grey, gravel to 50 mm diameter",,CL ; Value in BOUNDARY field in Open Report: 0
+177_Pond_NTGS12,4.6,,,"- sandy, gravelly, medium plastic, brown",,
+177_Pond_NTGS12,7.5,,,- (Gravel - 35%; Sand - 46%; Clay & Silt - 19%),,
+177_Pond_NTGS12,8.5,,,- faint organic odour,,
+177_Pond_NTGS12,9.9,10.1,,ICE AND TILL - dark brown,,TILL ; Value in BOUNDARY field in Open Report: 0
+177_Pond_NTGS12,10.1,,,END OF BOREHOLE   (10.10 metres);;   25 mm diameter PVC pipe installed to 10.00 metres for installation of future ground temperature cable.,,Value in BOUNDARY field in Open Report: 0
+312_Pit_NTGS13,0,0.1,,"GRAVEL - some sand, (100 mm thick)",,GP ; Value in BOUNDARY field in Open Report: 0
+312_Pit_NTGS13,0.1,2.4,,"SAND - gravelly, trace fines, friable",,SP ; Value in BOUNDARY field in Open Report: 0
+312_Pit_NTGS13,2.4,3.9,,"CLAY - trace sand, trace gravel, low to medium plastic, brown",,CL ; Value in BOUNDARY field in Open Report: 0
+312_Pit_NTGS13,3,,,- (Gravel - 0%; Sand - 2%; Silt - 75%; Clay - 22%),,
+312_Pit_NTGS13,3.9,10.1,,"SAND - trace silt, trace gravel",,SP ; Value in BOUNDARY field in Open Report: 0
+312_Pit_NTGS13,5.4,,,"- gravelly, trace fines",,
+312_Pit_NTGS13,7,,,- black,,
+312_Pit_NTGS13,7.5,,,- (Gravel - 8%; Sand - 86%; Clay & Silt - 6%),,
+312_Pit_NTGS13,10.1,,,END OF BOREHOLE   (10.10 metres);;   25 mm diameter PVC pipe installed to 10.00 metres for installation of future ground temperature cable.,,Value in BOUNDARY field in Open Report: 0
+312_Pond_NTGS14,0,,,Borehole was not drilled at NTGS's direction. The proposed borehole was moved to Husky Lakes and became HUS_Slump_NTGS17.,,Value in BOUNDARY field in Open Report: 0
+Gunghi_BH-01,0,3,,"SAND (FILL) - silty, some clay, trace to some gravel, brown, gravel to 40 mm diameter",,FILL ; Value in BOUNDARY field in Open Report: 0
+Gunghi_BH-01,1.2,,,- cohesionless,,
+Gunghi_BH-01,2.5,,,- (Gravel -  8%; Sand - 52%; Silt - 29%; Clay - 11%),,
+Gunghi_BH-01,2.6,,,"- trace organics, wood chips",,
+Gunghi_BH-01,3,3.1,,"ORGANICS - peat, moss, roots",,OH ; Value in BOUNDARY field in Open Report: 0
+Gunghi_BH-01,3.1,8.1,,"CLAY (TILL) - silty, sandy, trace gravel, trace organics (peat and moss), soft when thawed, dark brown, frozen",,TILL ; Value in BOUNDARY field in Open Report: 0
+Gunghi_BH-01,3.8,,,"- medium plastic, dark grey",,
+Gunghi_BH-01,5.5,,,- (Gravel - 5%; Sand - 13%; Silt - 51%; Clay - 31%),,
+Gunghi_BH-01,6.7,,,- dark grey brown,,
+Gunghi_BH-01,8.1,18,,"SAND - some silt, trace gravel, friable",,SP ; Value in BOUNDARY field in Open Report: 0
+Gunghi_BH-01,9,,,- no visible gravel,,
+Gunghi_BH-01,9.001,,,- (Gravel - 0%; Sand - 87%; Clay & Silt - 13%),,
+Gunghi_BH-01,9.9,,,- brown,,
+Gunghi_BH-01,11.4,,,- fine sand,,
+Gunghi_BH-01,15,,,- trace clay,,
+Gunghi_BH-01,15.001,,,"- (Gravel - 0%; Sand - 84%, Clay & Silt - 16%)",,
+Gunghi_BH-01,17.6,,,"- silty, some cohesion, various grey clay pockets",,
+Gunghi_BH-01,18,18.3,,CLAY,,CL ; Value in BOUNDARY field in Open Report: 0
+Gunghi_BH-01,18.001,,,"- (Gravel - 0%; Sand - 35%, Clay & Silt - 65%)",,
+Gunghi_BH-01,18.3,20.4,,"SAND - silty, trace gravel, some cohesion, brown, various grey clay pockets, fine sand",,SP ; Value in BOUNDARY field in Open Report: 0
+Gunghi_BH-01,20.4,,,"END OF BOREHOLE   (20.40 metres);;   25 mm diameter PVC pipe installed to 20.4 metres. Three single bead thermistor strings installed to 9.0, 15.0 and 20.0 m depths.;;   Readings taken March 15, 2017;;      at 9.0 m, temperature is -3.3°C;;      at 15.0 m, temperature is -3.8°C;;      at 20.0 m, temperature is -4.2°C",,Value in BOUNDARY field in Open Report: 0
+Gunghi_BH-02,0,3,,"SAND AND GRAVEL (FILL) - silty, trace clay, brown, gravel to 40 mm diameter",,FILL ; Value in BOUNDARY field in Open Report: 0
+Gunghi_BH-02,2,,,- (Gravel - 38%; Sand - 30%; Silt - 30%; Clay - 3%),,
+Gunghi_BH-02,3,12,,"CLAY (TILL) - silty, some sand, trace clay, trace gravel, soft when thawed, medium plastic, grey brown",,TILL ; Value in BOUNDARY field in Open Report: 0
+Gunghi_BH-02,4,,,- grey,,
+Gunghi_BH-02,4.4,,,"- medium plastic, frozen",,
+Gunghi_BH-02,6.6,,,"- trace gravel, trace sand",,
+Gunghi_BH-02,7.5,,,- (Gravel - 6%; Sand - 15%; Silt - 52%; Clay - 28%),,
+Gunghi_BH-02,9.9,,,"- some gravel, some sand, dark grey",,
+Gunghi_BH-02,12,12.9,,GRAVEL AND SAND - some fines,,SP ; Value in BOUNDARY field in Open Report: 0
+Gunghi_BH-02,12.001,12.9,,,,
+Gunghi_BH-02,12.9,18,,"SAND - some silt and clay, moist, brown",,SP ; Value in BOUNDARY field in Open Report: 0
+Gunghi_BH-02,13.5,,,- (Gravel - 0%; Sand - 87%; Clay & Silt - 13%),,
+Gunghi_BH-02,14.4,,,"- some silt, trace gravel, friable",,
+Gunghi_BH-02,15.9,,,- some grey clay,,
+Gunghi_BH-02,17.4,,,"- clayey, dark grey clay",,
+Gunghi_BH-02,18,18.3,,"CLAY - trace sand, trace gravel, dark brown",,CL ; Value in BOUNDARY field in Open Report: 0
+Gunghi_BH-02,18.3,20.4,,"SAND AND SILT - some clay, friable, brown",,SP ; Value in BOUNDARY field in Open Report: 0
+Gunghi_BH-02,18.301,20.4,,,,
+Gunghi_BH-02,19.2,,,"- trace clay, cohesive, dark brown peat, faint organic odour",,
+Gunghi_BH-02,19.5,,,- (Gravel - 0%; Sand - 48%; Silt - 40%; Clay - 12%),,
+Gunghi_BH-02,19.8,,,"- clayey, friable, dark grey clay",,
+Gunghi_BH-02,20.4,,,"END OF BOREHOLE   (20.4 metres);;   25 mm diameter PVC pipe installed to 20.4 metres. Three single bead thermistor strings installed to 9.0, 13.0 and 15.0 m depths.;;   Readings taken march 15, 2017;;      at 9.0 m, temperature is -2.7°C;;      at 13.0 m, temperature is -4.0°C;;      at 15.0 m, temperature is -3.9°C",,Value in BOUNDARY field in Open Report: 0
+HUS_H_NTGS7,0,0.1,,"ORGANICS - roots, moss, (100 mm thick)",,OH ; Value in BOUNDARY field in Open Report: 0
+HUS_H_NTGS7,0.1,0.4,,"PEAT - brown, (300 mm thick)",,PEAT ; Value in BOUNDARY field in Open Report: 0
+HUS_H_NTGS7,0.4,0.9,,"ICE AND PEAT - brown, slight organic odour",,PEAT ; Value in BOUNDARY field in Open Report: 0
+HUS_H_NTGS7,0.9,2.4,,"SAND - trace gravel, brown",,SP ; Value in BOUNDARY field in Open Report: 0
+HUS_H_NTGS7,2.4,5.7,,"CLAY (TILL) - silty, some sand, some gravel, medium plastic, grey",,TILL ; Value in BOUNDARY field in Open Report: 0
+HUS_H_NTGS7,3.9,,,- gravelly,,
+HUS_H_NTGS7,4.5,,,- (Gravel - 24%; Sand - 20%; Silt - 33%; Clay - 23%),,
+HUS_H_NTGS7,5.7,7,,"ICE AND GRAVEL - trace sand, gravel to 75 mm diameter",,GP ; Value in BOUNDARY field in Open Report: 0
+HUS_H_NTGS7,7,17.6,,"SAND - gravelly, trace fines",,SP ; Value in BOUNDARY field in Open Report: 0
+HUS_H_NTGS7,9.1,,,- gravel to 75 mm diameter,,
+HUS_H_NTGS7,11.5,,,- friable,,
+HUS_H_NTGS7,12,,,- (Gravel - 53%; Sand - 37%; Clay & Silt - 10%),,
+HUS_H_NTGS7,17.6,20.1,,ICE AND GRAVEL - trace sand,,GP ; Value in BOUNDARY field in Open Report: 0
+HUS_H_NTGS7,20.1,,,END OF BOREHOLE   (20.10 metres);;   25 mm diameter PVC pipe installed to 20.00 metres for installation of future ground temperature cable.,,Value in BOUNDARY field in Open Report: 0
+HUS_P_NTGS8,0,0.9,,"ICE AND ORGANICS - roots, grass, peat, brown, organic odour",,OH ; Value in BOUNDARY field in Open Report: 0
+HUS_P_NTGS8,0.9,1.5,,ICE AND PEAT - brown,,PEAT ; Value in BOUNDARY field in Open Report: 0
+HUS_P_NTGS8,1.5,5.4,,PEAT - brown,,PEAT ; Value in BOUNDARY field in Open Report: 0
+HUS_P_NTGS8,2.2,,,- organic odour,,
+HUS_P_NTGS8,5.39,,,- small seashells,,
+HUS_P_NTGS8,5.4,6.1,,"SILT AND CLAY - medium plastic, grey",,CL ; Value in BOUNDARY field in Open Report: 0
+HUS_P_NTGS8,5.401,6.1,,,,
+HUS_P_NTGS8,6,,,- (Gravel - 0%; Sand - 0%; Silt - 63%; Clay - 37%),,
+HUS_P_NTGS8,6.1,10.4,,ICE AND CLAY - grey,,CL ; Value in BOUNDARY field in Open Report: 0
+HUS_P_NTGS8,10.4,,,END OF BOREHOLE   (10.40 metres);;   25 mm diameter PVC pipe installed to 10.00 metres for installation of future ground temperature cable.,,Value in BOUNDARY field in Open Report: 0
+HUS_R_NTGS9,0,0.9,,"ORGANICS - peat, roots, wood chips, organic odour",,OH ; Value in BOUNDARY field in Open Report: 0
+HUS_R_NTGS9,0.9,5.4,,PEAT - brown,,PEAT ; Value in BOUNDARY field in Open Report: 0
+HUS_R_NTGS9,1.8,,,- organic odour,,
+HUS_R_NTGS9,4,,,"- trace sand, trace gravel",,
+HUS_R_NTGS9,5.4,10.1,,"CLAY (TILL) - silty, sandy, trace gravel, medium plastic, grey, very slight organic odour",,CL ; Value in BOUNDARY field in Open Report: 0
+HUS_R_NTGS9,7,,,"- dark grey, organic odour",,
+HUS_R_NTGS9,8.5,,,"- plastic, slight organic odour",,
+HUS_R_NTGS9,9,,,- (Gravel - 6%; Sand - 29%; Silt - 42%; Clay - 23%),,
+HUS_R_NTGS9,10.1,,,END OF BOREHOLE   (10.10 metres);;   25 mm diameter PVC pipe installed to 10.00 metres for installation of future ground temperature cable.,,Value in BOUNDARY field in Open Report: 0
+HUS_Slump_NTGS17,0,0.5,,PEAT - brown,,PEAT ; Value in BOUNDARY field in Open Report: 0
+HUS_Slump_NTGS17,0.3,,,- 75 mm diameter rock,,
+HUS_Slump_NTGS17,0.5,2.1,,"CLAY (TILL) - silty, trace sand, trace gravel, medium plastic, grey",,CL ; Value in BOUNDARY field in Open Report: 0
+HUS_Slump_NTGS17,1.5,,,- (Gravel - 7%; Sand - 20%; Silt - 52%; Clay - 22%),,
+HUS_Slump_NTGS17,2.1,2.4,,"ICE AND CLAY - trace sand, trace gravel, grey, slight organic odour",,CL ; Value in BOUNDARY field in Open Report: 0
+HUS_Slump_NTGS17,2.4,2.5,,CLAY - grey,,CL ; Value in BOUNDARY field in Open Report: 0
+HUS_Slump_NTGS17,2.5,3.3,,ICE AND SILT,,ML ; Value in BOUNDARY field in Open Report: 0
+HUS_Slump_NTGS17,3.3,3.6,,ICE AND SAND AND GRAVEL,,SP ; Value in BOUNDARY field in Open Report: 0
+HUS_Slump_NTGS17,3.301,,,,,
+HUS_Slump_NTGS17,3.6,3.9,,"CLAY - trace gravel, grey",,CL ; Value in BOUNDARY field in Open Report: 0
+HUS_Slump_NTGS17,3.9,5.4,,ICE,,Value in BOUNDARY field in Open Report: 0
+HUS_Slump_NTGS17,5.4,9.1,,ICE AND SAND,,SP ; Value in BOUNDARY field in Open Report: 0
+HUS_Slump_NTGS17,6,,,- (Gravel - 16%; Sand - 59%; Clay & Silt - 25%),,
+HUS_Slump_NTGS17,6.1,,,- trace gravel,,
+HUS_Slump_NTGS17,8.5,9.1,,"SAND AND GRAVEL - friable, gravel to 75 mm diameter",,GP ; Value in BOUNDARY field in Open Report: 0
+HUS_Slump_NTGS17,9.1,10.5,,ICE AND SAND,,SP ; Value in BOUNDARY field in Open Report: 0
+HUS_Slump_NTGS17,10.5,,,END OF BOREHOLE   (10.50 metres);;   25 mm diameter PVC pipe installed to 10.00 metres for installation of future ground temperature cable.,,Value in BOUNDARY field in Open Report: 0
+I401A_Pit_NTGS15,0,0.9,,"SILT - sandy, some gravel, some cohesion",,ML ; Value in BOUNDARY field in Open Report: 0
+I401A_Pit_NTGS15,0.3,,,"- brown peat, roots",,
+I401A_Pit_NTGS15,0.9,5.9,,"CLAY - silty, some sand, trace gravel, dark grey",,CL ; Value in BOUNDARY field in Open Report: 0
+I401A_Pit_NTGS15,1.5,,,- (Gravel - 3%; Sand - 16%; Silt - 63%; Clay - 19%),,
+I401A_Pit_NTGS15,1.501,,,- (Gravel - 1%; Sand - 22%; Clay & Silt - 77%),,
+I401A_Pit_NTGS15,3.1,,,- low plastic,,
+I401A_Pit_NTGS15,4.5,,,- (Gravel - 2%; Sand - 9%; Silt - 45%; Clay - 45%),,
+I401A_Pit_NTGS15,4.8,,,- orange oxidation,,
+I401A_Pit_NTGS15,4.9,,,- powdery beige material,,
+I401A_Pit_NTGS15,5.9,10.1,,"SHALE - crumbly, powdery, cohesionless, dark grey",,SHALE ; Value in BOUNDARY field in Open Report: 0
+I401A_Pit_NTGS15,10.1,,,END OF BOREHOLE   (10.10 metres);;   25 mm diameter PVC pipe installed to 10.00 metres for installation of future ground temperature cable.,,Value in BOUNDARY field in Open Report: 0
+I401A_Upper_NTGS16,0,0.5,,"SAND - some gravel, trace silt, friable",,SP ; Value in BOUNDARY field in Open Report: 0
+I401A_Upper_NTGS16,0.5,3.9,,"SILT (TILL) - sandy, some gravel, cohesive, brown",,ML ; Value in BOUNDARY field in Open Report: 0
+I401A_Upper_NTGS16,1.2,,,"- trace gravel, friable",,
+I401A_Upper_NTGS16,2.4,,,"- some gravel, some cohesion",,
+I401A_Upper_NTGS16,3,,,- (Gravel - 33%; Sand - 39%; Clay & Silt - 28%),,
+I401A_Upper_NTGS16,3.9,4.6,,"CLAY - trace gravel, dark brown",,CL ; Value in BOUNDARY field in Open Report: 0
+I401A_Upper_NTGS16,4.6,5.3,,ICE,,Value in BOUNDARY field in Open Report: 0
+I401A_Upper_NTGS16,5.3,9.5,,"CLAY - some sand, trace gravel, medium plastic, stiff, dark grey",,CL ; Value in BOUNDARY field in Open Report: 0
+I401A_Upper_NTGS16,5.5,,,- some gravel,,
+I401A_Upper_NTGS16,9,,,- (Gravel - 0%; Sand - 20%; Silt - 62%; Clay - 17%),,
+I401A_Upper_NTGS16,9.5,9.9,,ICE,,Value in BOUNDARY field in Open Report: 0
+I401A_Upper_NTGS16,9.9,10.1,,"CLAY - some gravel, cohesive, stiff, dark grey",,CL ; Value in BOUNDARY field in Open Report: 0
+I401A_Upper_NTGS16,10.1,,,END OF BOREHOLE   (10.10 metres);;   25 mm diameter PVC pipe installed to 10.00 metres for installation of future ground temperature cable.,,Value in BOUNDARY field in Open Report: 0
+INU_H_NTGS2,0,0.2,,"ORGANICS - roots, moss, topsoil, (200 mm thick)",,OH ; Value in BOUNDARY field in Open Report: 0
+INU_H_NTGS2,0.2,1.5,,"PEAT - trace roots, brown, slight organic odour",,PEAT ; Value in BOUNDARY field in Open Report: 0
+INU_H_NTGS2,0.5,,,- friable,,
+INU_H_NTGS2,1.2,,,"- trace sand, trace gravel, organic odour",,
+INU_H_NTGS2,1.5,7.2,,"SAND - gravelly, some fines, orange, oxidized",,SP ; Value in BOUNDARY field in Open Report: 0
+INU_H_NTGS2,2.4,,,"- silty, some gravel, some cohesion, grey",,
+INU_H_NTGS2,3.6,,,"- gravelly, dark grey",,
+INU_H_NTGS2,6,,,- (Gravel - 23%; Sand - 56%; Clay & Silt - 21%),,
+INU_H_NTGS2,7.2,10.2,,"CLAY (TILL) - some sand, some gravel, grey",,TILL ; Value in BOUNDARY field in Open Report: 0
+INU_H_NTGS2,8.4,,,- 100 mm thick ice lens,,
+INU_H_NTGS2,8.5,,,- trace gravel,,
+INU_H_NTGS2,9.7,,,- 300 mm thick ice lens,,
+INU_H_NTGS2,10,,,- trace sand,,
+INU_H_NTGS2,10.2,10.6,,ICE - grey clay,,Value in BOUNDARY field in Open Report: 0
+INU_H_NTGS2,10.6,12.5,,"CLAY (TILL) - sandy, gravelly, grey",,TILL ; Value in BOUNDARY field in Open Report: 0
+INU_H_NTGS2,10.9,,,- 100 mm thick ice lens,,
+INU_H_NTGS2,11,,,- sandy,,
+INU_H_NTGS2,11.8,,,- 500 mm thick ice lens,,
+INU_H_NTGS2,12.001,,,- (Gravel - 43%; Sand - 49%; Silt & Clay - 7%),,
+INU_H_NTGS2,12.5,20.7,,ICE AND CLAY (TILL) - dark grey,,TILL ; Value in BOUNDARY field in Open Report: 0
+INU_H_NTGS2,15.4,,,"- 100 mm thick clay layer - cohesive, grey",,
+INU_H_NTGS2,17.7,,,- grey,,
+INU_H_NTGS2,18.7,,,- 200 mm thick clay layer - dark grey,,
+INU_H_NTGS2,19.5,,,- (Gravel - 0%; Sand - 6%; Silt - 52%; Clay - 42%),,
+INU_H_NTGS2,20.7,,,END OF BOREHOLE   (20.70 metres);;   25 mm diameter PVC pipe installed to 20.00 metres for installation of future ground temperature cable.,,Value in BOUNDARY field in Open Report: 0
+INU_P_NTGS1,0,0.1,,"PEAT - roots, moss, grass, brown, (100 mm thick)",,PEAT ; Value in BOUNDARY field in Open Report: 0
+INU_P_NTGS1,0.1,2.2,,"ICE AND PEAT - brown, organic odour",,PEAT ; Value in BOUNDARY field in Open Report: 0
+INU_P_NTGS1,2.2,2.8,,ICE,,Value in BOUNDARY field in Open Report: 0
+INU_P_NTGS1,2.8,3,,ICE AND PEAT - brown,,PEAT ; Value in BOUNDARY field in Open Report: 0
+INU_P_NTGS1,3,6.4,,ICE,,Value in BOUNDARY field in Open Report: 0
+INU_P_NTGS1,5.9,,,- grey soil (till) inclusions,,
+INU_P_NTGS1,6.4,6.8,,ICE AND CLAY - grey,,TILL ; Value in BOUNDARY field in Open Report: 0
+INU_P_NTGS1,6.8,7.9,,CLAY (TILL) - grey,,TILL ; Value in BOUNDARY field in Open Report: 0
+INU_P_NTGS1,7.9,10.1,,"ICE AND CLAY (TILL) - medium to high plastic clay, grey",,TILL ; Value in BOUNDARY field in Open Report: 0
+INU_P_NTGS1,9,,,- (Gravel - 5%; Sand - 5%; Silt - 54%; Clay - 36%),,
+INU_P_NTGS1,10.1,,,END OF BOREHOLE   (10.10 metres);;   25 mm diameter PVC pipe installed to 10.00 metres for installation of future ground temperature cable.,,Value in BOUNDARY field in Open Report: 0
+INU_R_NTGS3,0,0.8,,"PEAT - brown, organic odour",,PEAT ; Value in BOUNDARY field in Open Report: 0
+INU_R_NTGS3,0.8,2.8,,"ICE AND PEAT - brown, organic odour",,Value in BOUNDARY field in Open Report: 0
+INU_R_NTGS3,2.8,3,,ICE,,Value in BOUNDARY field in Open Report: 0
+INU_R_NTGS3,3,3.8,,"CLAY (TILL) AND ICE - some sand, trace gravel, brown",,TILL ; Value in BOUNDARY field in Open Report: 0
+INU_R_NTGS3,3.001,,,- (Gravel - 13%; Sand - 26%; Silt - 39%; Clay - 23%),,
+INU_R_NTGS3,3.8,8.5,,"CLAY (TILL) - trace sand, trace gravel, medium plastic, dark grey",,TILL ; Value in BOUNDARY field in Open Report: 0
+INU_R_NTGS3,5.4,,,- stiff,,
+INU_R_NTGS3,5.9,,,- becomes sandy and gravelly,,
+INU_R_NTGS3,6.7,,,"- crumbly, brittle",,
+INU_R_NTGS3,7.5,,,- (Gravel - 24%; Sand - 31%; Clay & Silt - 45%),,
+INU_R_NTGS3,8.5,9.1,,"PEAT - trace organics, roots, brown, slight organic odour",,PEAT ; Value in BOUNDARY field in Open Report: 0
+INU_R_NTGS3,9.1,10.6,,"CLAY (TILL) - silty, trace sand, trace gravel, dark grey",,TILL ; Value in BOUNDARY field in Open Report: 0
+INU_R_NTGS3,10.6,,,END OF BOREHOLE   (10.60 metres);;   25 mm diameter PVC pipe installed to 10.00 metres for installation of future ground temperature cable.,,Value in BOUNDARY field in Open Report: 0
+ITH-01,0,2.44,,"GRAVEL AND SAND (EMBANKMENT) - some silt, cobbles disseminated throughout",,FILL ; Value in BOUNDARY field in Open Report: 0
+ITH-01,2.44,2.6,,SILT (ORIGINAL GROUND)- some sand,,ML ; Value in BOUNDARY field in Open Report: 0
+ITH-01,2.6,3.35,,"CLAY - some silt, some sand, some gravel",,CL ; Value in BOUNDARY field in Open Report: 0
+ITH-01,2.7,,,- (Gravel - 11%; Sand - 25%; Clay & Silt - 64%),,
+ITH-01,3.35,4,,SILT - some sand,,ML ; Value in BOUNDARY field in Open Report: 0
+ITH-01,4,4.9,,"CLAY - silty, medium plastic",,CL ; Value in BOUNDARY field in Open Report: 0
+ITH-01,4.6,,,- (Gravel - 0%; Sand - 5%; Silt - 43%; Clay - 53%),,
+ITH-01,4.9,,,SOIL_DESCRIPTION too long: see COMMENTS,,"Value in BOUNDARY field in Open Report: 0 ; SOIL_DESCRIPTION in Open Report (>500char): END OF BOREHOLE   (4.90 metres);;Notes:;;   1. 25 mm diameter PVC pipe installed to 4.90 metres and to shoulder of embankment to support thermistor string.;;   2. Thermistor string #2573 vertically installed to 4.90 metres below surface of embankment and horizontally extended to shoulder of embankment.;;   3. Thermistor string total length is 15.5 metres, with 13 beads and 5.5 metres lead length. 5 beads at 0.5 m spacing, 8 beads at 1.0 m spacing.;;   4. 7 beads vertically installed, 6 beads horizontally installed.;;   5. Original ground at 2.44 metres;;   6. The bead at 0.7 metres is offset 0.8 metres from vertical string."
+ITH-02,0,0.9,,GRAVEL AND SAND (EMBANKMENT) - silty,,FILL ; Value in BOUNDARY field in Open Report: 0
+ITH-02,0.001,,,- (Gravel - 34%; Sand - 32%; Clay & Silt - 35%),,
+ITH-02,0.9,3,,"CLAY AND SILT (ORIGINAL GROUND) - trace sand, trace gravel, medium plastic",,CL ; Value in BOUNDARY field in Open Report: 0
+ITH-02,2.65,,,"- silty, trace sand",,
+ITH-02,2.7,,,- (Gravel - 0%; Sand - 4%; Silt - 46%; Clay - 51%),,
+ITH-02,3,,,SOIL_DESCRIPTION too long: see COMMENTS,,"Value in BOUNDARY field in Open Report: 0 ; SOIL_DESCRIPTION in Open Report (>500char): END OF BOREHOLE   (3.00 metres);;Notes:;;   1. 25 mm diameter PVC pipe installed to 3.00 metres and to shoulder of embankment to support thermistor string.;;   2. Thermistor string #2581 vertically installed to 3.00 metres below surface of embankment and horizontally extended to shoulder of embankment.;;   3. Thermistor string total length is 15.5 metres, with 13 beads and 5.5 metres lead length. 5 beads at 0.5 m spacing, 8 beads at 1.0 m spacing.;;   4. 5 beads vertically installed, 8 beads horizontally installed.;;   5. Original ground at 0.90 metres;;   6. The bead at 0.7 metres is offset 0.7 metres from vertical string."
+ITH-03,0,1,,GRAVEL AND SAND (EMBANKMENT) - some silt,,FILL ; Value in BOUNDARY field in Open Report: 0
+ITH-03,1,2.3,,"SILT (ORIGINAL GROUND) - some sand, trace gravel",,ML ; Value in BOUNDARY field in Open Report: 0
+ITH-03,2.3,3.1,,"CLAY - silty, trace sand, medium plastic",,CL ; Value in BOUNDARY field in Open Report: 0
+ITH-03,2.4,,,- (Gravel - 0%; Sand - 1%; Silt - 37%; Clay - 62%),,
+ITH-03,3.1,,,SOIL_DESCRIPTION too long: see COMMENTS,,"Value in BOUNDARY field in Open Report: 0 ; SOIL_DESCRIPTION in Open Report (>500char): END OF BOREHOLE   (3.10 metres);;Notes:;;   1. 25 mm diameter PVC pipe installed to 3.10 metres and to shoulder of embankment to support thermistor string.;;   2. Thermistor string #2577 vertically installed to 3.10 metres below surface of embankment and horizontally extended to shoulder of embankment.;;   3. Thermistor string total length is 15.5 metres, with 13 beads and 5.5 metres lead length. 5 beads at 0.5 m spacing, 8 beads at 1.0 m spacing.;;   4. 5 beads vertically installed, 8 beads horizontally installed.;;   5. Original ground at 1.00 metre.;;   6. The bead at 1.0 metre is offset 0.9 metres from vertical string."
+ITH-04,0,2.1,,GRAVEL AND SAND (EMBANKMENT) - some silt,,FILL ; Value in BOUNDARY field in Open Report: 0
+ITH-04,2.05,,,- (Gravel - 19%; Sand - 43%; Clay & Silt - 39%),,
+ITH-04,2.1,2.44,,SAND AND SILT (ORIGINAL GROUND) - some gravel,,FILL ; Value in BOUNDARY field in Open Report: 0
+ITH-04,2.44,3,,"SILT AND SAND - trace clay, organics",,ML ; Value in BOUNDARY field in Open Report: 0
+ITH-04,2.441,3,,,,
+ITH-04,2.7,,,- wood chunks,,
+ITH-04,3,4.6,,"CLAY - silty, trace sand, medium plastic",,CL ; Value in BOUNDARY field in Open Report: 0
+ITH-04,4.3,,,- (Gravel - 0%; Sand - 5%; Silt - 47%; Clay - 48%),,
+ITH-04,4.6,,,SOIL_DESCRIPTION too long: see COMMENTS,,"Value in BOUNDARY field in Open Report: 0 ; SOIL_DESCRIPTION in Open Report (>500char): END OF BOREHOLE   (4.60 metres);;Notes:;;   1. 25 mm diameter PVC pipe installed to 4.60 metres and to shoulder of embankment to support thermistor string.;;   2. Thermistor string #2584 vertically installed to 4.60 metres below surface of embankment and horizontally extended to shoulder of embankment.;;   3. Thermistor string total length is 15.5 metres, with 13 beads and 5.5 metres lead length. 5 beads at 0.5 m spacing, 8 beads at 1.0 m spacing.;;   4. 6 beads vertically installed, 7 beads horizontally installed.;;   5. Original ground at 2.44 metres.;;   6. The bead at 0.8 metres is offset 0.2 metres from vertical string."
+ITH-05,0,1.65,,"GRAVEL AND SAND (EMBANKMENT) - some silt, cobbles disseminated throughout",,FILL ; Value in BOUNDARY field in Open Report: 0
+ITH-05,1.65,3.66,,"SILT AND CLAY (ORIGINAL GROUND) - some sand, trace gravel",,ML ; Value in BOUNDARY field in Open Report: 0
+ITH-05,3.3,,,- (Gravel - 3%; Sand - 16%; Silt - 43%; Clay - 38%),,
+ITH-05,3.66,,,SOIL_DESCRIPTION too long: see COMMENTS,,"Value in BOUNDARY field in Open Report: 0 ; SOIL_DESCRIPTION in Open Report (>500char): END OF BOREHOLE   (3.66 metres);;Notes:;;   1. 25 mm diameter PVC pipe installed to 3.66 metres and to shoulder of embankment to support thermistor string.;;   2. Thermistor string #2582 vertically installed to 3.66 metres below surface of embankment and horizontally extended to shoulder of embankment.;;   3. Thermistor string total length is 15.5 metres, with 13 beads and 5.5 metres lead length. 5 beads at 0.5 m spacing, 8 beads at 1.0 m spacing.;;   4. 5 beads vertically installed, 8 beads horizontally installed.;;   5. Original ground at 1.65 metres;;   6. The bead at 0.9 metres is offset 0.2 metres from vertical string."
+ITH-06,0,2.1,,"SAND AND GRAVEL (EMBANKMENT) - some silt, cobbles disseminated throughout",,FILL ; Value in BOUNDARY field in Open Report: 0
+ITH-06,0.001,,,- (Gravel - 40%; Sand - 47%; Clay & Silt - 13%),,
+ITH-06,2.1,3.75,,ICE AND SILT (ORIGINAL GROUND) - some sand,,ML ; Value in BOUNDARY field in Open Report: 0
+ITH-06,3.35,,,"- organics, brown, woody",,
+ITH-06,3.75,3.95,,ICE,,Value in BOUNDARY field in Open Report: 0
+ITH-06,3.95,4.2,,ICE AND SILT - some sand,,ML ; Value in BOUNDARY field in Open Report: 0
+ITH-06,4.2,,,SOIL_DESCRIPTION too long: see COMMENTS,,"Value in BOUNDARY field in Open Report: 0 ; SOIL_DESCRIPTION in Open Report (>500char): END OF BOREHOLE   (4.20 metres);;Notes:;;   1. 25 mm diameter PVC pipe installed to 4.20 metres and to shoulder of embankment to support thermistor string.;;   2. Thermistor string #2583 vertically installed to 4.20 metres below surface of embankment and horizontally extended to shoulder of embankment.;;   3. Thermistor string total length is 15.5 metres, with 13 beads and 5.5 metres lead length. 5 beads at 0.5 m spacing, 8 beads at 1.0 m spacing.;;   4. 6 beads vertically installed, 7 beads horizontally installed.;;   5. Original ground at 2.10 metres;;   6. The bead at 0.9 metres is offset 0.7 metres from vertical string."
+ITH-07,0,2.1,,SAND AND GRAVEL (EMBANKMENT) - some silt,,FILL ; Value in BOUNDARY field in Open Report: 0
+ITH-07,2.1,2.7,,"SILT AND SAND (ORIGINAL GROUND) - trace gravel, dark grey to brown, subrounded gravel",,ML ; Value in BOUNDARY field in Open Report: 0
+ITH-07,2.101,2.7,,,,
+ITH-07,2.65,,,- (Gravel - 2%; Sand - 29%; Clay & Silt - 66%),,
+ITH-07,2.7,4.6,,"SILT AND ICE - clayey, some sand, trace gravel, trace organics",,ML ; Value in BOUNDARY field in Open Report: 0
+ITH-07,3.7,,,- (Gravel - 5%; Sand - 12%; Silt - 50%; Clay - 33%),,
+ITH-07,4.6,,,SOIL_DESCRIPTION too long: see COMMENTS,,"Value in BOUNDARY field in Open Report: 0 ; SOIL_DESCRIPTION in Open Report (>500char): END OF BOREHOLE   (4.60 metres);;Notes:;;   1. 25 mm diameter PVC pipe installed to 4.60 metres and to shoulder of embankment to support thermistor string.;;   2. Thermistor string #2574 vertically installed to 4.60 metres below surface of embankment and horizontally extended to shoulder of embankment.;;   3. Thermistor string total length is 15.5 metres, with 13 beads and 5.5 metres lead length. 5 beads at 0.5 m spacing, 8 beads at 1.0 m spacing.;;   4. 6 beads vertically installed, 7 beads horizontally installed.;;   5. Original ground at 2.10 metres;;   6. The bead at 1.1 metres is offset 0.5 metres from vertical string."
+ITH-08,0,2.44,,SAND AND GRAVEL (EMBANKMENT) - trace silt,,FILL ; Value in BOUNDARY field in Open Report: 0
+ITH-08,1.5,,,- (Gravel - 37%; Sand - 53%; Clay & Silt - 10%),,
+ITH-08,2.44,4,,"SILT AND SAND (ORIGINAL GROUND) - peat, light brown",,ML ; Value in BOUNDARY field in Open Report: 0
+ITH-08,2.441,4,,,,
+ITH-08,4,,,"SAND - some gravel, trace silt",,SP ; Value in BOUNDARY field in Open Report: 0
+ITH-08,4.001,,,- (Gravel - 14%; Sand - 86%; Clay & Silt - 1%),,
+ITH-08,4.6,,,SOIL_DESCRIPTION too long: see COMMENTS,,"Value in BOUNDARY field in Open Report: 0 ; SOIL_DESCRIPTION in Open Report (>500char): END OF BOREHOLE   (4.60 metres);;Notes:;;   1. 25 mm diameter PVC pipe installed to 4.60 metres and to shoulder of embankment to support thermistor string.;;   2. Thermistor string #2585 vertically installed to 4.60 metres below surface of embankment and horizontally extended to shoulder of embankment.;;   3. Thermistor string total length is 15.5 metres, with 13 beads and 5.5 metres lead length. 5 beads at 0.5 m spacing, 8 beads at 1.0 m spacing.;;   4. 6 beads vertically installed, 7 beads horizontally installed.;;   5. Original ground at 2.44 metres;;   6. The bead at 1.1 metres is offset 0.5 metres from vertical string."
+ITH-09,0,1.5,,"GRAVEL AND SAND (EMBANKMENT) - some silt, cobbles disseminated throughout",,FILL ; Value in BOUNDARY field in Open Report: 0
+ITH-09,1.5,2,,"PEAT (ORIGINAL GROUND) - organics, rootlets, dark brown, woody fragments",,PEAT ; Value in BOUNDARY field in Open Report: 0
+ITH-09,2,3,,SAND AND SILT - trace gravel,,SP ; Value in BOUNDARY field in Open Report: 0
+ITH-09,2.001,3,,,,
+ITH-09,3,3.66,,"SAND - some gravel, trace silt",,SP ; Value in BOUNDARY field in Open Report: 0
+ITH-09,3.001,,,- (Gravel - 20%; Sand - 79%; Clay & Silt - 1%),,
+ITH-09,3.66,,,SOIL_DESCRIPTION too long: see COMMENTS,,"Value in BOUNDARY field in Open Report: 0 ; SOIL_DESCRIPTION in Open Report (>500char): END OF BOREHOLE   (3.66 metres);;Notes:;;   1. 25 mm diameter PVC pipe installed to 4.66 metres and to shoulder of embankment to support thermistor string.;;   2. Thermistor string #2572 vertically installed to 3.60 metres below surface of embankment and horizontally extended to shoulder of embankment.;;   3. Thermistor string total length is 15.5 metres, with 13 beads and 5.5 metres lead length. 5 beads at 0.5 m spacing, 8 beads at 1.0 m spacing.;;   4. 5 beads vertically installed, 8 beads horizontally installed.;;   5. Original ground at 1.50 metres;;   6. The bead at 1.0 metre is offset 0.3 metres from vertical string."
+ITH-10,0,2.4,,"GRAVEL AND SAND (EMBANKMENT) - some silt, cobbles disseminated throughout",,FILL ; Value in BOUNDARY field in Open Report: 0
+ITH-10,2.4,4,,"GRAVEL (FILL) - silty, sandy",,FILL ; Value in BOUNDARY field in Open Report: 0
+ITH-10,4,4.3,,"SAND (FILL) - gravelly, silty",,FILL ; Value in BOUNDARY field in Open Report: 0
+ITH-10,4.001,,,- (Gravel - 33%; Sand - 47%; Clay & Silt - 21%),,
+ITH-10,4.3,4.6,,"SILT (FILL) - sandy, gravelly",,ML ; Value in BOUNDARY field in Open Report: 0
+ITH-10,4.6,5,,ORGANIC SILT (ORIGINAL GROUND) - wood chips,,OH ; Value in BOUNDARY field in Open Report: 0
+ITH-10,5,6.1,,"SILT AND SAND - trace to some gravel, subangular gravel",,ML ; Value in BOUNDARY field in Open Report: 0
+ITH-10,5.001,6.1,,,,
+ITH-10,6.1,6.7,,"CLAY - silty, sandy, trace gravel, medium plastic",,CL ; Value in BOUNDARY field in Open Report: 0
+ITH-10,6.65,,,- (Gravel - 2%; Sand - 24%; Silt - 40%; Clay - 34%),,
+ITH-10,6.7,,,SOIL_DESCRIPTION too long: see COMMENTS,,"Value in BOUNDARY field in Open Report: 0 ; SOIL_DESCRIPTION in Open Report (>500char): END OF BOREHOLE   (6.70 metres);;Notes:;;   1. 25 mm diameter PVC pipe installed to 6.70 metres and to shoulder of embankment to support thermistor string.;;   2. Thermistor string #2580 vertically installed to 6.70 metres below surface of embankment and horizontally extended to shoulder of embankment.;;   3. Thermistor string total length is 15.5 metres, with 13 beads and 5.5 metres lead length. 5 beads at 0.5 m spacing, 8 beads at 1.0 m spacing.;;   4. 8 beads vertically installed, 5 beads horizontally installed.;;   5. Original ground at 4.60 metres.;;   6. The bead at 1.0 metre is offset 0.3 metres from vertical string."
+ITH-11,0,1.52,,"GRAVEL AND SAND (EMBANKMENT) - some silt, cobbles disseminated throughout",,FILL ; Value in BOUNDARY field in Open Report: 0
+ITH-11,1.52,2.7,,"SILT (ORIGINAL GROUND) - some sand, roots",,ML ; Value in BOUNDARY field in Open Report: 0
+ITH-11,2.7,3.8,,ICE AND SILT,,ML ; Value in BOUNDARY field in Open Report: 0
+ITH-11,3.8,,,SOIL_DESCRIPTION too long: see COMMENTS,,"Value in BOUNDARY field in Open Report: 0 ; SOIL_DESCRIPTION in Open Report (>500char): END OF BOREHOLE   (3.80 metres);;Notes:;;   1. 25 mm diameter PVC pipe installed to 3.80 metres and to shoulder of embankment to support thermistor string.;;   2. Thermistor string #2579 vertically installed to 3.80 metres below surface of embankment and horizontally extended to shoulder of embankment.;;   3. Thermistor string total length is 15.5 metres, with 13 beads and 5.5 metres lead length. 5 beads at 0.5 m spacing, 8 beads at 1.0 m spacing.;;   4. 5 beads installed vertically and 8 beads installed horizontally.;;   5. Original ground at 1.52 metres;;   6. The bead at 1.0 metre is offset 0.2 metres from vertical string."
+ITH-12,0,2.74,,"GRAVEL AND SAND (EMBANKMENT) - some silt, cobbles disseminated throughout, compacted",,FILL ; Value in BOUNDARY field in Open Report: 0
+ITH-12,2.4,,,- (Gravel - 41%; Sand - 29%; Clay & Silt - 30%),,
+ITH-12,2.74,3.05,,"PEAT (ORIGINAL GROUND) - silty, trace sand, trace gravel, dark brown",,PEAT ; Value in BOUNDARY field in Open Report: 0
+ITH-12,3.05,5.2,,"SILT AND SAND - some gravel, trace to some clay, subangular to subrounded gravel",,ML ; Value in BOUNDARY field in Open Report: 0
+ITH-12,3.051,5.2,,,,
+ITH-12,4.3,,,- (Gravel - 23%; Sand - 33%; Clay & Silt - 45%),,
+ITH-12,5.2,,,SOIL_DESCRIPTION too long: see COMMENTS,,"Value in BOUNDARY field in Open Report: 0 ; SOIL_DESCRIPTION in Open Report (>500char): END OF BOREHOLE   (5.20 metres);;Notes:;;   1. 25 mm diameter PVC pipe installed to 5.20 metres and to shoulder of embankment to support thermistor string.;;   2. Thermistor string #2576 vertically installed to 5.20 metres below surface of embankment and horizontally extended to shoulder of embankment.;;   3. Thermistor string total length is 15.5 metres, with 13 beads and 5.5 metres lead length. 5 beads at 0.5 m spacing, 8 beads at 1.0 m spacing.;;   4. 7 beads vertically installed, 5 beads horizontally installed.;;   5. Original ground at 2.74 metres.;;   6. The bead at 0.7 metres is offset 0.5 metres from vertical string."
+ITH-13,0,0.9,,"GRAVEL AND SAND (EMBANKMENT) - some silt, cobbles disseminated throughout",,FILL ; Value in BOUNDARY field in Open Report: 0
+ITH-13,0.9,2.1,,"SILT (ORIGINAL GROUND) - clayey, some sand, trace gravel",,ML ; Value in BOUNDARY field in Open Report: 0
+ITH-13,2.05,,,- (Gravel - 0%; Sand - 0%; Silt - 62%; Clay - 38%),,
+ITH-13,2.1,3.3,,"CLAY - silty, medium plastic, dark grey",,CL ; Value in BOUNDARY field in Open Report: 0
+ITH-13,3.3,,,SOIL_DESCRIPTION too long: see COMMENTS,,"Value in BOUNDARY field in Open Report: 0 ; SOIL_DESCRIPTION in Open Report (>500char): END OF BOREHOLE   (3.30 metres);;Notes:;;   1. 25 mm diameter PVC pipe installed to 3.30 metres and to shoulder of embankment to support thermistor string.;;   2. Thermistor string #2575 vertically installed to 3.30 metres below surface of embankment and horizontally extended to shoulder of embankment.;;   3. Thermistor string total length is 15.5 metres, with 13 beads and 5.5 metres lead length. 5 beads at 0.5 m spacing, 8 beads at 1.0 m spacing.;;   4. 5 beads vertically installed, 8 beads horizontally installed.;;   5. Original ground at 0.90 metres.;;   6. The bead at 0.7 metres is offset 0.4 metres from vertical string."
+ITH-14,0,1.21,,"GRAVEL AND SAND (EMBANKMENT) - some silt, cobbles disseminated throughout, compacted, brown",,FILL ; Value in BOUNDARY field in Open Report: 0
+ITH-14,1.21,3.2,,"SILT AND SAND (ORIGINAL GROUND) - some clay, trace to some gravel, brown, subangular gravel",,ML ; Value in BOUNDARY field in Open Report: 0
+ITH-14,1.211,3.2,,,,
+ITH-14,1.4,,,- (Gravel - 4%; Sand - 38%; Clay & Silt - 58%),,
+ITH-14,3.15,,,- (Gravel - 6%; Sand - 43%; Clay & Silt - 52%),,
+ITH-14,3.2,,,SOIL_DESCRIPTION too long: see COMMENTS,,"Value in BOUNDARY field in Open Report: 0 ; SOIL_DESCRIPTION in Open Report (>500char): END OF BOREHOLE   (3.20 metres);;Notes:;;   1. 25 mm diameter PVC pipe installed to 3.20 metres and to shoulder of embankment to support thermistor string.;;   2. Thermistor string #2578 vertically installed to 3.20 metres below surface of embankment and horizontally extended to shoulder of embankment.;;   3. Thermistor string total length is 15.5 metres, with 13 beads and 5.5 metres lead length. 5 beads at 0.5 m spacing, 8 beads at 1.0 m spacing.;;   4. 5 beads vertically installed, 8 beads horizontally installed.;;   5. Original ground at 1.21 metres.;;   6. The bead at 0.8 metres is offset 0.6 metres from vertical string."
+TUK_H_NTGS10,0,0.2,,"ORGANICS - peat, roots, brown, organic odour, (200 mm thick)",,OH ; Value in BOUNDARY field in Open Report: 0
+TUK_H_NTGS10,0.2,1.5,,"CLAY (TILL) - silty, trace gravel, brown, excess ice",,TILL ; Value in BOUNDARY field in Open Report: 0
+TUK_H_NTGS10,1.5,4.2,,"ICE AND SAND - trace gravel, brown",,SP ; Value in BOUNDARY field in Open Report: 0
+TUK_H_NTGS10,3,,,- (Gravel - 9%; Sand - 72%; Clay & Silt - 19%),,
+TUK_H_NTGS10,4.2,4.6,,"CLAY - trace gravel, medium plastic, grey",,CL ; Value in BOUNDARY field in Open Report: 0
+TUK_H_NTGS10,4.6,5.4,,ICE AND SAND,,SP ; Value in BOUNDARY field in Open Report: 0
+TUK_H_NTGS10,5.4,5.6,,"SAND - trace gravel, wood chips",,SP ; Value in BOUNDARY field in Open Report: 0
+TUK_H_NTGS10,5.6,6.3,,ICE AND CLAY - grey,,CL ; Value in BOUNDARY field in Open Report: 0
+TUK_H_NTGS10,6,,,- (Gravel - 27%; Sand - 62%; Silt - 5%; Clay - 6%),,
+TUK_H_NTGS10,6.3,7.1,,"CLAY - trace gravel, trace sand, grey, gravel to 60 mm diameter",,CL ; Value in BOUNDARY field in Open Report: 0
+TUK_H_NTGS10,7.1,7.2,,ICE AND CLAY - grey,,CL ; Value in BOUNDARY field in Open Report: 0
+TUK_H_NTGS10,7.2,7.3,,ICE AND SAND,,SP ; Value in BOUNDARY field in Open Report: 0
+TUK_H_NTGS10,7.3,8.2,,"SAND - some silt, trace gravel",,SP ; Value in BOUNDARY field in Open Report: 0
+TUK_H_NTGS10,7.8,,,- gravelly,,
+TUK_H_NTGS10,8.2,12.3,,ICE AND SAND - trace gravel,,SP ; Value in BOUNDARY field in Open Report: 0
+TUK_H_NTGS10,8.7,,,"- brown, fine sand",,
+TUK_H_NTGS10,10.5,,,- (Gravel - 14%; Sand - 56%; Clay & Silt - 30%),,
+TUK_H_NTGS10,12.3,13.5,,"SAND - trace gravel, brown",,SP ; Value in BOUNDARY field in Open Report: 0
+TUK_H_NTGS10,13.5,,,END OF BOREHOLE   (13.50 metres);;   25 mm diameter PVC pipe installed to 13.50 metres for installation of future ground temperature cable.,,Value in BOUNDARY field in Open Report: 0
+TVC_H_NTGS5,0,0.6,,"ORGANICS - peat, trace gravel, brown",,OH ; Value in BOUNDARY field in Open Report: 0
+TVC_H_NTGS5,0.6,1.2,,ICE - trace peat,,Value in BOUNDARY field in Open Report: 0
+TVC_H_NTGS5,0.9,,,- dark brown peat,,
+TVC_H_NTGS5,1.2,2,,"PEAT - brown, slight organic odour",,PEAT ; Value in BOUNDARY field in Open Report: 0
+TVC_H_NTGS5,1.95,,,- gravel to 50 mm diameter,,
+TVC_H_NTGS5,2,11.7,,"CLAY - trace gravel, grey",,CL ; Value in BOUNDARY field in Open Report: 0
+TVC_H_NTGS5,3.9,,,"- trace sand, cohesive",,
+TVC_H_NTGS5,11.7,16.7,,"SAND - silty, brittle, grey, fine sand",,SP ; Value in BOUNDARY field in Open Report: 0
+TVC_H_NTGS5,13.9,,,"- silty, dense",,
+TVC_H_NTGS5,15,,,- (Gravel - 0%; Sand - 67%; Clay & Silt - 33%),,
+TVC_H_NTGS5,16.7,17.6,,"SHALE - crumbly, brittle, some platy pieces",,SHALE ; Value in BOUNDARY field in Open Report: 0
+TVC_H_NTGS5,17.6,20.1,,"SAND - friable, dark grey, fine sand",,SP ; Value in BOUNDARY field in Open Report: 0
+TVC_H_NTGS5,20.1,,,END OF BOREHOLE   (20.10 metres);;   25 mm diameter PVC pipe installed to 20.00 metres for installation of future ground temperature cable.,,Value in BOUNDARY field in Open Report: 0
+TVC_P_NTGS4,0,2.6,,"PEAT - sandy, trace twigs, moss, grass, brown, organic odour",,PEAT ; Value in BOUNDARY field in Open Report: 0
+TVC_P_NTGS4,0.9,,,- trace roots,,
+TVC_P_NTGS4,2.6,4.1,,"ICE AND PEAT - brown, organics odour",,PEAT ; Value in BOUNDARY field in Open Report: 0
+TVC_P_NTGS4,4.05,,,- trace roots,,
+TVC_P_NTGS4,4.1,6.1,,"ICE AND SILT - some clay, trace sand, grey",,ML ; Value in BOUNDARY field in Open Report: 0
+TVC_P_NTGS4,4.5,,,- (Gravel - 0%; Sand - 3%; Clay & Silt - 97%),,
+TVC_P_NTGS4,6.1,6.7,,"SILT - trace sand, grey",,ML ; Value in BOUNDARY field in Open Report: 0
+TVC_P_NTGS4,6.7,10.1,,"CLAY - silty, some sand, trace gravel, medium plastic, grey",,CL ; Value in BOUNDARY field in Open Report: 0
+TVC_P_NTGS4,7.5,,,- (Gravel - 1%; Sand - 16%; Silt - 46%; Clay - 38%),,
+TVC_P_NTGS4,10.1,,,END OF BOREHOLE   (10.10 metres);;   25 mm diameter PVC pipe installed to 10.00 metres for installation of future ground temperature cable.,,Value in BOUNDARY field in Open Report: 0
+TVC_R_NTGS6,0,1.5,,"PEAT - organics, trace roots, organic odour",,PEAT ; Value in BOUNDARY field in Open Report: 0
+TVC_R_NTGS6,1,,,- dark brown,,
+TVC_R_NTGS6,1.5,3.9,,"CLAY (TILL) - some sand and gravel, dark grey",,TILL ; Value in BOUNDARY field in Open Report: 0
+TVC_R_NTGS6,2.4,,,"- gravelly, trace sand, brown, gravel to 80 mm diameter",,
+TVC_R_NTGS6,3.001,,,- (Gravel - 67%; Sand - 16%; Clay & Silt - 17%),,
+TVC_R_NTGS6,3.9,10.1,,"CLAY - trace sand, trace gravel, medium plastic, dark grey",,CL ; Value in BOUNDARY field in Open Report: 0
+TVC_R_NTGS6,7.5,,,- (Gravel - 2%; Sand - 8%; Silt - 52%; Clay - 39%),,
+TVC_R_NTGS6,10.1,,,END OF BOREHOLE   (10.10 metres);;   25 mm diameter PVC pipe installed to 10.00 metres for installation of future ground temperature cable.,,Value in BOUNDARY field in Open Report: 0
+AH109.6C,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+AH109.6C,0.3,,,- switch to CRREL,,
+AH109.6C,0.301,,,"PEAT - dark brown, faint organic odour",,Value in BOUNDARY field in Open Report: 0
+AH109.6C,1.05,,,"- expanding peat, excess recovery",,
+AH109.6C,1.8,,,"- wood fragments, some organic odour",,
+AH109.6C,2.6,,,- frequent wood fragments,,
+AH109.6C,2.9,,,- (Organic content=64.3%),,
+AH109.6C,4.2,,,- strong organic odour,,
+AH109.6C,5,,,"SILT - clayey, some sand, some organics, dark brown, occasional gastropod shells, some organic odour",,Value in BOUNDARY field in Open Report: 0
+AH109.6C,5.05,,,- (Organic content=6.8%),,
+AH109.6C,5.3,,,"- at 5.3 m, trace subrounded gravel to 10 mm, trace organics",,
+AH109.6C,6.25,,,"- trace clay, low plastic, no visible gastropod shells, faint organic odour",,
+AH109.6C,7.5,,,"SAND - silty, some clay, trace subangular to angular gravel to 40 mm, well graded, medium grey brown",,Value in BOUNDARY field in Open Report: 0
+AH109.6C,7.75,,,"- some clay, trace gravel, dark grey",,
+AH109.6C,8.1,,,"- at 8.1 m, subrounded cobbles to 95 mm",,
+AH109.6C,8.6,,,- some sand,,
+AH109.6C,8.9,,,"- gravelly, some silt, rounded gravel to 60 mm, dark grey",,
+AH109.6C,9.4,,,"SAND AND GRAVEL - trace silt and clay, subrounded gravel to 40 mm diameter, well graded, medium brown",,Value in BOUNDARY field in Open Report: 0
+AH109.6C,10.4,,,END OF BOREHOLE   (10.4 metres);;   25 mm diameter PVC pipe installed to 10.70 metres;;   Ground temperature cable #2408 installed to 10.00 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+AH109.6N,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+AH109.6N,0.2,,,ICE,,Value in BOUNDARY field in Open Report: 0
+AH109.6N,0.6,,,"ICE AND PEAT - dark brown, strong organic odour",,Value in BOUNDARY field in Open Report: 0
+AH109.6N,1.3,,,"PEAT - dark brown, strong organic odour",,Value in BOUNDARY field in Open Report: 0
+AH109.6N,3,,,"SILT - sandy, some clay, some gravel, low plastic, dark grey",,Value in BOUNDARY field in Open Report: 0
+AH109.6N,4.3,,,"- sandy, rounded gravel to 40 mm",,
+AH109.6N,5.2,,,"SAND - silty, some subrounded gravel to 40 mm, trace clay, well graded, greyish brown",,Value in BOUNDARY field in Open Report: 0
+AH109.6N,5.65,,,END OF BOREHOLE   (5.65 metres),,Value in BOUNDARY field in Open Report: 0
+AH109.6S,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+AH109.6S,0.2,,,"PEAT - damp brown, strong organic odour",,Value in BOUNDARY field in Open Report: 0
+AH109.6S,0.6,,,ICE,,Value in BOUNDARY field in Open Report: 0
+AH109.6S,3.3,,,ICE AND PEAT - dark brown,,Value in BOUNDARY field in Open Report: 0
+AH109.6S,4,,,"SAND - clayey, some gravel, some silt, low plastic, dark grey",,Value in BOUNDARY field in Open Report: 0
+AH109.6S,5.8,,,END OF BOREHOLE   (5.8 metres),,Value in BOUNDARY field in Open Report: 0
+AH112.2C,0,,,"SAND - some silt and clay, trace subangular gravel, medium grey",,Value in BOUNDARY field in Open Report: 0
+AH112.2C,0.95,,,"CLAY - sandy, silty some gravel, trace gravel (subrounded to subangular), low to medium plastic, medium to dark grey",,Value in BOUNDARY field in Open Report: 0
+AH112.2C,2,,,- rock,,
+AH112.2C,3,,,- trace  cobbles (subrounded),,
+AH112.2C,4.4,,,- switch to auger,,
+AH112.2C,7.75,,,"SAND - some silt, medium grained, well sorted, medium brown",,Value in BOUNDARY field in Open Report: 0
+AH112.2C,10.4,,,END OF BOREHOLE   (10.4 metres);;   25 mm diameter PVC pipe installed to 10.30 metres;;   Ground temperature cable #2407 installed to 10.00 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+AH112.2N,0,,,PEAT - (100 mm thick),,Value in BOUNDARY field in Open Report: 0
+AH112.2N,0.1,,,"CLAY - sandy, silty, some gravel, medium plastic, medium grey brown",,Value in BOUNDARY field in Open Report: 0
+AH112.2N,1.5,,,"- trace subrounded gravel, trace sand, medium plastic, medium to dark brown",,
+AH112.2N,5.2,,,"SAND - silty, some clay, trace gravel",,Value in BOUNDARY field in Open Report: 0
+AH112.2N,5.95,,,END OF BOREHOLE  (5.95 metres),,Value in BOUNDARY field in Open Report: 0
+AH112.2S,0,,,"PEAT - trace silt and clay, moderately developed, medium density, dark brown, trace roots and wood, slight odour",,Value in BOUNDARY field in Open Report: 0
+AH112.2S,0.3,,,"CLAY - sandy, some silt, trace gravel, low plastic, medium grey brown",,Value in BOUNDARY field in Open Report: 0
+AH112.2S,1.5,,,"- some fine grained sand, trace subangular gravel, medium plastic, medium brown",,
+AH112.2S,3,,,- low plastic,,
+AH112.2S,5.2,,,"SAND - clayey, some silt, trace subrounded gravel, medium brown",,Value in BOUNDARY field in Open Report: 0
+AH112.2S,6.1,,,END OF BOREHOLE   (6.1 metres),,Value in BOUNDARY field in Open Report: 0
+AH117.8C,0,,,"PEAT - trace gravel and sand, moderately developed, medium red brown and black, trace roots and plant material, organic odour",,Value in BOUNDARY field in Open Report: 0
+AH117.8C,0.9,,,- more well developed,,
+AH117.8C,1.5,,,"CLAY - silty, trace subrounded to rounded gravel, medium grey green",,Value in BOUNDARY field in Open Report: 0
+AH117.8C,1.8,,,- switch to auger,,
+AH117.8C,1.801,,,"SAND - trace subrounded gravel, medium brown",,Value in BOUNDARY field in Open Report: 0
+AH117.8C,2.6,,,- trace silt,,
+AH117.8C,3.2,,,"- medium grained, well sorted",,
+AH117.8C,3.9,,,"- some subrounded to rounded gravel, trace silt",,
+AH117.8C,4.3,,,"- gravelly, subrounded gravel to 40 mm",,
+AH117.8C,4.7,,,"GRAVEL - some sand, trace silt, subrounded, medium brown",,Value in BOUNDARY field in Open Report: 0
+AH117.8C,5.8,,,- subrounded gravel to 50 mm,,
+AH117.8C,6.7,,,- sandy,,
+AH117.8C,8.8,,,"ICE AND GRAVEL - some sand, some silt, rounded gravel to 20 mm",,Value in BOUNDARY field in Open Report: 0
+AH117.8C,10.4,,,"SAND - trace subrounded gravel to 20 mm, medium to coarse grained, medium brown",,Value in BOUNDARY field in Open Report: 0
+AH117.8C,10.9,,,END OF BOREHOLE   (11.9 metres);;   25 mm dia. PVC pipe installed to 10.00 metres;;   GTC #2406 installed to 10.00 metres;;   100 mm dia. Steel Protective surface casing with cover,,
+AH117.8C,11.9,,,,,Value in BOUNDARY field in Open Report: 0
+AH117.8N,0,,,ORGANICS - (100 mm thick),,Value in BOUNDARY field in Open Report: 0
+AH117.8N,0.1,,,"SAND AND GRAVEL - trace silt, subrounded gravel to 30 mm, well graded, brown",,Value in BOUNDARY field in Open Report: 0
+AH117.8N,1.8,,,ICE AND SAND AND GRAVEL - trace to some silt,,Value in BOUNDARY field in Open Report: 0
+AH117.8N,3.6,,,"SAND - silty, some gravel to 15 mm, trace clay, well graded, brown",,Value in BOUNDARY field in Open Report: 0
+AH117.8N,6.1,,,END OF BOREHOLE   (6.1 metres),,Value in BOUNDARY field in Open Report: 0
+AH117.8S,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+AH117.8S,0.2,,,"SAND - some clay, trace gravel, non plastic, medium brown",,Value in BOUNDARY field in Open Report: 0
+AH117.8S,2.5,,,"- clayey, some silt, low plastic",,
+AH117.8S,3.3,,,ICE - trace silt,,Value in BOUNDARY field in Open Report: 0
+AH117.8S,4.3,,,"ICE AND CLAY - sandy, trace gravel, non plastic",,Value in BOUNDARY field in Open Report: 0
+AH117.8S,5.5,,,END OF BOREHOLE   (5.50 metres),,Value in BOUNDARY field in Open Report: 0
+AH18.15C,0,,,ORGANICS - (200 mm thick),,Value in BOUNDARY field in Open Report: 0
+AH18.15C,0.2,,,"COBBLES, BOULDERS AND ICE",,Value in BOUNDARY field in Open Report: 0
+AH18.15C,0.8,,,"ICE - trace soil, medium brown",,Value in BOUNDARY field in Open Report: 0
+AH18.15C,2.4,,,"ICE AND PEAT - brown, leaves",,Value in BOUNDARY field in Open Report: 0
+AH18.15C,2.7,,,ICE,,Value in BOUNDARY field in Open Report: 0
+AH18.15C,4.3,,,"- trace silt, stratified",,
+AH18.15C,5.2,,,- switch to auger,,
+AH18.15C,5.201,,,"CLAY - silty, some sand, medium plastic, dark brown, organic odour",,Value in BOUNDARY field in Open Report: 0
+AH18.15C,9.1,,,"ICE AND CLAY - trace silt, low to medium plastic, dark grey",,Value in BOUNDARY field in Open Report: 0
+AH18.15C,9.9,,,END OF BOREHOLE   (9.9 metres);;   25 mm diameter PVC pipe installed to 9.10 metres;;   Ground temperature cable #2405 installed to 9.60 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+AH18.15N,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+AH18.15N,0.2,,,"CLAY - some organics, low plastic, medium brown, organic odour",,Value in BOUNDARY field in Open Report: 0
+AH18.15N,1.8,,,"- 200 mm thick sand lens - fine to medium grained, beige",,
+AH18.15N,3.5,,,"SAND - gravelly, clayey some silt, some gravel to 40 mm, trace organics, trace cobbles, non plastic, medium brown",,Value in BOUNDARY field in Open Report: 0
+AH18.15N,4.9,,,"CLAY - some silt, some sand, some gravel, medium plastic, medium brown",,Value in BOUNDARY field in Open Report: 0
+AH18.15N,5.2,,,END OF BOREHOLE   (5.2 metres);;   Note:  Backfilled at completion.,,Value in BOUNDARY field in Open Report: 0
+AH18.15S,0,,,"ICE AND CLAY - trace to some organics, medium grey brown",,Value in BOUNDARY field in Open Report: 0
+AH18.15S,5.5,,,"CLAY - silty, trace sand (fine grained), medium to high plastic, dark grey",,Value in BOUNDARY field in Open Report: 0
+AH18.15S,5.8,,,END OF BOREHOLE   (5.8 metres);;   Note:  Backfilled at completion.,,Value in BOUNDARY field in Open Report: 0
+AH48.9C,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+AH48.9C,0.25,,,"PEAT - silty, non organic, medium to dark brown, wood fibres, strong organic odour",,Value in BOUNDARY field in Open Report: 0
+AH48.9C,1.1,,,"- dark brown, very strong organic odour",,
+AH48.9C,1.5,,,ICE AND PEAT - gastropod shells in peat inclusions,,Value in BOUNDARY field in Open Report: 0
+AH48.9C,1.9,,,"SAND AND SILT - trace to some clay, low plastic, light to medium greyish brown, occasional to frequent gastropod shells",,Value in BOUNDARY field in Open Report: 0
+AH48.9C,2.3,,,"ICE AND SILT - trace clay, trace organics, high plastic, dark grey, faint organic odour",,Value in BOUNDARY field in Open Report: 0
+AH48.9C,2.9,,,"- at 2.9 m, trace to some organics, occasional peat inclusions",,
+AH48.9C,4.4,,,- trace organics,,
+AH48.9C,5,,,- trace rounded gravel to 10 mm,,
+AH48.9C,5.05,,,"- at 5.05 m, 100 mm thick clear ice layer",,
+AH48.9C,5.95,,,- 100 mm thick clear ice layer,,
+AH48.9C,6.05,,,"- at 6.05 m, subrounded cobble to 85 mm",,
+AH48.9C,6.1,,,"- at 6.10 m, low plastic, medium to dark brown, organic odour",,
+AH48.9C,6.5,,,"SILT - some clay, trace to some subrounded gravel to 20 mm, low to medium plastic, dark grey, faint organic odour",,Value in BOUNDARY field in Open Report: 0
+AH48.9C,6.55,,,"- at 6.55 m, 100 mm thick ice layer",,
+AH48.9C,6.75,,,"- at 6.75 m, 100 mm thick ice layer",,
+AH48.9C,8.4,,,- trace subangular gravel to 35 mm diameter,,
+AH48.9C,9.05,,,- subrounded cobble to 75 mm diameter,,
+AH48.9C,9.2,,,"- at 9.2 m, 100 mm thick ice layer with silt inclusions",,
+AH48.9C,10.1,,,ICE,,Value in BOUNDARY field in Open Report: 0
+AH48.9C,10.2,,,END OF BOREHOLE   (10.2 metres);;   25 mm diameter PVC pipe installed to 10.20 metres;;   Ground temperature cable #2409 installed to 10.00 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+AH48.9N,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+AH48.9N,0.3,,,"PEAT - dark brown, strong organic odour",,Value in BOUNDARY field in Open Report: 0
+AH48.9N,0.6,,,ICE - 1-2% peat inclusions,,Value in BOUNDARY field in Open Report: 0
+AH48.9N,3.3,,,"ICE AND CLAY - some silt, some sand, trace gravel, medium plastic, dark brown",,Value in BOUNDARY field in Open Report: 0
+AH48.9N,4.6,,,"- some clay, trace subrounded to rounded gravel to 10 mm, no visible organics, low plastic, dark grey",,
+AH48.9N,6.1,,,END OF BOREHOLE   (6.1 metres),,Value in BOUNDARY field in Open Report: 0
+AH48.9S,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+AH48.9S,0.6,,,"ICE AND PEAT - moderately developed, low to medium dense, dark brown, very strong organic odour",,Value in BOUNDARY field in Open Report: 0
+AH48.9S,1.5,,,"ICE AND CLAY - trace silt, trace fine grained sand, medium plastic, medium grey, faint organic odour",,Value in BOUNDARY field in Open Report: 0
+AH48.9S,3.6,,,"CLAY - some silt, trace fine grained sand, medium plastic, medium grey, faint organic odour",,Value in BOUNDARY field in Open Report: 0
+AH48.9S,4.6,,,"- at 4.6 m, trace subrounded to rounded gravel to 10 mm",,
+AH48.9S,6.1,,,END OF BOREHOLE   (6.10 metres),,Value in BOUNDARY field in Open Report: 0
+AH90.3C,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+AH90.3C,0.3,,,"PEAT - fibrous, dark brown, very faint organic odour",,Value in BOUNDARY field in Open Report: 0
+AH90.3C,2.1,,,ICE AND PEAT - blocky,,Value in BOUNDARY field in Open Report: 0
+AH90.3C,2.4,,,"SAND - clayey, medium plastic, grey, frequent shell inclusions",,Value in BOUNDARY field in Open Report: 0
+AH90.3C,2.65,,,- trace gravel,,
+AH90.3C,3.9,,,"- 4 mm thick sand layer - fine grained, brown",,
+AH90.3C,4.6,,,"- cobble, switched to auger",,
+AH90.3C,4.601,,,"- at 4.6 m, some sand, trace subrounded gravel to 30 mm, trace clay, non plastic, medium grey",,
+AH90.3C,5.5,,,- switch to CRREL,,
+AH90.3C,5.7,,,"- some clay, trace sand, trace subrounded gravel to 10 mm, dark grey, occasional organic inclusions",,
+AH90.3C,6.2,,,"- at 6.2 m, some sand",,
+AH90.3C,6.5,,,"- at 6.5 m, subrounded cobbles to 75 mm",,
+AH90.3C,7.1,,,"- gravelly, some silt, some clay, low plastic",,
+AH90.3C,8,,,"SAND - some silt and clay, fine grained, uniformly graded, light brown",,Value in BOUNDARY field in Open Report: 0
+AH90.3C,8.55,,,"- silty, trace organics",,
+AH90.3C,8.8,,,- trace to some silt,,
+AH90.3C,8.85,,,"- at 8.85 m, 20 mm thick silty lens",,
+AH90.3C,9,,,"- at 9.0 m, trace organics",,
+AH90.3C,9.25,,,"- at 9.2 5m, 30 mm thick silty lens",,
+AH90.3C,10.3,,,END OF BOREHOLE   (10.3 metres);;   25 mm diameter PVC pipe installed to 10.20 metres;;   Ground temperature cable #2404 installed to 10.00 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+AH90.3N,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+AH90.3N,0.3,,,"PEAT - moderately developed, fibrous, low density, dark brown, strong organic odour",,Value in BOUNDARY field in Open Report: 0
+AH90.3N,1.8,,,- very strong organic odour,,
+AH90.3N,1.9,,,- (Organic content = 49.1%),,
+AH90.3N,2.3,,,"SILT (ORGANIC) - some fine to medium grained sand, non to low plastic, dark brown, gastropod shell inclusions, very strong organic odour",,Value in BOUNDARY field in Open Report: 0
+AH90.3N,2.8,,,"- some clay, low plastic, orangey brown",,
+AH90.3N,3.8,,,"SAND - silty, trace subangular gravel to 20 mm, fine grained, medium grey",,Value in BOUNDARY field in Open Report: 0
+AH90.3N,4.3,,,"SILT - some rounded gravel to 40 mm, trace sand, trace clay, low plastic, dark grey",,Value in BOUNDARY field in Open Report: 0
+AH90.3N,5.8,,,END OF BOREHOLE   (5.8 metres),,Value in BOUNDARY field in Open Report: 0
+AH90.3S,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+AH90.3S,0.3,,,"PEAT - medium to dark brown, wood chips, very strong organic odour",,Value in BOUNDARY field in Open Report: 0
+AH90.3S,1.2,,,- dark brown,,
+AH90.3S,2.1,,,ICE,,Value in BOUNDARY field in Open Report: 0
+AH90.3S,2.5,,,"SAND AND CLAY - some subrounded gravel to 40 mm, some clay, low plastic, dark grey brown",,Value in BOUNDARY field in Open Report: 0
+AH90.3S,5.8,,,END OF BOREHOLE   (5.8 metres),,Value in BOUNDARY field in Open Report: 0
+CR15N,0,,,"PEAT - medium brown, plant structure",,Value in BOUNDARY field in Open Report: 0
+CR15N,1.2,,,"CLAY - silty, trace organics, trace sand, low to medium plastic, medium grey",,Value in BOUNDARY field in Open Report: 0
+CR15N,1.6,,,"- trace to some subangular gravel to 55 mm, dark grey to black, trace organic odour",,
+CR15N,2.1,,,"- at 2.1 m, trace gravel, dark grey, no discernible organic odour",,
+CR15N,21,,,END OF BOREHOLE   (21.0 metres);;   slough - 19.9 metres at 0 hrs.;;   25 mm diameter PVC pipe installed to 19.8 metres;;   Ground temperature cable #2416 installed to 19.2 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CR15S,0,,,"PEAT - trace subrounded gravel to 20 mm, medium brown",,Value in BOUNDARY field in Open Report: 0
+CR15S,1,,,- silty,,
+CR15S,1.2,,,- dark brown,,
+CR15S,2,,,- cobbles,,
+CR15S,2.001,,,"CLAY - silty, trace to some gravel, trace to some sand, low to medium plastic, light brown, no discernible odour",,Value in BOUNDARY field in Open Report: 0
+CR15S,4.3,,,"CLAY (TILL) - silty, trace subangular gravel to 30 mm, medium plastic, dark brown to black",,Value in BOUNDARY field in Open Report: 0
+CR15S,4.7,,,- some subangular gravel to 40 mm,,
+CR15S,6.1,,,- trace gravel,,
+CR15S,8.8,,,"- trace coarse grained sand, no visible gravel",,
+CR15S,9.7,,,- no visible sand,,
+CR15S,14.6,,,- trace subrounded gravel to 20 mm,,
+CR15S,21,,,END OF BOREHOLE   (21.0 metres);;   slough - 19.8 metres at 0 hrs.;;   25 mm diameter PVC pipe installed to 19.8 metres;;   Ground temperature cable #2415 installed to 19.3 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CR17aN,0,,,ORGANICS - (100 mm thick),,Value in BOUNDARY field in Open Report: 0
+CR17aN,0.1,,,PEAT - medium brown,,Value in BOUNDARY field in Open Report: 0
+CR17aN,0.899,,,"- at 0.9 m, start CRREL",,
+CR17aN,0.9,,,ICE AND PEAT - medium brown,,Value in BOUNDARY field in Open Report: 0
+CR17aN,1.2,,,PEAT - medium brown,,Value in BOUNDARY field in Open Report: 0
+CR17aN,1.4,,,"- some silt, trace subangular gravel to 70 mm",,
+CR17aN,2.2,,,"CLAY (TILL) - silty, trace to some subangular gravel to 50 mm, trace coarse grained sand, low to medium plastic, medium grey brown, occasional organic inclusions, faint organic odour",,Value in BOUNDARY field in Open Report: 0
+CR17aN,2.8,,,- switch to auger at 2.8 metres,,
+CR17aN,4.4,,,"CLAY - silty, trace sand, medium plastic, medium to dark grey",,Value in BOUNDARY field in Open Report: 0
+CR17aN,5.8,,,- switch to CRREL,,
+CR17aN,6.6,,,- trace subangular gravel to 20 mm,,
+CR17aN,7,,,- switch to auger,,
+CR17aN,7.3,,,"ICE AND CLAY - silty, trace fine gravel to 10 mm",,Value in BOUNDARY field in Open Report: 0
+CR17aN,7.6,,,"CLAY - silty, trace fine gravel to 10 mm, medium plastic",,Value in BOUNDARY field in Open Report: 0
+CR17aN,9.8,,,- switch to CRREL,,
+CR17aN,10.7,,,- switch to auger,,
+CR17aN,11.1,,,- increasing plasticity with depth,,
+CR17aN,11.6,,,"ICE AND CLAY (TILL) - silty, trace sand, <30% soil inclusions",,Value in BOUNDARY field in Open Report: 0
+CR17aN,13.4,,,- 200 mm thick ice lens,,
+CR17aN,13.401,,,"- at 13. 4 m, switch to CRREL",,
+CR17aN,13.9,,,- trace gravel,,
+CR17aN,13.901,,,"- at 13.9 m, switch to auger",,
+CR17aN,16.2,,,- sandy,,
+CR17aN,18.3,,,"- trace fine grained sand, high plastic, dark grey",,
+CR17aN,20.4,,,END OF BOREHOLE   (20.4 metres);;   25 mm diameter PVC pipe installed to 20.4 metres;;   Ground temperature cable #2418 installed to 20.0 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CR17aS,0,,,ORGANICS - (100 mm thick),,Value in BOUNDARY field in Open Report: 0
+CR17aS,0.1,,,"PEAT - brown, plant matter",,Value in BOUNDARY field in Open Report: 0
+CR17aS,0.6,,,- dark brown,,
+CR17aS,0.91,,,- switch to CRREL,,
+CR17aS,1.2,,,- foliation in peat/ice structure,,
+CR17aS,2.3,,,"- very dark brown to black, well developed peat",,
+CR17aS,2.4,,,ICE AND SILT (ORGANIC) - trace organics,,Value in BOUNDARY field in Open Report: 0
+CR17aS,2.6,,,"- some clay, medium plastic, trace plant fragments",,
+CR17aS,3,,,- switch to auger,,
+CR17aS,3.1,,,"CLAY (TILL) - silty, medium plastic, medium grey",,Value in BOUNDARY field in Open Report: 0
+CR17aS,4.9,,,"- some subangular gravel to 30 mm, medium plastic, medium grey brown",,
+CR17aS,5.5,,,"- trace gravel, medium grey",,
+CR17aS,5.8,,,"- at 5.8 m, switch to CRREL",,
+CR17aS,5.9,,,"- at 5.9 m, some organic silt, trace organics",,
+CR17aS,6.3,,,"- at 6.3 m, organic inclusion",,
+CR17aS,6.7,,,"- at 6.7 m, trace gravel",,
+CR17aS,6.701,,,"- at 6.7 m, switch to auger",,
+CR17aS,9.1,,,- trace to some gravel,,
+CR17aS,10.4,,,- switch to CRREL,,
+CR17aS,11,,,- switch to auger,,
+CR17aS,13.4,,,"- trace to some coarse grained subangular sand, no visible gravel",,
+CR17aS,14.99,,,"-  at 15.0 m, switch to CRREL",,
+CR17aS,15,,,ICE AND CLAY,,Value in BOUNDARY field in Open Report: 0
+CR17aS,15.7,,,"CLAY - silty, medium to high plastic, medium grey",,Value in BOUNDARY field in Open Report: 0
+CR17aS,15.701,,,"- at 15.7 m, switch to auger",,
+CR17aS,21,,,END OF BOREHOLE   (21.0 metres);;   25 mm diameter PVC pipe installed to 21.0 metres;;   Ground temperature cable #2411 installed to 20.2 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CR18N,0,,,ICE AND PEAT - wood inclusions,,Value in BOUNDARY field in Open Report: 0
+CR18N,0.6,,,- switch to CRREL,,
+CR18N,1.1,,,"- trace gravel, trace sand",,
+CR18N,1.8,,,"ICE AND SILT - some clay, trace gravel, trace sand, hard, non to low plastic, greyish brown, slight organic odour",,Value in BOUNDARY field in Open Report: 0
+CR18N,2.9,,,"CLAY - silty, trace sand, trace gravel, medium plastic, dark grey",,Value in BOUNDARY field in Open Report: 0
+CR18N,2.901,,,"- at 2.9 m, switch to auger",,
+CR18N,3.7,,,"- 300 mm thick clay seam - some silt, medium plastic, dark grey",,
+CR18N,5.799,,,- switch to CRREL,,
+CR18N,5.8,,,"- rounded gravel, oxidization",,
+CR18N,6.25,,,"- 50 mm thick lenses at 6.25, 6.35 and 6.50 m, horizontal and inclined (6.50 m) at 45°",,
+CR18N,6.7,,,"- at 6.7 m, switch to auger",,
+CR18N,7.1,,,- friable,,
+CR18N,9.2,,,- switch to CRREL,,
+CR18N,10.3,,,- switch to auger,,
+CR18N,13.4,,,- switch to CRREL,,
+CR18N,14.2,,,- switch to auger,,
+CR18N,18,,,"CLAY (TILL) - silty, trace rounded gravel and sand, medium to high plastic, dark grey",,Value in BOUNDARY field in Open Report: 0
+CR18N,20.7,,,END OF BOREHOLE   (20.7 metres);;   25 mm diameter PVC pipe installed to 20.4 metres;;   Ground temperature cable #2414 installed to 20.0 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CR18S,0,,,"ICE AND PEAT - light brown, 20% peat",,Value in BOUNDARY field in Open Report: 0
+CR18S,1.5,,,- switch to CRREL,,
+CR18S,1.8,,,"CLAY (TILL) - silty, trace gravel, trace sand, medium plastic, dark grey",,Value in BOUNDARY field in Open Report: 0
+CR18S,3.1,,,ICE AND CLAY - medium plastic,,Value in BOUNDARY field in Open Report: 0
+CR18S,3.7,,,- switch to auger,,
+CR18S,5.599,,,- switch to CRREL,,
+CR18S,5.6,,,- trace clay,,
+CR18S,7.1,,,- switch to auger,,
+CR18S,7.2,,,"CLAY - some silt, trace sand, high plastic, dark greyish brown",,Value in BOUNDARY field in Open Report: 0
+CR18S,10.4,,,- switch to CRREL,,
+CR18S,11.4,,,- switch to auger,,
+CR18S,11.9,,,"SILT (TILL) - some clay, trace gravel, greyish brown",,Value in BOUNDARY field in Open Report: 0
+CR18S,14.9,,,- switch to CRREL,,
+CR18S,16.15,,,- switch to auger,,
+CR18S,20.4,,,END OF BOREHOLE   (20.4 metres);;   25 mm diameter PVC pipe installed to 20.4 metres;;   Ground temperature cable #2410 installed to 20.0 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CR21N,0,,,"SILT - some sand, trace gravel, non plastic, brown, root inclusions in upper 100 mm, slight organic odour",,Value in BOUNDARY field in Open Report: 0
+CR21N,0.599,,,"- at 0.6 m, switch to CRREL",,
+CR21N,0.6,,,"PEAT - fibrous, moderately developed, medium dense, medium dark brown, faint organic odour",,Value in BOUNDARY field in Open Report: 0
+CR21N,0.85,,,"- at 0.85 m, some non organic silt, trace subrounded gravel",,
+CR21N,1,,,"- at 1.0 m, dark brown",,
+CR21N,1.3,,,"- at 1.3 m, strong organic odour",,
+CR21N,1.5,,,"ICE AND CLAY - silty, medium plastic, grey",,Value in BOUNDARY field in Open Report: 0
+CR21N,2.1,,,"CLAY - silty, trace sand, medium plastic, dark grey",,Value in BOUNDARY field in Open Report: 0
+CR21N,2.3,,,"- at 2.3 m, increasing clay",,
+CR21N,2.6,,,"- at 2.6 m, switch to auger",,
+CR21N,3.3,,,- 400 mm thick ice and silt layer,,
+CR21N,5.8,,,- switch to CRREL,,
+CR21N,5.9,,,"- high plastic, dark brown",,
+CR21N,6.3,,,"MUDSTONE - weathered, ice infill in fractures",,Value in BOUNDARY field in Open Report: 0
+CR21N,6.8,,,- switch to auger,,
+CR21N,19.2,,,END OF BOREHOLE   (19.2 metres);;   25 mm diameter PVC pipe installed to 19.2 metres;;   Ground temperature cable #2413 installed to 19.2 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CR21S,0,,,ICE AND PEAT,,Value in BOUNDARY field in Open Report: 0
+CR21S,1,,,PEAT - light brown,,Value in BOUNDARY field in Open Report: 0
+CR21S,1.2,,,"ICE AND PEAT - silty, trace clay, trace gravel",,Value in BOUNDARY field in Open Report: 0
+CR21S,1.201,,,"- at 1.2 m, switch to CRREL",,
+CR21S,2.4,,,- (Organic content = 4.8%),,
+CR21S,2.8,,,- wood inclusions,,
+CR21S,2.9,,,"- at 2.9 m, some sand, dark greyish brown, oxidation",,
+CR21S,3,,,"CLAY (TILL) - silty, trace sand, trace gravel, medium plastic, dark grey, oxide staining",,Value in BOUNDARY field in Open Report: 0
+CR21S,3.4,,,"- at 3.4 m, switch to auger",,
+CR21S,5.7,,,- 300 mm thick ice and silt lens,,
+CR21S,5.8,,,- dark brownish grey,,
+CR21S,6,,,"- at 6.0 m, switch to CRREL",,
+CR21S,6.85,,,- dark grey,,
+CR21S,7,,,"- some silt, medium to high plastic, dark beige",,
+CR21S,7.3,,,"- at 7.3 m, switch to auger",,
+CR21S,10.4,,,"MUDSTONE - weathered, weak, dark brown",,Value in BOUNDARY field in Open Report: 0
+CR21S,20.7,,,END OF BOREHOLE   (20.7 metres);;   25 mm diameter PVC pipe installed to 19.5 metres;;   Ground temperature cable #2417 installed to 19.5 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CR23aN,0,,,No sample,,Value in BOUNDARY field in Open Report: 0
+CR23aN,0.6,,,"SAND - some silt, trace gravel, medium brown",,Value in BOUNDARY field in Open Report: 0
+CR23aN,0.8,,,"- at 0.8 m, fine grained, well sorted, iron oxide staining",,
+CR23aN,1.5,,,"SAND AND GRAVEL - some silt, subangular to subrounded gravel, trace cobbles, coarse grained, medium brown",,Value in BOUNDARY field in Open Report: 0
+CR23aN,1.7,,,"SAND - trace silt, fine to medium grained, poorly graded, medium grey",,Value in BOUNDARY field in Open Report: 0
+CR23aN,1.8,,,"- at 1.8 m, switch to auger",,
+CR23aN,4.6,,,- switch to CRREL,,
+CR23aN,5.2,,,- switch to auger,,
+CR23aN,6.1,,,- switch to CRREL,,
+CR23aN,7.6,,,- switch to auger,,
+CR23aN,10.7,,,- switch to CRREL,,
+CR23aN,11.6,,,- switch to auger,,
+CR23aN,12.8,,,"SILT - trace sand, grey",,Value in BOUNDARY field in Open Report: 0
+CR23aN,15.2,,,- CRREL,,
+CR23aN,15.8,,,"SAND - silty, trace clay, fine grained, well graded, grey",,Value in BOUNDARY field in Open Report: 0
+CR23aN,16.3,,,"- some silt, switch to auger",,
+CR23aN,17.2,,,"- silty, more fine grained",,
+CR23aN,21,,,END OF BOREHOLE   (21.0 metres);;   25 mm diameter PVC pipe installed to 20.8 metres;;   Ground temperature cable #2423 installed to 20.0 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CR23aS,0,,,"PEAT - low density, medium brown, plant matter, faint organic odour",,Value in BOUNDARY field in Open Report: 0
+CR23aS,0.399,,,"- at 0.4 m, switch to CRREL",,
+CR23aS,0.4,,,"CLAY - silty, some subrounded gravel to 20 mm , trace sand, medium plastic, light brown",,Value in BOUNDARY field in Open Report: 0
+CR23aS,0.6,,,"SAND - gravelly, some clay, trace silt, subrounded gravel to 25 mm, orangey weathering",,Value in BOUNDARY field in Open Report: 0
+CR23aS,0.9,,,"- at 0.9 m, trace organics",,
+CR23aS,1.05,,,"CLAY - gravelly, trace to some silt, subrounded gravel to 75 mm, medium to high plastic, light to medium brown",,Value in BOUNDARY field in Open Report: 0
+CR23aS,1.5,,,"- at 1.5 m, some silt, no visible gravel, low to medium plastic, light brownish grey",,
+CR23aS,1.8,,,"- at 1.8 m, medium grey",,
+CR23aS,2.2,,,"- at 2.2 m, silty, trace organics, non to low plastic",,
+CR23aS,4.2,,,"SAND - silty, gravelly, subrounded gravel to 25 mm, well graded, wet, dark grey",,Value in BOUNDARY field in Open Report: 0
+CR23aS,4.3,,,"- at 4.3 m, switch to auger",,
+CR23aS,5.2,,,"- trace subrounded gravel to 15 mm, trace clay",,
+CR23aS,7.4,,,"- some silt, no visible gravel",,
+CR23aS,7.6,,,"- at 7.6 m, switch to CRREL",,
+CR23aS,7.9,,,- silty,,
+CR23aS,9.6,,,- switch to auger,,
+CR23aS,15.24,,,- switch to CRREL,,
+CR23aS,15.241,,,"- at 15.2 m, trace clay, fine grained, varved, hard, very dense",,
+CR23aS,15.85,,,- switch to auger,,
+CR23aS,18.3,,,- switch to CRREL,,
+CR23aS,18.9,,,- switch to auger,,
+CR23aS,20.7,,,- switch to CRREL,,
+CR23aS,21.3,,,END OF BOREHOLE   (21.3 metres);;   25 mm diameter PVC pipe installed to 21.3 metres;;   Ground temperature cable #2422 installed to 20.0 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CR30a1,0,,,"SAND - gravelly, trace silt, well graded, rounded gravel to 75 mm, brown",,Value in BOUNDARY field in Open Report: 0
+CR30a1,1.35,,,ICE,,Value in BOUNDARY field in Open Report: 0
+CR30a1,1.55,,,"ICE AND GRAVEL AND SAND - trace silt, well graded, rounded gravel to <75 mm, light brown",,Value in BOUNDARY field in Open Report: 0
+CR30a1,1.64,,,"- at 1.6 m, switched to auger",,
+CR30a1,1.65,,,"SAND AND GRAVEL - trace silt, well graded, subrounded gravel to <75 mm, wet, dark brown",,Value in BOUNDARY field in Open Report: 0
+CR30a1,3,,,"- trace to some silt, medium to coarse grained, well graded, gravel to <25 mm, (thawed on auger)",,
+CR30a1,5.2,,,"SAND - trace to some gravel, trace silt",,Value in BOUNDARY field in Open Report: 0
+CR30a1,6.1,,,- switch to CRREL,,
+CR30a1,6.101,,,"- at 6.1 m, fine to medium grained, light brownish grey",,
+CR30a1,8,,,- silty,,
+CR30a1,8.5,,,- switch to auger,,
+CR30a1,8.6,,,- trace gravel,,
+CR30a1,13.7,,,- switch to CRREL,,
+CR30a1,13.701,,,"- at 13.7 m, light brown",,
+CR30a1,14.5,,,- some silt,,
+CR30a1,15.9,,,- becomes silty,,
+CR30a1,21,,,END OF BOREHOLE   (21.0 metres);;   25 mm diameter PVC pipe installed to 20.7 metres;;   Ground temperature cable #2424 installed to 20.0 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CR30a2,0,,,"SILT - some sand, trace gravel, light brown, organic inclusions",,Value in BOUNDARY field in Open Report: 0
+CR30a2,0.9,,,"SAND AND GRAVEL - trace silt, well graded, subrounded gravel to 50 mm, brown",,Value in BOUNDARY field in Open Report: 0
+CR30a2,1.5,,,- switch to auger,,
+CR30a2,3.2,,,"SILT - trace gravel, grey",,Value in BOUNDARY field in Open Report: 0
+CR30a2,4.2,,,- switch to CRREL,,
+CR30a2,4.3,,,"SAND - gravelly, trace silt, poorly graded subrounded gravel to 50 mm, brown",,Value in BOUNDARY field in Open Report: 0
+CR30a2,5.2,,,"- well graded, grey, occasional 1-2 mm thick organic lens",,
+CR30a2,6.3,,,- no visible gravel,,
+CR30a2,6.4,,,"- trace to some silt, trace clay, fine grained, dark grey",,
+CR30a2,11.7,,,- gravelly to some subrounded gravel to <20 mm,,
+CR30a2,12.4,,,"- silty, well graded, light grey, organic inclusions",,
+CR30a2,13.4,,,- switch to auger,,
+CR30a2,13.401,,,"SILT - sandy, trace to some clay, fine grained sand, low to medium plastic, dark brown",,Value in BOUNDARY field in Open Report: 0
+CR30a2,14.9,,,- switch to CRREL,,
+CR30a2,14.901,,,"SAND - some silt, trace clay, fine grained, non to low plastic",,Value in BOUNDARY field in Open Report: 0
+CR30a2,15.65,,,- switch to auger,,
+CR30a2,15.8,,,"- at 16.1 m, sandier, fine to medium grained sand",,
+CR30a2,16.6,,,"- medium grained, brown-grey",,
+CR30a2,20.7,,,END OF BOREHOLE   (20.7 metres);;   25 mm diameter PVC pipe installed to 19.1 metres;;   Ground temperature cable #2426 installed to 19.1 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CR30a3,0,,,TOPSOIL (ORGANIC) - (100 mm thick),,Value in BOUNDARY field in Open Report: 0
+CR30a3,0.1,,,"SILT - trace to some organics, trace fine grained sand, non plastic, light brown, (100 mm thick)",,Value in BOUNDARY field in Open Report: 0
+CR30a3,0.2,,,"PEAT - some silt, medium dense, medium to dark brown, wood fragments",,Value in BOUNDARY field in Open Report: 0
+CR30a3,0.6,,,"- at 0.6 m, switch to auger",,
+CR30a3,0.601,,,"GRAVEL - sandy, some cobbles, rounded to subrounded gravel to 82 mm, medium brown",,Value in BOUNDARY field in Open Report: 0
+CR30a3,0.9,,,"SAND - some subrounded to rounded gravel to 20 mm, trace cobbles, trace silt, medium brown",,Value in BOUNDARY field in Open Report: 0
+CR30a3,1.6,,,"GRAVEL - some cobbles, some sand, subrounded gravel to 30 mm, medium brown",,Value in BOUNDARY field in Open Report: 0
+CR30a3,3.2,,,"SAND - trace gravel to 40 mm, medium brown",,Value in BOUNDARY field in Open Report: 0
+CR30a3,4.6,,,"- silty, trace subrounded gravel to 20 mm, medium grey",,
+CR30a3,5.8,,,"SILT - some fine grained sand, trace to some organics, low plastic, dark grey, faint organic odour, unfrozen (ground water)",,Value in BOUNDARY field in Open Report: 0
+CR30a3,7.6,,,END OF BOREHOLE   (7.6 metres),,Value in BOUNDARY field in Open Report: 0
+CR30a3a,0,,,"ICE AND PEAT - dark brown, (300 mm thick)",,Value in BOUNDARY field in Open Report: 0
+CR30a3a,0.3,,,"PEA T- silty, medium dense, dark brown, sticks, faint organic odour",,Value in BOUNDARY field in Open Report: 0
+CR30a3a,1.1,,,"SAND - trace organics, trace silt, fine grained, uniformly graded, medium grey",,Value in BOUNDARY field in Open Report: 0
+CR30a3a,1.4,,,"- at 1.4 m, trace rounded gravel to 10 mm, switch to auger",,
+CR30a3a,1.5,,,"GRAVEL - sandy, trace silt, well graded, medium brown",,Value in BOUNDARY field in Open Report: 0
+CR30a3a,3.1,,,"SAND - trace silt, fine grained, uniformly graded, medium grey",,Value in BOUNDARY field in Open Report: 0
+CR30a3a,4.8,,,"SILT - trace clay, low plastic, dark grey",,Value in BOUNDARY field in Open Report: 0
+CR30a3a,5.9,,,- switch to CRREL,,
+CR30a3a,6,,,"- some fine grained sand to sandy, trace organics",,
+CR30a3a,6.6,,,- trace fine grained sand,,
+CR30a3a,6.9,,,- trace rounded gravel to 10 mm,,
+CR30a3a,7,,,"SAND - silty, trace organics, fine grained, uniformly graded, dark grey",,Value in BOUNDARY field in Open Report: 0
+CR30a3a,7.001,,,"- at 7.0 m, switch to auger",,
+CR30a3a,10.7,,,- switch to CRREL,,
+CR30a3a,10.95,,,"- at 10.95 m, trace gravel",,
+CR30a3a,11,,,"SAND AND SILT - some clay, varved with organic layers, very hard, very dense, medium grey",,Value in BOUNDARY field in Open Report: 0
+CR30a3a,12.2,,,- switch to auger,,
+CR30a3a,16,,,- switch to auger,,
+CR30a3a,19,,,- switch to CRREL,,
+CR30a3a,19.4,,,- 2 mm thick clay lenses,,
+CR30a3a,19.8,,,- switch to auger,,
+CR30a3a,20.73,,,END OF BOREHOLE   (20.73 metres);;   25 mm diameter PVC pipe installed to 20.7 metres;;   Ground temperature cable #2437 installed to 20.0 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CR30a4,0,,,"PEAT - some silt and clay, medium brown, some yellow and red brown, trace roots, lichen and moss, (300 mm thick)",,Value in BOUNDARY field in Open Report: 0
+CR30a4,0.2,,,"- trace silt, damp, dark brown, wood and root fibres, slight odour",,
+CR30a4,0.3,,,"GRAVEL AND SAND - trace fines, subangular to subrounded gravel, medium brown sand, white, brown and black gravel",,Value in BOUNDARY field in Open Report: 0
+CR30a4,1.3,,,"- trace subangular cobbles, trace silt, coarse grained sand",,
+CR30a4,3.7,,,"SILT - some clay, trace sand, laminated, dense, medium to light grey",,Value in BOUNDARY field in Open Report: 0
+CR30a4,4.3,,,"- well sorted, fine grained silt, friable, low plastic, light to medium brown",,
+CR30a4,4.6,,,- switch to CRREL,,
+CR30a4,5.6,,,- trace subrounded gravel,,
+CR30a4,5.8,,,"SAND - trace to some silt, trace to some clay, fine to medium grained, well sorted, medium brown",,Value in BOUNDARY field in Open Report: 0
+CR30a4,6.1,,,- switch to auger,,
+CR30a4,7.1,,,- medium grey brown,,
+CR30a4,9.1,,,- switch to CRREL,,
+CR30a4,9.5,,,- trace subrounded gravel,,
+CR30a4,9.65,,,"SILT - some fine grained sand, some clay, trace of small subangular gravel, medium brown, trace wood inclusions",,Value in BOUNDARY field in Open Report: 0
+CR30a4,9.849,,,- switch to auger,,
+CR30a4,9.85,,,"CLAY - silty, well sorted, low to medium plastic, medium grey",,Value in BOUNDARY field in Open Report: 0
+CR30a4,10.3,,,"- 100 mm thick sand layer - trace silt well sorted, medium brown",,
+CR30a4,11.45,,,- switch to CRREL,,
+CR30a4,11.451,,,"SAND - trace subrounded gravel, fine grained, well sorted, medium grey",,Value in BOUNDARY field in Open Report: 0
+CR30a4,12.2,,,- switch to auger,,
+CR30a4,12.201,,,- trace gravel,,
+CR30a4,14.5,,,- silty,,
+CR30a4,15.25,,,- switch to CRREL,,
+CR30a4,15.5,,,"- at 15.5 m, switch to auger",,
+CR30a4,15.501,,,"- trace gravel, trace organics, medium to dark grey",,
+CR30a4,15.75,,,- trace wood fragments,,
+CR30a4,18.3,,,- silty,,
+CR30a4,20.41,,,- medium grey,,
+CR30a4,21,,,END OF BOREHOLE   (21.0 metres);;   25 mm diameter PVC pipe installed to 21.0 metres;;   Ground temperature cable #2436 installed to 20.0 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CR31N,0,,,"ORGANICS - moss and roots, (150 mm thick)",,Value in BOUNDARY field in Open Report: 0
+CR31N,0.15,,,"SILT - some sand, trace gravel to 15 mm, non plastic, light brown, organic inclusions",,Value in BOUNDARY field in Open Report: 0
+CR31N,0.3,,,"- at 0.3 m, switch to CRREL",,
+CR31N,0.45,,,ICE - organic inclusions,,Value in BOUNDARY field in Open Report: 0
+CR31N,1.3,,,- organics and silt,,
+CR31N,1.6,,,"SILT - clayey, some sand, trace gravel to <10 mm, low to medium plastic, dark brown",,Value in BOUNDARY field in Open Report: 0
+CR31N,1.9,,,- some clay,,
+CR31N,2.1,,,"- some sand, trace gravel to <10 mm",,
+CR31N,2.55,,,- switch to auger,,
+CR31N,3,,,- switch to CRREL,,
+CR31N,3.001,,,ICE - fragmented,,Value in BOUNDARY field in Open Report: 0
+CR31N,3.2,,,"SILT - sandy, some clay, medium grained sand, low plastic, dark brown",,Value in BOUNDARY field in Open Report: 0
+CR31N,3.7,,,- switch to CRREL,,
+CR31N,3.8,,,"SAND - silty, fine to medium grained, well graded, medium brown",,Value in BOUNDARY field in Open Report: 0
+CR31N,4.3,,,"- at 4.3 m, switch to auger",,
+CR31N,7.6,,,- switch to CRREL,,
+CR31N,8.75,,,- switch to auger,,
+CR31N,8.9,,,"- at 8.9 m, some silt",,
+CR31N,9.5,,,"- silty, fine grained",,
+CR31N,10.7,,,- switch to CRREL,,
+CR31N,11.3,,,- switch to auger,,
+CR31N,14.5,,,"- trace silt, occasional 2-5 mm thick organic layer",,
+CR31N,17.5,,,- some silt,,
+CR31N,21.1,,,END OF BOREHOLE   (21.1 metres);;   25 mm diameter PVC pipe installed to 20.7 metres;;   Ground temperature cable #2435 installed to 20.0 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CR31S,0,,,"ORGANICS - frozen, (300 mm thick)",,Value in BOUNDARY field in Open Report: 0
+CR31S,0.3,,,"ICE AND SILT - some organics (wood fragments), non plastic, dark brown",,Value in BOUNDARY field in Open Report: 0
+CR31S,0.6,,,"SILT - some fine grained sand, trace organics (wood), dark grey",,Value in BOUNDARY field in Open Report: 0
+CR31S,0.9,,,"SAND - silty, trace organics, dark grey",,Value in BOUNDARY field in Open Report: 0
+CR31S,1.021,,,"GRAVEL - sandy, rounded to subrounded gravel to 50 mm, light to medium brown",,Value in BOUNDARY field in Open Report: 0
+CR31S,1.2,,,- switch to auger,,
+CR31S,2.1,,,"SAND - some silt, fine grained, poorly graded, dark grey",,Value in BOUNDARY field in Open Report: 0
+CR31S,2.7,,,- switch to CRREL,,
+CR31S,2.701,,,- trace organics,,
+CR31S,3.4,,,- 20 mm silt (organic) bed,,
+CR31S,5.8,,,- trace silt,,
+CR31S,6.4,,,- silty,,
+CR31S,8.8,,,- trace silt,,
+CR31S,11.5,,,- some silt,,
+CR31S,13.4,,,- silty,,
+CR31S,14.95,,,"PEAT - dense, dark brown, 1-5 mm thick sand layers spaced at 10-20 mm apart, moderate organic odour",,Value in BOUNDARY field in Open Report: 0
+CR31S,15.4,,,"SAND - some organics, trace to some silt, fine grained, uniformly graded, dark grey, 40-50 mm thick peat layers spaced at 100 mm",,Value in BOUNDARY field in Open Report: 0
+CR31S,15.5,,,"- at 15.5 m, trace to some organics, fine grained sand, uniformly graded, medium to dark grey, occasional silt (organic) pockets, occasional organics to 40 mm across, faint organic odour",,
+CR31S,16.1,,,"- at 16.1 m, trace organics",,
+CR31S,21,,,END OF BOREHOLE   (21.0 metres);;   slough - 20.7 metres at 0 hrs.;;   25 mm diameter PVC pipe installed to 20.0 metres;;   Ground temperature cable #2425 installed to 20.0 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CR35aN,0,,,ORGANIC - (150 mm thick),,Value in BOUNDARY field in Open Report: 0
+CR35aN,0.15,,,"SILT AND ORGANICS - non plastic, light brown",,Value in BOUNDARY field in Open Report: 0
+CR35aN,0.9,,,- switch to CRREL,,
+CR35aN,1.8,,,ICE AND PEAT AND SILT,,Value in BOUNDARY field in Open Report: 0
+CR35aN,2,,,"SILT - some sand, some clay, non plastic, grey",,Value in BOUNDARY field in Open Report: 0
+CR35aN,2.8,,,- (Organic content = 9.0%),,
+CR35aN,3,,,"ICE AND SILT - non plastic, light grey brown",,Value in BOUNDARY field in Open Report: 0
+CR35aN,3.4,,,- switch to auger,,
+CR35aN,4,,,"SILT - non plastic, grey",,Value in BOUNDARY field in Open Report: 0
+CR35aN,6.8,,,"SAND - gravelly, some silt, trace clay, some subrounded gravel to 30 mm, brown",,Value in BOUNDARY field in Open Report: 0
+CR35aN,9.5,,,"- silty, light brown",,
+CR35aN,10,,,"- trace silt, fine grained, light brown",,
+CR35aN,10.5,,,- switch to CRREL,,
+CR35aN,15,,,- switch to auger,,
+CR35aN,15.2,,,- some gravel,,
+CR35aN,17.8,,,- trace gravel,,
+CR35aN,21.1,,,END OF BOREHOLE   (21.1 metres);;   25 mm diameter PVC pipe installed to 21.0 metres;;   Ground temperature cable #2430 installed to 20.0 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CR35aS,0,,,ORGANICS - (300 mm thick),,Value in BOUNDARY field in Open Report: 0
+CR35aS,0.3,,,PEAT - (300 mm thick),,Value in BOUNDARY field in Open Report: 0
+CR35aS,0.6,,,- switch to CRREL,,
+CR35aS,0.601,,,"SILT - organic, non plastic, brown, frequent organic inclusions",,Value in BOUNDARY field in Open Report: 0
+CR35aS,1.1,,,"- 200 mm thick gravel seam - rounded to 70 mm, poorly graded",,
+CR35aS,1.25,,,"ICE AND SILT - organic, low plastic, brown",,Value in BOUNDARY field in Open Report: 0
+CR35aS,1.4,,,"CLAY - organic, silty, some sand, trace gravel, brown",,Value in BOUNDARY field in Open Report: 0
+CR35aS,1.5,,,"- at 1.5 m, some sand, trace fine gravel, low to medium plastic, grey",,
+CR35aS,2.6,,,"SILT (TILL) - some clay, trace gravel, medium plastic, brown",,Value in BOUNDARY field in Open Report: 0
+CR35aS,3.7,,,- more rounded gravel to 75 mm,,
+CR35aS,4.1,,,"- trace sand, medium to high plastic",,
+CR35aS,5.05,,,- switch to auger,,
+CR35aS,6.2,,,"- sandy, medium plastic",,
+CR35aS,7.6,,,- switch to CRREL,,
+CR35aS,7.601,,,"SAND - silty, fine to medium grained, poorly graded, dark brown",,Value in BOUNDARY field in Open Report: 0
+CR35aS,8.2,,,- switch to auger,,
+CR35aS,8.201,,,"- clean, trace silt, medium grained",,
+CR35aS,9.4,,,- medium to coarse grained,,
+CR35aS,10.7,,,- switch to CRREL,,
+CR35aS,11.7,,,- switch to auger,,
+CR35aS,11.9,,,- some silt,,
+CR35aS,12.5,,,"SILT - sandy, trace clay, low to medium plastic, grey",,Value in BOUNDARY field in Open Report: 0
+CR35aS,12.8,,,- finer grains,,
+CR35aS,13.6,,,- some clay,,
+CR35aS,14,,,"SAND AND GRAVEL - trace silt, rounded gravel to 50 mm diameter, well graded, brown",,Value in BOUNDARY field in Open Report: 0
+CR35aS,14.8,,,"SAND - silty, some clay, trace gravel to 10 mm diameter, well graded, brown",,Value in BOUNDARY field in Open Report: 0
+CR35aS,15.7,,,- switch to CRREL,,
+CR35aS,15.8,,,"- some clay, trace gravel, medium grained, gravel to 15 mm diameter, poorly graded, low to medium plastic, gravel inclusions",,
+CR35aS,16.5,,,- switch to auger,,
+CR35aS,17.2,,,"- some silt, fine to medium grained, well graded",,
+CR35aS,18.9,,,"SAND AND GRAVEL - trace silt, rounded gravel to 10 mm diameter, well graded, brown",,Value in BOUNDARY field in Open Report: 0
+CR35aS,19,,,- gravel content and size increase with depth,,
+CR35aS,19.2,,,"- at 19.2 m, gravel to 25 mm diameter",,
+CR35aS,19.6,,,- gravel to 50 mm diameter,,
+CR35aS,21.3,,,END OF BOREHOLE   (21.3 metres);;   25 mm diameter PVC pipe installed to 20.3 metres;;   Ground temperature cable #2429 installed to 20.0 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CR3N,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+CR3N,0.4,,,PEAT - organic silt and partially decomposed wood,,Value in BOUNDARY field in Open Report: 0
+CR3N,0.5,,,"- organic inclusions, faint odour",,
+CR3N,1.4,,,"ICE AND PEAT - organic silt, trace fine grained sand, organic inclusions",,Value in BOUNDARY field in Open Report: 0
+CR3N,2.8,,,"SILT (ORGANIC) - trace sand, trace clay, non plastic, dark brown, trace organic inclusions, organic odour",,Value in BOUNDARY field in Open Report: 0
+CR3N,2.801,,,- (Organic content = 11.5%),,
+CR3N,2.9,,,"- at 2.9 m, 150 mm thick ice and soil lens",,
+CR3N,3.2,,,"- at 3.2 m, sandy",,
+CR3N,3.8,,,ICE AND SILT - porous ice,,Value in BOUNDARY field in Open Report: 0
+CR3N,3.9,,,"SAND - silty, some gravel, trace clay, trace organics, trace cobbles, subangular, well graded, non plastic, medium brown",,Value in BOUNDARY field in Open Report: 0
+CR3N,4.2,,,"- at 4.2 m, cobbles, start augering",,
+CR3N,5.6,,,"- trace clay, cohesive, low plastic",,
+CR3N,12.5,,,"MUDSTONE - weathered, some gravel",,Value in BOUNDARY field in Open Report: 0
+CR3N,13.5,,,"- ice filling fractures, 2-3 mm thick fractures at 50-100 mm spacing",,
+CR3N,16.4,,,- poor recovery,,
+CR3N,19.4,,,- good recovery,,
+CR3N,22.9,,,END OF BOREHOLE   (22.9 metres);;   slough - 20.7 metres at 0 hrs.;;   25 mm dia. PVC pipe installed to 21.3 metres;;   GTC #2420 installed to 20.0 metres;;   100 mm dia. Steel Protective casing with cover,,Value in BOUNDARY field in Open Report: 0
+CR3S,0,,,"PEAT - silty, dark brown to black, wood chips, frozen",,Value in BOUNDARY field in Open Report: 0
+CR3S,0.5,,,"CLAY - silty, dark brown",,Value in BOUNDARY field in Open Report: 0
+CR3S,1.2,,,"ICE AND CLAY - some silt, trace organics, wood",,Value in BOUNDARY field in Open Report: 0
+CR3S,1.7,,,"PEAT - organic silt, foliated, fine grained, non plastic, wood chips, odour",,Value in BOUNDARY field in Open Report: 0
+CR3S,1.9,,,"CLAY - silty, some organics, medium plastic, dark brown, wood fragments",,Value in BOUNDARY field in Open Report: 0
+CR3S,2.1,,,"PEAT - silty, wood, decaying odour",,Value in BOUNDARY field in Open Report: 0
+CR3S,2.2,,,"CLAY - silty, some organics, low plastic, dark brown",,Value in BOUNDARY field in Open Report: 0
+CR3S,3.75,,,"SAND AND SILT - trace well rounded to subrounded gravel, no discernible odour",,Value in BOUNDARY field in Open Report: 0
+CR3S,3.8,,,"- at 3.8 m, gravelly, trace cobbles",,
+CR3S,4.199,,,"SAND AND GRAVEL - some silt, well graded, subangular, moist, medium brown",,Value in BOUNDARY field in Open Report: 0
+CR3S,4.2,,,- becomes unfrozen,,
+CR3S,4.5,,,"- at 4.5 m, cobble (95 mm)",,
+CR3S,5.5,,,"- at 5.5 m, cobble (100 mm)",,
+CR3S,5.8,,,"ICE AND SILT - trace clay, dark grey",,Value in BOUNDARY field in Open Report: 0
+CR3S,6.1,,,"SILT - trace clay, non to low plastic, dark grey",,Value in BOUNDARY field in Open Report: 0
+CR3S,6.6,,,"GRAVEL - some silt, trace clay, well graded to 80 mm diameter, subrounded, wet, compact, dark brown",,Value in BOUNDARY field in Open Report: 0
+CR3S,6.7,,,"- at 6.7 m, silty, well rounded gravel to 50 mm diameter, switch to auger",,
+CR3S,7.6,,,"SILT - clayey, sandy, low plastic, dark grey, mudstone inclusions (?)",,Value in BOUNDARY field in Open Report: 0
+CR3S,10.25,,,"- some clay, trace organics, no visible sand, low plastic, dark grey",,
+CR3S,10.8,,,"CLAY - silty, sandy, trace angular gravel, poorly graded, medium plastic, dark brown, no discernible odour",,Value in BOUNDARY field in Open Report: 0
+CR3S,13.85,,,"MUDSTONE - weathered, friable, ice filling in fractures",,Value in BOUNDARY field in Open Report: 0
+CR3S,14.3,,,- some mudstone chips,,
+CR3S,17.6,,,- slight salty taste,,
+CR3S,22.9,,,END OF BOREHOLE   (22.9 metres);;   slough - 18.3 metres at 0 hrs.;;   25 mm dia. PVC pipe installed to 20.7 metres;;   GTC #2419 installed to 20.0 metres;;   100 mm dia. Steel Protective casing with cover,,Value in BOUNDARY field in Open Report: 0
+CR4N,0,,,ORGANICS - (200 mm thick),,Value in BOUNDARY field in Open Report: 0
+CR4N,0.2,,,"PEAT AND ICE - wood chips and sticks, lichens, moss",,Value in BOUNDARY field in Open Report: 0
+CR4N,0.6,,,"- brown, plant fragments, leaves",,
+CR4N,0.7,,,- (Organic content = 70.1%),,
+CR4N,1,,,ICE AND PEAT - trace silt,,Value in BOUNDARY field in Open Report: 0
+CR4N,1.2,,,- trace sand,,
+CR4N,1.8,,,"SILT - some subrounded gravel to 45 mm, trace sand, trace organics, non plastic, medium brown, slight organic odour",,Value in BOUNDARY field in Open Report: 0
+CR4N,2.5,,,ICE - porous,,Value in BOUNDARY field in Open Report: 0
+CR4N,3,,,"SILT - some gravel, some sand, trace organics, non plastic, medium brown, slight organic odour",,Value in BOUNDARY field in Open Report: 0
+CR4N,3.3,,,"SAND - silty, gravelly, subangular gravel to 50 mm, medium brown",,Value in BOUNDARY field in Open Report: 0
+CR4N,4,,,"ICE AND CLAY - some silt, medium plastic, dark grey",,Value in BOUNDARY field in Open Report: 0
+CR4N,5.7,,,"SAND - some gravel, trace silt, trace clay, trace gravel to 20 mm, dark grey, 10-20 mm sand layers - gravelly, spaced ~ 300 mm apart",,Value in BOUNDARY field in Open Report: 0
+CR4N,8.5,,,- some subrounded gravel to 30 mm,,
+CR4N,9.5,,,"CLAY - silty, low plastic, dark grey",,Value in BOUNDARY field in Open Report: 0
+CR4N,9.7,,,"SILT - sandy, some clay, some subrounded gravel to gravelly to 30 mm diameter, trace cobbles, low plastic, medium brown",,Value in BOUNDARY field in Open Report: 0
+CR4N,10.1,,,- 80 mm cobble,,
+CR4N,11.6,,,"CLAY - trace silt, low to medium plastic, dark grey",,Value in BOUNDARY field in Open Report: 0
+CR4N,11.9,,,"- clay inclusions, mudstone chips",,
+CR4N,13.4,,,MUDSTONE - weathered,,Value in BOUNDARY field in Open Report: 0
+CR4N,15.4,,,- switch to auger,,
+CR4N,20.7,,,END OF BOREHOLE   (20.70 metres);;   slough - 19.80 metres at 0 hrs.;;   25 mm diameter PVC pipe installed to 19.80 metres;;   Ground temperature cable #2421 installed to 19.84 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CR4S,0,,,ORGANICS - (300 mm thick),,Value in BOUNDARY field in Open Report: 0
+CR4S,0.3,,,"PEAT - H4 with H1 inclusions, green leaves",,Value in BOUNDARY field in Open Report: 0
+CR4S,0.5,,,"ICE AND SILT - trace clay, low plastic, light brown, no discernible odour",,Value in BOUNDARY field in Open Report: 0
+CR4S,1.2,,,"PEAT - organic silt, trace silt, plant fragments, organic odour",,Value in BOUNDARY field in Open Report: 0
+CR4S,1.6,,,"ICE AND SILT - trace clay, organics, low plastic, medium brown, organic odour",,Value in BOUNDARY field in Open Report: 0
+CR4S,1.75,,,"- trace silt, non plastic",,
+CR4S,1.9,,,- (Organic content = 9.6%),,
+CR4S,2.1,,,"PEAT - trace silt, dark brown, organic odour",,Value in BOUNDARY field in Open Report: 0
+CR4S,3.1,,,- 5 mm wood debris,,
+CR4S,3.4,,,"SILT - some well graded gravel, some organics, some clay, trace sand, medium plastic, medium brown, organic odour",,Value in BOUNDARY field in Open Report: 0
+CR4S,4,,,- switch to auger,,
+CR4S,4.3,,,- trace cobbles,,
+CR4S,5.2,,,"CLAY - silty, medium plastic, dark grey, no discernible odour",,Value in BOUNDARY field in Open Report: 0
+CR4S,7.1,,,"SAND - silty, some clay, trace gravel",,Value in BOUNDARY field in Open Report: 0
+CR4S,8.4,,,- some subrounded gravel to 30 mm,,
+CR4S,8.5,,,"SILT - trace clay, trace sand",,Value in BOUNDARY field in Open Report: 0
+CR4S,8.8,,,"SAND - trace silt, trace subrounded gravel to 20 mm diameter, dark grey",,Value in BOUNDARY field in Open Report: 0
+CR4S,9,,,"CLAY - trace silt, medium plastic, dark grey",,Value in BOUNDARY field in Open Report: 0
+CR4S,10.9,,,- gravelly,,
+CR4S,11.8,,,- switch to CRREL,,
+CR4S,12.3,,,"MUDSTONE - weathered, friable",,Value in BOUNDARY field in Open Report: 0
+CR4S,16.5,,,"- occasional 5 mm thick filling, switch to auger",,
+CR4S,20.7,,,END OF BOREHOLE   (20.7 metres);;   25 mm diameter PVC pipe installed to 20.70 metres;;   Ground temperature cable #2412 installed to 20.00 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CR8N,0,,,ORGANICS - (200 mm thick),,Value in BOUNDARY field in Open Report: 0
+CR8N,0.2,,,"SAND - silty, some organics, orangey brown",,Value in BOUNDARY field in Open Report: 0
+CR8N,0.4,,,PEAT - wood fragments,,Value in BOUNDARY field in Open Report: 0
+CR8N,0.8,,,"SILT (ORGANIC) - some organics, trace clay, trace fine grained sand, non plastic, dark brown, slight organic odour",,Value in BOUNDARY field in Open Report: 0
+CR8N,0.801,,,- switch to CRREL,,
+CR8N,1,,,PEAT - wood fragments,,Value in BOUNDARY field in Open Report: 0
+CR8N,2.4,,,"SAND - some gravel, trace silt, well graded to 50 mm, medium brown",,Value in BOUNDARY field in Open Report: 0
+CR8N,2.5,,,"SILT - gravelly, trace sand, trace clay, subrounded to subangular gravel, non to low plastic, medium brown",,Value in BOUNDARY field in Open Report: 0
+CR8N,2.7,,,- switch to auger,,
+CR8N,2.9,,,"SILT (ORGANIC) - some clay, trace subrounded gravel to 2 mm, trace coarse grained sand, low plastic, black, strong organic odour",,Value in BOUNDARY field in Open Report: 0
+CR8N,3,,,- (Organic content = 4.1%),,
+CR8N,6.4,,,"SILT - some clay, some sand, some subrounded gravel to 40 mm, low plastic, medium grey brown, faint organic odour",,Value in BOUNDARY field in Open Report: 0
+CR8N,6.9,,,"- trace gravel, trace sand",,
+CR8N,7.9,,,"- gravelly, some sand, trace cobbles",,
+CR8N,10.6,,,- switch to auger,,
+CR8N,12.2,,,"CLAY - some silt, trace to some subrounded gravel to 50 mm, low plastic, dark grey, faint organic odour",,Value in BOUNDARY field in Open Report: 0
+CR8N,13.6,,,"- trace to some subrounded gravel to 40 mm, trace sand, poorly graded",,
+CR8N,14.3,,,- subrounded to rounded gravel to 50 mm diameter,,
+CR8N,14.6,,,"- trace gravel, trace coarse grained sand",,
+CR8N,17.4,,,"- no visible gravel, becomes high plastic",,
+CR8N,19.8,,,END OF BOREHOLE   (19.8 metres);;   slough - 18.9 metres at 0 hrs.;;   25 mm diameter PVC pipe installed to 18.90 metres;;   Ground temperature cable #2433 installed to 18.90 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CR8S,0,,,ICE,,Value in BOUNDARY field in Open Report: 0
+CR8S,0.6,,,"PEAT - organics silt, brown, wood fragments",,Value in BOUNDARY field in Open Report: 0
+CR8S,0.601,,,- switch to CRREL,,
+CR8S,1.25,,,"- at 1.25 m, silty, trace rounded gravel to 20 mm",,
+CR8S,1.3,,,"SILT - some sand, some subrounded gravel to 20 mm, trace clay, trace organics, non plastic, medium grey",,Value in BOUNDARY field in Open Report: 0
+CR8S,1.5,,,"- at 1.5 m, 100 mm thick peat lens - brown, wood fragments",,
+CR8S,1.6,,,"- at 1.6 m, trace subrounded cobbles to 75 mm",,
+CR8S,1.7,,,"PEAT - trace organics, trace coarse grained sand, highly weathered, black",,Value in BOUNDARY field in Open Report: 0
+CR8S,2.1,,,"SILT - gravelly, some sand, trace clay, trace cobbles, well graded, subrounded gravel, medium brown",,Value in BOUNDARY field in Open Report: 0
+CR8S,2.101,,,"- at 2.1 m, switch to auger",,
+CR8S,4.3,,,- small clay fragments,,
+CR8S,4.9,,,"PEAT - some silt, trace coarse grained sand, trace organics, black, organic odour",,Value in BOUNDARY field in Open Report: 0
+CR8S,4.901,,,- (Organic content = 2.9%),,
+CR8S,5.4,,,"SILT - gravelly, some sand",,Value in BOUNDARY field in Open Report: 0
+CR8S,8.8,,,- trace gravel,,
+CR8S,10.2,,,"CLAY - silty, trace coarse grained sand, trace fine subangular gravel, medium plastic",,Value in BOUNDARY field in Open Report: 0
+CR8S,11.6,,,"SILT - trace to some clay, trace subangular gravel, trace sand, non plastic, medium brown",,Value in BOUNDARY field in Open Report: 0
+CR8S,12.5,,,"ICE AND CLAY - trace to some silt, medium plastic, dark grey",,Value in BOUNDARY field in Open Report: 0
+CR8S,12.6,,,"CLAY - some silt, trace coarse grained sand, trace gravel, trace subrounded cobbles to 75 mm diameter, medium plastic",,Value in BOUNDARY field in Open Report: 0
+CR8S,16,,,"CLAY (TILL) - trace subangular gravel to 10 mm diameter, trace sand, low to medium plastic, medium brown",,Value in BOUNDARY field in Open Report: 0
+CR8S,16.5,,,- gravelly,,
+CR8S,16.8,,,"- some silt, trace coarse grained sand, trace gravel to 30 mm diameter, medium plastic",,
+CR8S,21.3,,,END Of BOREHOLE   (21.3 metres);;   slough - 20.7 metres at 0 hrs.;;   25 mm diameter PVC pipe installed to 20.70 metres;;   Ground temperature cable #2434 installed to 20.00 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CRA12N,0,,,"PEAT - trace silt, medium dense, medium to dark brown, trace roots, some odour",,Value in BOUNDARY field in Open Report: 0
+CRA12N,0.2,,,"- some sand and silt, trace subrounded gravel",,
+CRA12N,0.7,,,- trace cobbles,,
+CRA12N,0.75,,,"SAND - silty, some clay, trace subrounded gravel, very stiff, highly dense, medium grey",,Value in BOUNDARY field in Open Report: 0
+CRA12N,2.2,,,- some gravel,,
+CRA12N,3,,,- trace coarse gravel,,
+CRA12N,3.15,,,"- at 3.15 m, fractured, weathered cobble",,
+CRA12N,4,,,"- trace fine grained sand, firm to very stiff",,
+CRA12N,4.45,,,- switch to auger,,
+CRA12N,7.6,,,- switch to CRREL,,
+CRA12N,7.8,,,"SAND - trace fines, medium grained, medium brown, 50 mm thick sand layers - interbedded with 5 mm thick medium grey silt layers",,Value in BOUNDARY field in Open Report: 0
+CRA12N,8.2,,,"- at 8.2 m, switch to auger",,
+CRA12N,8.201,,,"- at 8.2 m, some silt, loose",,
+CRA12N,9.8,,,"- trace subrounded to rounded gravel, coarse grained, light brown",,
+CRA12N,10.6,,,- switch to CRREL,,
+CRA12N,11.45,,,- switch to auger,,
+CRA12N,14.45,,,- switch to CRREL,,
+CRA12N,15.25,,,- switch to auger,,
+CRA12N,18.3,,,- switch to CRREL,,
+CRA12N,18.6,,,- 40 mm thick silt lens - medium grey,,
+CRA12N,18.601,,,- interbedded sand,,
+CRA12N,19.05,,,- switch to auger,,
+CRA12N,21,,,END OF BOREHOLE   (21.0 metres);;   25 mm diameter PVC pipe installed to 21.0 metres;;   Ground temperature cable #2427 installed to 20.0 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CRA12S,0,,,"TOPSOIL - organic, (300 mm thick)",,Value in BOUNDARY field in Open Report: 0
+CRA12S,0.3,,,"PEA T- fibrous, dark brown, faint organic odour",,Value in BOUNDARY field in Open Report: 0
+CRA12S,0.95,,,"SILT - some clay, non to low plastic, medium greyish brown, trace gastropod shells, faint organic odour",,Value in BOUNDARY field in Open Report: 0
+CRA12S,2.1,,,- trace sand,,
+CRA12S,3,,,"- gravelly, trace to some fine grained sand, trace clay, subrounded gravel to 40 mm, non plastic, dark grey",,
+CRA12S,3.4,,,"SAND - some silt, fine grained, uniformly graded, medium beige brown",,Value in BOUNDARY field in Open Report: 0
+CRA12S,4.6,,,"SILT - sandy, non plastic, medium grey",,Value in BOUNDARY field in Open Report: 0
+CRA12S,6.5,,,"SAND - some silt to silty, fine grained, uniformly graded, medium grey",,Value in BOUNDARY field in Open Report: 0
+CRA12S,9.4,,,- trace silt,,
+CRA12S,10.5,,,- some rounded gravel to 20 mm,,
+CRA12S,11,,,- trace rounded gravel to 10 mm,,
+CRA12S,11.9,,,"- trace subrounded gravel to 10 mm, medium grained",,
+CRA12S,12.05,,,- fine to medium grained,,
+CRA12S,13.5,,,"- some silt to silty, fine grained",,
+CRA12S,14.9,,,- switch to CRREL,,
+CRA12S,15.2,,,- switch to auger,,
+CRA12S,18.3,,,- switch to CRREL,,
+CRA12S,19,,,- switch to auger,,
+CRA12S,21,,,END OF BOREHOLE   (21.0 metres);;   25 mm diameter PVC pipe installed to 20.9 metres;;   Ground temperature cable #2428 installed to 20.0 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CRA3N,0,,,ORGANICS - (100 mm thick),,Value in BOUNDARY field in Open Report: 0
+CRA3N,0.1,,,"PEAT - brown, frequent wood chips, strong organic odour",,Value in BOUNDARY field in Open Report: 0
+CRA3N,0.6,,,- fibrous,,
+CRA3N,1.4,,,"ICE AND PEAT - brown, roots, wood inclusions, organic odour",,Value in BOUNDARY field in Open Report: 0
+CRA3N,2.3,,,"PEAT - small wood inclusions, roots",,Value in BOUNDARY field in Open Report: 0
+CRA3N,2.55,,,"CLAY - silty, trace sand, high plastic",,Value in BOUNDARY field in Open Report: 0
+CRA3N,3.2,,,"GRAVEL - sandy, trace silt, gravel to 30 mm, well graded",,Value in BOUNDARY field in Open Report: 0
+CRA3N,3.6,,,"SAND - silty, poorly graded, medium grained, grey",,Value in BOUNDARY field in Open Report: 0
+CRA3N,3.9,,,"- trace clay, trace to some gravel, subrounded gravel to 40 mm,",,
+CRA3N,4,,,- switch to auger,,
+CRA3N,5.2,,,"- some gravel, trace silt, medium grained, brown",,
+CRA3N,6.1,,,- switch to CRREL,,
+CRA3N,6.7,,,- switch to auger,,
+CRA3N,7.6,,,"- trace silt, gravel to 30 mm, well graded",,
+CRA3N,9.7,,,"- trace gravel, trace silt",,
+CRA3N,10.7,,,- switch to CRREL,,
+CRA3N,10.701,,,"SAND (TILL) - gravelly, trace silt, rounded gravel to 50 mm, well graded, brown",,Value in BOUNDARY field in Open Report: 0
+CRA3N,11.3,,,- some gravel,,
+CRA3N,11.5,,,"SAND - trace silt, trace gravel, trace clay, poorly graded, medium grained, brown",,Value in BOUNDARY field in Open Report: 0
+CRA3N,11.7,,,- switch to auger,,
+CRA3N,12.5,,,"- silty, well graded, fine grained",,
+CRA3N,15.3,,,- switch to CRREL,,
+CRA3N,16.2,,,- switch to auger,,
+CRA3N,21.3,,,END OF BOREHOLE   (21.3 metres);;   25 mm diameter PVC pipe installed to 20.9 metres;;   Ground temperature cable #2431 installed to 20.0 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+CRA3S,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+CRA3S,0.5,,,ICE AND PEAT - brown,,Value in BOUNDARY field in Open Report: 0
+CRA3S,1.4,,,- switch to CRREL,,
+CRA3S,2.2,,,- (Organic content=84.8%),,
+CRA3S,2.6,,,"ICE AND SILT (TILL) - trace to some subrounded gravel to 50 mm, trace of clay, low to medium plastic, dark grey",,Value in BOUNDARY field in Open Report: 0
+CRA3S,4.6,,,"SAND AND GRAVEL - some silt, trace clay, rounded gravel to 25 mm, non plastic, grey brown",,Value in BOUNDARY field in Open Report: 0
+CRA3S,5.7,,,- switch to auger,,
+CRA3S,5.8,,,"- gravel content increases with depth, gravel to 50 mm",,
+CRA3S,6.1,,,"- poorly graded, medium grained, gravel to 30 mm",,
+CRA3S,8.2,,,"SAND - silty, fine to medium grained, well graded, brown",,Value in BOUNDARY field in Open Report: 0
+CRA3S,9.2,,,- switch to CRREL,,
+CRA3S,9.201,,,"- at 9.2 m, becomes more silty",,
+CRA3S,9.3,,,"- at 9.3 m, occasional organic inclusion",,
+CRA3S,9.65,,,"- trace gravel to 15 mm, rounded",,
+CRA3S,9.75,,,"- some rounded gravel to 15 mm, trace silt",,
+CRA3S,12.2,,,"- silty, trace gravel to 20 mm, occasional organic inclusions",,
+CRA3S,13.2,,,- switch to auger,,
+CRA3S,13.4,,,"- some silt, trace clay, non plastic, brown",,
+CRA3S,15.6,,,"- silty, fine grained, poorly graded, brown",,
+CRA3S,15.8,,,"SILT - sandy, fine grained sand, non to low plastic, brown",,Value in BOUNDARY field in Open Report: 0
+CRA3S,16.5,,,"SAND - silty, fine grained, poorly graded, brown",,Value in BOUNDARY field in Open Report: 0
+CRA3S,21.3,,,END OF BOREHOLE   (21.3 metres);;   25 mm diameter PVC pipe installed to 21.0 metres;;   Ground temperature cable #2432 installed to 20.0 metres;;   100 mm diameter Steel Protective surface casing with cover,,Value in BOUNDARY field in Open Report: 0
+S6-BH01,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+S6-BH01,0.2,,,"CLAY (TILL) - some silt, some sand, trace gravel, medium plastic, brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH01,3.9,,,- some gravel,,
+S6-BH01,4.3,,,"- gravelly, sandy",,
+S6-BH01,4.5,,,- 700 mm thick gravel seam - subangular gravel to 60 mm,,
+S6-BH01,5.1,,,- some gravel to 30 mm,,
+S6-BH01,7,,,- increasing gravel,,
+S6-BH01,8.5,,,"SAND - silty, some gravel, well graded, subrounded gravel to 15 mm, light brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH01,9.3,,,"CLAY - silty, trace sand, low to medium plastic, light brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH01,10,,,END OF BOREHOLE   (10.0 metres);;   Note:  Backfilled at completion.,,Value in BOUNDARY field in Open Report: 0
+S6-BH02,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+S6-BH02,0.1,,,"CLAY (TILL) - silty, some sand, trace gravel, medium plastic, brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH02,0.2,,,- stiff,,
+S6-BH02,1.5,,,- 300 mm thick gravel seam - gravel to 10 mm,,
+S6-BH02,2.8,,,"- trace sand, high plastic",,
+S6-BH02,3.4,,,"SAND - gravelly, some silt, well graded, gravel to;;           40 mm, brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH02,5,,,"CLAY (TILL)- some sand, some silt, trace fine gravel, medium plastic, dark brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH02,10,,,END OF BOREHOLE   (10.0 metres);;   Note:  Backfilled at completion.,,Value in BOUNDARY field in Open Report: 0
+S6-BH03,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+S6-BH03,0.1,,,"CLAY (TILL) - trace to some silt, trace sand, trace gravel, low plastic, dark brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH03,3.4,,,- some sand,,
+S6-BH03,4.8,,,- gravelly,,
+S6-BH03,5.5,,,"SAND AND GRAVEL - some silt and clay, well graded, gravel to 40 mm, light brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH03,6.5,,,"- gravelly, silty, gravel to 50 mm, fines content increases with depth",,
+S6-BH03,8.2,,,"CLAY (TILL) - sandy, gravelly, some silt, subrounded gravel to 30 mm, low to medium plastic, brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH03,9.1,,,"ICE AND CLAY (TILL) - sandy, some silt, some gravel, medium plastic",,Value in BOUNDARY field in Open Report: 0
+S6-BH03,10,,,END OF BOREHOLE   (10.0 metres);;   Note:  Backfilled at completion.,,Value in BOUNDARY field in Open Report: 0
+S6-BH04,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+S6-BH04,0.1,,,"SILT (ORGANIC) - non plastic, dark brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH04,0.5,,,"CLAY (TILL) - silty, trace to some sand, medium to high plastic, brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH04,2,,,- some sand,,
+S6-BH04,3.1,,,- high plastic,,
+S6-BH04,4.8,,,- medium to high plastic,,
+S6-BH04,6.9,,,"- some gravel, some sand, subangular gravel to 40 mm, high plastic, oxide staining",,
+S6-BH04,7.3,,,- trace gravel,,
+S6-BH04,8.5,,,"- sandy, low to medium plastic",,
+S6-BH04,9.3,,,"SILT AND SAND - trace clay, fine grained sand, grey",,Value in BOUNDARY field in Open Report: 0
+S6-BH04,10,,,END OF BOREHOLE   (10.0 metres);;   Note:  Backfilled at completion.,,Value in BOUNDARY field in Open Report: 0
+S6-BH05,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+S6-BH05,0.1,,,"CLAY (TILL) - silty, some sand, some subangular gravel to 40 mm, medium plastic, light brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH05,1.4,,,- very stiff to hard,,
+S6-BH05,3.5,,,"ICE AND CLAY - silty, trace sand and gravel , low to medium plastic, grey",,Value in BOUNDARY field in Open Report: 0
+S6-BH05,6.1,,,END OF BOREHOLE   (6.1 metres);;   Note:  Backfilled at completion.,,Value in BOUNDARY field in Open Report: 0
+S6-BH06,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+S6-BH06,0.1,,,"CLAY (TILL) - silty, some sand, trace gravel, medium plastic, light brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH06,1.7,,,- very stiff to hard,,
+S6-BH06,1.8,,,- increasing plasticity,,
+S6-BH06,7,,,- sand pockets,,
+S6-BH06,7.7,,,- some gravel,,
+S6-BH06,8.5,,,- 200 mm thick gravel seam,,
+S6-BH06,9.4,,,- gravelly,,
+S6-BH06,9.8,,,- some gravel,,
+S6-BH06,10,,,END OF BOREHOLE   (10.0 metres);;   Note:  Backfilled at completion.,,Value in BOUNDARY field in Open Report: 0
+S6-BH07,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+S6-BH07,0.1,,,"SAND - gravelly, silty, well graded, subrounded gravel to 35 mm, light brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH07,2.1,,,"CLAY - silty, some sand, trace gravel, medium plastic, dark brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH07,2.8,,,"- sandy, some gravel, well graded, subangular gravel to 30 mm",,
+S6-BH07,5,,,- no visible gravel,,
+S6-BH07,10,,,END OF BOREHOLE   (10.0 metres);;   Note:  Backfilled at completion.,,Value in BOUNDARY field in Open Report: 0
+S6-BH08,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+S6-BH08,0.1,,,GRAVEL - (100 mm thick),,Value in BOUNDARY field in Open Report: 0
+S6-BH08,0.2,,,"CLAY (TILL) - silty, some sand, trace gravel, low plastic, light brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH08,2,,,- medium plastic,,
+S6-BH08,10,,,END OF BOREHOLE   (10.0 metres);;   Note:  Backfilled at completion.,,Value in BOUNDARY field in Open Report: 0
+S6-BH09,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+S6-BH09,0.1,,,"CLAY - silty, trace sand, trace gravel, low plastic, light brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH09,0.9,,,"- gravelly, sandy",,
+S6-BH09,2,,,"- some sand, trace gravel, medium plastic, brown",,
+S6-BH09,3.3,,,- sandy,,
+S6-BH09,4,,,- some sand,,
+S6-BH09,4.5,,,- no visible gravel,,
+S6-BH09,5.5,,,- high plastic,,
+S6-BH09,10,,,END OF BOREHOLE   (10.0 metres);;   Note:  Backfilled at completion.,,Value in BOUNDARY field in Open Report: 0
+S6-BH10,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+S6-BH10,0.1,,,"GRAVEL - some clay, some sand, trace silt, well graded, subangular gravel to 40 mm, low plastic, light brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH10,3,,,"ICE AND CLAY - silty, trace sand, low to medium plastic, grey",,Value in BOUNDARY field in Open Report: 0
+S6-BH10,4.6,,,"CLAY (TILL) - silty, some sand, medium plastic",,Value in BOUNDARY field in Open Report: 0
+S6-BH10,8,,,- trace gravel,,
+S6-BH10,8.4,,,- 150 mm thick gravel seam,,
+S6-BH10,9.9,,,END OF BOREHOLE   (9.9 metres);;   Note:  Backfilled at completion.,,Value in BOUNDARY field in Open Report: 0
+S6-BH11,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+S6-BH11,0.1,,,"CLAY (TILL) - silty, some sand, trace gravel, medium plastic, dark brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH11,1.9,,,"- 150 mm thick sand seam - poorly graded, light brown, oxide stained",,
+S6-BH11,4.3,,,"- light grey, silt inclusion",,
+S6-BH11,5.8,,,END OF BOREHOLE   (5.8 metres);;   Note:  Backfilled at completion.,,Value in BOUNDARY field in Open Report: 0
+S6-BH12,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+S6-BH12,0.1,,,"CLAY (TILL) - silty, some sand, trace gravel, low to medium plastic, light brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH12,0.9,,,- gravelly,,
+S6-BH12,1.2,,,- trace gravel,,
+S6-BH12,3.8,,,"- medium plastic, grey",,
+S6-BH12,4.1,,,- light grey silt and clay inclusions,,
+S6-BH12,4.8,,,"- some sand, faint odour - organic or hydrocarbon-like",,
+S6-BH12,9.1,,,END OF BOREHOLE   (9.1 metres);;   Note:  Backfilled at completion.,,Value in BOUNDARY field in Open Report: 0
+S6-BH13,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+S6-BH13,0.1,,,"CLAY (TILL) - silty, some sand, some gravel, medium plastic, light brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH13,0.5,,,"- sandy, gravelly",,
+S6-BH13,1.3,,,"- some sand, trace gravel",,
+S6-BH13,1.8,,,- 1-2 pieces of weathered limestone inclusions,,
+S6-BH13,3.8,,,- trace sand,,
+S6-BH13,7,,,- 300 mm thick gravel seam,,
+S6-BH13,8.3,,,"SAND - clayey, some silt, some gravel",,Value in BOUNDARY field in Open Report: 0
+S6-BH13,9.1,,,END OF BOREHOLE   (9.1 metres);;   Note:  Backfilled at completion.,,Value in BOUNDARY field in Open Report: 0
+S6-BH14,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+S6-BH14,0.1,,,"SILT - sandy, trace gravel, low plastic, light brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH14,0.5,,,"CLAY - sandy, gravelly, some silt, well graded, subrounded gravel to 30 mm, high plastic, brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH14,1.8,,,- some gravel,,
+S6-BH14,3,,,END OF BOREHOLE   (3.0 metres);;   Note:  Backfilled at completion.,,Value in BOUNDARY field in Open Report: 0
+S6-BH15,0,,,"CLAY (TILL) - silty, some sand, medium to high plastic, orange brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH15,0.7,,,- grey,,
+S6-BH15,2,,,- trace gravel,,
+S6-BH15,2.4,,,"- no visible gravel, high plastic",,
+S6-BH15,6.7,,,- medium plastic,,
+S6-BH15,9.1,,,END OF BOREHOLE   (9.1 metres);;   Note:  Backfilled at completion.,,Value in BOUNDARY field in Open Report: 0
+S6-BH16,0,,,ORGANICS,,Value in BOUNDARY field in Open Report: 0
+S6-BH16,0.1,,,"SAND AND GRAVEL - some silt, well graded, subrounded gravel to 50 mm, brown",,Value in BOUNDARY field in Open Report: 0
+S6-BH16,0.6,,,"CLAY (TILL) - silty, sandy, gravelly, low plastic, grey",,Value in BOUNDARY field in Open Report: 0
+S6-BH16,2.5,,,"- trace sand, low to medium plastic",,
+S6-BH16,5.5,,,- medium plastic,,
+S6-BH16,9.1,,,END OF BOREHOLE   (9.1 metres);;   Note:  Backfilled at completion.,,Value in BOUNDARY field in Open Report: 0
