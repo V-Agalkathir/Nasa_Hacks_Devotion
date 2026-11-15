@@ -24,13 +24,14 @@ QUERIES = {
     "highway": f'way["highway"]({BB});',
     "water": f'(way["natural"="water"]({BB});relation["natural"="water"]({BB});way["waterway"]({BB}););',
     "coast": f'way["natural"="coastline"]({BB});',
+    "aeroway": f'way["aeroway"~"runway|apron|taxiway|aerodrome"]({BB});',
     "services": f'(nwr["amenity"~"school|clinic|hospital|doctors|community_centre|place_of_worship|fire_station|police|townhall"]({BB});'
                 f'nwr["shop"]({BB});nwr["aeroway"~"aerodrome|terminal"]({BB});nwr["healthcare"]({BB}););',
 }
 
 
 def overpass(q):
-    body = f"[out:json][timeout:90];{q}out geom center;"
+    body = f"[out:json][timeout:90];{q}out geom;"
     for url in SERVERS:
         for attempt in range(2):
             try:
@@ -64,7 +65,7 @@ def to_feature(el, as_polygon):
 out = path(cfg, "interim", "context")
 for name, q in QUERIES.items():
     els = overpass(q)
-    feats = [f for f in (to_feature(el, as_polygon=(name == "water")) for el in els) if f]
+    feats = [f for f in (to_feature(el, as_polygon=(name in ("water", "aeroway"))) for el in els) if f]
     if name == "services":   # services as points (centre of buildings/areas)
         for f in feats:
             g = f["geometry"]
