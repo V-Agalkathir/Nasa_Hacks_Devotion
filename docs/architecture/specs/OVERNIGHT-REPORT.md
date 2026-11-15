@@ -19,6 +19,10 @@ Everything in the plan now runs end to end on the team's real data: radar stacks
 | 5 Automation | `.github/workflows/update.yml`: catalogue check, season gate, fetch, rebuild, validation gate (47 checks), Pages deploy | Simulated end to end from a clean copy: works, 63 s | Not yet run in GitHub Actions; it has to be merged to `main` first (see "What you need to do"). |
 | 6 Website | Built to the design session's spec (`specs/06-interactive-product.md`): one page with a hero, a map with five layers (Screen, Height, Coast, Radar, Core next) and Move/Box/Paint/Erase tools, a Ground check panel (Try chips, five needs, report), Side by side, and test cards | Checked at desktop and phone widths in the browser pane | Shows real data only (`mock: false`). Reindeer Point, The Point and Town core come out Higher; Highway km 26 comes out Lower. |
 
+## Added Sunday morning: radar against real boreholes
+
+11 public highway boreholes from the NWT Permafrost Database fall in our area (ITH 2013 and 2017 drilling; none in town). With the rule fixed and committed before running (Spearman ρ between top-5 m moisture and radar summer sinking: ≥ 0.4 consistent, ≤ 0 not consistent), the result is **not consistent: ρ = −0.52**. The four ice-rich boreholes (visible ice, 46–337% moisture) show *less* radar sinking than the ice-poor ones. Several boreholes sit within 50 m of each other, so this is effectively about 6 places and weak evidence, but it points against the radar, not for it. Code: `data-pipeline/src/borehole_check.py`; data in `data-pipeline/static/boreholes/`.
+
 ## Why the models failed (checked, not guessed)
 
 1. **No processing bug.** HyP3's own `vert_disp` maps, summed independently of our chain, give the same picture: land moves within about 1 cm of the airport pad over a summer (2021 median +1.1 cm, 2025 +1.0 cm), and single 12-day pairs swing by ±1 cm across the whole area.

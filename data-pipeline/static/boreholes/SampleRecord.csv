@@ -1,0 +1,1714 @@
+﻿SITE_ID,DEPTH_M,SAMPLE_BOTTOM_M,SAMPLE_ID,USC,SAMPLE_TYPE,COMMENTS
+177_Pit_NTGS11,0.501,0.501,,,,
+177_Pit_NTGS11,1.5,1.65,G1,,disturbed (or grab or bag),
+177_Pit_NTGS11,1.501,1.501,,,,
+177_Pit_NTGS11,3,3.15,G2,,disturbed (or grab or bag),
+177_Pit_NTGS11,3.001,3.001,,,,
+177_Pit_NTGS11,4.5,4.65,G3,,disturbed (or grab or bag),
+177_Pit_NTGS11,4.8,4.8,,,,
+177_Pit_NTGS11,5.5,6.3,CC1,,CRREL core,
+177_Pit_NTGS11,6,6,,,,
+177_Pit_NTGS11,6.6,6.6,,,,
+177_Pit_NTGS11,7.5,7.65,G4,,disturbed (or grab or bag),
+177_Pit_NTGS11,7.8,7.8,,,,
+177_Pit_NTGS11,9,9.15,G5,,disturbed (or grab or bag),
+177_Pit_NTGS11,9.001,9.001,,,,
+177_Pond_NTGS12,0.501,0.5,,,,
+177_Pond_NTGS12,0.75,1.2,CC1,,CRREL core,
+177_Pond_NTGS12,1.2,1.8,CC2,,CRREL core,
+177_Pond_NTGS12,1.5,1.5,,,,
+177_Pond_NTGS12,1.8,2.4,CC3,,CRREL core,
+177_Pond_NTGS12,2.4,3,CC4,,CRREL core,
+177_Pond_NTGS12,3,3,,,,
+177_Pond_NTGS12,3.6,3.6,,,,
+177_Pond_NTGS12,4.5,4.65,G1,,disturbed (or grab or bag),
+177_Pond_NTGS12,6,6.15,G2,,disturbed (or grab or bag),
+177_Pond_NTGS12,6.001,6.001,,,,
+177_Pond_NTGS12,7.5,7.65,G3,,disturbed (or grab or bag),
+177_Pond_NTGS12,7.8,7.8,,,,
+177_Pond_NTGS12,9,9.15,G4,,disturbed (or grab or bag),
+177_Pond_NTGS12,9.3,9.3,,,,
+312_Pit_NTGS13,0.501,0.501,,,,
+312_Pit_NTGS13,0.901,0.901,,,,
+312_Pit_NTGS13,1.5,1.65,G1,,disturbed (or grab or bag),
+312_Pit_NTGS13,1.501,1.501,,,,
+312_Pit_NTGS13,2.101,2.101,,,,
+312_Pit_NTGS13,3,3.15,G2,,disturbed (or grab or bag),
+312_Pit_NTGS13,3.001,3.001,,,,
+312_Pit_NTGS13,4.5,4.65,G3,,disturbed (or grab or bag),
+312_Pit_NTGS13,4.501,4.501,,,,
+312_Pit_NTGS13,6,6.15,G4,,disturbed (or grab or bag),
+312_Pit_NTGS13,6.001,6.001,,,,
+312_Pit_NTGS13,7.5,7.65,G5,,disturbed (or grab or bag),
+312_Pit_NTGS13,7.501,7.501,,,,
+312_Pit_NTGS13,9,9.15,G6,,disturbed (or grab or bag),
+312_Pit_NTGS13,9.001,9.001,,,,
+AH109.6C,0,0.3,,,,Value in USC field in Open Report: TOPSOIL
+AH109.6C,0.3,5,,,,PT . Value in USC field in Open Report: PEAT
+AH109.6C,0.4,0.6,C1,,CRREL core,
+AH109.6C,0.8,1,C2,,CRREL core,
+AH109.6C,1.2,1.4,C3,,CRREL core,
+AH109.6C,1.6,1.75,C4,,CRREL core,
+AH109.6C,2.45,2.55,C5,,CRREL core,
+AH109.6C,2.9,3,C6,,CRREL core,
+AH109.6C,3.1,3.3,C7,,CRREL core,
+AH109.6C,3.4,3.7,C8,,CRREL core,
+AH109.6C,3.9,4.1,C9,,CRREL core,
+AH109.6C,4.2,4.35,C10,,CRREL core,
+AH109.6C,4.5,4.7,C11,,CRREL core,
+AH109.6C,5,7.5,,,,Value in USC field in Open Report: CI
+AH109.6C,5.05,5.25,C12,,CRREL core,CI
+AH109.6C,5.65,5.85,C13,,CRREL core,
+AH109.6C,6.15,6.25,C14,,CRREL core,
+AH109.6C,6.6,6.8,C15,,CRREL core,
+AH109.6C,7.2,7.4,C16,,CRREL core,
+AH109.6C,7.5,7.7,C17,,CRREL core,
+AH109.6C,7.501,9,,,,Value in USC field in Open Report: SC
+AH109.6C,7.502,9,,,,Value in USC field in Open Report: CL
+AH109.6C,7.8,8,C18,,CRREL core,SC/CL
+AH109.6C,8,9,C21,,CRREL core,
+AH109.6C,8.3,8.5,C19,,CRREL core,
+AH109.6C,8.7,8.9,C20,,CRREL core,
+AH109.6C,8.9,9,C21,,,
+AH109.6C,9,10.4,,,,sm/gm . Value in USC field in Open Report: SM
+AH109.6C,9.001,10.4,,,,Value in USC field in Open Report: GM
+AH109.6C,9.2,10,G1,,disturbed (or grab or bag),
+AH109.6N,0,0.2,,,,Value in USC field in Open Report: TOPSOIL
+AH109.6N,0.2,0.6,,,,ICE
+AH109.6N,0.6,1.3,,,,ice + pt . Value in USC field in Open Report: PEAT
+AH109.6N,0.9,1.1,G1,,disturbed (or grab or bag),
+AH109.6N,1.3,3,,,,PT . Value in USC field in Open Report: PEAT
+AH109.6N,2.1,2.4,G2,,disturbed (or grab or bag),
+AH109.6N,3,5.2,,,,ml/cl . Value in USC field in Open Report: ML
+AH109.6N,3.001,5.2,,,,Value in USC field in Open Report: CL
+AH109.6N,3.6,3.8,G3,,disturbed (or grab or bag),
+AH109.6N,4.6,4.8,G4,,disturbed (or grab or bag),
+AH109.6N,5.2,5.6,,,,SM . Value in USC field in Open Report: SM
+AH109.6N,5.3,5.5,G5,,disturbed (or grab or bag),
+AH109.6S,0,0.2,,,,Value in USC field in Open Report: TOPSOIL
+AH109.6S,0.2,0.6,,,,PT . Value in USC field in Open Report: PEAT
+AH109.6S,0.6,4,,,,ice + pt . Value in USC field in Open Report: PEAT
+AH109.6S,3.3,3.6,G1,,disturbed (or grab or bag),
+AH109.6S,4,5.8,,,,Value in USC field in Open Report: SC
+AH109.6S,4.4,4.6,G2,,disturbed (or grab or bag),SC
+AH109.6S,5.2,5.4,G3,,disturbed (or grab or bag),
+AH112.2C,0,0.45,G1,,disturbed (or grab or bag),
+AH112.2C,0.001,0.95,,,,sm/sc . Value in USC field in Open Report: SC-SM
+AH112.2C,0.45,0.9,G2,,disturbed (or grab or bag),
+AH112.2C,0.95,7.75,,,,Value in USC field in Open Report: CL
+AH112.2C,0.951,1.15,C1,,CRREL core,CL
+AH112.2C,1.5,1.7,C2,,CRREL core,
+AH112.2C,2,2.1,G2a,,disturbed (or grab or bag),
+AH112.2C,2.1,2.4,G3,,disturbed (or grab or bag),
+AH112.2C,2.5,2.85,G4,,disturbed (or grab or bag),
+AH112.2C,2.85,3,C4,,CRREL core,
+AH112.2C,2.9,3.1,C3,,CRREL core,
+AH112.2C,3.55,3.75,C5,,CRREL core,
+AH112.2C,4.05,4.25,C6,,CRREL core,
+AH112.2C,5.65,5.95,G5,,disturbed (or grab or bag),
+AH112.2C,7.3,7.62,G6,,disturbed (or grab or bag),
+AH112.2C,7.75,10.4,,,,Value in USC field in Open Report: SC-SM
+AH112.2C,8,8.2,C7,,CRREL core,SM/SC
+AH112.2C,8.9,9.1,C8,,CRREL core,
+AH112.2C,9.3,9.5,C9,,CRREL core,
+AH112.2C,10,10.2,C10,,CRREL core,
+AH112.2N,0,0.1,,,,PT . Value in USC field in Open Report: PEAT
+AH112.2N,0.1,5.2,,,,Value in USC field in Open Report: CI
+AH112.2N,1.2,1.5,G1,,disturbed (or grab or bag),
+AH112.2N,1.5,1.7,G2,,disturbed (or grab or bag),
+AH112.2N,2.4,2.85,G3,,disturbed (or grab or bag),CI
+AH112.2N,3,3.15,G4,,disturbed (or grab or bag),
+AH112.2N,4.1,4.6,G5,,disturbed (or grab or bag),
+AH112.2N,5.2,5.95,,,,SM/SC . Value in USC field in Open Report: SC-SM
+AH112.2N,5.201,5.21,G6,,disturbed (or grab or bag),
+AH112.2N,5.65,5.95,G7,,disturbed (or grab or bag),
+AH112.2S,0,0.3,,,,PT . Value in USC field in Open Report: PEAT
+AH112.2S,0.001,0.3,G1,,disturbed (or grab or bag),
+AH112.2S,0.3,1.5,G2,,disturbed (or grab or bag),
+AH112.2S,0.301,5.2,,,,Value in USC field in Open Report: CL
+AH112.2S,2.5,2.9,G3,,disturbed (or grab or bag),CL
+AH112.2S,2.9,3,G4,,disturbed (or grab or bag),
+AH112.2S,4,4.6,G5,,disturbed (or grab or bag),
+AH112.2S,5.2,6.1,,,,Value in USC field in Open Report: SC
+AH112.2S,5.4,6.1,G6,,disturbed (or grab or bag),SC
+AH117.8C,0,0.2,G1,,disturbed (or grab or bag),
+AH117.8C,0.001,1.5,,,,PT . Value in USC field in Open Report: PEAT
+AH117.8C,0.4,0.6,C1,,CRREL core,
+AH117.8C,0.7,0.9,C2,,CRREL core,
+AH117.8C,1.2,1.4,C3,,CRREL core,
+AH117.8C,1.5,1.8,,,,sm-sc . Value in USC field in Open Report: SC-SM
+AH117.8C,1.55,1.75,C4,,CRREL core,
+AH117.8C,1.8,4.7,,,,sp . Value in USC field in Open Report: SP
+AH117.8C,2.4,2.7,G2,,disturbed (or grab or bag),
+AH117.8C,2.65,2.85,C5,,CRREL core,
+AH117.8C,3.3,3.5,C6,,CRREL core,
+AH117.8C,4,4.2,C7,,CRREL core,
+AH117.8C,4.7,8.8,,,,Value in USC field in Open Report: GW
+AH117.8C,5,5.2,G3,,disturbed (or grab or bag),
+AH117.8C,6.7,7,G4,,disturbed (or grab or bag),GW
+AH117.8C,8.2,8.4,G5,,disturbed (or grab or bag),
+AH117.8C,8.8,10.4,,,,ice + gw . Value in USC field in Open Report: GW
+AH117.8C,9.8,10,G6,,disturbed (or grab or bag),
+AH117.8C,10.4,11.9,,,,sp . Value in USC field in Open Report: SP
+AH117.8C,11.2,11.4,G7,,disturbed (or grab or bag),
+AH117.8N,0,0.1,,,,Value in USC field in Open Report: OH
+AH117.8N,0.1,1.8,,,,Value in USC field in Open Report: SM
+AH117.8N,0.101,1.8,,,,Value in USC field in Open Report: GM
+AH117.8N,1.2,1.4,G1,,disturbed (or grab or bag),SM/GM
+AH117.8N,1.8,2.8,G2,,disturbed (or grab or bag),
+AH117.8N,1.801,3.6,,,,ice + sm/gm . Value in USC field in Open Report: SM
+AH117.8N,1.802,3.6,,,,Value in USC field in Open Report: GM
+AH117.8N,3.6,6.1,,,,sm . Value in USC field in Open Report: SM
+AH117.8N,3.9,4.3,G3,,disturbed (or grab or bag),
+AH117.8N,4.8,5.5,G4,,disturbed (or grab or bag),
+AH117.8S,0,0.2,,,,Value in USC field in Open Report: TOPSOIL
+AH117.8S,0.2,1.75,,,,Value in USC field in Open Report: SC
+AH117.8S,0.9,1.1,G1,,disturbed (or grab or bag),sc
+AH117.8S,1.7,3.3,,,,
+AH117.8S,1.75,3.3,,,,Value in USC field in Open Report: CL
+AH117.8S,2.4,2.6,G2,,disturbed (or grab or bag),CL
+AH117.8S,3.3,4.3,,,,ICE
+AH117.8S,4.3,5.5,,,,ice + cl . Value in USC field in Open Report: CL
+AH117.8S,5.2,5.5,G3,,disturbed (or grab or bag),
+AH18.15C,0,2.4,,,,ICE
+AH18.15C,2.2,2.7,C1,,CRREL core,
+AH18.15C,2.4,2.7,,,,ice+pt . Value in USC field in Open Report: PEAT
+AH18.15C,2.7,5.2,,,,ICE
+AH18.15C,5.2,9.1,,,,Value in USC field in Open Report: CI
+AH18.15C,5.8,6.1,G1,,disturbed (or grab or bag),
+AH18.15C,7,7.6,G2,,disturbed (or grab or bag),
+AH18.15C,8.05,8.2,C2,,CRREL core,CI
+AH18.15C,8.8,9.05,C3,,CRREL core,
+AH18.15C,9.1,9.9,,,,ice + ci . Value in USC field in Open Report: CI
+AH18.15C,9.7,9.9,C4,,CRREL core,
+AH18.15N,0,3.5,,,,cl . Value in USC field in Open Report: CL
+AH18.15N,0.6,0.9,G1,,disturbed (or grab or bag),
+AH18.15N,1.8,2.1,G2,,disturbed (or grab or bag),
+AH18.15N,3.501,4.9,,,,Value in USC field in Open Report: SC
+AH18.15N,3.6,3.9,G3,,disturbed (or grab or bag),SC
+AH18.15N,4,4.3,G4,,disturbed (or grab or bag),
+AH18.15N,4.9,5.2,,,,cl/ci . Value in USC field in Open Report: CL-CI
+AH18.15N,4.901,5.2,G5,,disturbed (or grab or bag),
+AH18.15S,0,5.5,,,,ice + ci . Value in USC field in Open Report: CL
+AH18.15S,0.6,0.9,G1,,disturbed (or grab or bag),
+AH18.15S,1.5,1.8,G2,,disturbed (or grab or bag),
+AH18.15S,2.4,2.7,G3,,disturbed (or grab or bag),
+AH18.15S,3.9,4.2,G4,,disturbed (or grab or bag),
+AH18.15S,4.9,5.2,G5,,disturbed (or grab or bag),
+AH18.15S,5.5,5.8,,,,CI/CH . Value in USC field in Open Report: CI-CH
+AH18.15S,5.501,5.9,G6,,disturbed (or grab or bag),
+AH48.9C,0,1.5,,,,PT . Value in USC field in Open Report: PEAT
+AH48.9C,0.5,0.7,C1,,CRREL core,
+AH48.9C,1.25,1.35,C2,,CRREL core,
+AH48.9C,1.35,1.45,C3,,CRREL core,
+AH48.9C,1.5,1.9,,,,ice + pt . Value in USC field in Open Report: PEAT
+AH48.9C,1.9,2.3,,,,SM/MH . Value in USC field in Open Report: MH
+AH48.9C,1.901,2.3,,,,Value in USC field in Open Report: SM
+AH48.9C,2.1,2.2,C4,,CRREL core,
+AH48.9C,2.3,5.95,,,,ice + ml . Value in USC field in Open Report: ML
+AH48.9C,2.6,2.8,C5,,CRREL core,
+AH48.9C,3.2,3.4,C6,,CRREL core,
+AH48.9C,3.9,4.1,C7,,CRREL core,
+AH48.9C,4.35,4.5,C8,,CRREL core,
+AH48.9C,5.65,5.8,C9,,CRREL core,
+AH48.9C,5.95,6.1,,,,ICE
+AH48.9C,6.1,6.5,,,,ice + ml . Value in USC field in Open Report: ML
+AH48.9C,6.25,6.35,C10,,CRREL core,
+AH48.9C,6.5,10.2,,,,ml . Value in USC field in Open Report: ML
+AH48.9C,6.8,7,C11,,CRREL core,
+AH48.9C,7.5,7.7,C12,,CRREL core,
+AH48.9C,8.1,8.3,C13,,CRREL core,
+AH48.9C,8.7,8.9,C14,,CRREL core,
+AH48.9C,9.4,9.6,C15,,CRREL core,
+AH48.9C,9.9,10,C16,,CRREL core,
+AH48.9N,0,0.6,,,,PT . Value in USC field in Open Report: PEAT
+AH48.9N,0.6,3.3,,,,ICE
+AH48.9N,3.3,6.1,,,,Value in USC field in Open Report: CI
+AH48.9N,3.7,3.9,G1,,disturbed (or grab or bag),CI
+AH48.9N,5.5,5.8,G2,,disturbed (or grab or bag),
+AH48.9S,0,0.6,,,,PT . Value in USC field in Open Report: PEAT
+AH48.9S,0.6,1.6,,,,ICE + PT . Value in USC field in Open Report: PEAT
+AH48.9S,0.9,1.2,G1,,disturbed (or grab or bag),
+AH48.9S,1.6,3.6,,,,ice + ci . Value in USC field in Open Report: CI
+AH48.9S,2.4,2.7,G2,,disturbed (or grab or bag),
+AH48.9S,3.6,3.9,G3,,disturbed (or grab or bag),CI
+AH48.9S,3.601,6.1,,,,Value in USC field in Open Report: CI
+AH48.9S,4,4.3,G4,,disturbed (or grab or bag),
+AH48.9S,5.3,5.5,G5,,disturbed (or grab or bag),
+AH90.3C,0,0.3,,,,Value in USC field in Open Report: TOPSOIL
+AH90.3C,0.3,2.1,,,,PT . Value in USC field in Open Report: PEAT
+AH90.3C,0.7,0.9,C1,,CRREL core,
+AH90.3C,0.9,1.1,C2,,CRREL core,
+AH90.3C,1.35,1.5,C3,,CRREL core,
+AH90.3C,1.6,1.95,C4,,CRREL core,
+AH90.3C,2.1,2.4,,,,ICE + PT . Value in USC field in Open Report: PEAT
+AH90.3C,2.4,8,,,,Value in USC field in Open Report: SC
+AH90.3C,2.401,8,,,,Value in USC field in Open Report: CL
+AH90.3C,2.402,2.55,C5,,CRREL core,SC/CL
+AH90.3C,2.9,3,C6,,CRREL core,
+AH90.3C,3.55,3.65,C7,,CRREL core,
+AH90.3C,3.9,4.2,C8,,CRREL core,
+AH90.3C,4.9,5.2,G1,,disturbed (or grab or bag),
+AH90.3C,5.5,5.65,C9,,CRREL core,
+AH90.3C,6,6.1,C10,,CRREL core,SC
+AH90.3C,6.2,6.3,C11,,CRREL core,
+AH90.3C,6.75,6.95,C12,,CRREL core,
+AH90.3C,7.1,7.3,C13,,CRREL core,
+AH90.3C,7.65,7.85,C14,,CRREL core,
+AH90.3C,7.95,8.15,C15,,CRREL core,
+AH90.3C,8,10.3,,,,Value in USC field in Open Report: SC-SM
+AH90.3C,8.65,8.75,C16,,CRREL core,
+AH90.3C,9.1,9.3,C17,,CRREL core,sc/sm
+AH90.3C,10.1,10.3,C18,,CRREL core,
+AH90.3N,0,0.3,,,,Value in USC field in Open Report: TOPSOIL
+AH90.3N,0.3,2.3,,,,PT . Value in USC field in Open Report: PEAT
+AH90.3N,0.9,1.2,G1,,disturbed (or grab or bag),
+AH90.3N,1.9,2.1,G2,,disturbed (or grab or bag),
+AH90.3N,2.3,3.8,,,,ml . Value in USC field in Open Report: ML
+AH90.3N,2.4,2.8,G3,,disturbed (or grab or bag),
+AH90.3N,3.1,3.3,G4,,disturbed (or grab or bag),
+AH90.3N,3.8,4.3,,,,Value in USC field in Open Report: SC-SM
+AH90.3N,4,4.2,G5,,disturbed (or grab or bag),SC/SM
+AH90.3N,4.3,5.8,,,,ml . Value in USC field in Open Report: ML
+AH90.3N,5.2,5.5,G6,,disturbed (or grab or bag),
+AH90.3S,0,0.3,,,,Value in USC field in Open Report: TOPSOIL
+AH90.3S,0.3,2.1,,,,PT . Value in USC field in Open Report: PEAT
+AH90.3S,0.7,0.9,G1,,disturbed (or grab or bag),
+AH90.3S,1.7,1.9,G2,,disturbed (or grab or bag),
+AH90.3S,2.1,2.5,,,,ICE
+AH90.3S,2.5,5.8,,,,Value in USC field in Open Report: CL
+AH90.3S,2.501,5.8,,,,Value in USC field in Open Report: SC
+AH90.3S,2.6,2.8,G3,,disturbed (or grab or bag),SC-CL
+AH90.3S,3.5,3.7,G4,,disturbed (or grab or bag),
+AH90.3S,5.2,5.4,G5,,disturbed (or grab or bag),
+CR15N,0,1.2,,,,PT . Value in USC field in Open Report: PEAT
+CR15N,0.9,1.2,G1,,disturbed (or grab or bag),
+CR15N,1.2,7.7,,,,Value in USC field in Open Report: CI
+CR15N,1.3,1.5,C1,,CRREL core,
+CR15N,1.8,2,C2,,CRREL core,CI
+CR15N,2.3,2.5,C3,,CRREL core,
+CR15N,2.7,2.9,C4,,CRREL core,
+CR15N,3.1,3.3,C5,,CRREL core,
+CR15N,3.6,4,G2,,disturbed (or grab or bag),
+CR15N,4.9,5.2,G3,,disturbed (or grab or bag),
+CR15N,5.5,5.8,G4,,disturbed (or grab or bag),
+CR15N,6.3,6.5,C6,,CRREL core,
+CR15N,6.6,7.9,G5,,disturbed (or grab or bag),
+CR15N,7.7,21,,,,Value in USC field in Open Report: CH
+CR15N,9.8,10.1,G6,,disturbed (or grab or bag),
+CR15N,10.6,10.8,C7,,CRREL core,
+CR15N,11,11.2,C8,,CRREL core,
+CR15N,13.401,13.7,G7,,disturbed (or grab or bag),CH
+CR15N,14.6,14.9,G8,,disturbed (or grab or bag),
+CR15N,14.9,15.1,C9,,CRREL core,
+CR15N,19.5,19.8,G9,,disturbed (or grab or bag),
+CR15S,0,2,,,,PT . Value in USC field in Open Report: PEAT
+CR15S,0.6,0.9,G1,,disturbed (or grab or bag),
+CR15S,0.9,1,C1,,CRREL core,
+CR15S,1,1.2,C2,,CRREL core,
+CR15S,1.77,1.9,C3,,CRREL core,
+CR15S,2,4,,,,Value in USC field in Open Report: CI
+CR15S,4,4.3,G3,,disturbed (or grab or bag),CI . Value in USC field in Open Report: CI
+CR15S,4.3,4.5,C4,,CRREL core,
+CR15S,4.301,21,,,,ci . Value in USC field in Open Report: CI
+CR15S,4.5,4.7,C5,,CRREL core,
+CR15S,4.85,5.1,C6,,CRREL core,
+CR15S,6.4,6.7,G4,,disturbed (or grab or bag),
+CR15S,7.3,7.6,G5,,disturbed (or grab or bag),
+CR15S,8.5,8.8,G6,,disturbed (or grab or bag),
+CR15S,8.8,9.1,C7,,CRREL core,
+CR15S,9.5,9.7,C8,,CRREL core,
+CR15S,11.3,11.6,G7,,disturbed (or grab or bag),
+CR15S,12.5,12.8,G8,,disturbed (or grab or bag),
+CR15S,13.1,13.4,G9,,disturbed (or grab or bag),
+CR15S,14.3,14.6,G10,,disturbed (or grab or bag),
+CR15S,14.8,15,C9,,CRREL core,
+CR15S,15.2,15.5,C10,,CRREL core,
+CR15S,17.4,17.7,G11,,disturbed (or grab or bag),
+CR15S,18.6,18.9,G12,,disturbed (or grab or bag),
+CR15S,20.1,20.4,G13,,disturbed (or grab or bag),
+CR15S,20.7,21,G14,,disturbed (or grab or bag),
+CR17aN,0,0.1,,,,oh . Value in USC field in Open Report: OH
+CR17aN,0.1,0.9,,,,PT . Value in USC field in Open Report: PEAT
+CR17aN,0.2,0.3,G1,,disturbed (or grab or bag),
+CR17aN,0.7,0.9,C1,,CRREL core,
+CR17aN,0.9,1.2,,,,ice + pt . Value in USC field in Open Report: PEAT
+CR17aN,1,1.1,C2,,CRREL core,
+CR17aN,1.2,2.2,,,,PT . Value in USC field in Open Report: PEAT
+CR17aN,1.3,1.4,C3,,CRREL core,
+CR17aN,1.9,2,C4,,CRREL core,
+CR17aN,2.2,2.4,C5,,CRREL core,CI
+CR17aN,2.201,4.4,,,,Value in USC field in Open Report: CI
+CR17aN,2.5,2.7,C6,,CRREL core,
+CR17aN,3.3,3.7,G2,,disturbed (or grab or bag),
+CR17aN,4.3,4.6,G3,,disturbed (or grab or bag),
+CR17aN,4.4,7.3,,,,ci . Value in USC field in Open Report: CI
+CR17aN,5.5,5.8,G4,,disturbed (or grab or bag),
+CR17aN,6.2,6.4,C7,,CRREL core,
+CR17aN,6.6,6.8,C8,,CRREL core,
+CR17aN,7.3,7.6,,,,ice + ci . Value in USC field in Open Report: CI
+CR17aN,7.4,7.6,G5,,disturbed (or grab or bag),
+CR17aN,7.6,11.6,,,,ci . Value in USC field in Open Report: CI
+CR17aN,8.5,8.8,G6,,disturbed (or grab or bag),
+CR17aN,9.85,10,C9,,CRREL core,
+CR17aN,10.3,10.5,C10,,CRREL core,
+CR17aN,10.6,10.7,G7,,disturbed (or grab or bag),
+CR17aN,11.6,13.4,,,,ice + ci . Value in USC field in Open Report: CI
+CR17aN,12.1,12.2,G8,,disturbed (or grab or bag),
+CR17aN,13.1,13.3,C11,,CRREL core,
+CR17aN,13.4,13.6,,,,ICE
+CR17aN,13.6,18.3,,,,ice + ci . Value in USC field in Open Report: CI
+CR17aN,13.8,13.9,C12,,CRREL core,
+CR17aN,14.4,14.5,G9,,disturbed (or grab or bag),
+CR17aN,14.6,14.8,G10,,disturbed (or grab or bag),
+CR17aN,15.5,15.6,G11,,disturbed (or grab or bag),
+CR17aN,15.9,16,G12,,disturbed (or grab or bag),
+CR17aN,17.47,17.5,G13,,disturbed (or grab or bag),
+CR17aN,18.3,18.4,G14,,disturbed (or grab or bag),CI/CH
+CR17aN,18.301,20.4,,,,Value in USC field in Open Report: CI-CH
+CR17aN,20,20.1,G15,,disturbed (or grab or bag),
+CR17aS,0,0.1,,,,oh . Value in USC field in Open Report: OH
+CR17aS,0.1,2.4,,,,PT . Value in USC field in Open Report: PEAT
+CR17aS,0.4,0.5,G1,,disturbed (or grab or bag),
+CR17aS,0.9,1.1,C1,,CRREL core,
+CR17aS,1.4,1.5,C2,,CRREL core,
+CR17aS,2.1,2.3,C3,,CRREL core,
+CR17aS,2.4,2.6,,,,ice + ml . Value in USC field in Open Report: ML
+CR17aS,2.5,2.6,C4,,CRREL core,
+CR17aS,2.6,3.1,,,,Value in USC field in Open Report: CI
+CR17aS,2.9,3,C5,,CRREL core,CI
+CR17aS,3.1,15,,,,Value in USC field in Open Report: CI
+CR17aS,3.5,3.7,G2,,disturbed (or grab or bag),
+CR17aS,4.6,4.9,G3,,disturbed (or grab or bag),
+CR17aS,5.5,5.8,G4,,disturbed (or grab or bag),CI
+CR17aS,6.2,6.3,C6,,CRREL core,
+CR17aS,6.55,6.7,C7,,CRREL core,
+CR17aS,7,7.3,G5,,disturbed (or grab or bag),
+CR17aS,8.2,8.5,G6,,disturbed (or grab or bag),
+CR17aS,9.4,9.7,G7,,disturbed (or grab or bag),
+CR17aS,10.8,11,C8,,CRREL core,
+CR17aS,11.3,11.6,G8,,disturbed (or grab or bag),
+CR17aS,12.8,13.1,G9,,disturbed (or grab or bag),CI
+CR17aS,13.1,15,G14,,disturbed (or grab or bag),
+CR17aS,14.1,14.4,G10,,disturbed (or grab or bag),
+CR17aS,15,15.7,,,,ice + ci . Value in USC field in Open Report: CI
+CR17aS,15.4,15.6,C9,,CRREL core,
+CR17aS,15.7,21,,,,ci . Value in USC field in Open Report: CI
+CR17aS,16.1,16.3,G11,,disturbed (or grab or bag),
+CR17aS,17.3,17.5,G12,,disturbed (or grab or bag),
+CR17aS,18.6,18.9,G13,,disturbed (or grab or bag),
+CR18N,0,1.8,,,,ICE + PT . Value in USC field in Open Report: PEAT
+CR18N,0.5,0.6,G1,,CRREL core,
+CR18N,0.75,0.85,C1,,CRREL core,
+CR18N,1.15,1.25,C2,,CRREL core,
+CR18N,1.8,2.9,,,,ice + ml . Value in USC field in Open Report: ML
+CR18N,2.1,2.3,C3,,CRREL core,
+CR18N,2.6,2.9,C4,,CRREL core,
+CR18N,2.9,18,,,,Value in USC field in Open Report: CI
+CR18N,3.35,3.45,G2,,disturbed (or grab or bag),CI
+CR18N,3.7,3.8,G3,,disturbed (or grab or bag),
+CR18N,3.8,3.9,G4,,disturbed (or grab or bag),
+CR18N,4.9,5,G5,,disturbed (or grab or bag),
+CR18N,6.5,6.7,C5,,CRREL core,
+CR18N,7.2,7.3,G6,,disturbed (or grab or bag),
+CR18N,8.3,8.4,G7,,disturbed (or grab or bag),
+CR18N,8.8,8.9,G8,,disturbed (or grab or bag),
+CR18N,9.1,9.2,G9,,disturbed (or grab or bag),
+CR18N,9.8,10.1,C6,,CRREL core,
+CR18N,10.6,10.8,C7,,CRREL core,
+CR18N,11.3,11.4,G10,,disturbed (or grab or bag),
+CR18N,13.1,13.2,G11,,disturbed (or grab or bag),
+CR18N,13.4,13.6,C8,,CRREL core,
+CR18N,13.9,14.1,C9,,CRREL core,
+CR18N,15.3,15.4,G12,,disturbed (or grab or bag),
+CR18N,16.8,16.9,G13,,disturbed (or grab or bag),
+CR18N,18,20.7,,,,Value in USC field in Open Report: CI
+CR18N,20.4,20.5,G14,,disturbed (or grab or bag),CI
+CR18S,0,1.8,,,,ICE + PT . Value in USC field in Open Report: PEAT
+CR18S,1,1.3,G1,,disturbed (or grab or bag),
+CR18S,1.5,1.55,C1,,CRREL core,
+CR18S,1.8,1.95,C2,,CRREL core,CI . Value in USC field in Open Report: CI
+CR18S,1.95,3.1,,,,cl/ml . Value in USC field in Open Report: CL-ML
+CR18S,3.1,7.2,,,,ice + ci . Value in USC field in Open Report: CI
+CR18S,3.3,3.4,C3,,CRREL core,
+CR18S,5.2,5.3,G2,,disturbed (or grab or bag),
+CR18S,5.8,6.1,C4,,CRREL core,
+CR18S,6.7,6.9,C5,,CRREL core,
+CR18S,7.2,10.8,,,,ch . Value in USC field in Open Report: CH
+CR18S,7.3,7.4,G3,,disturbed (or grab or bag),
+CR18S,8.2,8.3,G4,,disturbed (or grab or bag),
+CR18S,9.4,9.5,G5,,disturbed (or grab or bag),
+CR18S,10.45,10.55,C6,,CRREL core,
+CR18S,10.8,11.9,,,,ice + ch . Value in USC field in Open Report: CH
+CR18S,11.4,11.55,C7,,CRREL core,
+CR18S,11.9,13.1,,,,Value in USC field in Open Report: CI-CH
+CR18S,13.1,13.2,G6,,disturbed (or grab or bag),CI-CH . Value in USC field in Open Report: CI-CH
+CR18S,13.2,20.4,,,,Value in USC field in Open Report: CI-CH
+CR18S,14.4,14.5,G7,,disturbed (or grab or bag),
+CR18S,15.3,15.5,C8,,CRREL core,
+CR18S,16,16.7,G8,,disturbed (or grab or bag),
+CR21N,0,0.6,,,,ml . Value in USC field in Open Report: ML
+CR21N,0.4,0.6,G1,,disturbed (or grab or bag),
+CR21N,0.6,0.7,C1,,CRREL core,
+CR21N,0.601,1.5,,,,PT . Value in USC field in Open Report: PEAT
+CR21N,0.8,0.9,C2,,CRREL core,
+CR21N,1.4,1.5,C3,,CRREL core,
+CR21N,1.5,2.7,,,,ice + ml . Value in USC field in Open Report: ML
+CR21N,1.7,1.8,C4,,CRREL core,
+CR21N,2.3,2.5,C5,,CRREL core,CI
+CR21N,2.7,5.9,,,,Value in USC field in Open Report: CI
+CR21N,3.3,3.4,G2,,disturbed (or grab or bag),
+CR21N,3.7,3.8,G3,,disturbed (or grab or bag),
+CR21N,4.9,5,G4,,disturbed (or grab or bag),
+CR21N,5.3,5.4,G5,,disturbed (or grab or bag),
+CR21N,5.9,6.1,C6,,CRREL core,CH
+CR21N,5.901,6.3,,,,Value in USC field in Open Report: CH
+CR21N,6.3,6.5,C7,,CRREL core,
+CR21N,6.301,19.2,,,,mudstone . Value in USC field in Open Report: MUDSTONE
+CR21N,7.4,7.5,G6,,disturbed (or grab or bag),mudstone
+CR21N,9.4,9.7,G7,,disturbed (or grab or bag),
+CR21N,11.5,11.7,G8,,disturbed (or grab or bag),
+CR21N,13.7,13.8,G9,,disturbed (or grab or bag),
+CR21N,17.7,17.8,G10,,disturbed (or grab or bag),
+CR21N,18.3,18.4,G11,,disturbed (or grab or bag),
+CR21S,0,1,,,,ice + pt . Value in USC field in Open Report: PEAT
+CR21S,1,1.2,,,,PT . Value in USC field in Open Report: PEAT
+CR21S,1.1,1.2,G1,,disturbed (or grab or bag),
+CR21S,1.2,3,,,,ice + pt . Value in USC field in Open Report: PEAT
+CR21S,1.4,1.55,C1,,CRREL core,
+CR21S,2.4,2.6,C2,,CRREL core,
+CR21S,2.9,3,C3,,CRREL core,
+CR21S,3,7,,,,Value in USC field in Open Report: CI
+CR21S,3.1,3.3,C4,,CRREL core,CI
+CR21S,3.7,3.8,G2,,disturbed (or grab or bag),
+CR21S,4.9,5,G3,,disturbed (or grab or bag),
+CR21S,6.5,6.8,C5,,CRREL core,
+CR21S,7,7.1,C6,,CRREL core,
+CR21S,7.001,10.4,,,,Value in USC field in Open Report: CH
+CR21S,7.9,8,G4,,disturbed (or grab or bag),CH
+CR21S,10,10.1,G5,,disturbed (or grab or bag),
+CR21S,10.4,20.7,,,,mudstone . Value in USC field in Open Report: MUDSTONE
+CR21S,12.6,12.7,G6,,disturbed (or grab or bag),
+CR21S,15.9,16.1,G7,,disturbed (or grab or bag),
+CR21S,19.8,19.9,G8,,disturbed (or grab or bag),
+CR23aN,0.6,12.8,,,,Value in USC field in Open Report: SW-SM
+CR23aN,0.601,0.7,C1,,CRREL core,
+CR23aN,1,1.2,C2,,CRREL core,
+CR23aN,1.6,1.7,C3,,CRREL core,SW-SM
+CR23aN,2.7,3,G1,,disturbed (or grab or bag),
+CR23aN,4.3,4.5,G2,,disturbed (or grab or bag),
+CR23aN,4.8,4.9,C4,,CRREL core,
+CR23aN,5.5,5.6,G3,,disturbed (or grab or bag),
+CR23aN,6.4,6.55,C5,,CRREL core,
+CR23aN,7,7.1,C6,,CRREL core,
+CR23aN,7.3,7.45,C7,,CRREL core,
+CR23aN,10.3,10.4,G4,,disturbed (or grab or bag),
+CR23aN,11.3,11.45,C8,,CRREL core,
+CR23aN,12.8,15.8,,,,ml . Value in USC field in Open Report: ML
+CR23aN,12.801,12.9,G5,,disturbed (or grab or bag),
+CR23aN,14.9,15,G6,,disturbed (or grab or bag),
+CR23aN,15.8,21,,,,Value in USC field in Open Report: SW-SM
+CR23aN,15.95,16.05,C9,,CRREL core,SW-SM
+CR23aN,16.7,17.1,G7,,disturbed (or grab or bag),
+CR23aN,17.4,17.7,G8,,disturbed (or grab or bag),
+CR23aN,18.9,19.1,G9,,disturbed (or grab or bag),
+CR23aN,20.1,20.4,G10,,disturbed (or grab or bag),
+CR23aS,0,0.4,,,,PT . Value in USC field in Open Report: PEAT
+CR23aS,0.4,0.6,,,,ci . Value in USC field in Open Report: CI
+CR23aS,0.6,0.8,C1,,CRREL core,
+CR23aS,0.601,1.05,,,,sp . Value in USC field in Open Report: SP
+CR23aS,0.8,1,C2,,CRREL core,
+CR23aS,1.05,4.2,,,,Value in USC field in Open Report: CI
+CR23aS,1.7,1.9,C3,,CRREL core,
+CR23aS,2,2.15,C4,,CRREL core,CI
+CR23aS,2.5,2.7,C5,,CRREL core,
+CR23aS,3.2,3.4,C6,,CRREL core,
+CR23aS,3.8,4,C7,,CRREL core,
+CR23aS,4.2,4.3,G1,,disturbed (or grab or bag),
+CR23aS,4.201,21.34,,,,Value in USC field in Open Report: SC-SM
+CR23aS,5.3,5.6,G2,,disturbed (or grab or bag),SM/SC
+CR23aS,6.7,7,G3,,disturbed (or grab or bag),
+CR23aS,7.7,7.9,C8,,CRREL core,
+CR23aS,8.4,8.6,C9,,CRREL core,
+CR23aS,9.1,9.25,C10,,CRREL core,
+CR23aS,10,10.3,G4,,disturbed (or grab or bag),
+CR23aS,10.6,10.8,C13,,CRREL core,
+CR23aS,11.3,11.5,G5,,disturbed (or grab or bag),
+CR23aS,12.55,12.65,C11,,CRREL core,
+CR23aS,13,13.3,G6,,disturbed (or grab or bag),
+CR23aS,14.6,14.9,G7,,disturbed (or grab or bag),
+CR23aS,15.45,15.65,C12,,CRREL core,
+CR23aS,17.1,17.2,G8,,disturbed (or grab or bag),SM
+CR23aS,19.5,19.7,G9,,disturbed (or grab or bag),
+CR23aS,21,21.2,C14,,CRREL core,
+CR30a1,0,1.35,,,,SW-SM . Value in USC field in Open Report: SW-SM
+CR30a1,0.55,0.7,C1,,CRREL core,
+CR30a1,1.35,1.55,,,,ICE
+CR30a1,1.55,1.65,,,,ice + gw-gm . Value in USC field in Open Report: GW-GM
+CR30a1,1.551,1.65,C2,,CRREL core,
+CR30a1,1.65,15.9,,,,Value in USC field in Open Report: SW-SM
+CR30a1,2.1,2.4,G1,,disturbed (or grab or bag),SW-SM
+CR30a1,4,4.3,G2,,disturbed (or grab or bag),SW-SM
+CR30a1,5.7,6,G3,,disturbed (or grab or bag),
+CR30a1,6.75,6.9,C3,,CRREL core,
+CR30a1,6.9,7.05,C4,,CRREL core,
+CR30a1,8.4,8.5,C5,,CRREL core,
+CR30a1,10.2,10.5,G4,,disturbed (or grab or bag),
+CR30a1,11.7,12,G5,,disturbed (or grab or bag),
+CR30a1,13.4,13.7,G6,,disturbed (or grab or bag),
+CR30a1,13.5,13.7,C6,,CRREL core,
+CR30a1,14.2,14.4,C7,,CRREL core,
+CR30a1,15.04,15.2,C8,,CRREL core,
+CR30a1,15.9,21,,,,Value in USC field in Open Report: SM
+CR30a1,16.07,16.2,C9,,CRREL core,SM
+CR30a1,18,18.3,G7,,disturbed (or grab or bag),
+CR30a1,19.5,19.8,G8,,disturbed (or grab or bag),
+CR30a1,20.3,20.7,G9,,disturbed (or grab or bag),
+CR30a2,0,0.9,,,,ml . Value in USC field in Open Report: ML
+CR30a2,0.8,0.9,C1,,CRREL core,
+CR30a2,0.9,3.2,,,,sw/gw . Value in USC field in Open Report: SW
+CR30a2,0.901,3.2,,,,Value in USC field in Open Report: GW
+CR30a2,1.2,1.5,C2,,CRREL core,
+CR30a2,2.1,2.4,G1,,disturbed (or grab or bag),
+CR30a2,3.2,4.3,,,,ml . Value in USC field in Open Report: ML
+CR30a2,3.9,4.2,G2,,disturbed (or grab or bag),
+CR30a2,4.3,6.4,,,,sw-sp . Value in USC field in Open Report: SP
+CR30a2,4.301,6.4,,,,Value in USC field in Open Report: SP
+CR30a2,5.1,5.2,C3,,CRREL core,
+CR30a2,5.8,5.95,C4,,CRREL core,
+CR30a2,6.4,13.4,,,,Value in USC field in Open Report: SW-SM
+CR30a2,7,7.3,G3,,disturbed (or grab or bag),
+CR30a2,7.7,7.8,C5,,CRREL core,SW-SM
+CR30a2,8.4,8.7,G4,,disturbed (or grab or bag),
+CR30a2,9.7,10,G5,,disturbed (or grab or bag),
+CR30a2,11.2,11.5,G6,,disturbed (or grab or bag),
+CR30a2,12.2,12.4,C6,,CRREL core,
+CR30a2,13.1,13.2,C7,,CRREL core,
+CR30a2,13.4,14.9,,,,Value in USC field in Open Report: CL-ML
+CR30a2,14,14.3,G7,,disturbed (or grab or bag),ml-cl
+CR30a2,14.9,15.1,C8,,CRREL core,
+CR30a2,14.901,20.7,,,,Value in USC field in Open Report: SC-SM
+CR30a2,15.85,16.05,G8,,disturbed (or grab or bag),SM/SC
+CR30a2,17.2,17.5,G9,,disturbed (or grab or bag),
+CR30a2,18.9,19,G10,,disturbed (or grab or bag),
+CR30a2,19.8,20,G11,,disturbed (or grab or bag),
+CR30a3,0,0.6,,,,PT . Value in USC field in Open Report: PEAT
+CR30a3,0.4,0.6,C1,,CRREL core,
+CR30a3,0.6,0.9,,,,gp . Value in USC field in Open Report: GP
+CR30a3,0.9,1.6,,,,sp . Value in USC field in Open Report: SP
+CR30a3,1.2,1.4,G1,,disturbed (or grab or bag),
+CR30a3,1.6,3.2,,,,gp . Value in USC field in Open Report: GP
+CR30a3,2.7,2.9,G2,,disturbed (or grab or bag),
+CR30a3,3.2,5.8,,,,sp . Value in USC field in Open Report: SP
+CR30a3,4,4.3,G3,,disturbed (or grab or bag),
+CR30a3,5.5,5.8,G4,,disturbed (or grab or bag),
+CR30a3,5.7,7,G5,,disturbed (or grab or bag),
+CR30a3,5.8,7.6,,,,cl-ml . Value in USC field in Open Report: CL-ML
+CR30a3a,0,0.3,,,,ice + pt . Value in USC field in Open Report: PEAT
+CR30a3a,0.3,1.1,,,,PT . Value in USC field in Open Report: PEAT
+CR30a3a,0.55,0.7,C1,,CRREL core,
+CR30a3a,1,1.1,C2,,CRREL core,
+CR30a3a,1.1,1.5,,,,sp . Value in USC field in Open Report: SP
+CR30a3a,1.15,1.3,C3,,CRREL core,
+CR30a3a,1.5,3.1,,,,gw . Value in USC field in Open Report: GW
+CR30a3a,2.4,2.7,G1,,disturbed (or grab or bag),
+CR30a3a,3.1,4.8,,,,sp . Value in USC field in Open Report: SP
+CR30a3a,3.9,4.2,G2,,disturbed (or grab or bag),
+CR30a3a,4.8,7,,,,Value in USC field in Open Report: CL
+CR30a3a,5.2,5.5,G3,,disturbed (or grab or bag),cl
+CR30a3a,6.4,6.6,C4,,CRREL core,
+CR30a3a,6.65,6.8,C5,,CRREL core,
+CR30a3a,7,11,,,,Value in USC field in Open Report: SC
+CR30a3a,7.9,8.2,G4,,disturbed (or grab or bag),SC
+CR30a3a,9.7,10,G5,,disturbed (or grab or bag),
+CR30a3a,11,20.73,,,,Value in USC field in Open Report: CL-ML
+CR30a3a,11.1,11.3,C6,,CRREL core,CL-ML
+CR30a3a,12,12.2,C7,,CRREL core,
+CR30a3a,13.4,13.5,G6,,disturbed (or grab or bag),
+CR30a3a,14.6,14.7,G7,,disturbed (or grab or bag),
+CR30a3a,15.65,15.85,C8,,CRREL core,
+CR30a3a,17.1,17.2,G8,,disturbed (or grab or bag),
+CR30a3a,18.6,18.7,G9,,disturbed (or grab or bag),
+CR30a3a,19.5,19.7,C9,,CRREL core,
+CR30a3a,20.4,20.6,G10,,disturbed (or grab or bag),
+CR30a4,0,0.3,,,,PT . Value in USC field in Open Report: PEAT
+CR30a4,0.2,0.3,G1,,disturbed (or grab or bag),
+CR30a4,0.3,3.7,,,,Value in USC field in Open Report: GW
+CR30a4,0.5,0.6,G2,,disturbed (or grab or bag),GW
+CR30a4,1.3,1.4,G3,,disturbed (or grab or bag),
+CR30a4,2.7,2.8,G4,,disturbed (or grab or bag),
+CR30a4,3.7,5.8,,,,Value in USC field in Open Report: ML
+CR30a4,4.3,4.4,G5,,disturbed (or grab or bag),ML
+CR30a4,5.1,5.3,C1,,CRREL core,
+CR30a4,5.8,6,C2,,CRREL core,
+CR30a4,5.801,8,,,,Value in USC field in Open Report: SW
+CR30a4,7.1,7.4,G5,,disturbed (or grab or bag),sw
+CR30a4,8,9.65,,,,Value in USC field in Open Report: SC-SM
+CR30a4,8.5,9,G6,,disturbed (or grab or bag),SM/SC
+CR30a4,9.65,9.85,C3,,CRREL core,ml/cl . Value in USC field in Open Report: ML-CL
+CR30a4,9.85,11.45,,,,cl/ci . Value in USC field in Open Report: CL-CI
+CR30a4,10.3,10.4,G7,,disturbed (or grab or bag),
+CR30a4,11.45,15.25,,,,sm/sc . Value in USC field in Open Report: SC-SM
+CR30a4,12,12.2,C4,,CRREL core,
+CR30a4,12.8,13,G8,,disturbed (or grab or bag),
+CR30a4,14.5,14.6,G9,,disturbed (or grab or bag),
+CR30a4,15.25,15.5,C5,,CRREL core,
+CR30a4,15.251,21,,,,Value in USC field in Open Report: SC-SM
+CR30a4,15.75,15.95,C6,,CRREL core,
+CR30a4,17.6,17.8,G10,,disturbed (or grab or bag),
+CR30a4,18.6,18.9,G11,,disturbed (or grab or bag),SM/SC
+CR30a4,20.4,20.7,G12,,disturbed (or grab or bag),
+CR31N,0,0.15,,,,oh . Value in USC field in Open Report: OH
+CR31N,0.15,0.25,C1,,CRREL core,
+CR31N,0.151,0.45,,,,ml . Value in USC field in Open Report: ML
+CR31N,0.45,1.6,,,,ICE
+CR31N,1.05,1.2,C2,,CRREL core,
+CR31N,1.35,1.45,C3,,CRREL core,
+CR31N,1.6,3,,,,Value in USC field in Open Report: CL
+CR31N,1.8,2,C4,,CRREL core,CL
+CR31N,2.25,2.4,C5,,CRREL core,
+CR31N,3,3.2,,,,ICE
+CR31N,3.2,3.8,,,,ml/cl . Value in USC field in Open Report: CL-ML
+CR31N,3.201,3.9,C6,,CRREL core,
+CR31N,3.8,9.3,,,,Value in USC field in Open Report: SM
+CR31N,3.801,21.1,,,,Value in USC field in Open Report: SP
+CR31N,5.2,5.5,G1,,disturbed (or grab or bag),sm/sp
+CR31N,6.7,7,G2,,disturbed (or grab or bag),
+CR31N,8.45,8.6,C7,,CRREL core,
+CR31N,8.8,9,G3,,disturbed (or grab or bag),
+CR31N,10,10.3,G4,,disturbed (or grab or bag),
+CR31N,10.8,11.6,C8,,CRREL core,
+CR31N,11.6,11.9,G5,,disturbed (or grab or bag),
+CR31N,12.8,13.1,G6,,disturbed (or grab or bag),
+CR31N,14,14.2,C9,,CRREL core,
+CR31N,14.75,14.9,C10,,CRREL core,SP
+CR31N,15.6,15.8,C11,,CRREL core,
+CR31N,16.3,16.5,C12,,CRREL core,
+CR31N,18,18.3,G7,,disturbed (or grab or bag),
+CR31N,19.5,19.8,G8,,disturbed (or grab or bag),
+CR31N,20.8,21.1,G9,,disturbed (or grab or bag),
+CR31S,0,0.3,,,,PT . Value in USC field in Open Report: PEAT
+CR31S,0.2,0.3,C1,,CRREL core,
+CR31S,0.3,0.6,,,,Ice + ml . Value in USC field in Open Report: ML
+CR31S,0.4,0.5,C2,,CRREL core,
+CR31S,0.6,0.9,,,,ml . Value in USC field in Open Report: ML
+CR31S,0.7,0.9,C3,,CRREL core,
+CR31S,0.9,1.2,,,,sm . Value in USC field in Open Report: SM
+CR31S,0.901,1.1,C4,,CRREL core,
+CR31S,1.2,2.1,,,,gp . Value in USC field in Open Report: GP
+CR31S,1.5,1.8,G1,,disturbed (or grab or bag),
+CR31S,2.1,14.95,,,,Value in USC field in Open Report: SW-SM
+CR31S,2.101,2.4,G2,,disturbed (or grab or bag),
+CR31S,2.85,3,C5,,CRREL core,SW-SM
+CR31S,3.5,3.6,C6,,CRREL core,
+CR31S,3.8,4,G3,,disturbed (or grab or bag),
+CR31S,5.2,5.4,G4,,disturbed (or grab or bag),
+CR31S,6.2,6.4,C7,,CRREL core,
+CR31S,6.8,7,G5,,disturbed (or grab or bag),
+CR31S,8.2,8.5,G6,,disturbed (or grab or bag),
+CR31S,9.8,10,G7,,disturbed (or grab or bag),
+CR31S,10.55,10.7,C8,,CRREL core,
+CR31S,11.9,12.2,G8,,disturbed (or grab or bag),
+CR31S,13.1,13.3,G9,,disturbed (or grab or bag),
+CR31S,14.3,14.5,G10,,disturbed (or grab or bag),
+CR31S,14.95,15.4,,,,PT . Value in USC field in Open Report: PEAT
+CR31S,14.951,15.1,C9,,CRREL core,
+CR31S,15.2,15.3,C10,,CRREL core,
+CR31S,15.4,21,,,,Value in USC field in Open Report: SW-SM
+CR31S,15.8,15.95,C11,,CRREL core,SW-SM
+CR31S,17.3,17.6,G11,,disturbed (or grab or bag),
+CR31S,19.2,19.5,G12,,disturbed (or grab or bag),
+CR31S,20.4,20.7,G13,,disturbed (or grab or bag),
+CR35aN,0,1.2,,,,mh/oh . Value in USC field in Open Report: MH
+CR35aN,0.151,1.2,,,,Value in USC field in Open Report: OH
+CR35aN,0.9,1.1,C1,,CRREL core,
+CR35aN,1.2,2,,,,ice + pt+mh . Value in USC field in Open Report: PEAT
+CR35aN,1.201,2,,,,Value in USC field in Open Report: MH
+CR35aN,1.7,1.8,C2,,CRREL core,
+CR35aN,2,3,,,,MH . Value in USC field in Open Report: MH
+CR35aN,2.4,2.5,C3,,CRREL core,
+CR35aN,2.8,3,C4,,CRREL core,
+CR35aN,3,4,,,,Ice + mh . Value in USC field in Open Report: MH
+CR35aN,3.2,3.4,C5,,CRREL core,
+CR35aN,3.5,3.7,C6,,CRREL core,
+CR35aN,4,6.8,,,,mh . Value in USC field in Open Report: MH
+CR35aN,4.2,4.5,G1,,disturbed (or grab or bag),
+CR35aN,5.7,6,G2,,disturbed (or grab or bag),
+CR35aN,6.8,9.5,,,,Value in USC field in Open Report: SC-SM
+CR35aN,7.3,7.6,G3,,disturbed (or grab or bag),SM/SC
+CR35aN,8.8,9.1,G4,,disturbed (or grab or bag),
+CR35aN,9.5,21.1,,,,Value in USC field in Open Report: SP
+CR35aN,10.2,10.5,G5,,disturbed (or grab or bag),
+CR35aN,11.3,11.5,C7,,CRREL core,
+CR35aN,11.8,12,C8,,CRREL core,SP
+CR35aN,12.3,12.4,C9,,CRREL core,SP
+CR35aN,12.9,13.1,C10,,CRREL core,
+CR35aN,13.5,13.7,C11,,CRREL core,
+CR35aN,14.1,14.2,C12,,CRREL core,
+CR35aN,14.8,15,C13,,CRREL core,
+CR35aN,16.5,16.8,G6,,disturbed (or grab or bag),
+CR35aN,18,18.3,G7,,disturbed (or grab or bag),
+CR35aN,19.4,19.7,G8,,disturbed (or grab or bag),
+CR35aN,20.8,21.1,G9,,disturbed (or grab or bag),
+CR35aS,0,0.3,,,,oh . Value in USC field in Open Report: OH
+CR35aS,0.3,0.6,,,,PT . Value in USC field in Open Report: PEAT
+CR35aS,0.6,1.25,,,,ml/mh . Value in USC field in Open Report: ML-MH
+CR35aS,0.8,1,C1,,CRREL core,
+CR35aS,1.25,1.4,,,,Ice
+CR35aS,1.4,1.5,,,,ml/mh . Value in USC field in Open Report: ML-MH
+CR35aS,1.401,1.5,C2,,CRREL core,
+CR35aS,1.5,2.6,,,,Value in USC field in Open Report: CI
+CR35aS,1.55,1.7,C3,,CRREL core,
+CR35aS,2.35,2.5,C4,,CRREL core,CI
+CR35aS,2.6,7.9,,,,ci . Value in USC field in Open Report: CI
+CR35aS,3,3.1,C5,,CRREL core,
+CR35aS,3.45,3.6,C6,,CRREL core,
+CR35aS,4.35,4.5,C7,,CRREL core,
+CR35aS,5.5,5.8,G1,,disturbed (or grab or bag),
+CR35aS,6.7,7,G2,,disturbed (or grab or bag),
+CR35aS,7.85,8,C8,,CRREL core,
+CR35aS,7.9,12.5,,,,sm/sc . Value in USC field in Open Report: SC-SM
+CR35aS,8.5,8.7,G3,,disturbed (or grab or bag),
+CR35aS,10,10.3,G4,,disturbed (or grab or bag),
+CR35aS,10.85,11,C9,,CRREL core,
+CR35aS,11.9,12.1,G5,,disturbed (or grab or bag),
+CR35aS,12.5,14,,,,Value in USC field in Open Report: CL-ML
+CR35aS,13.4,13.6,G6,,disturbed (or grab or bag),CL-ML
+CR35aS,14,14.8,,,,sw/sm . Value in USC field in Open Report: SW-SM
+CR35aS,14.8,15,G7,,disturbed (or grab or bag),
+CR35aS,14.801,18.9,,,,sm/sc . Value in USC field in Open Report: SC-SM
+CR35aS,15.95,16.1,C10,,CRREL core,
+CR35aS,17.4,17.6,G8,,disturbed (or grab or bag),
+CR35aS,18.9,21.3,,,,sw/gw . Value in USC field in Open Report: SW
+CR35aS,18.901,21.3,,,,Value in USC field in Open Report: GW
+CR35aS,19.1,19.2,G9,,disturbed (or grab or bag),
+CR35aS,20.4,20.7,G10,,disturbed (or grab or bag),
+CR3N,0,1.4,,,,PT . Value in USC field in Open Report: PEAT
+CR3N,0.4,0.5,G1,,disturbed (or grab or bag),
+CR3N,1.2,1.3,C1,,CRREL core,
+CR3N,1.3,1.6,C2,,CRREL core,
+CR3N,1.4,2.8,,,,ice + pt . Value in USC field in Open Report: PEAT
+CR3N,1.6,1.7,C3,,CRREL core,
+CR3N,2.1,2.3,C4,,CRREL core,
+CR3N,2.8,3.9,,,,OH . Value in USC field in Open Report: OH
+CR3N,2.801,2.9,C5,,CRREL core,
+CR3N,3.55,3.65,C6,,CRREL core,
+CR3N,3.9,12.5,,,,Value in USC field in Open Report: SC-SM
+CR3N,4,4.2,C7,,CRREL core,
+CR3N,4.85,4.95,G2,,disturbed (or grab or bag),
+CR3N,5.8,5.9,G3,,disturbed (or grab or bag),SM/SC
+CR3N,7.3,7.6,G4,,disturbed (or grab or bag),
+CR3N,8.6,8.8,G5,,disturbed (or grab or bag),
+CR3N,10.4,10.7,G6,,disturbed (or grab or bag),
+CR3N,11.1,11.4,G7,,disturbed (or grab or bag),
+CR3N,12.5,22.9,,,,mudstone . Value in USC field in Open Report: MUDSTONE
+CR3N,13.1,13.4,G8,,disturbed (or grab or bag),
+CR3N,13.5,13.6,C8,,CRREL core,
+CR3N,13.9,14,C9,,CRREL core,
+CR3N,15.1,15.4,G9,,disturbed (or grab or bag),
+CR3N,16.4,16.5,G10,,disturbed (or grab or bag),
+CR3N,18.5,19.5,G11,,disturbed (or grab or bag),
+CR3S,0,0.5,,,,PT . Value in USC field in Open Report: PEAT
+CR3S,0.5,1.7,,,,cl . Value in USC field in Open Report: CL
+CR3S,0.65,0.85,C1,,CRREL core,
+CR3S,1,1.2,C2,,CRREL core,
+CR3S,1.3,1.4,C3,,CRREL core,
+CR3S,1.7,2.575,,,,Value in USC field in Open Report: CH
+CR3S,1.8,2,C4,,CRREL core,
+CR3S,2.2,2.35,C5,,CRREL core,CH
+CR3S,2.575,3.05,,,,Value in USC field in Open Report: CI
+CR3S,2.8,2.9,C6,,disturbed (or grab or bag),CI
+CR3S,3.05,4.199,,,,Value in USC field in Open Report: SM
+CR3S,3.55,3.7,C7,,disturbed (or grab or bag),
+CR3S,3.75,3.85,C8,,disturbed (or grab or bag),SM
+CR3S,3.9,4.05,C9,,disturbed (or grab or bag),
+CR3S,4.199,5.8,,,,SW-SM . Value in USC field in Open Report: SW-SM
+CR3S,4.2,4.3,C10,,CRREL core,
+CR3S,4.75,4.95,C11,,CRREL core,
+CR3S,5.8,6.6,,,,ml . Value in USC field in Open Report: ML
+CR3S,6,6.1,C12,,CRREL core,
+CR3S,6.4,6.5,C13,,CRREL core,
+CR3S,6.6,6.7,C14,,CRREL core,
+CR3S,6.601,7.6,,,,gp . Value in USC field in Open Report: GP
+CR3S,7.1,7.3,G1,,disturbed (or grab or bag),
+CR3S,7.6,10.8,,,,ml/cl . Value in USC field in Open Report: ML-CL
+CR3S,8.9,9.1,G2,,disturbed (or grab or bag),
+CR3S,9.5,9.6,G3,,disturbed (or grab or bag),
+CR3S,10.1,10.2,C15,,CRREL core,
+CR3S,10.6,10.75,C16,,CRREL core,
+CR3S,10.8,13.85,,,,Value in USC field in Open Report: CI
+CR3S,11,11.1,G4,,disturbed (or grab or bag),CI
+CR3S,12.8,12.9,G5,,disturbed (or grab or bag),
+CR3S,13.3,13.4,G6,,disturbed (or grab or bag),
+CR3S,13.4,13.73,C17,,CRREL core,
+CR3S,13.85,22.86,,,,mudstone . Value in USC field in Open Report: MUDSTONE
+CR3S,14,14.1,C18,,CRREL core,
+CR3S,16.7,17.7,G7,,disturbed (or grab or bag),
+CR3S,17.6,17.7,C19,,CRREL core,
+CR4N,0,1,,,,PT . Value in USC field in Open Report: PEAT
+CR4N,0.3,0.4,C1,,CRREL core,
+CR4N,0.7,1,C2,,CRREL core,
+CR4N,1,1.2,C3,,CRREL core,
+CR4N,1.001,1.8,,,,ICE + PT . Value in USC field in Open Report: PEAT
+CR4N,1.5,1.7,C4,,CRREL core,
+CR4N,1.8,2.5,,,,Value in USC field in Open Report: CL-ML
+CR4N,2,2.4,C5,,CRREL core,CL-ML
+CR4N,2.5,3,,,,ICE
+CR4N,3,3.1,C6,,CRREL core,
+CR4N,3.001,3.3,,,,ml . Value in USC field in Open Report: ML
+CR4N,3.3,4,,,,sp . Value in USC field in Open Report: SP
+CR4N,3.8,4,C7,,CRREL core,
+CR4N,4,5.7,,,,ice + cl . Value in USC field in Open Report: CI
+CR4N,4.9,5.2,G1,,disturbed (or grab or bag),
+CR4N,5.2,5.4,C8,,CRREL core,
+CR4N,5.4,5.5,C9,,CRREL core,
+CR4N,5.7,8.5,,,,Value in USC field in Open Report: SW-SM
+CR4N,6.1,6.3,C10,,CRREL core,SW-SM
+CR4N,7,7.3,G2,,disturbed (or grab or bag),
+CR4N,8.4,8.5,G3,,disturbed (or grab or bag),CL
+CR4N,8.5,9.5,,,,Value in USC field in Open Report: CL
+CR4N,9.3,9.4,C11,,CRREL core,
+CR4N,9.5,9.7,,,,cl . Value in USC field in Open Report: CL
+CR4N,9.6,9.7,C12,,CRREL core,
+CR4N,9.7,11.6,,,,mlcl . Value in USC field in Open Report: CL-ML
+CR4N,9.8,10,C13,,CRREL core,
+CR4N,10.4,10.7,G4,,disturbed (or grab or bag),
+CR4N,11.6,11.9,G5,,disturbed (or grab or bag),CL
+CR4N,11.601,13.4,,,,Value in USC field in Open Report: CL
+CR4N,13.4,13.7,G6,,disturbed (or grab or bag),
+CR4N,13.401,20.7,,,,mudstone . Value in USC field in Open Report: MUDSTONE
+CR4N,14.6,14.9,G7,,disturbed (or grab or bag),
+CR4N,15.1,15.2,C14,,CRREL core,
+CR4N,17.5,17.7,G8,,disturbed (or grab or bag),
+CR4N,19.5,19.8,G9,,disturbed (or grab or bag),
+CR4N,20.4,20.7,G10,,disturbed (or grab or bag),
+CR4S,0,0.5,,,,PT . Value in USC field in Open Report: PEAT
+CR4S,0.3,0.5,G1,,disturbed (or grab or bag),
+CR4S,0.5,1.2,,,,ICE + ml . Value in USC field in Open Report: ML
+CR4S,1,1.1,C1,,CRREL core,
+CR4S,1.1,1.2,C2,,CRREL core,
+CR4S,1.2,1.6,,,,PT . Value in USC field in Open Report: PEAT
+CR4S,1.3,1.4,C3,,CRREL core,
+CR4S,1.5,1.6,C4,,CRREL core,
+CR4S,1.6,2.1,,,,ICE + ml . Value in USC field in Open Report: ML
+CR4S,1.9,2,C5,,CRREL core,
+CR4S,2.1,3.4,,,,PT . Value in USC field in Open Report: PEAT
+CR4S,2.5,2.6,C6,,CRREL core,
+CR4S,2.8,3.15,C7,,CRREL core,
+CR4S,3.4,7.1,,,,Value in USC field in Open Report: CI
+CR4S,3.7,4,C8,,CRREL core,
+CR4S,4.6,4.9,G2,,disturbed (or grab or bag),
+CR4S,5.2,5.5,G3,,disturbed (or grab or bag),CI
+CR4S,7.1,8.8,,,,Value in USC field in Open Report: SC
+CR4S,7.3,7.5,G4,,disturbed (or grab or bag),SC
+CR4S,8.1,8.3,G5,,disturbed (or grab or bag),
+CR4S,8.4,8.5,C9,,CRREL core,
+CR4S,8.5,8.6,C10,,CRREL core,
+CR4S,8.7,8.8,C11,,CRREL core,
+CR4S,8.8,9,,,,sp . Value in USC field in Open Report: SP
+CR4S,9,9.1,C12,,CRREL core,CI
+CR4S,9.001,12.3,,,,Value in USC field in Open Report: CI
+CR4S,11,11.6,G6,,disturbed (or grab or bag),
+CR4S,11.8,11.9,G7,,disturbed (or grab or bag),
+CR4S,12.3,20.7,,,,Value in USC field in Open Report: MUDSTONE
+CR4S,12.4,12.6,C13,,CRREL core,mudstone
+CR4S,13.4,13.6,C14,,CRREL core,
+CR4S,14.9,15.2,G8,,disturbed (or grab or bag),
+CR4S,16.2,16.5,G9,,disturbed (or grab or bag),
+CR4S,17.05,17.2,C15,,CRREL core,
+CR4S,19.5,19.8,G10,,disturbed (or grab or bag),
+CR4S,20,20.4,G11,,disturbed (or grab or bag),
+CR8N,0,0.2,,,,oh . Value in USC field in Open Report: OH
+CR8N,0.2,0.4,,,,sm . Value in USC field in Open Report: SM
+CR8N,0.201,0.4,G1,,disturbed (or grab or bag),
+CR8N,0.4,0.8,,,,PT . Value in USC field in Open Report: PEAT
+CR8N,0.6,0.8,G2,,disturbed (or grab or bag),
+CR8N,0.8,1,,,,ml . Value in USC field in Open Report: ML
+CR8N,1,1.2,C1,,CRREL core,
+CR8N,1.001,2.4,,,,PT . Value in USC field in Open Report: PEAT
+CR8N,1.5,1.7,C2,,CRREL core,
+CR8N,2.2,2.3,C3,,CRREL core,
+CR8N,2.35,2.65,C4,,CRREL core,
+CR8N,2.4,2.9,,,,CL-ML . Value in USC field in Open Report: CL-ML
+CR8N,2.9,6.4,,,,ml . Value in USC field in Open Report: ML
+CR8N,3,3.3,G3,,disturbed (or grab or bag),
+CR8N,4.3,4.6,G4,,disturbed (or grab or bag),
+CR8N,5.5,5.8,G5,,disturbed (or grab or bag),
+CR8N,5.8,6.05,C5,,CRREL core,
+CR8N,6.4,12.2,,,,Value in USC field in Open Report: CL
+CR8N,6.5,6.2,C6,,CRREL core,
+CR8N,7,7.2,C7,,CRREL core,
+CR8N,7.9,8.2,G6,,disturbed (or grab or bag),CL
+CR8N,9.1,9.4,G7,,disturbed (or grab or bag),
+CR8N,10.4,10.6,G8,,disturbed (or grab or bag),
+CR8N,12.2,12.5,G8-1,,disturbed (or grab or bag),SC . Value in USC field in Open Report: SC
+CR8N,12.5,16,,,,Value in USC field in Open Report: CL
+CR8N,13.2,13.4,G9,,disturbed (or grab or bag),CL
+CR8N,13.7,13.9,C8,,CRREL core,
+CR8N,14.3,14.5,C9,,CRREL core,
+CR8N,15.8,16,G10,,disturbed (or grab or bag),
+CR8N,16,19.8,,,,Value in USC field in Open Report: CI
+CR8N,17.4,17.7,G11,,disturbed (or grab or bag),
+CR8N,18.3,18.6,G12,,disturbed (or grab or bag),CI
+CR8N,19.5,19.8,G13,,disturbed (or grab or bag),
+CR8S,0,0.6,,,,ICE
+CR8S,0.6,1.3,,,,PT . Value in USC field in Open Report: PEAT
+CR8S,0.8,1,C1,,CRREL core,
+CR8S,1.3,1.5,C2,,CRREL core,
+CR8S,1.301,1.7,,,,ml . Value in USC field in Open Report: ML
+CR8S,1.7,2.1,,,,PT . Value in USC field in Open Report: PEAT
+CR8S,1.8,2,C3,,CRREL core,
+CR8S,2,2.6,C4,,CRREL core,CL-ML
+CR8S,2.1,4.9,,,,Value in USC field in Open Report: CL-ML
+CR8S,3.1,3.3,G1,,disturbed (or grab or bag),
+CR8S,4,4.3,G2,,disturbed (or grab or bag),
+CR8S,4.9,5.2,G3,,disturbed (or grab or bag),
+CR8S,4.901,5.4,,,,PT . Value in USC field in Open Report: PEAT
+CR8S,5.4,10.2,,,,ml . Value in USC field in Open Report: ML
+CR8S,5.5,5.7,G4,,disturbed (or grab or bag),
+CR8S,7.3,7.6,G5,,disturbed (or grab or bag),
+CR8S,8.5,8.8,G6,,disturbed (or grab or bag),
+CR8S,9.2,9.4,G7,,disturbed (or grab or bag),
+CR8S,10.2,11.6,,,,Value in USC field in Open Report: CI
+CR8S,10.5,10.8,G8,,disturbed (or grab or bag),CI
+CR8S,11.6,11.9,G9,,disturbed (or grab or bag),
+CR8S,11.601,12.5,,,,cl-ml . Value in USC field in Open Report: CL-ML
+CR8S,12.2,12.45,C5,,CRREL core,
+CR8S,12.5,12.6,,,,ice + ci . Value in USC field in Open Report: CI
+CR8S,12.6,12.8,C6,,CRREL core,
+CR8S,12.601,16,,,,Value in USC field in Open Report: CI
+CR8S,12.95,13.1,C7,,CRREL core,
+CR8S,14,14.3,G10,,disturbed (or grab or bag),
+CR8S,15.2,15.5,G11,,disturbed (or grab or bag),CI
+CR8S,16,21.3,,,,Value in USC field in Open Report: CI
+CR8S,16.2,16.5,G12,,disturbed (or grab or bag),
+CR8S,16.5,16.7,C8,,CRREL core,
+CR8S,17.15,17.4,C9,,CRREL core,
+CR8S,18.6,18.9,G13,,disturbed (or grab or bag),
+CR8S,19.2,19.5,G14,,disturbed (or grab or bag),
+CR8S,19.8,20.1,G15,,disturbed (or grab or bag),
+CR8S,21,21.3,G16,,disturbed (or grab or bag),CI
+CRA12N,0,0.2,G1,,disturbed (or grab or bag),
+CRA12N,0.001,0.75,,,,PT . Value in USC field in Open Report: PEAT
+CRA12N,0.25,0.45,C1,,CRREL core,
+CRA12N,0.75,3,,,,Value in USC field in Open Report: ML-CL
+CRA12N,0.751,3,,,,Value in USC field in Open Report: SC
+CRA12N,1.1,1.3,C2,,CRREL core,
+CRA12N,1.85,2.05,C3,,CRREL core,
+CRA12N,2.55,2.75,C4,,CRREL core,SC/CL-ML
+CRA12N,3,7.8,,,,Value in USC field in Open Report: SC-SM
+CRA12N,3.25,3.45,C5,,CRREL core,SM/SC
+CRA12N,4.1,4.3,C6,,CRREL core,
+CRA12N,5.8,6,G2,,disturbed (or grab or bag),
+CRA12N,7,7.6,G3,,disturbed (or grab or bag),
+CRA12N,7.8,21,,,,Value in USC field in Open Report: SP-SM
+CRA12N,7.95,8.15,C7,,CRREL core,SP/SW-SM
+CRA12N,8.8,9.1,G4,,disturbed (or grab or bag),
+CRA12N,9.7,10,G5,,disturbed (or grab or bag),
+CRA12N,11.05,11.25,C8,,CRREL core,
+CRA12N,12.8,13,G6,,disturbed (or grab or bag),
+CRA12N,14.25,14.5,G7,,disturbed (or grab or bag),
+CRA12N,14.85,15.05,C9,,CRREL core,
+CRA12N,16.4,16.7,G8,,disturbed (or grab or bag),
+CRA12N,18,18.3,G9,,disturbed (or grab or bag),
+CRA12N,18.6,18.61,G10,,disturbed (or grab or bag),
+CRA12N,18.75,18.95,C10,,CRREL core,
+CRA12N,20.7,21,G11,,disturbed (or grab or bag),
+CRA12S,0,0.3,,,,topsoil . Value in USC field in Open Report: TOPSOIL
+CRA12S,0.3,0.95,,,,PT . Value in USC field in Open Report: PEAT
+CRA12S,0.7,0.85,C1,,CRREL core,
+CRA12S,0.95,3.4,,,,OH . Value in USC field in Open Report: OH
+CRA12S,1.2,1.4,C2,,CRREL core,
+CRA12S,1.8,2,C3,,CRREL core,
+CRA12S,2.15,2.35,C4,,CRREL core,
+CRA12S,2.35,2.55,C5,,CRREL core,
+CRA12S,2.75,2.9,C6,,CRREL core,
+CRA12S,3,3.2,C7,,CRREL core,
+CRA12S,3.4,4.6,,,,sp . Value in USC field in Open Report: SP
+CRA12S,3.7,4,G1,,disturbed (or grab or bag),
+CRA12S,4.6,6.5,,,,ml . Value in USC field in Open Report: ML
+CRA12S,5.2,5.5,G2,,disturbed (or grab or bag),
+CRA12S,6.05,6.3,C8,,CRREL core,
+CRA12S,6.5,9.9,,,,Value in USC field in Open Report: SC-SM
+CRA12S,6.7,7,G3,,disturbed (or grab or bag),SM/SC
+CRA12S,8.2,8.5,G4,,disturbed (or grab or bag),
+CRA12S,9,9.2,C9,,CRREL core,
+CRA12S,9.7,10,G5,,disturbed (or grab or bag),
+CRA12S,9.9,21,,,,Value in USC field in Open Report: SM
+CRA12S,10.7,11,G6,,disturbed (or grab or bag),
+CRA12S,12.1,12.25,C10,,CRREL core,
+CRA12S,12.8,13.1,G7,,disturbed (or grab or bag),SM
+CRA12S,14.4,14.7,G8,,disturbed (or grab or bag),
+CRA12S,15,15.2,C11,,CRREL core,
+CRA12S,16.4,16.7,G9,,disturbed (or grab or bag),
+CRA12S,18,18.3,G10,,disturbed (or grab or bag),
+CRA12S,18.4,18.6,C12,,CRREL core,
+CRA12S,20.7,21,G11,,disturbed (or grab or bag),
+CRA3N,0,1.4,,,,PT . Value in USC field in Open Report: PEAT
+CRA3N,0.2,0.4,C1,,CRREL core,
+CRA3N,1.2,1.35,C2,,CRREL core,
+CRA3N,1.4,1.55,C3,,CRREL core,
+CRA3N,1.401,2.3,,,,ice + pt . Value in USC field in Open Report: PEAT
+CRA3N,2.3,2.55,,,,PT . Value in USC field in Open Report: PEAT
+CRA3N,2.55,3.2,,,,Value in USC field in Open Report: CH
+CRA3N,2.6,2.75,C4,,CRREL core,CH
+CRA3N,3.2,3.6,,,,gw . Value in USC field in Open Report: GW
+CRA3N,3.6,3.9,,,,sm . Value in USC field in Open Report: SM
+CRA3N,3.65,3.8,C5,,CRREL core,
+CRA3N,3.9,5.2,,,,Value in USC field in Open Report: SC-SM
+CRA3N,4.1,4.3,G1,,disturbed (or grab or bag),SM/SC
+CRA3N,5.2,7.6,,,,sp/sm . Value in USC field in Open Report: SP-SM
+CRA3N,5.5,5.7,G2,,disturbed (or grab or bag),
+CRA3N,6.35,6.5,C6,,CRREL core,
+CRA3N,7.2,7.4,G3,,disturbed (or grab or bag),
+CRA3N,7.6,10.7,,,,Value in USC field in Open Report: SW-SM
+CRA3N,8.5,8.8,G4,,disturbed (or grab or bag),SW-SM
+CRA3N,10,10.2,G5,,disturbed (or grab or bag),
+CRA3N,10.7,11.5,,,,sm . Value in USC field in Open Report: SM
+CRA3N,11,11.15,C7,,CRREL core,
+CRA3N,11.5,21.3,,,,Value in USC field in Open Report: SM
+CRA3N,13.2,13.5,G6,,disturbed (or grab or bag),SM
+CRA3N,14.6,14.9,G7,,disturbed (or grab or bag),
+CRA3N,15.75,15.9,C8,,CRREL core,
+CRA3N,17.5,17.7,G8,,disturbed (or grab or bag),
+CRA3N,19.1,19.3,G9,,disturbed (or grab or bag),
+CRA3N,20.4,20.7,G10,,disturbed (or grab or bag),
+CRA3S,0,0.5,,,,PT . Value in USC field in Open Report: PEAT
+CRA3S,0.5,2.6,,,,ice + pt . Value in USC field in Open Report: PEAT
+CRA3S,1.4,1.5,C1,,CRREL core,
+CRA3S,2.2,2.4,C2,,CRREL core,
+CRA3S,2.6,4.6,,,,ice + ml-cl . Value in USC field in Open Report: ML-CL
+CRA3S,3,3.1,C3,,CRREL core,
+CRA3S,3.5,3.6,C4,,CRREL core,
+CRA3S,4.3,4.5,C5,,CRREL core,
+CRA3S,4.6,13.4,,,,Value in USC field in Open Report: SC-SM
+CRA3S,5.4,5.6,C6,,CRREL core,SM-SC
+CRA3S,5.6,5.8,G1,,disturbed (or grab or bag),
+CRA3S,7,7.3,G2,,disturbed (or grab or bag),
+CRA3S,8.5,8.8,G3,,disturbed (or grab or bag),
+CRA3S,9.35,9.6,C7,,CRREL core,
+CRA3S,10.2,10.4,G4,,disturbed (or grab or bag),
+CRA3S,11.3,11.5,G5,,disturbed (or grab or bag),
+CRA3S,12.4,12.55,C8,,CRREL core,
+CRA3S,13.4,15.8,,,,Value in USC field in Open Report: SC-SM
+CRA3S,14.3,14.5,G6,,disturbed (or grab or bag),SM/SC
+CRA3S,15.2,15.35,C9,,CRREL core,
+CRA3S,15.6,15.75,C10,,CRREL core,
+CRA3S,15.8,16.5,,,,ml . Value in USC field in Open Report: ML
+CRA3S,16.5,21.3,,,,Value in USC field in Open Report: SC-SM
+CRA3S,17.4,17.7,G7,,disturbed (or grab or bag),
+CRA3S,19.2,19.5,G8,,disturbed (or grab or bag),SM/SC
+CRA3S,20.4,20.7,G9,,disturbed (or grab or bag),
+Gunghi_BH-01,0.5,0.65,G1,,disturbed (or grab or bag),
+Gunghi_BH-01,1,1.15,G2,,disturbed (or grab or bag),
+Gunghi_BH-01,1.001,1.001,,,,
+Gunghi_BH-01,1.5,1.65,G3,,disturbed (or grab or bag),
+Gunghi_BH-01,2,2.15,G4,,disturbed (or grab or bag),
+Gunghi_BH-01,2.001,2.001,,,,
+Gunghi_BH-01,2.5,2.65,G5,,disturbed (or grab or bag),
+Gunghi_BH-01,3,3.15,G6,,disturbed (or grab or bag),
+Gunghi_BH-01,3.001,3.001,,,,
+Gunghi_BH-01,3.5,3.65,G7,,disturbed (or grab or bag),
+Gunghi_BH-01,4,4.15,G8,,disturbed (or grab or bag),
+Gunghi_BH-01,4.001,4.001,,,,
+Gunghi_BH-01,5.5,5.65,G9,,disturbed (or grab or bag),
+Gunghi_BH-01,6.7,7.5,CC1,,CRREL core,
+Gunghi_BH-01,7.5,8.1,CC2,,CRREL core,
+Gunghi_BH-01,7.501,7.501,,,,
+Gunghi_BH-01,9,9.15,G10,,disturbed (or grab or bag),
+Gunghi_BH-01,9.001,9.001,,,,
+Gunghi_BH-01,9.3,9.3,,,,
+Gunghi_BH-01,10.5,10.65,G11,,disturbed (or grab or bag),
+Gunghi_BH-01,12,12.15,G12,,disturbed (or grab or bag),
+Gunghi_BH-01,13.5,13.65,G13,,disturbed (or grab or bag),
+Gunghi_BH-01,13.8,13.8,,,,
+Gunghi_BH-01,15,15.15,G14,,disturbed (or grab or bag),
+Gunghi_BH-01,15.3,15.3,,,,
+Gunghi_BH-01,16.2,16.2,,,,
+Gunghi_BH-01,16.5,16.65,G15,,disturbed (or grab or bag),
+Gunghi_BH-01,18,18.15,G16,,disturbed (or grab or bag),
+Gunghi_BH-01,19.5,19.65,G17,,disturbed (or grab or bag),
+Gunghi_BH-01,20,20,,,,
+Gunghi_BH-02,0.5,0.65,G1,,disturbed (or grab or bag),
+Gunghi_BH-02,0.501,0.501,,,,
+Gunghi_BH-02,1,1.15,G2,,disturbed (or grab or bag),
+Gunghi_BH-02,1.5,1.65,G3,,disturbed (or grab or bag),
+Gunghi_BH-02,2,2.15,G4,,disturbed (or grab or bag),
+Gunghi_BH-02,2.5,2.65,G5,,disturbed (or grab or bag),
+Gunghi_BH-02,3,3.15,G6,,disturbed (or grab or bag),
+Gunghi_BH-02,3.5,3.65,G7,,disturbed (or grab or bag),
+Gunghi_BH-02,3.501,3.501,,,,
+Gunghi_BH-02,4.5,4.65,G8,,disturbed (or grab or bag),
+Gunghi_BH-02,4.501,4.501,,,,
+Gunghi_BH-02,6,6.6,CC1,,CRREL core,
+Gunghi_BH-02,6.001,6.15,G9,,disturbed (or grab or bag),
+Gunghi_BH-02,6.01,6.01,,,,
+Gunghi_BH-02,6.45,6.45,,,,
+Gunghi_BH-02,7.5,7.65,G10,,disturbed (or grab or bag),
+Gunghi_BH-02,7.501,7.501,,,,
+Gunghi_BH-02,8.401,8.401,,,,
+Gunghi_BH-02,8.8,9.1,CC2,,CRREL core,
+Gunghi_BH-02,8.801,8.801,,,,
+Gunghi_BH-02,9,9.15,G11,,disturbed (or grab or bag),
+Gunghi_BH-02,10.5,10.65,G12,,disturbed (or grab or bag),
+Gunghi_BH-02,10.8,10.8,,,,
+Gunghi_BH-02,11.8,11.8,,,,
+Gunghi_BH-02,12,12.15,G13,,disturbed (or grab or bag),
+Gunghi_BH-02,12.6,12.6,,,,
+Gunghi_BH-02,13.5,13.65,G14,,disturbed (or grab or bag),
+Gunghi_BH-02,13.8,13.8,,,,
+Gunghi_BH-02,15,15.15,G15,,disturbed (or grab or bag),
+Gunghi_BH-02,15.001,15.001,,,,
+Gunghi_BH-02,16.5,16.65,G16,,disturbed (or grab or bag),
+Gunghi_BH-02,16.8,16.8,,,,
+Gunghi_BH-02,18,18.15,G17,,disturbed (or grab or bag),
+Gunghi_BH-02,18.5,18.5,,,,
+Gunghi_BH-02,19.5,19.65,G18,,disturbed (or grab or bag),
+Gunghi_BH-02,19.7,19.7,,,,
+HUS_H_NTGS7,0,0.9,CC1,,CRREL core,
+HUS_H_NTGS7,0.7,0.7,,,,
+HUS_H_NTGS7,1.5,1.65,G1,,disturbed (or grab or bag),
+HUS_H_NTGS7,1.501,1.501,,,,
+HUS_H_NTGS7,3,3.15,G2,,disturbed (or grab or bag),
+HUS_H_NTGS7,3.001,3.001,,,,
+HUS_H_NTGS7,4.5,4.65,G3,,disturbed (or grab or bag),
+HUS_H_NTGS7,4.501,4.501,,,,
+HUS_H_NTGS7,6,6.15,G4,,disturbed (or grab or bag),
+HUS_H_NTGS7,7.5,7.65,G5,,disturbed (or grab or bag),
+HUS_H_NTGS7,7.501,7.501,,,,
+HUS_H_NTGS7,8.8,8.8,,,,
+HUS_H_NTGS7,9,9.15,G6,,disturbed (or grab or bag),
+HUS_H_NTGS7,10.5,10.65,G7,,disturbed (or grab or bag),
+HUS_H_NTGS7,10.501,10.501,,,,
+HUS_H_NTGS7,12,12.15,G8,,disturbed (or grab or bag),
+HUS_H_NTGS7,12.001,12.001,,,,
+HUS_H_NTGS7,13.5,13.65,G9,,disturbed (or grab or bag),
+HUS_H_NTGS7,13.501,13.501,,,,
+HUS_H_NTGS7,15,15.15,G10,,disturbed (or grab or bag),
+HUS_H_NTGS7,15.001,15.001,,,,
+HUS_H_NTGS7,16.5,16.65,G11,,disturbed (or grab or bag),
+HUS_H_NTGS7,16.501,16.501,,,,
+HUS_H_NTGS7,18,18.15,G12,,disturbed (or grab or bag),
+HUS_H_NTGS7,19.5,19.65,G13,,disturbed (or grab or bag),
+HUS_P_NTGS8,0.9,1.5,CC1,,CRREL core,
+HUS_P_NTGS8,1.2,1.2,,,,
+HUS_P_NTGS8,1.5,1.5,,,,
+HUS_P_NTGS8,1.501,1.6,G1,,disturbed (or grab or bag),
+HUS_P_NTGS8,1.502,2.2,CC2,,CRREL core,
+HUS_P_NTGS8,2,2,,,,
+HUS_P_NTGS8,2.2,2.9,CC3,,CRREL core,
+HUS_P_NTGS8,2.7,2.7,,,,
+HUS_P_NTGS8,2.9,3.7,CC4,,CRREL core,
+HUS_P_NTGS8,3,3.1,G2,,disturbed (or grab or bag),
+HUS_P_NTGS8,3.4,3.4,,,,
+HUS_P_NTGS8,3.7,4.5,CC5,,CRREL core,
+HUS_P_NTGS8,4.2,4.2,,,,
+HUS_P_NTGS8,4.5,4.6,G3,,disturbed (or grab or bag),
+HUS_P_NTGS8,4.501,5.4,CC6,,CRREL core,
+HUS_P_NTGS8,5.1,5.1,,,,
+HUS_P_NTGS8,5.4,6.1,CC7,,CRREL core,
+HUS_P_NTGS8,6,6.1,G4,,disturbed (or grab or bag),
+HUS_P_NTGS8,6.1,6.7,CC8,,CRREL core,
+HUS_P_NTGS8,6.7,7.3,CC9,,CRREL core,
+HUS_P_NTGS8,7.3,8.2,CC10,,CRREL core,
+HUS_P_NTGS8,7.5,7.5,,,,
+HUS_P_NTGS8,7.501,7.6,G5,,disturbed (or grab or bag),
+HUS_P_NTGS8,8.2,8.7,CC11,,CRREL core,
+HUS_P_NTGS8,8.5,8.5,,,,
+HUS_P_NTGS8,8.7,9.6,CC12,,CRREL core,
+HUS_P_NTGS8,9,9.1,G6,,disturbed (or grab or bag),
+HUS_P_NTGS8,9.2,9.2,,,,
+HUS_P_NTGS8,9.6,10.4,CC13,,CRREL core,
+HUS_P_NTGS8,10,10,,,,
+HUS_P_NTGS8,10.001,10.1,G7,,disturbed (or grab or bag),
+HUS_R_NTGS9,0,0.9,CC1,,CRREL core,
+HUS_R_NTGS9,0.2,0.2,,,,
+HUS_R_NTGS9,0.7,0.8,G1,,disturbed (or grab or bag),
+HUS_R_NTGS9,0.701,0.701,,,,
+HUS_R_NTGS9,0.9,1.2,CC2,,CRREL core,
+HUS_R_NTGS9,1.2,1.8,CC3,,CRREL core,
+HUS_R_NTGS9,1.201,1.201,,,,
+HUS_R_NTGS9,1.5,1.5,,,,
+HUS_R_NTGS9,1.8,1.9,G2,,disturbed (or grab or bag),
+HUS_R_NTGS9,1.801,2.4,CC4,,CRREL core,
+HUS_R_NTGS9,2.4,3.3,CC5,,CRREL core,
+HUS_R_NTGS9,2.401,2.401,,,,
+HUS_R_NTGS9,3,3.1,G3,,disturbed (or grab or bag),
+HUS_R_NTGS9,3.001,3.001,,,,
+HUS_R_NTGS9,3.3,4,CC6,,CRREL core,
+HUS_R_NTGS9,3.8,3.8,,,,
+HUS_R_NTGS9,4,4.6,CC7,,CRREL core,
+HUS_R_NTGS9,4.5,4.6,G4,,disturbed (or grab or bag),
+HUS_R_NTGS9,4.501,4.501,,,,
+HUS_R_NTGS9,4.6,5.4,CC8,,CRREL core,
+HUS_R_NTGS9,5.2,5.2,,,,
+HUS_R_NTGS9,6,6.15,G5,,disturbed (or grab or bag),
+HUS_R_NTGS9,6.001,6.001,,,,
+HUS_R_NTGS9,7.5,7.65,G6,,disturbed (or grab or bag),
+HUS_R_NTGS9,7.501,7.501,,,,
+HUS_R_NTGS9,9,9.15,G7,,disturbed (or grab or bag),
+HUS_R_NTGS9,9.001,9.001,,,,
+HUS_Slump_NTGS17,0.5,0.5,,,,
+HUS_Slump_NTGS17,1.5,1.65,G1,,disturbed (or grab or bag),
+HUS_Slump_NTGS17,1.501,1.501,,,,
+HUS_Slump_NTGS17,2.1,2.4,CC1,,CRREL core,
+HUS_Slump_NTGS17,2.3,2.3,,,,
+HUS_Slump_NTGS17,2.4,3.3,CC2,,CRREL core,
+HUS_Slump_NTGS17,2.9,2.9,,,,
+HUS_Slump_NTGS17,3,3.1,G2,,disturbed (or grab or bag),
+HUS_Slump_NTGS17,3.3,3.6,CC3,,CRREL core,
+HUS_Slump_NTGS17,4.5,4.65,G3,,disturbed (or grab or bag),
+HUS_Slump_NTGS17,5.001,5.001,,,,
+HUS_Slump_NTGS17,5.4,6.1,CC4,,CRREL core,
+HUS_Slump_NTGS17,5.9,5.9,,,,
+HUS_Slump_NTGS17,6,6.1,G4,,disturbed (or grab or bag),
+HUS_Slump_NTGS17,6.1,7,CC5,,CRREL core,
+HUS_Slump_NTGS17,6.5,6.5,,,,
+HUS_Slump_NTGS17,7,7.4,CC6,,CRREL core,
+HUS_Slump_NTGS17,7.5,7.65,G5,,disturbed (or grab or bag),
+HUS_Slump_NTGS17,7.501,7.501,,,,
+HUS_Slump_NTGS17,7.8,7.8,,,,
+HUS_Slump_NTGS17,8.001,8.001,,,,
+HUS_Slump_NTGS17,9,9.15,G6,,disturbed (or grab or bag),
+HUS_Slump_NTGS17,10.5,10.65,G7,,disturbed (or grab or bag),
+I401A_Pit_NTGS15,0.4,0.4,,,,
+I401A_Pit_NTGS15,0.8,0.8,,,,
+I401A_Pit_NTGS15,1.2,1.2,,,,
+I401A_Pit_NTGS15,1.5,1.65,G1,,disturbed (or grab or bag),
+I401A_Pit_NTGS15,1.501,1.501,,,,
+I401A_Pit_NTGS15,1.8,1.8,,,,
+I401A_Pit_NTGS15,3,3.15,G2,,disturbed (or grab or bag),
+I401A_Pit_NTGS15,3.001,3.001,,,,
+I401A_Pit_NTGS15,4.5,4.65,G3,,disturbed (or grab or bag),
+I401A_Pit_NTGS15,4.501,4.501,,,,
+I401A_Pit_NTGS15,6,6.15,G4,,disturbed (or grab or bag),
+I401A_Pit_NTGS15,6.001,6.001,,,,
+I401A_Pit_NTGS15,7.5,7.65,G5,,disturbed (or grab or bag),
+I401A_Pit_NTGS15,7.501,7.501,,,,
+I401A_Pit_NTGS15,9,9.15,G6,,disturbed (or grab or bag),
+I401A_Pit_NTGS15,9.001,9.001,,,,
+I401A_Upper_NTGS16,0.4,0.4,,,,
+I401A_Upper_NTGS16,0.501,0.501,,,,
+I401A_Upper_NTGS16,1.5,1.65,G1,,disturbed (or grab or bag),
+I401A_Upper_NTGS16,1.501,1.501,,,,
+I401A_Upper_NTGS16,3,3.15,G2,,disturbed (or grab or bag),
+I401A_Upper_NTGS16,3.001,3.001,,,,
+I401A_Upper_NTGS16,4.5,4.65,G3,,disturbed (or grab or bag),
+I401A_Upper_NTGS16,4.501,4.501,,,,
+I401A_Upper_NTGS16,5.4,5.4,,,,
+I401A_Upper_NTGS16,6,6.15,G4,,disturbed (or grab or bag),
+I401A_Upper_NTGS16,6.001,6.001,,,,
+I401A_Upper_NTGS16,7.5,7.65,G5,,disturbed (or grab or bag),
+I401A_Upper_NTGS16,7.501,7.501,,,,
+I401A_Upper_NTGS16,9,9.15,G6,,disturbed (or grab or bag),
+I401A_Upper_NTGS16,9.001,9.001,,,,
+INU_H_NTGS2,0.4,0.4,,,,
+INU_H_NTGS2,0.9,0.9,,,,
+INU_H_NTGS2,1.5,1.65,G1,,disturbed (or grab or bag),
+INU_H_NTGS2,1.501,1.501,,,,
+INU_H_NTGS2,2.001,2.001,,,,
+INU_H_NTGS2,3,3.15,G2,,disturbed (or grab or bag),
+INU_H_NTGS2,3.001,3.001,,,,
+INU_H_NTGS2,4.5,4.65,G3,,disturbed (or grab or bag),
+INU_H_NTGS2,4.501,4.501,,,,
+INU_H_NTGS2,6,6.15,G4,,disturbed (or grab or bag),
+INU_H_NTGS2,6.001,6.001,,,,
+INU_H_NTGS2,7.5,7.65,G5,,disturbed (or grab or bag),
+INU_H_NTGS2,7.501,7.501,,,,
+INU_H_NTGS2,9,9.15,G6,,disturbed (or grab or bag),
+INU_H_NTGS2,9.001,9.001,,,,
+INU_H_NTGS2,10,10.9,CC1,,CRREL core,
+INU_H_NTGS2,10.5,10.5,,,,
+INU_H_NTGS2,10.501,10.6,G7,,disturbed (or grab or bag),
+INU_H_NTGS2,12,12.15,G8,,disturbed (or grab or bag),
+INU_H_NTGS2,12.001,12.001,,,,
+INU_H_NTGS2,12.8,12.8,,,,
+INU_H_NTGS2,13.5,13.65,G9,,disturbed (or grab or bag),
+INU_H_NTGS2,13.501,13.501,,,,
+INU_H_NTGS2,15,15.6,CC2,,CRREL core,
+INU_H_NTGS2,15.001,15.001,,,,
+INU_H_NTGS2,15.002,15.15,G10,,disturbed (or grab or bag),
+INU_H_NTGS2,15.6,16.1,CC3,,CRREL core,
+INU_H_NTGS2,16.001,16.001,,,,
+INU_H_NTGS2,16.1,16.8,CC4,,CRREL core,
+INU_H_NTGS2,16.5,16.6,CC5,,CRREL core,
+INU_H_NTGS2,16.501,16.501,,,,
+INU_H_NTGS2,16.8,17.7,CC6,,CRREL core,
+INU_H_NTGS2,17.201,17.201,,,,
+INU_H_NTGS2,17.7,18.3,CC7,,CRREL core,
+INU_H_NTGS2,18,18.1,G11,,disturbed (or grab or bag),
+INU_H_NTGS2,18.001,18.001,,,,
+INU_H_NTGS2,18.3,19.2,CC8,,CRREL core,
+INU_H_NTGS2,18.801,18.801,,,,
+INU_H_NTGS2,19.201,19.201,,,,
+INU_H_NTGS2,19.5,19.65,G12,,disturbed (or grab or bag),
+INU_P_NTGS1,0,0.8,CC1,,CRREL core,
+INU_P_NTGS1,0.601,0.601,,,,
+INU_P_NTGS1,0.8,1.7,CC2,,CRREL core,
+INU_P_NTGS1,1.5,1.65,G1,,disturbed (or grab or bag),
+INU_P_NTGS1,1.501,1.501,,,,
+INU_P_NTGS1,1.7,2.6,CC3,,CRREL core,
+INU_P_NTGS1,2.401,2.401,,,,
+INU_P_NTGS1,2.6,3.5,CC4,,CRREL core,
+INU_P_NTGS1,3,3.15,G2,,disturbed (or grab or bag),
+INU_P_NTGS1,3.001,3.001,,,,
+INU_P_NTGS1,3.5,4.4,CC5,,CRREL core,
+INU_P_NTGS1,4.4,5.2,CC6,,CRREL core,
+INU_P_NTGS1,4.5,4.65,G3,,disturbed (or grab or bag),
+INU_P_NTGS1,4.501,4.501,,,,
+INU_P_NTGS1,5.2,6,CC7,,CRREL core,
+INU_P_NTGS1,6,6.8,CC8,,CRREL core,
+INU_P_NTGS1,6.001,6.001,,,,
+INU_P_NTGS1,6.002,6.15,G4,,disturbed (or grab or bag),
+INU_P_NTGS1,6.601,6.601,,,,
+INU_P_NTGS1,6.8,7.3,CC9,,CRREL core,
+INU_P_NTGS1,7.3,7.9,CC10,,CRREL core,
+INU_P_NTGS1,7.5,7.65,,,disturbed (or grab or bag),
+INU_P_NTGS1,7.501,7.501,,,,
+INU_P_NTGS1,7.9,8.5,CC11,,CRREL core,
+INU_P_NTGS1,8.101,8.101,,,,
+INU_P_NTGS1,8.5,9.2,CC12,,CRREL core,
+INU_P_NTGS1,9,9.15,,,disturbed (or grab or bag),
+INU_P_NTGS1,9.001,9.001,,,,
+INU_P_NTGS1,9.2,10,CC13,,CRREL core,
+INU_P_NTGS1,9.801,9.801,,,,
+INU_R_NTGS3,0.8,1.5,CC1,,CRREL core,
+INU_R_NTGS3,1.5,2.3,CC3,,CRREL core,
+INU_R_NTGS3,1.501,1.6,G1,,disturbed (or grab or bag),
+INU_R_NTGS3,1.502,1.502,,,,
+INU_R_NTGS3,2.3,3,CC2,,CRREL core,
+INU_R_NTGS3,3,3.8,CC4,,CRREL core,
+INU_R_NTGS3,3.001,3.001,,,,
+INU_R_NTGS3,3.8,4.6,CC5,,CRREL core,
+INU_R_NTGS3,4.5,4.6,G2,,disturbed (or grab or bag),
+INU_R_NTGS3,6,6.15,G3,,disturbed (or grab or bag),
+INU_R_NTGS3,6.001,6.001,,,,
+INU_R_NTGS3,7.5,7.65,G4,,disturbed (or grab or bag),
+INU_R_NTGS3,7.501,7.501,,,,
+INU_R_NTGS3,9,9.15,G5,,disturbed (or grab or bag),
+INU_R_NTGS3,9.501,9.501,,,,
+INU_R_NTGS3,10,10.6,CC6,,CRREL core,
+INU_R_NTGS3,10.301,10.301,,,,
+INU_R_NTGS3,10.5,10.6,G6,,disturbed (or grab or bag),
+ITH-01,0,0.7,G1,,disturbed (or grab or bag),
+ITH-01,2.05,2.2,G2,,disturbed (or grab or bag),
+ITH-01,2.55,2.7,G3,,disturbed (or grab or bag),
+ITH-01,3.75,3.9,G4,,disturbed (or grab or bag),
+ITH-01,3.85,4,G5,,disturbed (or grab or bag),
+ITH-01,4.45,4.6,G6,,disturbed (or grab or bag),
+ITH-02,0,0.7,G1,,disturbed (or grab or bag),
+ITH-02,0.9,1.8,CC1,,CRREL core,
+ITH-02,2.55,2.7,G2,,disturbed (or grab or bag),
+ITH-03,0,1,G1,,disturbed (or grab or bag),
+ITH-03,1.35,1.5,G2,,disturbed (or grab or bag),
+ITH-03,2.25,2.4,G3,,disturbed (or grab or bag),
+ITH-03,2.75,2.9,G4,,disturbed (or grab or bag),
+ITH-04,0,0.8,G1,,disturbed (or grab or bag),
+ITH-04,1.95,2.1,G2,,disturbed (or grab or bag),
+ITH-04,2.85,3,G3,,disturbed (or grab or bag),
+ITH-04,4.15,4.3,G4,,disturbed (or grab or bag),
+ITH-05,0,0.6,G1,,disturbed (or grab or bag),
+ITH-05,2.05,2.2,G2,,disturbed (or grab or bag),
+ITH-05,3.15,3.3,G3,,disturbed (or grab or bag),
+ITH-06,0,0.9,G1,,disturbed (or grab or bag),
+ITH-06,1.95,2.1,G2,,disturbed (or grab or bag),
+ITH-06,2.44,3.35,CC1,,CRREL core,
+ITH-06,3.35,4.2,CC2,,CRREL core,
+ITH-07,0,0.8,G1,,disturbed (or grab or bag),
+ITH-07,0.001,1.1,,,,
+ITH-07,1.95,2.1,G2,,disturbed (or grab or bag),
+ITH-07,2.55,2.7,G3,,disturbed (or grab or bag),
+ITH-07,3.55,3.7,G4,,disturbed (or grab or bag),
+ITH-07,4.45,4.6,G5,,disturbed (or grab or bag),
+ITH-08,0,1.1,G1,,disturbed (or grab or bag),
+ITH-08,1.35,1.5,G2,,disturbed (or grab or bag),
+ITH-08,2.29,2.44,G3,,disturbed (or grab or bag),
+ITH-08,2.85,3,G4,,disturbed (or grab or bag),
+ITH-08,3.85,4,G5,,disturbed (or grab or bag),
+ITH-08,4.45,4.6,G6,,disturbed (or grab or bag),
+ITH-09,0,1,G1,,disturbed (or grab or bag),
+ITH-09,1.35,1.5,G2,,disturbed (or grab or bag),
+ITH-09,2.29,2.44,G3,,disturbed (or grab or bag),
+ITH-09,2.85,3,G4,,disturbed (or grab or bag),
+ITH-09,3.51,3.66,G5,,disturbed (or grab or bag),
+ITH-10,0,1,G1,,disturbed (or grab or bag),
+ITH-10,2.29,2.44,G2,,disturbed (or grab or bag),
+ITH-10,2.85,3,G3,,disturbed (or grab or bag),
+ITH-10,3.85,4,G4,,disturbed (or grab or bag),
+ITH-10,4.45,4.6,G5,,disturbed (or grab or bag),
+ITH-10,4.85,5,G6,,disturbed (or grab or bag),
+ITH-10,5.35,5.5,G7,,disturbed (or grab or bag),
+ITH-10,5.95,6.1,G8,,disturbed (or grab or bag),
+ITH-10,6.55,6.7,G9,,disturbed (or grab or bag),
+ITH-11,0,1,G1,,disturbed (or grab or bag),
+ITH-11,1.65,1.8,G2,,disturbed (or grab or bag),
+ITH-11,2.29,2.44,G3,,disturbed (or grab or bag),
+ITH-11,2.74,3.8,CC1,,CRREL core,
+ITH-12,0,0.8,G1,,disturbed (or grab or bag),
+ITH-12,1.65,1.8,G2,,disturbed (or grab or bag),
+ITH-12,2.25,2.4,G3,,disturbed (or grab or bag),
+ITH-12,2.59,2.74,G4,,disturbed (or grab or bag),
+ITH-12,2.9,3.05,G5,,disturbed (or grab or bag),
+ITH-12,3.35,3.5,G6,,disturbed (or grab or bag),
+ITH-12,4.12,4.27,G7,,disturbed (or grab or bag),
+ITH-12,5.05,5.2,G8,,disturbed (or grab or bag),
+ITH-13,0,0.8,G1,,disturbed (or grab or bag),
+ITH-13,1.35,1.5,G2,,disturbed (or grab or bag),
+ITH-13,1.95,2.1,G3,,disturbed (or grab or bag),
+ITH-13,2.85,3,G4,,disturbed (or grab or bag),
+ITH-14,0,0.8,G1,,disturbed (or grab or bag),
+ITH-14,1.22,1.37,G2,,disturbed (or grab or bag),
+ITH-14,1.67,1.82,G3,,disturbed (or grab or bag),
+ITH-14,2.29,2.44,G4,,disturbed (or grab or bag),
+ITH-14,3.05,3.2,G5,,disturbed (or grab or bag),
+S6-BH01,0,0.2,,,,oh . Value in USC field in Open Report: OH
+S6-BH01,0.2,8.5,,,,Value in USC field in Open Report: CI
+S6-BH01,0.201,8.5,,,,Value in USC field in Open Report: GC
+S6-BH01,0.5,0.6,G1,,disturbed (or grab or bag),
+S6-BH01,2.4,2.7,G2,,disturbed (or grab or bag),
+S6-BH01,3.7,3.85,G3,,disturbed (or grab or bag),CI/GC
+S6-BH01,4.5,4.9,G5,,disturbed (or grab or bag),
+S6-BH01,5.5,5.7,G4,,disturbed (or grab or bag),
+S6-BH01,7,7.2,G6,,disturbed (or grab or bag),
+S6-BH01,8.5,9.3,,,,SC . Value in USC field in Open Report: SC
+S6-BH01,8.6,8.8,G7,,disturbed (or grab or bag),
+S6-BH01,9.3,10,,,,ci . Value in USC field in Open Report: CI
+S6-BH01,9.4,9.6,G8,,disturbed (or grab or bag),
+S6-BH02,0,0.1,,,,oh . Value in USC field in Open Report: OH
+S6-BH02,0.1,3.4,,,,Value in USC field in Open Report: CH
+S6-BH02,1.1,1.2,G1,,disturbed (or grab or bag),
+S6-BH02,2.9,3,G2,,disturbed (or grab or bag),CH
+S6-BH02,3.4,5,,,,Value in USC field in Open Report: SC-SM
+S6-BH02,3.7,4.3,G3,,disturbed (or grab or bag),SM/SC
+S6-BH02,4.3,4.5,G4,,disturbed (or grab or bag),
+S6-BH02,5,10,,,,ci . Value in USC field in Open Report: CI
+S6-BH02,5.5,5.8,G5,,disturbed (or grab or bag),
+S6-BH02,7.1,7.25,G6,,disturbed (or grab or bag),
+S6-BH02,8.6,8.8,G7,,disturbed (or grab or bag),
+S6-BH03,0,0.1,,,,oh . Value in USC field in Open Report: OH
+S6-BH03,0.1,5.5,,,,ci . Value in USC field in Open Report: CI
+S6-BH03,0.8,0.9,G1,,disturbed (or grab or bag),
+S6-BH03,2.2,2.4,G2,,disturbed (or grab or bag),
+S6-BH03,3.6,3.9,G3,,disturbed (or grab or bag),
+S6-BH03,5.4,5.7,G4,,disturbed (or grab or bag),
+S6-BH03,5.5,8.2,,,,Value in USC field in Open Report: SC-SM
+S6-BH03,6.7,6.9,G5,,disturbed (or grab or bag),SM/SC
+S6-BH03,8.2,10,,,,ci . Value in USC field in Open Report: CI
+S6-BH03,8.4,8.6,G6,,disturbed (or grab or bag),
+S6-BH03,9.4,9.6,G7,,disturbed (or grab or bag),
+S6-BH04,0,0.1,,,,oh . Value in USC field in Open Report: OH
+S6-BH04,0.1,0.5,,,,ml . Value in USC field in Open Report: ML
+S6-BH04,0.5,10,,,,ch . Value in USC field in Open Report: CH
+S6-BH04,0.8,1,G1,,disturbed (or grab or bag),
+S6-BH04,2.1,2.3,G2,,disturbed (or grab or bag),
+S6-BH04,3.6,3.9,G3,,disturbed (or grab or bag),CH
+S6-BH04,5.1,5.3,G4,,disturbed (or grab or bag),
+S6-BH04,6.6,6.8,G5,,disturbed (or grab or bag),
+S6-BH04,8.8,9,G6,,disturbed (or grab or bag),
+S6-BH04,9.3,10,,,,ml/sm . Value in USC field in Open Report: SM
+S6-BH04,9.301,10,,,,Value in USC field in Open Report: ML
+S6-BH04,9.5,9.7,G7,,disturbed (or grab or bag),
+S6-BH05,0,0.1,,,,oh . Value in USC field in Open Report: OH
+S6-BH05,0.1,3.5,,,,ci . Value in USC field in Open Report: CI
+S6-BH05,0.6,0.8,G1,,disturbed (or grab or bag),
+S6-BH05,2.4,2.6,G2,,disturbed (or grab or bag),
+S6-BH05,3.5,6.1,,,,cl/ci . Value in USC field in Open Report: CL-CI
+S6-BH05,3.6,3.9,G3,,disturbed (or grab or bag),
+S6-BH05,5.4,5.6,G4,,disturbed (or grab or bag),
+S6-BH06,0,0.1,,,,oh . Value in USC field in Open Report: OH
+S6-BH06,0.1,10,,,,Value in USC field in Open Report: CI
+S6-BH06,0.3,0.5,G1,,disturbed (or grab or bag),
+S6-BH06,1.7,1.9,G2,,disturbed (or grab or bag),CI
+S6-BH06,4,4.2,G3,,disturbed (or grab or bag),
+S6-BH06,5.6,5.8,G4,,disturbed (or grab or bag),
+S6-BH06,7.1,7.3,G5,,disturbed (or grab or bag),
+S6-BH06,8.2,8.4,G6,,disturbed (or grab or bag),
+S6-BH06,9.5,9.7,G7,,disturbed (or grab or bag),
+S6-BH07,0,0.1,,,,oh . Value in USC field in Open Report: OH
+S6-BH07,0.1,2.1,,,,Value in USC field in Open Report: SC
+S6-BH07,0.7,0.9,G1,,disturbed (or grab or bag),SC
+S6-BH07,2.1,2.6,,,,Value in USC field in Open Report: CI
+S6-BH07,2.3,2.4,G2,,disturbed (or grab or bag),CI
+S6-BH07,2.6,4.5,,,,Value in USC field in Open Report: SC
+S6-BH07,2.8,3,G3,,disturbed (or grab or bag),SC
+S6-BH07,3.3,3.5,G4,,disturbed (or grab or bag),
+S6-BH07,4.5,10,,,,Value in USC field in Open Report: CI
+S6-BH07,5.8,6.1,G5,,disturbed (or grab or bag),
+S6-BH07,7,7.2,G6,,disturbed (or grab or bag),CI
+S6-BH07,8,8.2,G7,,disturbed (or grab or bag),
+S6-BH08,0,0.1,,,,oh . Value in USC field in Open Report: OH
+S6-BH08,0.1,0.2,,,,gc . Value in USC field in Open Report: GC
+S6-BH08,0.2,2,,,,cl . Value in USC field in Open Report: CL
+S6-BH08,0.6,0.8,G1,,disturbed (or grab or bag),
+S6-BH08,2,10,,,,Value in USC field in Open Report: CI
+S6-BH08,2.4,2.6,G2,,disturbed (or grab or bag),ci
+S6-BH08,4,4.2,G3,,disturbed (or grab or bag),
+S6-BH08,5.9,6.1,G4,,disturbed (or grab or bag),
+S6-BH08,6.2,6.4,G5,,disturbed (or grab or bag),
+S6-BH08,8.7,8.9,G6,,disturbed (or grab or bag),
+S6-BH09,0,0.1,,,,oh . Value in USC field in Open Report: OH
+S6-BH09,0.1,2.7,,,,Value in USC field in Open Report: CI
+S6-BH09,1,1.2,G1,,disturbed (or grab or bag),
+S6-BH09,2.1,2.3,G2,,disturbed (or grab or bag),CI
+S6-BH09,2.7,10,,,,Value in USC field in Open Report: CH
+S6-BH09,3.4,3.6,G3,,disturbed (or grab or bag),
+S6-BH09,5.5,5.7,G4,,disturbed (or grab or bag),CH
+S6-BH09,7,7.2,G5,,disturbed (or grab or bag),
+S6-BH09,8.5,8.7,G6,,disturbed (or grab or bag),
+S6-BH10,0,0.1,,,,oh . Value in USC field in Open Report: OH
+S6-BH10,0.1,3,,,,Value in USC field in Open Report: GC
+S6-BH10,0.101,3,,,,Value in USC field in Open Report: GM
+S6-BH10,0.7,1,G1,,disturbed (or grab or bag),
+S6-BH10,2.6,2.9,G2,,disturbed (or grab or bag),GM/GC
+S6-BH10,3,4.6,,,,ice + ci . Value in USC field in Open Report: CI
+S6-BH10,3.9,4.2,G3,,disturbed (or grab or bag),
+S6-BH10,4.6,9.9,,,,ci . Value in USC field in Open Report: CI
+S6-BH10,5,5.2,G4,,disturbed (or grab or bag),
+S6-BH10,6.6,6.8,G5,,disturbed (or grab or bag),
+S6-BH10,8.2,8.4,G6,,disturbed (or grab or bag),
+S6-BH11,0,0.1,,,,oh . Value in USC field in Open Report: OH
+S6-BH11,0.1,5.8,,,,ci . Value in USC field in Open Report: CI
+S6-BH11,0.6,0.8,G1,,disturbed (or grab or bag),
+S6-BH11,2.3,2.5,G2,,disturbed (or grab or bag),
+S6-BH11,3.7,3.9,G3,,disturbed (or grab or bag),
+S6-BH11,4.9,5.1,G4,,disturbed (or grab or bag),
+S6-BH12,0,0.1,,,,oh . Value in USC field in Open Report: OH
+S6-BH12,0.1,9.1,,,,ci . Value in USC field in Open Report: CI
+S6-BH12,0.6,0.8,G1,,disturbed (or grab or bag),
+S6-BH12,1.6,1.8,G2,,disturbed (or grab or bag),
+S6-BH12,4,4.2,G3,,disturbed (or grab or bag),
+S6-BH12,5.7,5.9,G4,,disturbed (or grab or bag),
+S6-BH12,6.7,6.9,G5,,disturbed (or grab or bag),
+S6-BH12,8.8,9,G6,,disturbed (or grab or bag),
+S6-BH13,0,0.1,,,,oh . Value in USC field in Open Report: OH
+S6-BH13,0.1,9.1,,,,Value in USC field in Open Report: CI
+S6-BH13,0.6,0.9,G1,,disturbed (or grab or bag),
+S6-BH13,2.4,2.7,G2,,disturbed (or grab or bag),CI
+S6-BH13,3.7,3.9,G3,,disturbed (or grab or bag),
+S6-BH13,5.2,5.4,G4,,disturbed (or grab or bag),
+S6-BH13,7,7.2,G5,,disturbed (or grab or bag),
+S6-BH13,8.3,9.1,,,,Value in USC field in Open Report: CL
+S6-BH13,8.301,9.1,,,,Value in USC field in Open Report: SC
+S6-BH13,8.4,8.7,G6,,disturbed (or grab or bag),sc/cl
+S6-BH14,0,0.1,,,,oh . Value in USC field in Open Report: OH
+S6-BH14,0.1,0.5,,,,ml . Value in USC field in Open Report: ML
+S6-BH14,0.2,0.3,G1,,disturbed (or grab or bag),
+S6-BH14,0.5,3,,,,ci . Value in USC field in Open Report: CI
+S6-BH14,0.7,1,G2,,disturbed (or grab or bag),
+S6-BH14,2.4,2.6,G3,,disturbed (or grab or bag),
+S6-BH15,0,6.7,,,,Value in USC field in Open Report: CH
+S6-BH15,0.7,0.9,G1,,disturbed (or grab or bag),
+S6-BH15,2.4,2.6,G2,,disturbed (or grab or bag),CH
+S6-BH15,3.9,4.1,G3,,disturbed (or grab or bag),
+S6-BH15,5.6,5.8,G4,,disturbed (or grab or bag),
+S6-BH15,6.7,9.1,,,,Value in USC field in Open Report: CI
+S6-BH15,7.1,7.3,G5,,disturbed (or grab or bag),ci
+S6-BH15,8.3,8.5,G6,,disturbed (or grab or bag),
+S6-BH16,0,0.1,,,,oh . Value in USC field in Open Report: OH
+S6-BH16,0.1,0.6,,,,sm/gm . Value in USC field in Open Report: SM
+S6-BH16,0.101,0.6,,,,Value in USC field in Open Report: GM
+S6-BH16,0.6,2.5,,,,cl . Value in USC field in Open Report: CL
+S6-BH16,0.7,0.9,G1,,disturbed (or grab or bag),
+S6-BH16,2.5,9.1,,,,Value in USC field in Open Report: CI
+S6-BH16,2.6,2.8,G2,,disturbed (or grab or bag),
+S6-BH16,3.8,4,G3,,disturbed (or grab or bag),
+S6-BH16,5.5,5.7,G4,,disturbed (or grab or bag),CI
+S6-BH16,6.9,7.1,G5,,disturbed (or grab or bag),
+S6-BH16,8.7,8.9,G6,,disturbed (or grab or bag),
+TUK_H_NTGS10,0.6,1.2,CC1,,CRREL core,
+TUK_H_NTGS10,1.2,1.5,CC2,,CRREL core,
+TUK_H_NTGS10,1.5,1.65,G1,,disturbed (or grab or bag),
+TUK_H_NTGS10,2.001,2.001,,,,
+TUK_H_NTGS10,3,3.15,G2,,disturbed (or grab or bag),
+TUK_H_NTGS10,3.001,3.001,,,,
+TUK_H_NTGS10,3.9,4.6,CC3,,CRREL core,
+TUK_H_NTGS10,4.5,4.6,G3,,disturbed (or grab or bag),
+TUK_H_NTGS10,5.4,6.3,CC4,,CRREL core,
+TUK_H_NTGS10,6,6.1,G4,,disturbed (or grab or bag),
+TUK_H_NTGS10,6.3,7,CC5,,CRREL core,
+TUK_H_NTGS10,7,7.8,CC6,,CRREL core,
+TUK_H_NTGS10,7.5,7.6,G5,,disturbed (or grab or bag),
+TUK_H_NTGS10,7.8,8.7,CC7,,CRREL core,
+TUK_H_NTGS10,9,9.15,G6,,disturbed (or grab or bag),
+TUK_H_NTGS10,10.5,10.65,G7,,disturbed (or grab or bag),
+TUK_H_NTGS10,12,12.15,G8,,disturbed (or grab or bag),
+TUK_H_NTGS10,13,13.15,G9,,disturbed (or grab or bag),
+TVC_H_NTGS5,0.9,1.4,CC1,,CRREL core,
+TVC_H_NTGS5,1.001,1.001,,,,
+TVC_H_NTGS5,1.4,1.8,CC2,,CRREL core,
+TVC_H_NTGS5,1.5,1.6,G1,,disturbed (or grab or bag),
+TVC_H_NTGS5,1.501,1.501,,,,
+TVC_H_NTGS5,1.8,2,CC3,,CRREL core,
+TVC_H_NTGS5,3,3.15,G2,,disturbed (or grab or bag),
+TVC_H_NTGS5,3.001,3.001,,,,
+TVC_H_NTGS5,4.5,4.65,G3,,disturbed (or grab or bag),
+TVC_H_NTGS5,4.501,4.501,,,,
+TVC_H_NTGS5,6,6.15,G4,,disturbed (or grab or bag),
+TVC_H_NTGS5,6.001,6.001,,,,
+TVC_H_NTGS5,7.5,7.65,G5,,disturbed (or grab or bag),
+TVC_H_NTGS5,7.501,7.501,,,,
+TVC_H_NTGS5,9,9.15,G6,,disturbed (or grab or bag),
+TVC_H_NTGS5,9.001,9.001,,,,
+TVC_H_NTGS5,10.001,10.001,,,,
+TVC_H_NTGS5,10.5,10.65,G7,,disturbed (or grab or bag),
+TVC_H_NTGS5,12,12.15,G8,,disturbed (or grab or bag),
+TVC_H_NTGS5,12.501,12.501,,,,
+TVC_H_NTGS5,12.9,13,G9,,disturbed (or grab or bag),
+TVC_H_NTGS5,13,13.9,CC4,,CRREL core,
+TVC_H_NTGS5,13.001,13.001,,,,
+TVC_H_NTGS5,13.501,13.501,,,,
+TVC_H_NTGS5,14,14.15,G10,,disturbed (or grab or bag),
+TVC_H_NTGS5,14.001,14.001,,,,
+TVC_H_NTGS5,15,15.15,G11,,disturbed (or grab or bag),
+TVC_H_NTGS5,15.001,15.001,,,,
+TVC_H_NTGS5,16.5,16.65,G12,,disturbed (or grab or bag),
+TVC_H_NTGS5,16.501,16.501,,,,
+TVC_H_NTGS5,17,17.05,G13,,disturbed (or grab or bag),
+TVC_H_NTGS5,18,18.15,G14,,disturbed (or grab or bag),
+TVC_H_NTGS5,18.001,18.001,,,,
+TVC_H_NTGS5,19.2,20.1,CC5,,CRREL core,
+TVC_H_NTGS5,19.5,19.6,G15,,disturbed (or grab or bag),
+TVC_H_NTGS5,19.501,19.501,,,,
+TVC_P_NTGS4,0.501,0.501,,,,
+TVC_P_NTGS4,0.9,1.2,CC1,,CRREL core,
+TVC_P_NTGS4,1.2,2,CC2,,CRREL core,
+TVC_P_NTGS4,1.5,1.5,,,,
+TVC_P_NTGS4,1.501,1.6,G1,,disturbed (or grab or bag),
+TVC_P_NTGS4,1.7,1.7,,,,
+TVC_P_NTGS4,2,2.6,CC3,,CRREL core,
+TVC_P_NTGS4,2.4,2.4,,,,
+TVC_P_NTGS4,2.6,3.4,CC4,,CRREL core,
+TVC_P_NTGS4,3,3.1,G2,,disturbed (or grab or bag),
+TVC_P_NTGS4,3.001,3.001,,,,
+TVC_P_NTGS4,3.4,4.1,CC5,,CRREL core,
+TVC_P_NTGS4,3.7,3.7,,,,
+TVC_P_NTGS4,4.1,4.9,CC6,,CRREL core,
+TVC_P_NTGS4,4.5,4.6,G3,,disturbed (or grab or bag),
+TVC_P_NTGS4,4.501,4.501,,,,
+TVC_P_NTGS4,4.9,5.5,CC7,,CRREL core,
+TVC_P_NTGS4,5.401,5.401,,,,
+TVC_P_NTGS4,5.5,6.1,CC8,,CRREL core,
+TVC_P_NTGS4,6,6.1,G4,,disturbed (or grab or bag),
+TVC_P_NTGS4,6.001,6.001,,,,
+TVC_P_NTGS4,6.1,6.7,CC9,,CRREL core,
+TVC_P_NTGS4,6.501,6.501,,,,
+TVC_P_NTGS4,7.5,7.65,G5,,disturbed (or grab or bag),
+TVC_P_NTGS4,7.501,7.501,,,,
+TVC_P_NTGS4,9,9.15,G6,,disturbed (or grab or bag),
+TVC_P_NTGS4,9.001,9.001,,,,
+TVC_R_NTGS6,0.501,0.501,,,,
+TVC_R_NTGS6,0.9,1.5,CC1,,CRREL core,
+TVC_R_NTGS6,1.3,1.3,,,,
+TVC_R_NTGS6,1.5,1.5,,,,
+TVC_R_NTGS6,1.501,1.6,G1,,disturbed (or grab or bag),
+TVC_R_NTGS6,1.502,2.4,CC2,,CRREL core,
+TVC_R_NTGS6,3,3.15,G2,,disturbed (or grab or bag),
+TVC_R_NTGS6,3.001,3.001,,,,
+TVC_R_NTGS6,4.5,4.65,G3,,disturbed (or grab or bag),
+TVC_R_NTGS6,4.501,4.501,,,,
+TVC_R_NTGS6,6,6.15,G4,,disturbed (or grab or bag),
+TVC_R_NTGS6,6.001,6.001,,,,
+TVC_R_NTGS6,7.5,7.65,G5,,disturbed (or grab or bag),
+TVC_R_NTGS6,7.501,7.501,,,,
+TVC_R_NTGS6,9,9.15,G6,,disturbed (or grab or bag),
+TVC_R_NTGS6,9.001,9.001,,,,

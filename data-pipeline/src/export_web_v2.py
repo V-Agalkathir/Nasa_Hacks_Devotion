@@ -234,6 +234,17 @@ def main():
          "baseline": "Needs a connected series of at least five dates.",
          "plain": "One pair failed to unwrap and several lost coherence, so 2026 has no connected series.",
          "method": "NISAR 2026 12-day pairs, ionosphere-corrected, ordering compared with the Sentinel-1 fit at 500 m blocks."},
+    ]
+    bhp = MD / "borehole_check.json"
+    if bhp.exists():
+        bh = json.load(open(bhp))
+        st = {"consistent": "pass", "inconclusive": "partial", "not consistent": "fail"}.get(bh["status"], "not_available")
+        cards.append({"id": "boreholes", "title": "Does radar match the boreholes?", "status": st,
+                      "headline": {"value": f"{bh['rho']:.2f}" if bh.get("rho") is not None else "–", "unit": "ρ"},
+                      "baseline": f"Rule fixed before running: ρ ≥ 0.4 consistent, ≤ 0 not consistent. {bh['n_compared']} highway boreholes (about 6 separate places).",
+                      "plain": "Ice-rich boreholes did not sink more on radar; if anything less. Radar movement doesn't track measured ground ice here.",
+                      "method": "Top-5 m moisture content from NWT Permafrost Database logs (ITH 2013 and 2017 drilling, data owner GNWT) against radar summer sinking within 120 m."})
+    cards += [
         {"id": "model_b", "title": "Predict where radar can't see", "status": mb["status"],
          "headline": {"value": f"{mb['n_labels']['degrading']} of 300", "unit": "examples"},
          "baseline": "Needs 300 measured examples of degrading ground in 15 blocks.",
