@@ -164,6 +164,8 @@ DEVIATIONS = [
      "why": "The 2026 NISAR chain breaks (24 Aug-5 Sep pair failed to unwrap; several pairs lost coherence), so no cell has the five connected dates the class rules need"},
     {"date": "2026-11-15", "what": "This-season expectation demonstrated on Sentinel-1 2025",
      "why": "NISAR 2026 has no connected series of three or more passes over most of the area"},
+    {"date": "2026-11-15", "what": "Model C uses the satellite waterline 1985-2025; hindcast fits <= 2004 and predicts 2005-2025 (spec: air photos 1947-1985 fit)",
+     "why": "Automatic air-photo shorelines failed visual review (traced mosaic edges and an inner harbour); decided before any hindcast error was seen"},
     {"date": "2026-11-15", "what": "Sentinel-1 2022 to mid-2025 cover only the northern half of the area (town); the highway corridor has 2021 and 2025 only",
      "why": "HyP3 products for those dates were single-frame; corridor cells fall back to short-record rules"},
 ]
