@@ -4,6 +4,14 @@ Part 1 collects **every input** the other parts need and saves it in a fixed pla
 It does no science; it only finds, downloads (or streams) and tidies data.
 Full technical spec: [`docs/architecture/specs/01-data-acquisition.md`](../docs/architecture/specs/01-data-acquisition.md).
 
+## Get the data (no NASA account needed)
+
+The `data/` folder is not in git. Download **`tuk-data.zip`** from the repo's
+[**Releases** page (tag `data-v1`)](https://github.com/V-Agalkathir/Nasa_Hacks_Devotion/releases/tag/data-v1)
+and unzip it inside `data-pipeline/`, so you get `data-pipeline/data/raw/...` and `data-pipeline/data/interim/...`.
+It contains everything Part 1 produced, including the Sentinel-1 2021–2025 interferograms (cropped to our area)
+processed under the team's HyP3 account. Re-running the scripts below is only needed to refresh or extend it.
+
 ## Quick start
 
 ```bash
