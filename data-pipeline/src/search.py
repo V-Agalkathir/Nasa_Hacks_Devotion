@@ -9,7 +9,10 @@ Outputs
 
 Selection rules (see docs/architecture/specs/01-data-acquisition.md)
   * Sentinel-1: platform S1, SLC, beam IW only, relative orbit from config, intersects AOI,
-    season window from config. ONE scene per acquisition date: the one covering most of the AOI.
+    season window from config. ONE scene per acquisition date: must contain the town
+    (aoi.must_cover), then the one covering most of the AOI. Frames 223 and 228 overlap at Tuk;
+    223 covers the corridor but its northern edge passes just SOUTH of the town, so "most AOI"
+    alone would pick a scene that misses the town.
     NOTE: do NOT filter on frame number. ASF frame numbers drift between years for path 137
     (227 in 2018-21, 223/228 in 2022-24, mixed in 2025, 225 in 2026). Verified 14 Nov 2026.
   * Pairs: within one season only; each date with its next (n+1, kept up to max_days_first)
@@ -21,11 +24,12 @@ No login needed.  Usage: python src/search.py [--stack s1_p137]
 import csv, re, sys
 from datetime import date
 import asf_search as asf
-from shapely.geometry import box, shape
+from shapely.geometry import box, shape, Point
 from common import load_config, path, aoi_wkt
 
 cfg = load_config()
 aoi = box(*cfg["aoi"]["bbox"])
+must = [Point(*xy) for xy in cfg["aoi"]["must_cover"]]   # scenes must contain these (the town)
 win = cfg["season_window"]
 only = sys.argv[sys.argv.index("--stack") + 1] if "--stack" in sys.argv else None
 d = lambda s: date.fromisoformat(s[:10])
@@ -43,13 +47,20 @@ def s1_stack(stack_id, st):
         best = {}  # date -> (coverage, product)
         for r in res:
             p = r.properties
-            cov = shape(r.geometry).intersection(aoi).area / aoi.area
+            g = shape(r.geometry)
+            cov = g.intersection(aoi).area / aoi.area
+            score = (all(g.contains(pt) for pt in must), cov)   # town first, then most AOI
             k = p["startTime"][:10]
-            if k not in best or cov > best[k][0]:
-                best[k] = (cov, r)
+            if k not in best or score > best[k][2]:
+                best[k] = (cov, r, score)
+        dropped = [k for k in best if not best[k][2][0]]
+        for k in dropped:
+            del best[k]
+        if dropped:
+            print(f"  {stack_id} {yr}: dropped {dropped} (no scene covers the town)")
         dates = sorted(best)
         for k in dates:
-            cov, r = best[k]; p = r.properties
+            cov, r, _ = best[k]; p = r.properties
             scenes_rows.append({"stack_id": stack_id, "season": yr, "date": k, "scene": p["sceneName"],
                                 "platform": p.get("platform"), "path": p.get("pathNumber"),
                                 "frame": p.get("frameNumber"), "aoi_coverage": round(cov, 3)})

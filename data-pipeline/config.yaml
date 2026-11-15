@@ -3,6 +3,7 @@ aoi:
   name: Tuktoyaktuk + Inuvik-Tuk Highway corridor, NWT
   # [west, south, east, north] lon/lat EPSG:4326. Town, Reindeer Point, first ~25 km of the highway.
   bbox: [-133.30, 69.20, -132.85, 69.48]
+  must_cover: [[-133.03, 69.443]]   # town core: every radar scene must contain it
 
 stacks:
   s1_p137:                       # primary history (train 2018-2023, test A 2024-2025)
@@ -55,6 +56,7 @@ climate:
     - {climate_id: "2203914", station_id: 26987}
     - {climate_id: "2203911", station_id: 53582}
   start: "2017-01-01"
+  hourly_fallback: {climate_id: "2203913", station_id: 53581, min_hours: 12}   # fills the Jan-Jul 2018 daily gap
 
 processing:
   min_coherence: 0.3

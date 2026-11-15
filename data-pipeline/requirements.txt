@@ -17,3 +17,5 @@ planetary-computer
 geopandas
 # Parts 2-6
 matplotlib
+scipy
+scikit-image
