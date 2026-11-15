@@ -12,12 +12,17 @@ export async function loadAll() {
   const f = manifest.files || {};
   const failed = {};
   const opt = (key, name, fallback) => (name ? get(name).catch(() => { failed[key] = true; return fallback; }) : Promise.resolve(fallback));
-  const [areas, cells, timeseries, validation, coastline] = await Promise.all([
+  const [areas, cells, timeseries, validation, coastline, boreholes] = await Promise.all([
     opt("areas", f.areas, EMPTY), opt("cells", f.cells, null), opt("timeseries", f.timeseries, null),
-    opt("validation", f.validation, null), opt("coastline", f.coastline, EMPTY),
+    opt("validation", f.validation, null), opt("coastline", f.coastline, EMPTY), opt("boreholes", f.boreholes, EMPTY),
   ]);
   const decoded = cells ? decodeCells(cells) : [];
-  return { manifest, areas, cells: decoded, byId: Object.fromEntries(decoded.map((c) => [c.id, c])), timeseries, validation, coastline, base, failed };
+  // flag squares within ~500 m of a borehole that logged ice-rich ground (known ice nearby)
+  const icy = boreholes.features.filter((b) => b.properties.ice_rich).map((b) => b.geometry.coordinates);
+  for (const c of decoded) {
+    c.iceNear = icy.some(([x, y]) => Math.hypot((x - c.lon) * 35.6, (y - c.lat) * 111) < 0.5);
+  }
+  return { manifest, areas, boreholes, cells: decoded, byId: Object.fromEntries(decoded.map((c) => [c.id, c])), timeseries, validation, coastline, base, failed };
 }
 
 function decodeCells(c) {
@@ -34,12 +39,12 @@ function decodeCells(c) {
   });
 }
 
-export function cellsGeoJSON(cells, sel) {
+export function cellsGeoJSON(cells, cand = new Set(), picks = new Set()) {
   return {
     type: "FeatureCollection",
     features: cells.map((c) => ({
       type: "Feature",
-      properties: { id: c.id, tier: c.tier, coring: c.coring || "", h: c.h, sea: c.sea, sel: sel.has(c.id) },
+      properties: { id: c.id, tier: c.tier, coring: c.coring || "", h: c.h, sea: c.sea, cand: cand.has(c.id), pick: picks.has(c.id) },
       geometry: { type: "Polygon", coordinates: [c.ring] },
     })),
   };

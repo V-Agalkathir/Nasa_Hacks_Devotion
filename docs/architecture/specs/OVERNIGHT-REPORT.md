@@ -23,6 +23,15 @@ Everything in the plan now runs end to end on the team's real data: radar stacks
 
 11 public highway boreholes from the NWT Permafrost Database fall in our area (ITH 2013 and 2017 drilling; none in town). With the rule fixed and committed before running (Spearman ρ between top-5 m moisture and radar summer sinking: ≥ 0.4 consistent, ≤ 0 not consistent), the result is **not consistent: ρ = −0.52**. The four ice-rich boreholes (visible ice, 46–337% moisture) show *less* radar sinking than the ice-poor ones. Several boreholes sit within 50 m of each other, so this is effectively about 6 places and weak evidence, but it points against the radar, not for it. Code: `data-pipeline/src/borehole_check.py`; data in `data-pipeline/static/boreholes/`.
 
+## Added Sunday morning: narrowing the search
+
+- **Criteria breakdown** (new "Narrow the search" card). Each criterion shows how many squares pass it on its own and how many are left after applying them in order. Default needs: 3,578 → 728 squares (41.9 km²). With "within 10 km of town", "under 25% water" and "blocks of at least 4 touching squares": **75 squares (4.3 km²) in 2 blocks**, about 6–9 km south of town along the highway. Distance to town is labelled as a planning choice for the council, not a ground fact.
+- **Factor breakdown and formula** in every check report: each factor's measured value, rule and level, then `max(Coast, Height) → tier`. Ground is shown but marked not counted.
+- **One core per ground type**: candidate squares are grouped by height band and wetness, and the square nearest town in each group is suggested (6 groups with the settings above). It's shown on the Core next layer as white squares.
+- **Boreholes on the map**: squares within 500 m of an ice-rich highway borehole are removed from the candidates (31 squares).
+- **Thermokarst observations (NWT aerial survey) were checked and left out**: the 451 points in our area are photo locations with no ground classification.
+- **Next data to add: GSC Open File 7289** surficial sediments (shapefiles covering the Tuktoyaktuk Peninsula). Gravel and sand ridges hold little ice; fine silts and clays hold a lot. About an hour's work.
+
 ## Why the models failed (checked, not guessed)
 
 1. **No processing bug.** HyP3's own `vert_disp` maps, summed independently of our chain, give the same picture: land moves within about 1 cm of the airport pad over a summer (2021 median +1.1 cm, 2025 +1.0 cm), and single 12-day pairs swing by ±1 cm across the whole area.

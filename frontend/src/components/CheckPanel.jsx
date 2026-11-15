@@ -1,5 +1,5 @@
 import { BarChart, Bar, XAxis, YAxis, ReferenceArea, ReferenceLine, ResponsiveContainer, Cell } from "recharts";
-import { PRESETS, NEED_ROWS, needs, reasonFor } from "../lib/check.js";
+import { PRESETS, NEED_ROWS, needs, reasonFor, tierBreakdown } from "../lib/check.js";
 import { TIER, C } from "../lib/tokens.js";
 import { fmtM } from "../lib/data.js";
 
@@ -26,7 +26,7 @@ export default function CheckPanel({ selName, selCount, onPreset, need, setNeed,
       <div className="needs">
         <div className="needs-head">
           <h3>What do you need?</h3>
-          <span className="muted">{meets == null ? "" : `Meets ${meets} of 5`}</span>
+          <span className="muted">{meets == null ? "" : `Meets ${meets} of ${rows.length}`}</span>
           <button className="link" onClick={() => setNeed(null)}>Reset</button>
         </div>
         {rows.map((r) => {
@@ -59,7 +59,7 @@ export default function CheckPanel({ selName, selCount, onPreset, need, setNeed,
 // Named presets report the area's own Part 4 values (spec 3.3.2), so the need values match the glyphs.
 function namedAgg(named, agg) {
   const i = named.indicators;
-  return { ...agg, h: i.height.median_m, p10: i.height.p10_m, hw: i.access.to_highway_m, sea: i.coast.distance_to_sea_m,
+  return { ...agg, core: i.access.to_town_core_m, h: i.height.median_m, p10: i.height.p10_m, hw: i.access.to_highway_m, sea: i.coast.distance_to_sea_m,
     wet: i.wetness.water_share_250m, cov: i.confidence.radar_coverage };
 }
 
@@ -71,6 +71,7 @@ function namedPass(named, r, need) {
   if (r.key === "minSea") return i.coast.distance_to_sea_m > v;
   if (r.key === "maxWet") return i.wetness.water_share_250m * 100 < v;
   if (r.key === "minCov") return i.confidence.radar_coverage * 100 >= v;
+  if (r.key === "maxTown") return i.access.to_town_core_m <= v;
   return false;
 }
 
@@ -90,6 +91,7 @@ function Report({ report, need, stale, onSave, saveNote, onShowCore }) {
         <p className="tier-name"><TierBars n={t.bars} /> {t.label}</p>
         <p className="reason">{reason}</p>
       </div>
+      <Breakdown bd={tierBreakdown(tier, agg, named)} />
       <div className="drivers">
         <Driver title="Coast" text={coastText} level={tier.coast} />
         <Driver title="Height" text={heightText} level={tier.height} />
@@ -116,6 +118,26 @@ function Report({ report, need, stale, onSave, saveNote, onShowCore }) {
 
       <button className="save" onClick={onSave}>{saveNote?.label ?? "Save to compare"}</button>
       {saveNote?.note && <p className="muted small">{saveNote.note}</p>}
+    </div>
+  );
+}
+
+function Breakdown({ bd }) {
+  return (
+    <div className="breakdown">
+      <h4>How the tier is worked out</h4>
+      <table>
+        <thead><tr><th>Factor</th><th>Measured here</th><th>Rule</th><th>Level</th></tr></thead>
+        <tbody>
+          {bd.rows.map((r) => (
+            <tr key={r.factor} className={r.level == null ? "notcounted" : ""}>
+              <th scope="row">{r.factor}</th><td>{r.value}</td><td className="small">{r.rule}</td>
+              <td className="lvl">{r.level == null ? "–" : r.level}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p className="formula"><span className="muted small">Tier = the higher of the Coast and Height levels · 2 Higher · 1 Moderate · 0 Lower</span><br /><b>{bd.formula}</b></p>
     </div>
   );
 }
