@@ -1,6 +1,6 @@
 {
  "schema": 2,
- "generated_at": "2026-11-15T06:36:46Z",
+ "generated_at": "2026-11-15T06:38:39Z",
  "mock": false,
  "area": {
   "name": "Tuktoyaktuk and the Inuvik\u2013Tuktoyaktuk Highway corridor",
@@ -35,11 +35,59 @@
   ]
  },
  "freshness": {
-  "latest_pass": "2025-10-05",
-  "sensor": "Sentinel-1",
+  "latest_pass": {
+   "date": "2025-10-05",
+   "sensor": "Sentinel-1 C-band",
+   "track": 137
+  },
+  "latest_catalogue_pass": "2026-11-04",
+  "last_checked_at": "2026-11-15T06:38:37Z",
+  "update_cadence_days": 12,
+  "update_status": "paused_for_winter",
   "status": "paused for winter",
-  "line": "Last radar pass: 2025-10-05, Sentinel-1. Updates every 12 days, June to September.",
-  "nisar_note": "NISAR 2026 passes are checked automatically; none formed a usable series this summer."
+  "update_message": "Paused for winter: no new usable radar passes.",
+  "season": {
+   "window": [
+    "05-25",
+    "10-15"
+   ],
+   "in_window": false,
+   "station_warm": false,
+   "open": false,
+   "forced_open": false
+  },
+  "pairs": {
+   "unique": 12,
+   "processed": 8,
+   "new": [
+    "NISAR_L2_PR_GUNW_008_159_D_053_009_4000_SH_20251227T053320_20251227T053357_20260108T053320_20260108T053357_X05010_N_F_J_001",
+    "NISAR_L2_PR_GUNW_009_159_D_053_010_4000_SH_20260108T053320_20260108T053357_20260120T053321_20260120T053358_X05010_N_F_J_001",
+    "NISAR_L2_UR_GUNW_032_159_D_053_033_4000_SH_20261011T053317_20261011T053354_20261023T053317_20261023T053354_P05023_F_F_J_001",
+    "NISAR_L2_UR_GUNW_033_159_D_053_034_4000_SH_20261023T053317_20261023T053354_20261104T053317_20261104T053354_P05023_F_F_J_001"
+   ],
+   "new_in_season": [],
+   "excluded": [
+    {
+     "id": "NISAR_L2_PR_GUNW_008_159_D_053_009_4000_SH_20251227T053320_20251227T053357_20260108T053320_20260108T053357_X05010_N_F_J_001",
+     "reason": "outside thaw window"
+    },
+    {
+     "id": "NISAR_L2_PR_GUNW_009_159_D_053_010_4000_SH_20260108T053320_20260108T053357_20260120T053321_20260120T053358_X05010_N_F_J_001",
+     "reason": "outside thaw window"
+    },
+    {
+     "id": "NISAR_L2_UR_GUNW_032_159_D_053_033_4000_SH_20261011T053317_20261011T053354_20261023T053317_20261023T053354_P05023_F_F_J_001",
+     "reason": "outside thaw window"
+    },
+    {
+     "id": "NISAR_L2_UR_GUNW_033_159_D_053_034_4000_SH_20261023T053317_20261023T053354_20261104T053317_20261104T053354_P05023_F_F_J_001",
+     "reason": "outside thaw window"
+    }
+   ]
+  },
+  "line": "Last radar pass used: 2025-10-05, Sentinel-1. Updates every 12 days, June to September.",
+  "nisar_note": "NISAR passes are checked automatically; the 2026 summer did not form a usable series.",
+  "run_url": null
  },
  "units": "cm per summer, relative to the airport gravel pad",
  "motion_range_cm": [

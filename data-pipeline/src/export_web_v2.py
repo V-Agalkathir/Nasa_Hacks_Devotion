@@ -83,6 +83,23 @@ def season_totals():
     return res
 
 
+def freshness(last_s1):
+    """Freshness fields (spec 05 6.3). run_status.json comes from pipeline_check.py when the workflow ran."""
+    rs_p = ROOT / "data/interim/run_status.json"
+    rs = json.load(open(rs_p)) if rs_p.exists() else {}
+    labels = {"up_to_date": "up to date", "paused_for_winter": "paused for winter", "updating": "updating",
+              "failed_showing_last_good": f"last update failed, showing data from {last_s1}"}
+    st = rs.get("update_status", "paused_for_winter")
+    return {"latest_pass": {"date": last_s1, "sensor": "Sentinel-1 C-band", "track": 137},
+            "latest_catalogue_pass": rs.get("latest_catalogue_pass"),
+            "last_checked_at": rs.get("checked_at"), "update_cadence_days": 12,
+            "update_status": st, "status": labels.get(st, st), "update_message": rs.get("message"),
+            "season": rs.get("season"), "pairs": rs.get("pairs"),
+            "line": f"Last radar pass used: {last_s1}, Sentinel-1. Updates every 12 days, June to September.",
+            "nisar_note": "NISAR passes are checked automatically; the 2026 summer did not form a usable series.",
+            "run_url": __import__("os").environ.get("RUN_URL")}
+
+
 def main():
     cfg = load_config()
     tr, H, W = grid(cfg)
@@ -259,9 +276,7 @@ def main():
         "schema": 2, "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "mock": False,
         "area": {"name": "Tuktoyaktuk and the Inuvik–Tuktoyaktuk Highway corridor", "bbox": bbox,
                  "center": [-133.03, 69.41], "zoom": 11.3, "image_coordinates": corners},
-        "freshness": {"latest_pass": last_s1, "sensor": "Sentinel-1", "status": "paused for winter",
-                      "line": f"Last radar pass: {last_s1}, Sentinel-1. Updates every 12 days, June to September.",
-                      "nisar_note": "NISAR 2026 passes are checked automatically; none formed a usable series this summer."},
+        "freshness": freshness(last_s1),
         "units": "cm per summer, relative to the airport gravel pad", "motion_range_cm": [-lim, lim],
         "years": years, "layers": layers,
         "models": {"behaviour": ma["test_a"]["status"], "nisar_check": tb.get("status"), "ground_prediction": mb["status"],
