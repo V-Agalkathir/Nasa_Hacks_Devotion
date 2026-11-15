@@ -421,8 +421,9 @@ def run(cfg):
         "protected_stretches": "not supplied by Part 1; no transect flagged; ranges are the unprotected trend",
     }
     if longest:
-        res["headline"] = (f"Fitting on 1985-2004 predicted shoreline position {longest['lead_yr']:.0f} years later to within "
-                           f"{longest['mae_m']:.0f} m on average (regional-rate baseline {longest['regional_rate_mae_m']:.0f} m, "
+        res["headline"] = (f"Averaged over 2005-2025 the 1985-2004 trend missed by {res['metrics']['mae_m']:.0f} m (no change: "
+                           f"{res['baselines']['persistence_mae_m']:.0f} m). At the longest lead, {longest['lead_yr']:.0f} years ahead, it missed by "
+                           f"{longest['mae_m']:.0f} m (regional-rate baseline {longest['regional_rate_mae_m']:.0f} m, "
                            f"no-change baseline {longest['persistence_mae_m']:.0f} m).")
     print("  Model C:", status, res["metrics"], res["baselines"], "selected", selected, "b", round(b, 3), "k", round(k_infl, 2))
     return res

@@ -17,7 +17,7 @@ Everything in the plan now runs end to end on the team's real data: radar stacks
 | 3 Model C: shoreline | 207 transects, waterlines 1985–2025, hindcast 1985–2004 → 2005–2025 | **fail.** Error 48 m against 14 m for "no change" | The 30 m waterline record is too noisy to project a trend. Arrival years are hidden; measured change is shown instead. |
 | 4 Site screening | 3 named areas (from OpenStreetMap) and 3,578 240 m squares along the highway; tiers, drivers, reasons, coring list | Rule-based on measured inputs | All three named areas come out **higher** (each sits on the shoreline). **763 squares (44 km²)** are "promising, unconfirmed" coring targets. |
 | 5 Automation | `.github/workflows/update.yml`: catalogue check, season gate, fetch, rebuild, validation gate (47 checks), Pages deploy | Simulated end to end from a clean copy: works, 63 s | Not yet run in GitHub Actions; it has to be merged to `main` first (see "What you need to do"). |
-| 6 Website | Rebuilt on data contract v2: Ground map, Compare areas, Where to core, Coastline, How do we know? | Checked at desktop and phone widths in the browser pane | Shows real data only (`mock: false`). Failed tests appear as cards. |
+| 6 Website | Built to the design session's spec (`specs/06-interactive-product.md`): one page with a hero, a map with five layers (Screen, Height, Coast, Radar, Core next) and Move/Box/Paint/Erase tools, a Ground check panel (Try chips, five needs, report), Side by side, and test cards | Checked at desktop and phone widths in the browser pane | Shows real data only (`mock: false`). Reindeer Point, The Point and Town core come out Higher; Highway km 26 comes out Lower. |
 
 ## Why the models failed (checked, not guessed)
 
@@ -88,4 +88,4 @@ Needs `tuk-data.zip` (release `data-v1`) unzipped in `data-pipeline/`, plus the 
 - The workflow hasn't run in GitHub Actions yet (it needs merging and Pages enabled). It was simulated locally from a clean copy.
 - Model B's training code (random forest, block cross-validation, calibration) isn't written, because the label gate stops it. The gate and the reason are written.
 - Sentinel-1 2018–2020 and path 108 were never processed (they need Earthdata/HyP3).
-- The Part 6 design spec from the design session: see the note at the end.
+- The map draws slowly in the app's preview pane (about 12 s, from slow map-worker start-up there). It was about 3 s in a normal browser earlier tonight. Check it in Chrome.

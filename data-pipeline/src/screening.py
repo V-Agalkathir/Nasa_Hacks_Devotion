@@ -66,6 +66,14 @@ def main():
     dA = ev["model_a"]["final"]["dA_med"]
     move_cm = Erel * dA                                  # summer movement relative to airport, cm (negative = sinks more)
     move_cm = -move_cm
+    # per-summer totals (cm vs airport pad, last date <= 15 Sep) for the per-area summer chart
+    mot = ROOT / "data/interim/motion/s1_p137"
+    mix = json.load(open(mot / "index.json"))
+    summers = {}
+    for y, v in sorted(mix["seasons"].items()):
+        ds = [d for d in v["dates"] if d["date"][5:] <= "09-15"]
+        if ds:
+            summers[int(y)] = read_grid_tif(mot / ds[-1]["file"])
     elev = read_grid_tif(feat / "elevation.tif")
     occ = read_grid_tif(feat / "water_occurrence.tif")
     dco = read_grid_tif(feat / "distance_to_coast.tif")
@@ -145,6 +153,10 @@ def main():
         d_hw_m = float(np.nanmin(d_hw[m]))
         d_core_m = float(np.nanmin(d_core[m]))
         d_sea_m = float(np.nanmin(dco[m]))
+        mv_years = {}
+        for yy, arr in summers.items():
+            vv = arr[land]
+            mv_years[yy] = round(float(np.nanmedian(vv)), 2) if np.isfinite(vv).sum() >= max(3, 0.3 * land.sum()) else None
         zz = z[land]; zq = zp[land]
         flagged = (zz < -2)
         share_flag = float(np.nanmean(flagged[np.isfinite(zz)])) if np.isfinite(zz).any() else None
@@ -217,6 +229,7 @@ def main():
             "tier": tier, "reason": reason, "drivers": drivers,
             "indicators": {
                 "ground": {"dominant": dom, "shares": {k: round(v, 3) for k, v in share.items()},
+                           "per_summer_cm": {str(k): v for k, v in mv_years.items()},
                            "summer_move_vs_airport_cm": None if not np.isfinite(np.nanmedian(mv)) else round(float(np.nanmedian(mv)), 2),
                            "provenance": "measured", "test_a_status": a_status},
                 "getting_worse": {"value": None, "text": "Not shown: a trend could not be separated from noise with five summers",
