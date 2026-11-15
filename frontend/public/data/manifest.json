@@ -119,5 +119,6 @@
  "zones": "zones.geojson",
  "timeseries": "timeseries.json",
  "coastline": "coastline.geojson",
- "generated_by": "data-pipeline/src/export_web.py"
+ "generated_by": "data-pipeline/src/export_web.py",
+ "mock": true
 }
