@@ -1,4 +1,4 @@
-"""Shared helpers: load config, resolve paths relative to data-pipeline/."""
+"""Shared helpers: config, paths, AOI geometry."""
 from pathlib import Path
 import yaml
 
@@ -10,7 +10,12 @@ def load_config():
         return yaml.safe_load(f)
 
 
-def path(cfg, key):
-    p = (ROOT / cfg["paths"][key]).resolve()
-    p.mkdir(parents=True, exist_ok=True) if key in ("raw", "interim", "web_out") else None
+def path(cfg, key, *sub):
+    p = (ROOT / cfg["paths"][key]).resolve().joinpath(*sub)
+    p.mkdir(parents=True, exist_ok=True)
     return p
+
+
+def aoi_wkt(cfg):
+    w, s, e, n = cfg["aoi"]["bbox"]
+    return f"POLYGON(({w} {s},{e} {s},{e} {n},{w} {n},{w} {s}))"

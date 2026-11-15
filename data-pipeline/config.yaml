@@ -1,37 +1,76 @@
 # Single source of truth for the pipeline. Edit here, not in the scripts.
 aoi:
-  name: Tuktoyaktuk, NWT
-  # [west, south, east, north] in lon/lat (EPSG:4326). Rough box around the hamlet + Reindeer Point.
-  bbox: [-133.20, 69.38, -132.90, 69.48]
+  name: Tuktoyaktuk + Inuvik-Tuk Highway corridor, NWT
+  # [west, south, east, north] lon/lat EPSG:4326. Town, Reindeer Point, first ~25 km of the highway.
+  bbox: [-133.30, 69.20, -132.85, 69.48]
 
-seasons:            # thaw seasons only (InSAR does not work under snow)
-  - {id: "2026", source: NISAR, start: "2026-06-17", end: "2026-09-30"}
-  - {id: "2025", source: S1, start: "2025-06-01", end: "2025-09-30"}
-  - {id: "2024", source: S1, start: "2024-06-01", end: "2024-09-30"}
-  - {id: "2023", source: S1, start: "2023-06-01", end: "2023-09-30"}
+stacks:
+  s1_p137:                       # primary history (train 2018-2023, test A 2024-2025)
+    sensor: Sentinel-1
+    band: C
+    wavelength_m: 0.0555
+    relative_orbit: 137
+    beam_mode: IW
+    flight_dir: ASCENDING
+    seasons: [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
+  s1_p108:                       # optional 2026 cross-check on NISAR
+    sensor: Sentinel-1
+    band: C
+    wavelength_m: 0.0555
+    relative_orbit: 108
+    beam_mode: IW
+    flight_dir: ASCENDING
+    seasons: [2026]
+  nisar_t159:                    # test B (2026)
+    sensor: NISAR
+    band: L
+    wavelength_m: 0.2384
+    track: 159
+    frame: 53
+    flight_dir: DESCENDING
+    seasons: [2026]
+
+season_window: {start: "05-25", end: "10-05"}   # thaw-season search window (MM-DD); Part 2 picks first usable date
+
+pairs:                           # Sentinel-1 pair rule (within a season only, never across winter)
+  neighbours: [1, 2]             # each date with the next and the one after
+  max_days_second: 36            # skip the n+2 pair if it spans more than this
+  max_days_first: 60             # n+1 pair kept up to this (keeps the network connected across gaps)
+
+hyp3:
+  project_name: devotion-tuk
+  looks: 20x4                    # 80 m, 10 credits per pair
+  credits_per_job: 10
 
 nisar:
-  dataset: NISAR
-  product_type: GUNW           # L2 geocoded unwrapped interferogram
-  wavelength_m: 0.2384         # L-band
-  # Run src/inspect_h5.py on one file and paste the real paths here:
-  unwrapped_phase_path: "TODO/fill/me/unwrappedPhase"
-  coherence_path: "TODO/fill/me/coherenceMagnitude"
-  x_path: "TODO/fill/me/xCoordinates"
-  y_path: "TODO/fill/me/yCoordinates"
-  epsg_path: "TODO/fill/me/projection"   # dataset/attr holding the EPSG code
+  wavelength_m: 0.2384
+  version_preference: [PR, UR]   # provisional over urgent-response; highest _00N wins within a type
+  grid_group: science/LSAR/GUNW/grids/frequencyA/unwrappedInterferogram
+  layers: [HH/unwrappedPhase, HH/coherenceMagnitude, HH/connectedComponents, HH/ionospherePhaseScreen, mask]
+  coords: [xCoordinates, yCoordinates, projection]
+  radar_grid: science/LSAR/GUNW/metadata/radarGrid    # incidenceAngle cube (height, y, x)
 
-sentinel1:
-  wavelength_m: 0.0555         # C-band
-  hyp3_project_name: devotion-tuk
+climate:
+  stations:                      # ECCC climate IDs, merged in this priority order
+    - {climate_id: "2203914", station_id: 26987}
+    - {climate_id: "2203911", station_id: 53582}
+  start: "2017-01-01"
 
 processing:
-  min_coherence: 0.3           # mask pixels below this
-  colour_range_cm: [-8, 8]     # diverging palette anchored at 0
-  grid_res_deg: 0.0005         # common output grid (~20-50 m at this latitude)
+  min_coherence: 0.3
+  colour_range_cm: [-8, 8]
+  grid_res_deg: 0.0005
 
 paths:
   raw: data/raw
   interim: data/interim
   web_out: ../frontend/public/data
   zones: ../frontend/public/data/zones.geojson
+
+# --- legacy v1 keys, still read by process.py / export_web.py / make_mock_data.py (Parts 2 & 6 will replace) ---
+seasons:
+  - {id: "2026", source: NISAR, start: "2026-06-17", end: "2026-09-30"}
+  - {id: "2025", source: S1, start: "2025-06-01", end: "2025-09-30"}
+  - {id: "2024", source: S1, start: "2024-06-01", end: "2024-09-30"}
+  - {id: "2023", source: S1, start: "2023-06-01", end: "2023-09-30"}
+sentinel1: {wavelength_m: 0.0555, hyp3_project_name: devotion-tuk}
