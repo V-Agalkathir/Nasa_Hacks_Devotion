@@ -1,0 +1,387 @@
+{
+ "schema": "nisar/1",
+ "generated_at": "2026-11-15T05:57:01Z",
+ "code_version": "39efd8f",
+ "bounds": [
+  -133.3,
+  69.2,
+  -132.85,
+  69.48
+ ],
+ "acquisition": {
+  "sensor": "NISAR",
+  "band": "L",
+  "wavelength_m": 0.2384,
+  "track": 159,
+  "frame": 53,
+  "flight_dir": "DESCENDING",
+  "polarisation": "HH",
+  "incidence_deg": {
+   "min": 39.7,
+   "max": 41.5,
+   "mean": 40.6,
+   "source": "radarGrid/incidenceAngle at 0 m"
+  },
+  "component": "vertical",
+  "sign": "negative = sinking, relative to the reference area",
+  "grid": {
+   "crs": "EPSG:4326",
+   "bbox": [
+    -133.3,
+    69.2,
+    -132.85,
+    69.48
+   ],
+   "res_deg": 0.0005,
+   "width": 900,
+   "height": 560
+  },
+  "corrections": {
+   "ionosphere": "applied",
+   "deramp": false
+  },
+  "thresholds": {
+   "coherence_min": 0.35,
+   "min_valid_pair_fraction": 0.7,
+   "closure_cm": 5.96,
+   "slope_flag_deg": 5,
+   "coast_flag_m": 100
+  },
+  "reference": {
+   "method": "airport_polygon",
+   "n_cells": 149,
+   "meaning": "Values are motion relative to the airport gravel pad"
+  },
+  "reference_diag_cm": {
+   "airport_minus_coherent_land_median_cm": 1.87
+  }
+ },
+ "season": {
+  "first_usable_date": "2026-07-07",
+  "first_date_reason": "coherent fraction 0.90 >= 0.5 x median 0.28; 7 of last 7 days above 0 C",
+  "thaw_started_before_first_date": true,
+  "tdd_before_first_date": 276.0,
+  "last_usable_date": "2026-09-29",
+  "gaps": [
+   {
+    "from": "2026-07-19",
+    "to": "2026-08-12",
+    "days": 24,
+    "bridged": true
+   }
+  ],
+  "network": {
+   "connected": false,
+   "segments": [
+    [
+     "2026-07-07",
+     "2026-09-29"
+    ]
+   ],
+   "cells_split_share": 1.0
+  },
+  "stats": {
+   "valid_cell_fraction": 0.03,
+   "median_cum_land_cm": -1.87,
+   "noise_median_cm": null,
+   "closure_fail_fraction": null,
+   "coh_median_land": 0.416
+  },
+  "checks": [
+   {
+    "name": "tundra_sinks",
+    "pass": true,
+    "value": -1.87
+   },
+   {
+    "name": "reference_near_zero",
+    "pass": false,
+    "value": null
+   },
+   {
+    "name": "lakes_masked",
+    "pass": true,
+    "value": 0
+   },
+   {
+    "name": "no_cycle_jumps",
+    "pass": true,
+    "value": 0.0
+   }
+  ]
+ },
+ "pairs": [
+  {
+   "ref": "2026-06-25",
+   "sec": "2026-07-07",
+   "days": 12,
+   "used": false,
+   "reason": "reference offset 5.5 cm (likely unwrapping error)",
+   "coherent_fraction": 0.883,
+   "ramp_cm": null,
+   "ramp_flag": false,
+   "reference": "airport",
+   "land_median_cm": 5.47,
+   "granule": "NISAR_L2_PR_GUNW_023_159_D_053_024_4000_SH_20260625T053321_20260625T053357_20260707T053320_20260707T053357_P05023_N_F_J_001",
+   "image": null
+  },
+  {
+   "ref": "2026-07-07",
+   "sec": "2026-07-19",
+   "days": 12,
+   "used": true,
+   "reason": null,
+   "coherent_fraction": 0.9,
+   "ramp_cm": 0.22,
+   "ramp_flag": false,
+   "reference": "s1_stable_patches",
+   "land_median_cm": 0.01,
+   "granule": "NISAR_L2_PR_GUNW_024_159_D_053_025_4000_SH_20260707T053320_20260707T053357_20260719T053319_20260719T053356_P05023_N_F_J_001",
+   "image": "pair_2026-07-07_2026-07-19.png",
+   "valid_share": 0.41,
+   "median_cm": 0.01,
+   "p05_cm": -0.92,
+   "p95_cm": 0.68
+  },
+  {
+   "ref": "2026-07-19",
+   "sec": "2026-08-12",
+   "days": 24,
+   "used": true,
+   "reason": null,
+   "coherent_fraction": 0.313,
+   "ramp_cm": 32.91,
+   "ramp_flag": true,
+   "reference": "s1_stable_patches",
+   "land_median_cm": -0.03,
+   "granule": "NISAR_L2_PR_GUNW_025_159_D_053_027_4000_SH_20260719T053319_20260719T053356_20260812T053318_20260812T053355_P05023_N_F_J_001",
+   "image": "pair_2026-07-19_2026-08-12.png",
+   "valid_share": 0.0,
+   "median_cm": -0.03,
+   "p05_cm": -0.96,
+   "p95_cm": 0.87
+  },
+  {
+   "ref": "2026-08-12",
+   "sec": "2026-08-24",
+   "days": 12,
+   "used": true,
+   "reason": null,
+   "coherent_fraction": 0.689,
+   "ramp_cm": 0.07,
+   "ramp_flag": false,
+   "reference": "airport",
+   "land_median_cm": 0.28,
+   "granule": "NISAR_L2_PR_GUNW_027_159_D_053_028_4000_SH_20260812T053318_20260812T053355_20260824T053317_20260824T053354_P05023_N_F_J_001",
+   "image": "pair_2026-08-12_2026-08-24.png",
+   "valid_share": 0.319,
+   "median_cm": 0.37,
+   "p05_cm": -1.57,
+   "p95_cm": 1.46
+  },
+  {
+   "ref": "2026-08-24",
+   "sec": "2026-09-05",
+   "days": 12,
+   "used": false,
+   "reason": "reference not coherent",
+   "coherent_fraction": 0.232,
+   "ramp_cm": null,
+   "ramp_flag": false,
+   "reference": null,
+   "land_median_cm": null,
+   "granule": "NISAR_L2_PR_GUNW_028_159_D_053_029_4000_SH_20260824T053317_20260824T053354_20260905T053317_20260905T053354_P05023_N_F_J_002",
+   "image": null
+  },
+  {
+   "ref": "2026-09-05",
+   "sec": "2026-09-17",
+   "days": 12,
+   "used": true,
+   "reason": null,
+   "coherent_fraction": 0.251,
+   "ramp_cm": 13.35,
+   "ramp_flag": true,
+   "reference": "s1_stable_patches",
+   "land_median_cm": -0.26,
+   "granule": "NISAR_L2_PR_GUNW_029_159_D_053_030_4000_SH_20260905T053317_20260905T053354_20260917T053317_20260917T053354_P05023_N_F_J_001",
+   "image": "pair_2026-09-05_2026-09-17.png",
+   "valid_share": 0.082,
+   "median_cm": -0.34,
+   "p05_cm": -3.69,
+   "p95_cm": 3.6
+  },
+  {
+   "ref": "2026-09-17",
+   "sec": "2026-09-29",
+   "days": 12,
+   "used": true,
+   "reason": null,
+   "coherent_fraction": 0.658,
+   "ramp_cm": 0.11,
+   "ramp_flag": false,
+   "reference": "airport",
+   "land_median_cm": -0.31,
+   "granule": "NISAR_L2_PR_GUNW_030_159_D_053_031_4000_SH_20260917T053317_20260917T053354_20260929T053317_20260929T053354_P05023_N_F_J_001",
+   "image": "pair_2026-09-17_2026-09-29.png",
+   "valid_share": 0.305,
+   "median_cm": -0.41,
+   "p05_cm": -2.01,
+   "p95_cm": 0.57
+  },
+  {
+   "ref": "2026-09-29",
+   "sec": "2026-10-11",
+   "days": 12,
+   "used": false,
+   "reason": "reference offset 3.0 cm (likely unwrapping error)",
+   "coherent_fraction": 0.257,
+   "ramp_cm": null,
+   "ramp_flag": false,
+   "reference": "airport",
+   "land_median_cm": 2.98,
+   "granule": "NISAR_L2_PR_GUNW_031_159_D_053_032_4000_SH_20260929T053317_20260929T053354_20261011T053317_20261011T053354_P05023_N_F_J_001",
+   "image": null
+  }
+ ],
+ "dates": [
+  {
+   "date": "2026-07-07",
+   "wet_flag": false,
+   "freeze_flag": false,
+   "image": "cum_2026-07-07.png",
+   "valid_share": 0.0,
+   "median_cm": 0.0,
+   "p05_cm": 0.0,
+   "p95_cm": 0.0
+  },
+  {
+   "date": "2026-07-19",
+   "wet_flag": false,
+   "freeze_flag": false,
+   "image": "cum_2026-07-19.png",
+   "valid_share": 0.0,
+   "median_cm": -0.19,
+   "p05_cm": -0.61,
+   "p95_cm": 0.12
+  },
+  {
+   "date": "2026-08-12",
+   "wet_flag": false,
+   "freeze_flag": false,
+   "image": "cum_2026-08-12.png",
+   "valid_share": 0.0,
+   "median_cm": -0.23,
+   "p05_cm": -0.79,
+   "p95_cm": 0.63
+  },
+  {
+   "date": "2026-08-24",
+   "wet_flag": true,
+   "freeze_flag": false,
+   "image": "cum_2026-08-24.png",
+   "valid_share": 0.0,
+   "median_cm": -0.77,
+   "p05_cm": -1.24,
+   "p95_cm": 0.01
+  },
+  {
+   "date": "2026-09-05",
+   "wet_flag": false,
+   "freeze_flag": false,
+   "image": "cum_2026-09-05.png",
+   "valid_share": 0.014,
+   "median_cm": 0.0,
+   "p05_cm": 0.0,
+   "p95_cm": 0.0
+  },
+  {
+   "date": "2026-09-17",
+   "wet_flag": false,
+   "freeze_flag": false,
+   "image": "cum_2026-09-17.png",
+   "valid_share": 0.014,
+   "median_cm": -1.53,
+   "p05_cm": -15.13,
+   "p95_cm": 0.14
+  },
+  {
+   "date": "2026-09-29",
+   "wet_flag": false,
+   "freeze_flag": false,
+   "image": "cum_2026-09-29.png",
+   "valid_share": 0.014,
+   "median_cm": -1.87,
+   "p05_cm": -14.9,
+   "p95_cm": -0.29
+  }
+ ],
+ "layers": [
+  {
+   "id": "coh",
+   "label": "Median coherence, summer 2026",
+   "image": "coh_2026.png",
+   "range": [
+    0.1,
+    0.7
+   ],
+   "valid_share": 0.466,
+   "median": 0.416
+  },
+  {
+   "id": "valid",
+   "label": "Share of pairs valid per pixel",
+   "image": "valid_2026.png",
+   "range": [
+    0,
+    1
+   ]
+  }
+ ],
+ "test_b": {
+  "status": "fail",
+  "rho_block": 0.009,
+  "rho_block_ci95": [
+   -0.04,
+   0.057
+  ],
+  "n_blocks": 1624,
+  "rho_pixel": 0.06,
+  "cross_sensor_sign_r_vs_s1_2025": -0.077,
+  "kappa_note": "NISAR classes need >= 5 dates on one connected chain; the 2026 chain breaks (24 Aug-5 Sep pair failed to unwrap, July and September pairs lost coherence), so the class comparison is not available.",
+  "method": "NISAR sensitivity from 12-day increments (d = -E dA, each pair referenced on its own), compared by ordering with the 2021-2023 Sentinel-1 fit",
+  "prereg_tag": "prereg-eval"
+ },
+ "scale": {
+  "pair_cm": 3.0,
+  "cum_cm": 5.0
+ },
+ "instrument_gap": {
+  "from": "2026-07-27",
+  "to": "2026-08-10",
+  "note": "Permanent NISAR instrument data gap: no acquisitions exist for these dates"
+ },
+ "outlook": [
+  {
+   "date": "2026-06-17",
+   "text": "Provisional NISAR products start. This summer's pairs are provisional."
+  },
+  {
+   "date": "2026-10-21",
+   "text": "Fully validated products start, after this summer's thaw ended."
+  },
+  {
+   "date": "2027",
+   "text": "Provisional 2026 data reprocessed with the validated processor."
+  },
+  {
+   "date": "Summer 2027",
+   "text": "First fully validated thaw season over Tuk."
+  },
+  {
+   "date": "2028 onward",
+   "text": "Year-to-year pairs: L-band keeps coherence over longer spans than C-band in published Arctic studies."
+  }
+ ],
+ "outlook_source": "https://nisar-docs.asf.alaska.edu/availability-overview/"
+}
