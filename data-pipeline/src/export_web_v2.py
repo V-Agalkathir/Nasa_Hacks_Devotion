@@ -1,0 +1,290 @@
+"""Part 6 data contract v2: write everything the site reads into frontend/public/data/.
+
+Reads Part 2-4 outputs (motion stacks, models, screening) and writes:
+  manifest.json, rasters/*.png, areas.geojson, timeseries.json, validation.json, coastline.geojson
+The manifest is written last and owns every field the frontend needs (spec 05 trap: never rely on
+fields another step added). Usage: python src/export_web_v2.py
+"""
+from __future__ import annotations
+
+import json
+import shutil
+from datetime import date, datetime, timezone
+
+import numpy as np
+from PIL import Image
+
+from common import ROOT, grid, load_config
+from radar_read import rasterize_geojson, read_grid_tif, water_mask
+
+OUT = (ROOT / "../frontend/public/data").resolve()
+MD = ROOT / "data/interim/models"
+SD = ROOT / "data/interim/screening"
+MOT = ROOT / "data/interim/motion"
+
+# Okabe-Ito colour-blind-safe palette
+CLASS_RGBA = {1: (0, 114, 178, 170), 2: (230, 159, 0, 200), 3: (213, 94, 0, 230)}
+CANT = (110, 110, 110, 150)
+
+
+def rnd(v, n=5):
+    if isinstance(v, float):
+        return round(v, n)
+    if isinstance(v, list):
+        return [rnd(x, n) for x in v]
+    if isinstance(v, dict):
+        return {k: rnd(x, n) for k, x in v.items()}
+    return v
+
+
+def save_png(rgba, name):
+    (OUT / "rasters").mkdir(parents=True, exist_ok=True)
+    Image.fromarray(rgba.astype("uint8"), "RGBA").save(OUT / "rasters" / name, optimize=True)
+    return f"rasters/{name}"
+
+
+def behaviour_png(cls):
+    H, W = cls.shape
+    out = np.zeros((H, W, 4), np.uint8)
+    for k, c in CLASS_RGBA.items():
+        out[cls == k] = c
+    yy, xx = np.indices(cls.shape)
+    hatch = ((xx + yy * 3) // 3) % 3 == 0          # diagonal hatch so 'can't measure' never reads as a colour class
+    m = cls == 0
+    out[m & hatch] = CANT
+    out[m & ~hatch] = (110, 110, 110, 40)
+    return out
+
+
+def diverging(v, lim):
+    """Orange (sinks more than the airport pad) - white - blue (sinks less). NaN transparent."""
+    t = np.clip(v / lim, -1, 1)
+    out = np.zeros(v.shape + (4,), np.float32)
+    neg = t < 0
+    a = np.abs(t)
+    # white -> orange (230,97,1) for negative; white -> blue (33,102,172) for positive
+    for ch, (o, b) in enumerate(zip((230, 97, 1), (33, 102, 172))):
+        out[..., ch] = np.where(neg, 255 + (o - 255) * a, 255 + (b - 255) * a)
+    out[..., 3] = 200
+    out[~np.isfinite(v)] = 0
+    return out
+
+
+def season_totals():
+    ix = json.load(open(MOT / "s1_p137" / "index.json"))
+    res = {}
+    for y, v in ix["seasons"].items():
+        ds = [d for d in v["dates"] if d["date"][5:] <= "09-15"]
+        if not ds:
+            continue
+        a = read_grid_tif(MOT / "s1_p137" / ds[-1]["file"])
+        res[int(y)] = {"arr": a, "first": v["first_usable_date"], "last": ds[-1]["date"],
+                       "valid_share": v["stats"]["valid_cell_fraction"], "coh": v["stats"].get("coh_median_land")}
+    return res
+
+
+def main():
+    cfg = load_config()
+    tr, H, W = grid(cfg)
+    bbox = cfg["aoi"]["bbox"]
+    w, s, e, n = bbox
+    corners = [[w, n], [e, n], [e, s], [w, s]]
+    OUT.mkdir(parents=True, exist_ok=True)
+    for old in ["zones.geojson", "rasters/disp_2023.png", "rasters/disp_2024.png", "rasters/disp_2025.png", "rasters/disp_2026.png"]:
+        p = OUT / old
+        if p.exists():
+            p.unlink()
+    ev = json.load(open(MD / "eval.json"))
+    water = water_mask(cfg)
+
+    # ---------------- rasters
+    cls = read_grid_tif(MD / "behaviour.tif")
+    cls = np.where(np.isfinite(cls), cls, 255).astype(int)
+    layers = [{"id": "behaviour", "label": "Ground behaviour (measured)", "image": save_png(behaviour_png(cls), "behaviour.png"),
+               "provenance": "measured", "status": ev["model_a"]["test_a"]["status"]}]
+    tot = season_totals()
+    years = []
+    lim = 2.0
+    for y in range(2021, 2027):
+        if y in tot:
+            img = save_png(diverging(np.where(water, np.nan, tot[y]["arr"]), lim), f"motion_{y}.png")
+            years.append({"year": y, "status": "measured", "sensor": "Sentinel-1", "band": "C", "image": img,
+                          "window": [tot[y]["first"], tot[y]["last"]], "valid_share": tot[y]["valid_share"],
+                          "label": f"Summer {y}: {tot[y]['first'][5:]} to {tot[y]['last'][5:]}",
+                          "note": None if tot[y]["valid_share"] > 0.5 else "Town only: this summer's radar files cover the northern half of the area"})
+        elif y == 2026:
+            years.append({"year": 2026, "status": "missing", "sensor": "NISAR", "band": "L", "image": None,
+                          "window": ["2026-06-25", "2026-10-11"], "valid_share": 0.03,
+                          "label": "Summer 2026 (NISAR)",
+                          "note": "Not enough data: one pair failed to unwrap and several lost coherence, so no connected series exists. The sensor also changes here (C-band to L-band)."})
+    elev = read_grid_tif(ROOT / "data/interim/features/elevation.tif")
+    low = np.zeros((H, W, 4), np.uint8)
+    lowm = (elev < 2.5) & ~water
+    low[lowm] = (86, 180, 233, 150)
+    layers.append({"id": "lowlying", "label": "Below the 2.5 m storm-surge reference", "image": save_png(low, "lowlying.png"),
+                   "provenance": "measured", "status": "measured"})
+
+    # ---------------- areas (named full, cells compact)
+    A = json.load(open(SD / "areas.geojson"))
+    feats, cells = [], []
+    TIER = {"lower": 0, "moderate": 1, "higher": 2, "not_enough_data": 3}
+    COR = {None: 0, "promising_unconfirmed": 1, "conflicting_evidence": 2}
+    GND = {"stable": 1, "seasonal_only": 2, "degrading": 3, "cant_measure": 0}
+    from shapely.geometry import shape as _shape
+    half = None
+    for f in A["features"]:
+        p = f["properties"]
+        if p["kind"] == "named":
+            feats.append({"type": "Feature", "geometry": rnd(f["geometry"]), "properties": p})
+            continue
+        i = p["indicators"]
+        g = _shape(f["geometry"])
+        c = g.centroid
+        if half is None:
+            minx, miny, maxx, maxy = g.bounds
+            half = [round((maxx - minx) / 2, 6), round((maxy - miny) / 2, 6)]
+        mv = i["ground"]["summer_move_vs_airport_cm"]
+        cells.append([round(c.x, 5), round(c.y, 5), TIER[p["tier"]], COR[p["coring"]], i["height"]["median_m"],
+                      i["access"]["to_highway_m"], i["access"]["to_town_core_m"], i["coast"]["distance_to_sea_m"],
+                      round(i["wetness"]["water_share_250m"], 2), round(i["confidence"]["radar_coverage"], 2),
+                      GND[i["ground"]["dominant"]], None if mv is None else round(mv, 2), int(bool(i["this_season"]["flag"]))])
+    json.dump({"type": "FeatureCollection", "schema": "areas/2", "settings": A.get("settings"), "features": feats},
+              open(OUT / "areas.geojson", "w"), separators=(",", ":"))
+    json.dump({"schema": "cells/2", "cell_m": A["settings"]["cell_m"], "half_deg": half,
+               "columns": ["lon", "lat", "tier", "coring", "height_m", "to_highway_m", "to_core_m", "to_sea_m",
+                           "water_share", "radar_coverage", "ground", "move_cm", "season_flag"],
+               "codes": {"tier": ["lower", "moderate", "higher", "not_enough_data"],
+                         "coring": [None, "promising_unconfirmed", "conflicting_evidence"],
+                         "ground": ["cant_measure", "stable", "seasonal_only", "degrading"]},
+               "rows": cells}, open(OUT / "cells.json", "w"), separators=(",", ":"))
+
+    # ---------------- timeseries per named area (measured vs expected from the 2021-2023 fit)
+    from models import tdd as T
+    temps = T.load_temps()
+    named = json.load(open(SD / "named_areas.geojson"))["features"]
+    Efz = read_grid_tif(MD / "E_frozen.tif")
+    ix = json.load(open(MOT / "s1_p137" / "index.json"))
+    ts = {"schema": "timeseries/2", "units": "cm, relative to the airport pad, zero at each summer's first date",
+          "expected_from": "2021-2023 sensitivity x this summer's warmth", "areas": {}}
+    for f in named:
+        aid = f["properties"]["id"]
+        m = rasterize_geojson(cfg, [f], all_touched=True) & ~water
+        seasons = []
+        for y, v in sorted(ix["seasons"].items()):
+            info = T.season_info(temps, int(y), cfg["models"]["tdd"])
+            fb = info["t_fb"]
+            ds = [d for d in v["dates"] if d["date"] < fb]
+            pts = []
+            A0 = None
+            for d in ds:
+                a = read_grid_tif(MOT / "s1_p137" / d["file"])[m]
+                val = float(np.nanmedian(a)) if np.isfinite(a).sum() >= 3 else None
+                Ad = T.A_of(temps, info, date.fromisoformat(d["date"]))
+                A0 = Ad if A0 is None else A0
+                ex = float(-np.nanmedian(Efz[m]) * (Ad - A0)) if np.isfinite(Efz[m]).any() else None
+                pts.append({"date": d["date"], "measured": None if val is None else round(val, 2),
+                            "expected": None if ex is None else round(ex, 2)})
+            if any(p["measured"] is not None for p in pts):
+                last = [p for p in pts if p["measured"] is not None][-1]
+                seasons.append({"year": int(y), "sensor": "Sentinel-1", "points": pts, "total_measured": last["measured"],
+                                "role": "train" if int(y) <= 2023 else "test"})
+        ts["areas"][aid] = {"name": f["properties"]["name"], "seasons": seasons}
+    json.dump(ts, open(OUT / "timeseries.json", "w"), separators=(",", ":"))
+
+    # ---------------- validation cards
+    ma, mc, mb = ev["model_a"], ev["model_c"], ev["model_b"]
+    ta, tb = ma["test_a"], ma["test_b"]
+    ph = ev.get("model_a_posthoc_deramp", {}).get("test_a", {})
+    six = json.load(open(MOT / "s1_p137" / "index.json"))
+    cards = [
+        {"id": "radar_checks", "title": "Radar processing checks", "status": "pass",
+         "headline": six.get("sign_check", {}).get("detail", ""),
+         "baseline": "HyP3's own displacement maps", "sentence": "Our radar processing matches the provider's own maps (slope 1.00). The airport reference reads zero, lakes are masked, and there are no unwrapping jumps."},
+        {"id": "test_a", "title": "Do the radar patterns repeat? (Sentinel-1, 2021–23 → 2024–25)", "status": ta["status"],
+         "headline": f"Block ρ {ta['metrics']['rho_block']['value']}, κ {ta['metrics']['kappa']['value']}, skill {ta['metrics']['skill_vs_best_baseline']['value']}",
+         "baseline": f"Zero-motion baseline error {ta['baselines_block_rmse_cm']['zero_motion']} cm vs model {ta['baselines_block_rmse_cm']['model']} cm",
+         "sentence": "Ground moves within about 1 cm of the airport pad each summer, and which areas move more did not repeat reliably between years. So radar can't yet tell stable from degrading ground here.",
+         "posthoc": None if not ph else {"title": "Post-hoc variant (ramp removed)", "status": ph.get("status"),
+                                         "headline": f"Block ρ {ph.get('metrics', {}).get('rho_block', {}).get('value')}",
+                                         "note": "Chosen after the official test failed; reported, not used for the official result."},
+         "ci": {"rho": ta["metrics"]["rho_block"]["ci95"], "kappa": ta["metrics"]["kappa"]["ci95"], "skill": ta["metrics"]["skill_vs_best_baseline"]["ci95"]}},
+        {"id": "test_b", "title": "Does NISAR agree with Sentinel-1? (2026)", "status": tb.get("status"),
+         "headline": f"Block ρ {tb.get('metrics', {}).get('rho_block', {}).get('value')}",
+         "baseline": "Pass needs ρ ≥ 0.60", "sentence": "NISAR's first summer over Tuk didn't produce a usable series: one pair failed to unwrap and several lost coherence. Its few usable pairs show no agreement."},
+        {"id": "model_b", "title": "Predicting ground where radar can't see", "status": mb["status"],
+         "headline": f"{mb['n_labels']['degrading']} degrading examples (needs 300)", "baseline": "Nearest measured pixel",
+         "sentence": "Not run: radar found too few examples of degrading ground to learn from, so no predicted layer is shown."},
+        {"id": "model_c", "title": "Shoreline forecast (fit 1985–2004, predict 2005–2025)", "status": mc["status"],
+         "headline": f"Forecast error {mc['metrics']['mae_m']} m vs no-change {mc['baselines']['persistence_mae_m']} m",
+         "baseline": "No change since 2004", "sentence": "The 30 m satellite waterline is too noisy to project a trend, so arrival years are hidden. Measured change since 2005 is shown instead."},
+        {"id": "reindeer", "title": "Reindeer Point consistency", "status": "not_available",
+         "headline": f"{(ev.get('reindeer_point_consistency') or {}).get('m_A_share_degrading')} of measured cells degrading",
+         "baseline": "Public reports of sinking homes (Canadian Geographic, Oct 2026)",
+         "sentence": "Homes sit on gravel pads. At 80 m, radar can't separate pad settling from ground thaw, so this is not a test of the reports."},
+    ]
+    json.dump({"schema": "validation/2", "prereg_tag": ev.get("prereg_tag"), "prereg_commit": ev.get("prereg_commit"),
+               "cards": cards, "deviations": ev.get("deviations"), "limits": ev.get("limits"),
+               "what_we_dont_predict": ["Ground sinking in 2050", "Single houses", "Sudden collapse or storms"]},
+              open(OUT / "validation.json", "w"), indent=1)
+
+    # ---------------- coastline
+    sl = json.load(open(MD / "shorelines_used.geojson"))["features"]
+    pick = {}
+    for f in sl:
+        y = int(f["properties"]["date"][:4])
+        for target in (1985, 1995, 2005, 2015, 2025):
+            if abs(y - target) <= 2 and (target not in pick or abs(y - target) < abs(int(pick[target]["properties"]["date"][:4]) - target)):
+                pick[target] = f
+    from shapely.geometry import shape, mapping
+    cf = []
+    for t, f in sorted(pick.items()):
+        g = shape(f["geometry"]).simplify(0.00012)
+        cf.append({"type": "Feature", "geometry": rnd(mapping(g)), "properties": {"kind": "shoreline", "date": f["properties"]["date"],
+                                                                                 "year": t, "source": f["properties"]["source"]}})
+    for f in json.load(open(MD / "transects.geojson"))["features"]:
+        p = f["properties"]
+        mcx = p.get("measured_change")
+        cf.append({"type": "Feature", "geometry": rnd(f["geometry"]), "properties": {
+            "kind": "transect", "id": p["id"], "change_m": None if not mcx else mcx["landward_m"],
+            "se_m": None if not mcx else mcx["se_m"], "shore_type": p["shore_type"]}})
+    json.dump({"type": "FeatureCollection", "schema": "coastline/2", "features": cf}, open(OUT / "coastline.geojson", "w"),
+              separators=(",", ":"))
+
+    # ---------------- manifest (written last; owns every field the UI reads)
+    s1 = json.load(open(MOT / "s1_p137" / "index.json"))
+    last_s1 = max(d["date"] for v in s1["seasons"].values() for d in v["dates"])
+    coring = json.load(open(SD / "coring.json"))
+    n_prom = len(coring["promising_unconfirmed"])
+    man = {
+        "schema": 2, "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "mock": False,
+        "area": {"name": "Tuktoyaktuk and the Inuvik–Tuktoyaktuk Highway corridor", "bbox": bbox,
+                 "center": [-133.03, 69.41], "zoom": 11.3, "image_coordinates": corners},
+        "freshness": {"latest_pass": last_s1, "sensor": "Sentinel-1", "status": "paused for winter",
+                      "line": f"Last radar pass: {last_s1}, Sentinel-1. Updates every 12 days, June to September.",
+                      "nisar_note": "NISAR 2026 passes are checked automatically; none formed a usable series this summer."},
+        "units": "cm per summer, relative to the airport gravel pad", "motion_range_cm": [-lim, lim],
+        "years": years, "layers": layers,
+        "models": {"behaviour": ma["test_a"]["status"], "nisar_check": tb.get("status"), "ground_prediction": mb["status"],
+                   "shoreline_forecast": mc["status"], "show_arrival_years": mc.get("ui_show_arrival", False)},
+        "screening": {"n_cells": len(cells), "n_promising": n_prom,
+                      "promising_km2": round(n_prom * 0.24 * 0.24, 1), "settings": A.get("settings")},
+        "files": {"areas": "areas.geojson", "cells": "cells.json", "timeseries": "timeseries.json", "validation": "validation.json",
+                  "coastline": "coastline.geojson"},
+        "provenance": {"measured": "From satellite or survey data", "predicted": "Model output, tested on unseen data",
+                       "demo": "Simulated for the demo"},
+        "credits": ["Contains modified Copernicus Sentinel data 2021–2025, processed by ASF HyP3",
+                    "NISAR data courtesy NASA/JPL-Caltech and ISRO, via ASF DAAC",
+                    "Elevation: NRCan HRDEM (Open Government Licence – Canada)",
+                    "Climate: Environment and Climate Change Canada",
+                    "Map data © OpenStreetMap contributors (ODbL)",
+                    "Surface water: EC JRC Global Surface Water", "Landsat: USGS; Sentinel-2: Copernicus"],
+    }
+    json.dump(man, open(OUT / "manifest.json", "w"), indent=1)
+    sizes = {p.name: p.stat().st_size for p in OUT.rglob("*") if p.is_file()}
+    print("wrote", OUT, "total", round(sum(sizes.values()) / 1e6, 2), "MB")
+    for k, v in sorted(sizes.items(), key=lambda kv: -kv[1]):
+        print(f"  {k:30s} {v/1e3:8.1f} kB")
+
+
+if __name__ == "__main__":
+    main()
