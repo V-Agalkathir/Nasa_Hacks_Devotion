@@ -210,7 +210,7 @@ def process_stack(cfg, stack_id):
     cm_per_rad = sgn * lam / FOUR_PI * 100.0
     closure_cm = R["closure_threshold_fraction"] * lam * 100.0
     tr, H, W = grid(cfg)
-    out_dir = ROOT / R["out_dir"] / stack_id
+    out_dir = ROOT / R["out_dir"] / (stack_id + R.get("variant_suffix", ""))
     out_dir.mkdir(parents=True, exist_ok=True)
     for old in list(out_dir.glob("*.tif")) + list(out_dir.glob("pairs/*.tif")):
         if old.name != "stable_ref.tif":
@@ -300,6 +300,9 @@ def process_stack(cfg, stack_id):
                     dl = dl - robust_plane(dl)
                     masked["deramp"] = True
                 index["corrections"]["ionosphere"] = "applied" if d["iono_coverage"] >= 0.9 and R["nisar_apply_ionosphere"] else "unavailable"
+            if sensor_key == "S1" and R.get("s1_deramp", False):
+                dl = dl - robust_plane(dl)          # exploratory variant: plane removed before referencing
+                masked["deramp"] = True
             refv = dl[ref_used & np.isfinite(dl)]
             used, reason = True, None
             if refv.size < R["ref_min_valid_cells"]:
@@ -597,8 +600,12 @@ def sanity_checks(Xv, dates, ref, water, occ, D, V, pidx, lam, H, W, land_med):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--stack", default="all")
+    ap.add_argument("--s1-deramp", action="store_true", help="exploratory: remove a plane from each S1 pair")
     a = ap.parse_args()
     cfg = load_config()
+    if a.s1_deramp:
+        cfg.setdefault("radar", {})
+        cfg["radar"] = {**(cfg.get("radar") or {}), "s1_deramp": True, "variant_suffix": "_deramp"}
     stacks = ["s1_p137", "nisar_t159"] if a.stack == "all" else [a.stack]
     for s in stacks:
         process_stack(cfg, s)
