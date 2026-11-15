@@ -9,6 +9,21 @@ const VIEWS = [
   ["map", "Ground map"], ["compare", "Compare areas"], ["core", "Where to core"], ["coast", "Coastline"], ["trust", "How do we know?"],
 ];
 
+// Freshness line (spec 05 6.3) with a client-side staleness backstop: in season, data older than
+// 3 days means the scheduled check has stopped, whatever the manifest says.
+function Freshness({ f, generatedAt }) {
+  if (!f) return null;
+  const now = new Date();
+  const md = (now.getUTCMonth() + 1) * 100 + now.getUTCDate();
+  const inSeason = md >= 525 && md <= 1015;
+  const ageDays = (now - new Date(generatedAt)) / 86400000;
+  const checked = f.last_checked_at ? ` Last checked ${f.last_checked_at.slice(0, 10)}.` : "";
+  const status = inSeason && ageDays > 3
+    ? `Update check overdue; showing data from ${generatedAt.slice(0, 10)}.`
+    : `Status: ${f.status}.`;
+  return <p className="fresh small muted">{f.line} {status}{checked}</p>;
+}
+
 export default function App() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -68,7 +83,7 @@ export default function App() {
           {view === "core" && (<><CoringView data={data} onSelect={setSelected} />{selected?.startsWith("cell-") && <AreaPanel data={data} selected={selected} />}</>)}
           {view === "coast" && <CoastView data={data} coastYears={coastYears} setCoastYears={setCoastYears} />}
           {view === "trust" && <TrustView data={data} />}
-          <p className="fresh small muted">{m.freshness.line} {m.freshness.status === "paused for winter" ? "Paused for winter." : ""}</p>
+          <Freshness f={m.freshness} generatedAt={m.generated_at} />
         </aside>
       </main>
       {about && <AboutModal manifest={m} validation={data.validation} onClose={() => setAbout(false)} />}

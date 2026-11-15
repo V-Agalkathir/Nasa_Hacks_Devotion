@@ -27,7 +27,13 @@ print(f"{len(rows)} NISAR pairs listed, {len(todo)} to fetch -> {out_dir}")
 if not todo:
     sys.exit()
 
-earthaccess.login(strategy="interactive", persist=True)
+import os
+from pathlib import Path
+# CI (GitHub Actions) writes ~/.netrc from secrets; laptops fall back to the interactive prompt.
+if (Path.home() / ".netrc").exists() or os.environ.get("CI"):
+    earthaccess.login(strategy="netrc")
+else:
+    earthaccess.login(strategy="interactive", persist=True)
 handles = earthaccess.open([r["url"] for r in todo])
 
 
