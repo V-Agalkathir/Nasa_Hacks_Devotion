@@ -15,7 +15,7 @@ const BLANK = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAw
 const tierFill = ["match", ["get", "tier"], ...Object.entries(TIER).flatMap(([k, v]) => [k, v.fill]), "#ccc"];
 const heightFill = ["step", ["get", "h"], HEIGHT_BINS[0].color, 2.5, HEIGHT_BINS[1].color, 4, HEIGHT_BINS[2].color, 8, HEIGHT_BINS[3].color, 15, HEIGHT_BINS[4].color];
 const coastFill = ["step", ["get", "sea"], COAST_BANDS[0].color, 100.01, COAST_BANDS[1].color, 300.01, COAST_BANDS[2].color];
-const coreFill = ["match", ["get", "coring"], "promising_unconfirmed", CORE.promising, CORE.other];
+const coreFill = ["case", ["get", "cand"], CORE.promising, CORE.other];
 const transectColor = ["case", ["!", ["has", "change_m"]], "#0000",
   ["<", ["get", "change_m"], -15], "#542788", ["<=", ["get", "change_m"], 15], "#5E4733", ["<=", ["get", "change_m"], 40], "#E08214", "#7A3214"];
 
@@ -29,14 +29,14 @@ function hatch(fg, bg) {
   return g.getImageData(0, 0, s, s);
 }
 
-export default function MapView({ data, layer, step, shoreYear, tool, zoom, sel, saved, showRoad, showNames, onPick, onHover }) {
+export default function MapView({ data, layer, step, shoreYear, tool, zoom, sel, saved, cand, picks, showRoad, showNames, onPick, onHover }) {
   const el = useRef(null);
   const boxEl = useRef(null);
   const map = useRef(null);
   const ready = useRef(false);
   const lastUrl = useRef(BLANK);
   const latest = useRef({});
-  latest.current = { tool, onPick, onHover, sel };
+  latest.current = { tool, onPick, onHover, sel, cand, picks };
 
   useEffect(() => {
     const b = data.manifest.bounds || data.manifest.area.bbox;
@@ -53,7 +53,7 @@ export default function MapView({ data, layer, step, shoreYear, tool, zoom, sel,
       const coords = data.manifest.area.image_coordinates;
       m.addSource("overlay", { type: "image", url: BLANK, coordinates: coords });
       m.addLayer({ id: "overlay", type: "raster", source: "overlay", paint: { "raster-opacity": 0.9, "raster-fade-duration": 0, "raster-resampling": "nearest" } });
-      m.addSource("cells", { type: "geojson", data: cellsGeoJSON(data.cells, new Set(latest.current.sel)) });
+      m.addSource("cells", { type: "geojson", data: cellsGeoJSON(data.cells, latest.current.cand, new Set(latest.current.picks)) });
       m.addLayer({ id: "cells-fill", type: "fill", source: "cells", paint: { "fill-color": tierFill, "fill-opacity": 0.82 } });
       m.addLayer({ id: "cells-hatch", type: "fill", source: "cells", filter: ["==", ["get", "tier"], "not_enough_data"], paint: { "fill-pattern": "hatch-cant" } });
       m.addLayer({ id: "cells-norecord", type: "fill", source: "cells", paint: { "fill-pattern": "hatch-norecord", "fill-opacity": 0.85 }, layout: { visibility: "none" } });
@@ -70,6 +70,12 @@ export default function MapView({ data, layer, step, shoreYear, tool, zoom, sel,
       m.addLayer({ id: "roads", type: "line", source: "roads", paint: { "line-color": "#311E10", "line-width": 1.6, "line-opacity": 0.7 } });
       m.addSource("named", { type: "geojson", data: data.areas });
       m.addLayer({ id: "named", type: "line", source: "named", paint: { "line-color": "#FFFCF0", "line-width": 2, "line-dasharray": [3, 2] } });
+      m.addLayer({ id: "picks", type: "line", source: "cells", filter: ["==", ["get", "pick"], true],
+        paint: { "line-color": "#FFFCF0", "line-width": 4 }, layout: { visibility: "none" } });
+      m.addSource("boreholes", { type: "geojson", data: data.boreholes || { type: "FeatureCollection", features: [] } });
+      m.addLayer({ id: "boreholes", type: "circle", source: "boreholes",
+        paint: { "circle-radius": 5, "circle-color": ["case", ["get", "ice_rich"], "#311E10", "#FFFCF0"], "circle-stroke-color": "#311E10", "circle-stroke-width": 1.5 },
+        layout: { visibility: "none" } });
       m.addSource("conflict", { type: "geojson", data: { type: "FeatureCollection", features: data.cells.filter((c) => c.coring === "conflicting_evidence")
         .map((c) => ({ type: "Feature", properties: {}, geometry: { type: "Point", coordinates: [c.lon, c.lat] } })) } });
       m.addLayer({ id: "conflict", type: "circle", source: "conflict", paint: { "circle-radius": 6, "circle-color": CORE.conflicting, "circle-stroke-color": "#FFFCF0", "circle-stroke-width": 2 }, layout: { visibility: "none" } });
@@ -159,7 +165,7 @@ export default function MapView({ data, layer, step, shoreYear, tool, zoom, sel,
     m.setLayoutProperty("overlay", "visibility", vis(layer === "radar" && step !== "2026"));
     const fill = { screen: tierFill, height: heightFill, coast: coastFill, core: coreFill, radar: "#000" }[layer];
     m.setPaintProperty("cells-fill", "fill-color", fill);
-    m.setPaintProperty("cells-fill", "fill-opacity", layer === "radar" ? 0 : layer === "core" ? ["match", ["get", "coring"], "promising_unconfirmed", 0.9, 0.55] : 0.82);
+    m.setPaintProperty("cells-fill", "fill-opacity", layer === "radar" ? 0 : layer === "core" ? ["case", ["get", "cand"], 0.9, 0.5] : 0.82);
     m.setLayoutProperty("cells-hatch", "visibility", vis(layer === "screen"));
     m.setLayoutProperty("cells-norecord", "visibility", vis(layer === "radar" && step === "2026"));
     m.setLayoutProperty("cells-line", "visibility", vis(layer !== "radar"));
@@ -168,13 +174,19 @@ export default function MapView({ data, layer, step, shoreYear, tool, zoom, sel,
     m.setLayoutProperty("transects", "visibility", vis(layer === "coast"));
     m.setFilter("shore-sel", ["all", ["==", ["get", "kind"], "shoreline"], ["==", ["get", "year"], shoreYear]]);
     m.setFilter("shore-other", ["all", ["==", ["get", "kind"], "shoreline"], ["!=", ["get", "year"], shoreYear]]);
-    m.setLayoutProperty("conflict", "visibility", vis(layer === "core"));
+    m.setLayoutProperty("conflict", "visibility", "none");
+    m.setLayoutProperty("picks", "visibility", vis(layer === "core"));
+    m.setLayoutProperty("boreholes", "visibility", vis(layer === "core"));
     m.setLayoutProperty("roads", "visibility", vis(showRoad));
     m.setLayoutProperty("named", "visibility", vis(showNames));
     if (tool === "move") m.dragPan.enable(); else m.dragPan.disable();
   }
 
   useEffect(() => { apply(); }, [layer, step, shoreYear, tool, showRoad, showNames]);
+  useEffect(() => {
+    if (!ready.current) return;
+    map.current.getSource("cells").setData(cellsGeoJSON(data.cells, cand, new Set(picks)));
+  }, [cand, (picks || []).join()]);
   useEffect(() => {
     if (!ready.current) return;
     map.current.getSource("sel").setData(selectionOutline(sel, data.byId));

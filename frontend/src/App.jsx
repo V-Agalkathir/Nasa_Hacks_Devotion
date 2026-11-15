@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { loadAll } from "./lib/data.js";
-import { DEFAULT_NEED, PRESETS, aggregate, autoName, presetCells, tierRule } from "./lib/check.js";
+import { DEFAULT_NEED, PRESETS, aggregate, autoName, coresByType, funnel, presetCells, tierRule } from "./lib/check.js";
+import SearchCard from "./components/SearchCard.jsx";
 import MapView from "./components/MapView.jsx";
 import CheckPanel from "./components/CheckPanel.jsx";
 import AboutModal from "./components/AboutModal.jsx";
@@ -118,12 +119,15 @@ export default function App() {
     return c;
   }, [saved, ran]);
 
+  const fun = useMemo(() => (data && data.cells.length ? funnel(data.cells, need, data.byId) : null), [data, need]);
+  const types = useMemo(() => (fun ? coresByType(fun.cand, data.byId) : []), [fun]);
+
   if (error) return <div className="loading"><p>We couldn't load the map data. Try again in a minute.</p><p className="small">{error}</p></div>;
   if (!data) return <div className="loading" role="status">Loading the map…</div>;
   const m = data.manifest;
   const tests = data.validation?.cards?.filter((c) => c.id !== "radar_checks");
   const namedHigher = data.areas.features.filter((f) => f.properties.tier === "higher").length;
-  const promCount = data.cells.filter((c) => c.coring === "promising_unconfirmed").length;
+  const promCount = fun ? fun.cand.ids.size : null;
   const conf = data.cells.filter((c) => c.coring === "conflicting_evidence").length;
   const go = (id) => document.getElementById(id)?.scrollIntoView({ behavior: reduceMotion() ? "auto" : "smooth" });
 
@@ -131,7 +135,7 @@ export default function App() {
     <div className="page">
       <ResultsStrip mock={m.mock} />
       <Header manifest={m} onAbout={() => setAbout(true)} />
-      <Hero promCount={promCount} namedHigher={namedHigher} namedTotal={data.areas.features.length} tests={tests}
+      <Hero promCount={promCount} blocks={fun?.cand.blocks.length} namedHigher={namedHigher} namedTotal={data.areas.features.length} tests={tests}
         onCore={() => { setLayer("core"); go("mapcard"); }} onTown={() => { setZoom("town"); go("mapcard"); }} onTests={() => go("tests")} />
       <div className="cols">
         <section className="card mapcard" id="mapcard" aria-label="Map">
@@ -139,6 +143,7 @@ export default function App() {
           <Tools tool={tool} onTool={setTool} zoom={zoom} onZoom={setZoom} />
           <div className="map-shell">
             <MapView data={data} layer={layer} step={step} shoreYear={shoreYear} tool={tool} zoom={zoom} sel={sel} saved={saved}
+              cand={fun?.cand.ids} picks={types.map((t) => t.pick.id)}
               showRoad={showRoad} showNames={showNames} onPick={onPick} onHover={setHoverId} />
             {layer === "radar" && <RadarNote step={step} />}
           </div>
@@ -147,7 +152,7 @@ export default function App() {
           {layer === "radar" && <RadarSteps years={m.years} step={step} onStep={setStep} />}
           {layer === "coast" && <ShoreDates value={shoreYear} onChange={setShoreYear} coastline={data.coastline} />}
           <Legend layer={layer} step={step} counts={{ prom: promCount, conf }} />
-          {layer === "core" && <CoreList cells={data.cells} onSelect={(ids) => { onPick(ids, "replace"); }} />}
+          {layer === "core" && <CoreList cells={data.cells.filter((c) => fun?.cand.ids.has(c.id))} onSelect={(ids) => { onPick(ids, "replace"); }} />}
           <div className="opts">
             <label><input type="checkbox" checked={showRoad} onChange={(e) => setShowRoad(e.target.checked)} /> Highway and roads</label>
             <label><input type="checkbox" checked={showNames} onChange={(e) => setShowNames(e.target.checked)} /> Place names and outlines</label>
@@ -157,6 +162,9 @@ export default function App() {
           onRun={run} running={running} report={ran} stale={stale} onSave={save} saveNote={saveNote}
           onShowCore={() => { setLayer("core"); go("mapcard"); }} />
       </div>
+      {fun && <SearchCard fun={fun} need={need} setNeed={setNeed} types={types}
+        onSelect={(id) => { onPick([id], "replace"); setLayer("core"); go("mapcard"); }}
+        onShowMap={() => { setLayer("core"); setZoom("region"); go("mapcard"); }} />}
       <CompareStrip cols={cols} need={need}
         onShow={(c) => { nameLock.current = true; setSel(c.ids); setSelName(c.name); setNamed(c.namedId ?? null); setSelVer((v) => v + 1); go("mapcard"); }}
         onRemove={(slot) => setSaved(saved.filter((s) => s.slot !== slot))} />

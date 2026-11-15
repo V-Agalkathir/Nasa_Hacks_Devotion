@@ -305,6 +305,15 @@ def main():
         rf.append({"type": "Feature", "properties": {"main": "Inuvik" in f["properties"].get("name", "")}, "geometry": rnd(mapping(g))})
     json.dump({"type": "FeatureCollection", "features": rf}, open(OUT / "roads.geojson", "w"), separators=(",", ":"))
 
+    # ---------------- boreholes (NWT Permafrost Database; data owner GNWT)
+    if bhp.exists():
+        bh = json.load(open(bhp))
+        bf = [{"type": "Feature", "geometry": {"type": "Point", "coordinates": [r["lon"], r["lat"]]},
+               "properties": {"site": r["site"], "moisture": r["moisture_top5m_median_pct"], "visible_ice": r["visible_ice_logged_top5m"],
+                              "ice_rich": bool(r["visible_ice_logged_top5m"] or (r["moisture_top5m_median_pct"] or 0) > 40),
+                              "radar_cm": r["radar_sinking_cm_per_summer"]}} for r in bh["sites"]]
+        json.dump({"type": "FeatureCollection", "source": bh["source"], "features": bf}, open(OUT / "boreholes.geojson", "w"))
+
     # ---------------- manifest (written last; owns every field the UI reads)
     s1 = json.load(open(MOT / "s1_p137" / "index.json"))
     last_s1 = max(d["date"] for v in s1["seasons"].values() for d in v["dates"])
@@ -326,7 +335,7 @@ def main():
                    "shoreline_forecast": mc["status"], "show_arrival_years": mc.get("ui_show_arrival", False)},
         "screening": {"n_cells": len(cells), "n_promising": n_prom,
                       "promising_km2": round(n_prom * 0.24 * 0.24, 1), "settings": A.get("settings")},
-        "files": {"areas": "areas.geojson", "cells": "cells.json", "timeseries": "timeseries.json", "validation": "validation.json",
+        "files": {"areas": "areas.geojson", "cells": "cells.json", "boreholes": "boreholes.geojson", "timeseries": "timeseries.json", "validation": "validation.json",
                   "coastline": "coastline.geojson"},
         "provenance": {"measured": "From satellite or survey data", "predicted": "Model output, tested on unseen data",
                        "demo": "Simulated for the demo"},

@@ -76,9 +76,10 @@ const Sw = ({ color, hatch, ring, dot }) => <i className={`sw${hatch ? " hatch" 
 export function Legend({ layer, step, counts }) {
   let items = [];
   if (layer === "screen") items = [...Object.values(TIER).map((t) => [t.short, t.fill, t.hatch]), ["Water", C.water]];
+  const screenFormula = layer === "screen" ? "Tier = the higher of the Coast and Height levels (see the Coast and Height layers). Ground is shown but not counted." : null;
   if (layer === "height") items = HEIGHT_BINS.map((b) => [b.label, b.color]);
   if (layer === "coast") items = [...COAST_BANDS.map((b) => [b.label, b.color]), ...TRANSECT.map((t) => [t.label, t.color])];
-  if (layer === "core") items = [[`${counts.prom} promising, unconfirmed`, CORE.promising], [`${counts.conf} conflicting evidence`, CORE.conflicting, false, false, true], ["Other land", CORE.other]];
+  if (layer === "core") items = [[`${counts.prom} candidate squares (live from your needs)`, CORE.promising], ["Suggested first core, one per ground type", "#FFFCF0", false, true], ["Highway borehole (ice-rich: dark)", CORE.conflicting, false, false, true], ["Other land", CORE.other]];
   if (layer === "radar" && step === "cls") items = Object.values(CLASS).map((c) => [c.label, c.color, c.hatch]);
   if (layer === "radar" && step !== "cls" && step !== "2026") items = [...MOTION.map((m) => [m.label, m.color]), ["No radar record", "#E5DCB0", true]];
   if (layer === "radar" && step === "2026") items = [["Insufficient data", "#E5DCB0", true]];
@@ -86,6 +87,7 @@ export function Legend({ layer, step, counts }) {
     <div className="legend">
       {items.map(([l, c, h, r, d]) => <span key={l}><Sw color={c} hatch={h} ring={r} dot={d} />{l}</span>)}
       {layer === "radar" && step === "cls" && <><span className="pill pill-unconf">UNCONFIRMED</span><span className="pill pill-notrun">NOT RUN</span><span className="small">Predicted ground: 110 of 300 examples needed</span></>}
+      {screenFormula && <p className="formula-line">{screenFormula}</p>}
       <p className="note">{layerNote(layer, step)}</p>
     </div>
   );
@@ -106,7 +108,7 @@ export function Readout({ cell, zoom }) {
 }
 
 export function CoreList({ cells, onSelect }) {
-  const prom = cells.filter((c) => c.coring === "promising_unconfirmed").sort((a, b) => a.core - b.core);
+  const prom = cells.slice().sort((a, b) => a.core - b.core);
   return (
     <div className="corelist">
       <ol>
@@ -117,7 +119,7 @@ export function CoreList({ cells, onSelect }) {
           </li>
         ))}
       </ol>
-      <p className="note">The six closest to town of {prom.length}. Ordered by distance from town, not ranked: it suggests where a core would tell the relocation team the most and doesn't replace their judgement.</p>
+      <p className="note">The six candidate squares closest to town, of {prom.length}. Ordered by distance from town, not ranked: it suggests where a core would tell the relocation team the most and doesn't replace their judgement.</p>
     </div>
   );
 }

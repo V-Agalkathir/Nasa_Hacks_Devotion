@@ -117,3 +117,21 @@ details summary { cursor: pointer; margin-top: 10px; }
 }
 @media (max-width: 720px) { .page { padding: 0 16px 16px; } .strip { margin: 0 -16px; padding: 10px 16px; } }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+.breakdown { margin-top: 12px; background: var(--page); border-radius: 10px; padding: 10px 12px; }
+.breakdown h4 { margin-top: 0; }
+.breakdown table, .funnel { width: 100%; border-collapse: collapse; font-size: 14px; }
+.breakdown th, .breakdown td, .funnel th, .funnel td { text-align: left; padding: 6px 6px; border-top: 1px solid var(--line); vertical-align: top; }
+.breakdown thead th, .funnel thead th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); border-top: none; }
+.breakdown td.lvl { font-family: var(--serif); font-size: 20px; font-weight: 700; text-align: center; }
+.breakdown tr.notcounted { opacity: .7; } .breakdown tr.notcounted td.lvl { font-weight: 400; }
+.formula { margin: 8px 0 0; font-size: 15px; } .formula b { font-family: var(--serif); font-size: 18px; }
+.formula-line { flex-basis: 100%; font-size: 13px; font-weight: 700; margin: 4px 0 0; }
+.funnel td:nth-child(3) { min-width: 120px; white-space: nowrap; }
+.funnel .bar { display: inline-block; height: 10px; background: var(--teal); border-radius: 3px; margin-right: 8px; vertical-align: middle; max-width: 70px; }
+.funnel thead th:nth-child(2), .funnel thead th:nth-child(3) { white-space: nowrap; }
+.blocksel { display: block; margin: 12px 0 4px; font-size: 15px; }
+.search .mt { margin-top: 18px; }
+.types { margin: 8px 0 0; padding-left: 20px; display: grid; gap: 8px; font-size: 14px; }
+.types li > span { margin-right: 8px; } .types button { min-height: 36px; padding: 4px 10px; }
+.table-wrap { overflow-x: auto; }
+.sw.ring { border: 3px solid var(--text); background: var(--card) !important; }

@@ -30,7 +30,7 @@ export function Header({ manifest, onAbout }) {
   );
 }
 
-export function Hero({ promCount, namedHigher, namedTotal, tests, onCore, onTown, onTests }) {
+export function Hero({ promCount, blocks, namedHigher, namedTotal, tests, onCore, onTown, onTests }) {
   const ran = tests?.filter((t) => ["pass", "partial", "fail"].includes(t.status)) ?? [];
   const passed = ran.filter((t) => t.status === "pass" || t.status === "partial").length;
   const couldnt = tests ? tests.filter((t) => !["pass", "partial", "fail"].includes(t.status)).length : 0;
@@ -39,9 +39,9 @@ export function Hero({ promCount, namedHigher, namedTotal, tests, onCore, onTown
       <h1>Satellites can't yet certify ground in Tuk.</h1>
       <p className="lead">We tested that honestly. The screen still narrows the search for the relocation team's cores to high, dry, inland ground near the highway.</p>
       <div className="tiles">
-        <button className="tile" onClick={onCore}><b>{promCount ?? "–"}</b><span>squares worth a core: high, dry, inland, near the highway</span><em>Show where</em></button>
+        <button className="tile" onClick={onCore}><b>{promCount ?? "–"}</b><span>squares worth a core ({promCount == null ? "–" : (promCount * 0.0576).toFixed(1)} km² in {blocks ?? "–"} blocks): high, dry, inland, near the highway</span><em>Show where</em></button>
         <button className="tile" onClick={onTown}><b>{namedHigher} of {namedTotal}</b><span>named areas are higher risk: they sit on the shoreline</span><em>See the town</em></button>
-        <button className="tile" onClick={onTests}><b>{tests ? `${passed} of ${ran.length}` : "–"}</b><span>tests passed{couldnt ? `, and ${couldnt} more couldn't run` : ""}</span><em>See every test</em></button>
+        <button className="tile" onClick={onTests}><b>{tests ? `${ran.length} tests` : "–"}</b><span>of whether radar can predict the ground: {passed ? `${passed} passed` : "none passed yet"}{couldnt ? `, ${couldnt} more couldn't run` : ""}. That's why cores decide</span><em>See every test</em></button>
       </div>
     </section>
   );
