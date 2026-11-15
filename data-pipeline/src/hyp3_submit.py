@@ -18,7 +18,7 @@ import hyp3_sdk as sdk
 from common import load_config, path
 
 # Layers Part 2 needs (HyP3 INSAR_GAMMA file suffixes). Everything else in the product is deleted after download.
-KEEP = ("_unw_phase.tif", "_corr.tif", "_inc_map.tif", "_los_disp.tif", "_vert_disp.tif",
+KEEP = ("_unw_phase.tif", "_corr.tif", "_inc_map.tif", "_inc_map_ell.tif", "_los_disp.tif", "_vert_disp.tif",
         "_lv_theta.tif", "_lv_phi.tif", "_dem.tif", ".txt", ".md", ".xml")
 
 
@@ -30,6 +30,8 @@ def crop_product(folder, bbox, pad_m=2000):
     from rasterio.windows import from_bounds
     for f in list(folder.rglob("*")):
         if not f.is_file():
+            continue
+        if f.name == ".done":
             continue
         if not f.name.endswith(KEEP):
             f.unlink(); continue
@@ -65,15 +67,28 @@ if "--status" in args:
 if "--download" in args:
     raw = path(cfg, "raw", "s1")
     done = [j for j in existing if j.succeeded()]
-    todo = [j for j in done if not (raw / j.job_id).exists()]
+    todo = [j for j in done if not (raw / j.job_id / ".done").exists()]   # .done = fully downloaded + cropped
+    for zp in raw.glob("*.zip"):                                            # leftovers from an interrupted run
+        zp.unlink()
     print(f"{len(done)} succeeded, {len(todo)} to download -> {raw}")
     for i, j in enumerate(todo, 1):
+        dest = raw / j.job_id
+        dest.mkdir(exist_ok=True)
         for zp in sdk.Batch([j]).download_files(raw):
             with zipfile.ZipFile(zp) as z:
-                z.extractall(raw / j.job_id)
+                # extract ONLY the layers we keep, FLAT into dest (drops HyP3's long inner folder:
+                # Windows paths over 260 characters fail otherwise)
+                for m in z.infolist():
+                    name = m.filename.rsplit("/", 1)[-1]
+                    if m.is_dir() or not name.endswith(KEEP):
+                        continue
+                    with z.open(m) as src_f, open(dest / name, "wb") as out_f:
+                        while chunk := src_f.read(1 << 20):
+                            out_f.write(chunk)
             zp.unlink()
-        crop_product(raw / j.job_id, cfg["aoi"]["bbox"])
-        mb = sum(f.stat().st_size for f in (raw / j.job_id).rglob("*") if f.is_file()) / 1e6
+        crop_product(dest, cfg["aoi"]["bbox"])
+        (dest / ".done").write_text("ok")
+        mb = sum(f.stat().st_size for f in dest.rglob("*") if f.is_file()) / 1e6
         g = j.job_parameters["granules"]
         print(f"  [{i}/{len(todo)}] {g[0][17:25]} -> {g[1][17:25]}  cropped to {mb:.1f} MB")
     if "--crop-existing" in args:   # crop folders downloaded before this step existed
