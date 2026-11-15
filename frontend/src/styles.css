@@ -135,3 +135,5 @@ details summary { cursor: pointer; margin-top: 10px; }
 .types li > span { margin-right: 8px; } .types button { min-height: 36px; padding: 4px 10px; }
 .table-wrap { overflow-x: auto; }
 .sw.ring { border: 3px solid var(--text); background: var(--card) !important; }
+.research-link { align-self: center; font-size: 14px; font-weight: 700; color: var(--text); text-decoration: underline; white-space: nowrap; min-height: 44px; display: inline-flex; align-items: center; }
+@container (max-width: 720px) { .research-link { order: 5; } }
