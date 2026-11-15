@@ -39,6 +39,8 @@ export default function MapView({ data, layer, step, shoreYear, tool, zoom, sel,
   latest.current = { tool, onPick, onHover, sel, cand, picks };
 
   useEffect(() => {
+    ready.current = false;            // refs survive a hot reload; a new map is not ready yet
+    lastUrl.current = BLANK;
     const b = data.manifest.bounds || data.manifest.area.bbox;
     const m = new maplibregl.Map({ container: el.current, style: STYLE, attributionControl: { compact: true },
       bounds: [[b[0], b[1]], [b[2], b[3]]], fitBoundsOptions: { padding: 12 }, dragRotate: false, touchPitch: false });
@@ -98,7 +100,10 @@ export default function MapView({ data, layer, step, shoreYear, tool, zoom, sel,
     tryInit();
     m.on("styledata", tryInit);
     m.once("load", init);
-    return () => m.remove();
+    // keep the canvas matched to its box (layout changes, fonts loading, rotating a phone)
+    const ro = new ResizeObserver(() => m.resize());
+    ro.observe(el.current);
+    return () => { ro.disconnect(); m.remove(); };
   }, []);
 
   function wireTools(m) {
@@ -151,7 +156,7 @@ export default function MapView({ data, layer, step, shoreYear, tool, zoom, sel,
 
   function apply() {
     const m = map.current;
-    if (!m || !ready.current) return;
+    if (!m || !ready.current || !m.style || !m.style._loaded) return;
     const vis = (on) => (on ? "visible" : "none");
     let url = BLANK;
     if (layer === "radar") {
