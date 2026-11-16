@@ -7,7 +7,7 @@ Outputs
       Sentinel-1: id = "<ref_scene>|<sec_scene>", url empty (HyP3 produces the product)
       NISAR:      id = GUNW granule name, url = .h5 download URL
 
-Selection rules (see docs/architecture/specs/01-data-acquisition.md)
+Selection rules
   * Sentinel-1: platform S1, SLC, beam IW only, relative orbit from config, intersects AOI,
     season window from config. ONE scene per acquisition date: must contain the town
     (aoi.must_cover), then the one covering most of the AOI. Frames 223 and 228 overlap at Tuk;

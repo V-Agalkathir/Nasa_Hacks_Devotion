@@ -4,13 +4,15 @@ import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import * as G from "./lib/tool.js";
 import "./tool.css";
 import Sources from "./components/Sources.jsx";
+import Views from "./components/Views.jsx";
+import Welcome from "./components/Welcome.jsx";
 
 const BASE = "./data/";
 const get = (f) => fetch(BASE + f).then((r) => { if (!r.ok) throw new Error(`${f}: HTTP ${r.status}`); return r.json(); });
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 export const fmtDay = (iso) => { if (!iso) return ""; const [y, m, d] = iso.slice(0, 10).split("-").map(Number); return `${d} ${MONTHS[m - 1]} ${y}`; };
 
-export default function App() {
+export default function App({ view = "simple" }) {
   const [M, setM] = useState(null);
   const [manifest, setManifest] = useState(null);
   const [err, setErr] = useState("");
@@ -24,7 +26,7 @@ export default function App() {
   }, []);
   if (err) return <div className="gk"><div className="gk-wait"><h1>The map data didn’t load</h1><p>{err}</p><p>Reload the page to try again.</p></div></div>;
   if (!M) return <div className="gk"><div className="gk-wait" role="status"><p>Loading the map…</p></div></div>;
-  return <Tool M={M} manifest={manifest || {}} />;
+  return <Tool M={M} manifest={manifest || {}} view={view} />;
 }
 
 // ---------- small pieces ----------
@@ -47,7 +49,7 @@ function airportCentre(d) {
   return k ? [sx / k, sy / k] : null;
 }
 
-function Tool({ M, manifest }) {
+function Tool({ M, manifest, view }) {
   const T = M.T, C = M.C;
   const [cr, setCr] = useState({ ...G.DEF });
   const [on, setOn] = useState({ ...G.DON });
@@ -62,19 +64,26 @@ function Tool({ M, manifest }) {
   const [tab, setTab] = useState("places");
   const [mtab, setMtab] = useState("rules");
   const [about, setAbout] = useState(false);
+  const [more, setMore] = useState(false);
+  // how-to popup: shown on the first load of a visit, until "I understand"
+  const [welcome, setWelcome] = useState(() => { try { return sessionStorage.getItem("gk-welcome") !== "seen"; } catch (e) { return true; } });
+  const closeWelcome = () => { setWelcome(false); try { sessionStorage.setItem("gk-welcome", "seen"); } catch (e) { /* storage blocked: closes for this page only */ } };
+  const simple = view === "simple";
   const [showFlood, setShowFlood] = useState(true);
   const [printing, setPrinting] = useState(null);
   const [asp, setAsp] = useState(0.8);
   const mapBox = useRef(null);
   const rightScroll = useRef(null);
-  useEffect(() => { if (rightScroll.current) rightScroll.current.scrollTop = 0; }, [sel, tab]);
+  useEffect(() => { if (rightScroll.current) rightScroll.current.scrollTop = 0; }, [sel, tab, view]);
+  // Simple opens on its list; Advanced on its rules (phone tabs)
+  useEffect(() => { setMtab(view === "simple" ? "list" : "rules"); }, [view]);
 
   useEffect(() => {
     const el = mapBox.current; if (!el) return;
     const ro = new ResizeObserver(() => { const r = el.getBoundingClientRect(); if (r.width && r.height) setAsp(r.width / r.height); });
     ro.observe(el);
     return () => ro.disconnect();
-  }, []);
+  }, [view]);
   useEffect(() => {
     if (!printing) return;
     const t = setTimeout(() => { window.print(); setPrinting(null); }, 60);
@@ -122,7 +131,7 @@ function Tool({ M, manifest }) {
     apply({ ...cr, flood: v }, on, `Flood ${yy} · 1-in-${ss} storm`);
   };
   const reset = () => apply({ ...G.DEF }, { ...G.DON }, "Starting point");
-  const pick = (id) => { setSel(id); setNamed(""); setTab("places"); setMtab("list"); };
+  const pick = (id) => { setSel(id); setNamed(""); setTab("places"); setMtab("list"); if (simple) setZoom("place"); };
   const back = () => { setSel(""); if (zoom === "place") setZoom("region"); };
   const pinned = (id) => !!pins.find((q) => q.id === id);
   const selP = list.find((p) => p.id === sel);
@@ -278,6 +287,174 @@ function Tool({ M, manifest }) {
   const countWord = list.length === 1 ? "place fits" : "places fit";
   const gridTf = `matrix(${T.grid.join(" ")})`;
   const tc = T.named?.town_core?.c, pt = T.named?.the_point?.c, rp = T.named?.reindeer_point?.c;
+  const mapSvg = (
+          <svg className="gk-map" viewBox={vb.map((q) => q.toFixed(1)).join(" ")} role="img"
+            aria-label="Map from Tuktoyaktuk south along the highway. Dark blue land fits your rules and is listed, with a letter for each place. Mid blue fits but is smaller than your minimum size. Hatched land floods in the chosen storm. The Places panel lists the same places as buttons."
+            onClick={onMapClick} onPointerMove={onMapMove} onPointerLeave={onMapLeave}>
+            <defs>
+              <pattern id="gk-hatch" patternUnits="userSpaceOnUse" width="0.3" height="0.3" patternTransform="rotate(45)">
+                <rect width="0.3" height="0.3" fill="#E4F0FA" /><path d="M0 0.15H0.3" stroke="#6096BA" strokeWidth="0.09" />
+              </pattern>
+            </defs>
+            <rect x="-400" y="-400" width={T.W + 800} height={T.H + 800} fill="#BCDAF2" />
+            <g transform={gridTf}>
+              <path d={M.landD} fill="#F6F7F4" />
+              {showFlood && floodD && <path d={floodD} fill="url(#gk-hatch)" />}
+              <path d={layers.smallD} fill="#6096BA" />
+              <path d={layers.optD} fill="#274C77" />
+              {hovP && <path d={G.outline(M, hovP.cells)} fill="none" stroke="#13243A" strokeWidth="1.8" vectorEffect="non-scaling-stroke" />}
+              {selP && <g><path d={G.outline(M, selP.cells)} fill="none" stroke="#FFFFFF" strokeWidth="5.5" vectorEffect="non-scaling-stroke" /><path d={G.outline(M, selP.cells)} fill="none" stroke="#13243A" strokeWidth="2.4" vectorEffect="non-scaling-stroke" /></g>}
+            </g>
+            <path d={T.roads} fill="none" stroke="#8B8C89" strokeWidth="0.8" opacity=".75" vectorEffect="non-scaling-stroke" />
+            <path d={T.hwy} fill="none" stroke="#13243A" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+            <path d={T.hwy} fill="none" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+            <path d={T.airport} fill="#FFFFFF" fillOpacity=".6" stroke="#46566A" strokeWidth="1.2" vectorEffect="non-scaling-stroke" />
+            {nm && <g><path d={nm.d} fill="#A3CEF1" fillOpacity=".6" stroke="#FFFFFF" strokeWidth="4" vectorEffect="non-scaling-stroke" /><path d={nm.d} fill="none" stroke="#13243A" strokeWidth="2" strokeDasharray="5 3" vectorEffect="non-scaling-stroke" /></g>}
+            <g fontFamily="Atkinson Hyperlegible Next, Verdana, sans-serif" fontWeight="700" stroke="#FFFFFF" strokeWidth={2.2 * Math.min(z, 1.4)} paintOrder="stroke" strokeLinejoin="round">
+              {kms.map((k) => <g key={k[2]}><circle cx={k[0]} cy={k[1]} r={1.8 * Math.max(Math.min(z, 1.4), 0.4)} fill="#13243A" /><text x={k[0] + 5 * z + 1} y={k[1] + 2.6 * z} fontSize={fsS} fill="#13243A">km {k[2]}</text></g>)}
+              {z > 0.9 && tc && <g>
+                <text x={tc[0] - 150} y={tc[1] + 90} fontSize={fs} fontStyle="italic" fontWeight="400" fill="#274C77">Beaufort Sea</text>
+                <text x={tc[0] + 12} y={tc[1] + 4} fontSize={fs} fill="#13243A">Tuktoyaktuk</text>
+                <text x={geo.end[0] + 8} y={Math.min(geo.end[1], T.H - 14)} fontSize={fsS} fill="#13243A">To Inuvik</text>
+              </g>}
+              {z <= 0.9 && <g>
+                {tc && <text x={tc[0] + 48} y={tc[1] - 14} fontSize={fs} fontStyle="italic" fontWeight="400" fill="#274C77">Kugmallit Bay</text>}
+                {pt && <text x={pt[0]} y={pt[1] - 7} textAnchor="middle" fontSize={fsS} fill="#13243A">The Point</text>}
+                {tc && <text x={tc[0] + 9} y={tc[1] + 3} fontSize={fsS} fill="#13243A">Town core</text>}
+                {rp && <text x={rp[0] + 9} y={rp[1] + 3} fontSize={fsS} fill="#13243A">Reindeer Point</text>}
+                {geo.air && <text x={geo.air[0] - 9} y={geo.air[1] + 3} textAnchor="end" fontSize={fsS} fill="#46566A">Airport</text>}
+              </g>}
+              <path d={`M${sc.x1} ${sc.y}H${sc.x1 + kmLen * unitsPerKm}`} stroke="#13243A" strokeWidth="2.5" vectorEffect="non-scaling-stroke" />
+              <text x={sc.x1} y={sc.ty} fontSize={fsS} fill="#13243A">{kmLen} km</text>
+            </g>
+            {badges.map((b) => <g key={b.id}><circle cx={b.x} cy={b.y} r={b.r} fill={b.fill} stroke="#13243A" strokeWidth={b.sw} /><text x={b.x} y={b.y + b.r * 0.36} textAnchor="middle" fontSize={b.fs} fontWeight="700" fontFamily="Geologica, system-ui, sans-serif" fill={b.ink}>{b.t}</text></g>)}
+          </svg>
+  );
+
+  // ---------- Simple view (design: map + one Places panel, three rules on the map, the rest behind "More rules") ----------
+  if (simple) {
+    const SHORT = { h: "Height above sea", flood: "Storm flood", sea: "Distance from shore", hw: "Distance to the highway", town: "Distance to town", wet: "Lakes and ponds", cov: "Radar sees", size: "Place size" };
+    const MAIN = ["h", "sea", "hw"];
+    const ruleVal = (c) => (c.kind === "flood" ? `Dry · ${cr.flood.replace("-", " · 1-in-")}` : c.k === "size" ? "At least " + G.ha(cr.size * G.HA) : `${c.lead} ${G.valTxt(T, c.k, cr[c.k])}`);
+    const moreRules = G.CRIT.filter((c) => !MAIN.includes(c.k));
+    const moreOnN = moreRules.filter((c) => on[c.k]).length;
+    const slider = (c) => <input id={"sp-r-" + c.k} className="gk-range" type="range" min={c.min} max={c.max} step={c.step} value={cr[c.k]} disabled={!on[c.k]} onChange={change(c)} />;
+    const sw = (c) => <Switch on={!!on[c.k]} onChange={toggle(c)} label={`Use the ${SHORT[c.k]} rule`} />;
+    const [yy, ss] = cr.flood.split("-");
+    const Chev = () => <svg className="ic sp-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>;
+    const ff = selP ? floodFact(selP) : null;
+    return (
+      <div className="gk">
+        <div className="gk-app sp-app">
+          <header className="gk-bar">
+            <div className="gk-brand"><Brand /><b>Ground Check</b></div>
+            <span className="div" />
+            <span className="ctx">Tuktoyaktuk · where the land fits your rules</span>
+            <Views on="simple" />
+            <button type="button" className="gk-barbtn" onClick={() => setAbout(true)}><InfoIc /><span>About the data</span></button>
+          </header>
+
+          <div className="gk-mapw" ref={mapBox}>
+            {mapSvg}
+            <div className="gk-ov gk-tools sp-zoom">
+              <div className="gk-seg" role="group" aria-label="Map view">
+                <button type="button" aria-pressed={zoom === "region"} onClick={() => setZoom("region")}>Whole area</button>
+                <button type="button" aria-pressed={zoom === "town"} onClick={() => setZoom("town")}>Town</button>
+              </div>
+            </div>
+            <div className="gk-ov sp-key">
+              <span><i style={{ background: "#274C77" }} />Fits</span>
+              <span><i style={{ background: "#6096BA" }} />Fits, too small to list</span>
+              {showFlood && on.flood && <span><i className="h" />Floods in the storm</span>}
+            </div>
+            {cellHead && <div className="gk-ov gk-readout sp-read num" aria-live="polite"><b>{cellHead}</b><span>{cellTxt}</span></div>}
+          </div>
+
+          <section className={"sp-rules" + (mtab === "rules" ? " m-on" : "")} aria-labelledby="sp-rules-h">
+            <div className="sp-rh"><h2 id="sp-rules-h">Your rules</h2>{!isDef && <button type="button" className="sp-link" onClick={reset}>Reset</button>}</div>
+            {G.CRIT.filter((c) => MAIN.includes(c.k)).map((c) => (
+              <div key={c.k} className={on[c.k] ? "sp-rule" : "sp-rule is-off"}>
+                <div className="sp-rl"><label htmlFor={"sp-r-" + c.k}>{SHORT[c.k]}</label><span className="sp-rv"><b className="num">{on[c.k] ? ruleVal(c) : "Off"}</b>{!on[c.k] && sw(c)}</span></div>
+                {slider(c)}
+              </div>
+            ))}
+            <button type="button" className="sp-more" aria-expanded={more} onClick={() => setMore(!more)}><span>{more ? "Fewer rules" : `More rules · ${moreOnN} of ${moreRules.length} on`}</span><Ic d={more ? "M6 15l6-6 6 6" : "M6 9l6 6 6-6"} /></button>
+            {more && <div className="sp-extra">
+              {moreRules.map((c) => (
+                <div key={c.k} className={on[c.k] ? "sp-rule" : "sp-rule is-off"}>
+                  <div className="sp-rl"><label htmlFor={"sp-r-" + c.k}>{SHORT[c.k]}</label><span className="sp-rv"><b className="num">{on[c.k] ? ruleVal(c) : "Off"}</b>{sw(c)}</span></div>
+                  {c.kind === "flood" ? (
+                    <div className="sp-flood">
+                      <div className="gk-fseg"><span>Year</span><div className="gk-seg" role="group" aria-label="Flood year">{G.SCENARIO_YEARS.map((y) => <button key={y} type="button" disabled={!on.flood} aria-pressed={yy === y} onClick={() => setScen(y, null)}>{y}</button>)}</div></div>
+                      <div className="gk-fseg"><span>Storm</span><div className="gk-seg" role="group" aria-label="Storm size">{G.SCENARIO_STORMS.map(([k2, t]) => <button key={k2} type="button" disabled={!on.flood} aria-pressed={ss === k2} onClick={() => setScen(null, k2)}>{t}</button>)}</div></div>
+                    </div>
+                  ) : slider(c)}
+                </div>
+              ))}
+            </div>}
+          </section>
+
+          <nav className="gk-mtabs" role="tablist" aria-label="Panels">
+            <button type="button" role="tab" aria-selected={mtab === "list"} onClick={() => setMtab("list")}>Places · {list.length}</button>
+            <button type="button" role="tab" aria-selected={mtab === "rules"} onClick={() => setMtab("rules")}>Rules</button>
+          </nav>
+
+          <aside className={"gk-right" + (mtab === "list" ? " m-on" : "")} aria-label="Places">
+            <div className="gk-scroll" ref={rightScroll}>
+              {!selP && <div>
+                <div className="sp-head">
+                  <div className="sp-big num" aria-live="polite"><b>{list.length}</b><span>{list.length === 1 ? "place fits your rules" : "places fit your rules"}</span></div>
+                  <p className="sp-note num">{note || "Move a rule on the map. The list updates as you go."}</p>
+                </div>
+                {list.length > 0 && <div>
+                  <p className="sp-order">Listed along the highway from town. Not ranked. <a href="#advanced">Sort, compare and more in Advanced</a></p>
+                  {list.map((p) => (
+                    <button key={p.id} type="button" className={"gk-row" + (hov === p.id ? " is-hov" : "")} onClick={() => pick(p.id)} onMouseEnter={() => setHov(p.id)} onMouseLeave={() => setHov("")}>
+                      <span className="gk-let">{p.letter}</span>
+                      <span className="gk-rt"><b>{p.title}</b><span>{p.h.toFixed(1)} m high · {G.ha(p.ha)} · {p.hw <= 300 ? "by the highway" : G.dist(p.hw) + " off the highway"}</span></span>
+                      <Chev />
+                    </button>
+                  ))}
+                </div>}
+                {list.length === 0 && <div className="gk-empty">
+                  <h3>No place fits all of these at once</h3>
+                  <p>Turning off one rule would bring back:</p>
+                  <div className="gk-relax">{relax.map((x) => <button key={x.k} type="button" onClick={x.go}><span>{x.txt}</span><b className="num">{x.n}</b></button>)}</div>
+                </div>}
+              </div>}
+              {selP && <div>
+                <div className="gk-dh"><button type="button" className="gk-back" onClick={back}><Ic d="M15 6l-6 6 6 6" />All {list.length} places</button></div>
+                <div className="gk-dt"><span className="gk-let" aria-hidden="true">{selP.letter}</span><div><h3>Place {selP.letter} · {selP.title}</h3><p>{selP.side}</p></div></div>
+                <div className="sp-tiles">
+                  <div className="sp-tile"><span className="gk-m">Size</span><b className="num">{G.ha(selP.ha)}</b><small>{selP.n} squares of 240 m</small></div>
+                  <div className="sp-tile"><span className="gk-m">Height above sea</span><b className="num">{selP.h.toFixed(1)} m</b><small>Lowest tenth {selP.low.toFixed(1)} m</small></div>
+                  <div className="sp-tile"><span className="gk-m">Distance from shore</span><b className="num">{G.dist(selP.sea)}</b><small>{G.chgTxt(selP.chg, selP.sea)}</small></div>
+                  <div className="sp-tile"><span className="gk-m">Distance to town</span><b className="num">{G.dist(selP.town)}</b><small>{selP.hw <= 50 ? `On the highway, km ${selP.km}` : `${G.dist(selP.hw)} to the highway`}</small></div>
+                </div>
+                <div className="sp-mv sp-fl"><span className="gk-m">Storm flood · estimate</span><b className="num">{ff.val}</b><small>{ff.sub.replace(/ · estimate$/, "")}</small></div>
+                <div className="sp-mv"><span className="gk-m is-un">Summer movement · unconfirmed</span><b className="num">{G.mvTxt(selP.mv)}</b><a className="sp-in" href="#nisar">How good is the radar? Research view<Ic d="M9 6l6 6-6 6" /></a></div>
+                <a className="sp-deep" href="#advanced"><span><b>See every fact</b><small>Every fact, nearest borehole, range among places, compare and print in Advanced</small></span><Ic d="M9 6l6 6-6 6" /></a>
+                <p className="sp-core">Every place still needs a drilled core before anything is built.</p>
+              </div>}
+            </div>
+          </aside>
+
+          <footer className="gk-status">
+            <span className="gk-m">Measured</span>
+            <span className="gk-m is-un">Unconfirmed</span>
+            <span className="sep" />
+            <span>Not ranked · student prototype, not endorsed by the Hamlet</span>
+            <span className="sep opt" />
+            <button type="button" className="gk-stlink" onClick={() => setAbout("sources")}>Sources</button>
+            <span className="r">{lp.date ? `Last radar pass used: ${fmtDay(lp.date)}, Sentinel-1` : ""}</span>
+          </footer>
+
+          {about && <About T={T} focus={about} onClose={() => setAbout(false)} />}
+          {welcome && !about && <Welcome onClose={closeWelcome} />}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="gk">
@@ -286,8 +463,8 @@ function Tool({ M, manifest }) {
           <div className="gk-brand"><Brand /><b>Ground Check</b></div>
           <span className="div" />
           <span className="ctx">Tuktoyaktuk · land screening tool</span>
+          <Views on="advanced" />
           <div className="gk-sum" aria-live="polite"><span className="num"><b>{list.length}</b> <span className="t">{countWord}</span></span><span className="l">Not ranked</span></div>
-          <a className="gk-barbtn gk-bar-nz" href="#nisar" title="For researchers: NISAR data quality"><SatIc /><span>For researchers: NISAR</span></a>
           <button type="button" className="gk-barbtn" onClick={() => setAbout(true)}><InfoIc /><span>About the data</span></button>
         </header>
 
@@ -337,47 +514,7 @@ function Tool({ M, manifest }) {
         </aside>
 
         <div className="gk-mapw" ref={mapBox}>
-          <svg className="gk-map" viewBox={vb.map((q) => q.toFixed(1)).join(" ")} role="img"
-            aria-label="Map from Tuktoyaktuk south along the highway. Dark blue land fits your rules and is listed, with a letter for each place. Mid blue fits but is smaller than your minimum size. Hatched land floods in the chosen storm. The Places panel lists the same places as buttons."
-            onClick={onMapClick} onPointerMove={onMapMove} onPointerLeave={onMapLeave}>
-            <defs>
-              <pattern id="gk-hatch" patternUnits="userSpaceOnUse" width="0.3" height="0.3" patternTransform="rotate(45)">
-                <rect width="0.3" height="0.3" fill="#E4F0FA" /><path d="M0 0.15H0.3" stroke="#6096BA" strokeWidth="0.09" />
-              </pattern>
-            </defs>
-            <rect x="-400" y="-400" width={T.W + 800} height={T.H + 800} fill="#BCDAF2" />
-            <g transform={gridTf}>
-              <path d={M.landD} fill="#F6F7F4" />
-              {showFlood && floodD && <path d={floodD} fill="url(#gk-hatch)" />}
-              <path d={layers.smallD} fill="#6096BA" />
-              <path d={layers.optD} fill="#274C77" />
-              {hovP && <path d={G.outline(M, hovP.cells)} fill="none" stroke="#13243A" strokeWidth="1.8" vectorEffect="non-scaling-stroke" />}
-              {selP && <g><path d={G.outline(M, selP.cells)} fill="none" stroke="#FFFFFF" strokeWidth="5.5" vectorEffect="non-scaling-stroke" /><path d={G.outline(M, selP.cells)} fill="none" stroke="#13243A" strokeWidth="2.4" vectorEffect="non-scaling-stroke" /></g>}
-            </g>
-            <path d={T.roads} fill="none" stroke="#8B8C89" strokeWidth="0.8" opacity=".75" vectorEffect="non-scaling-stroke" />
-            <path d={T.hwy} fill="none" stroke="#13243A" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
-            <path d={T.hwy} fill="none" stroke="#FFFFFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
-            <path d={T.airport} fill="#FFFFFF" fillOpacity=".6" stroke="#46566A" strokeWidth="1.2" vectorEffect="non-scaling-stroke" />
-            {nm && <g><path d={nm.d} fill="#A3CEF1" fillOpacity=".6" stroke="#FFFFFF" strokeWidth="4" vectorEffect="non-scaling-stroke" /><path d={nm.d} fill="none" stroke="#13243A" strokeWidth="2" strokeDasharray="5 3" vectorEffect="non-scaling-stroke" /></g>}
-            <g fontFamily="Atkinson Hyperlegible Next, Verdana, sans-serif" fontWeight="700" stroke="#FFFFFF" strokeWidth={2.2 * Math.min(z, 1.4)} paintOrder="stroke" strokeLinejoin="round">
-              {kms.map((k) => <g key={k[2]}><circle cx={k[0]} cy={k[1]} r={1.8 * Math.max(Math.min(z, 1.4), 0.4)} fill="#13243A" /><text x={k[0] + 5 * z + 1} y={k[1] + 2.6 * z} fontSize={fsS} fill="#13243A">km {k[2]}</text></g>)}
-              {z > 0.9 && tc && <g>
-                <text x={tc[0] - 150} y={tc[1] + 90} fontSize={fs} fontStyle="italic" fontWeight="400" fill="#274C77">Beaufort Sea</text>
-                <text x={tc[0] + 12} y={tc[1] + 4} fontSize={fs} fill="#13243A">Tuktoyaktuk</text>
-                <text x={geo.end[0] + 8} y={Math.min(geo.end[1], T.H - 14)} fontSize={fsS} fill="#13243A">To Inuvik</text>
-              </g>}
-              {z <= 0.9 && <g>
-                {tc && <text x={tc[0] + 48} y={tc[1] - 14} fontSize={fs} fontStyle="italic" fontWeight="400" fill="#274C77">Kugmallit Bay</text>}
-                {pt && <text x={pt[0]} y={pt[1] - 7} textAnchor="middle" fontSize={fsS} fill="#13243A">The Point</text>}
-                {tc && <text x={tc[0] + 9} y={tc[1] + 3} fontSize={fsS} fill="#13243A">Town core</text>}
-                {rp && <text x={rp[0] + 9} y={rp[1] + 3} fontSize={fsS} fill="#13243A">Reindeer Point</text>}
-                {geo.air && <text x={geo.air[0] - 9} y={geo.air[1] + 3} textAnchor="end" fontSize={fsS} fill="#46566A">Airport</text>}
-              </g>}
-              <path d={`M${sc.x1} ${sc.y}H${sc.x1 + kmLen * unitsPerKm}`} stroke="#13243A" strokeWidth="2.5" vectorEffect="non-scaling-stroke" />
-              <text x={sc.x1} y={sc.ty} fontSize={fsS} fill="#13243A">{kmLen} km</text>
-            </g>
-            {badges.map((b) => <g key={b.id}><circle cx={b.x} cy={b.y} r={b.r} fill={b.fill} stroke="#13243A" strokeWidth={b.sw} /><text x={b.x} y={b.y + b.r * 0.36} textAnchor="middle" fontSize={b.fs} fontWeight="700" fontFamily="Geologica, system-ui, sans-serif" fill={b.ink}>{b.t}</text></g>)}
-          </svg>
+          {mapSvg}
           <div className="gk-ov gk-tools">
             <div className="gk-seg" role="group" aria-label="Map view">
               <button type="button" aria-pressed={zoom === "region"} onClick={() => setZoom("region")}>Whole area</button>
@@ -478,6 +615,7 @@ function Tool({ M, manifest }) {
         </footer>
 
         {about && <About T={T} focus={about} onClose={() => setAbout(false)} />}
+          {welcome && !about && <Welcome onClose={closeWelcome} />}
       </div>
       {printing && <PrintSheet M={M} kind={printing} place={selP} pins={pinStats} facts={factsOf} cmp={CMP} cr={cr} on={on} scenShort={scenShort} gridTf={gridTf} />}
     </div>

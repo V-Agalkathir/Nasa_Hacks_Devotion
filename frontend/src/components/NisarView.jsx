@@ -5,6 +5,7 @@ import * as G from "../lib/tool.js";
 import "../tool.css";
 import "../nisar.css";
 import Sources from "./Sources.jsx";
+import Views from "./Views.jsx";
 
 const BASE = "./data/";
 const get = (f) => fetch(BASE + f).then((r) => { if (!r.ok) throw new Error(`${f}: HTTP ${r.status}`); return r.json(); });
@@ -39,7 +40,7 @@ export default function NisarView() {
     Promise.all([get("nisar/nisar.json"), get("tool.json")]).then(([nz, T]) => setD({ nz, M: G.decode(T) })).catch((e) => setErr(String(e.message || e)));
     return () => document.body.classList.remove("gk-lock");
   }, []);
-  if (err) return <div className="gk"><div className="gk-wait"><h1>The NISAR data didn’t load</h1><p>{err}</p><p><a href="#">Back to the tool</a></p></div></div>;
+  if (err) return <div className="gk"><div className="gk-wait"><h1>The NISAR data didn’t load</h1><p>{err}</p><p><a href="#simple">Back to the tool</a></p></div></div>;
   if (!D) return <div className="gk"><div className="gk-wait" role="status"><p>Loading the NISAR view…</p></div></div>;
   return <Board nz={D.nz} M={D.M} />;
 }
@@ -153,8 +154,8 @@ function Board({ nz, M }) {
           </div>
           <span className="div" />
           <span className="ctx">For researchers: NISAR data quality — not ground risk</span>
+          <Views on="research" />
           <div className="gk-sum"><span className="num"><b>{kept} of {P.length}</b> <span className="t">pairs kept</span></span><span className="l">Not ground risk</span></div>
-          <a className="gk-barbtn" href="#"><Ic d="M19 12H5M11 6l-6 6 6 6" /><span>Back to the tool</span></a>
           <button type="button" className="gk-barbtn" onClick={() => setAbout(true)}><InfoIc /><span>About the data</span></button>
         </header>
 
