@@ -213,6 +213,7 @@ body.gk-lock{overflow:hidden}
   .gk-tools{left:8px;top:8px}
   .gk-chipov{top:auto;bottom:8px}
   .gk-know{grid-template-columns:minmax(0,1fr)}
+  .gk-src-cols{grid-template-columns:minmax(0,1fr)}
   .gk-dlg{padding:22px 18px}
 }
 @media (prefers-reduced-motion: reduce){.gk *{transition:none!important}}
@@ -236,6 +237,14 @@ body.gk-lock{overflow:hidden}
 .gk-starts h3{font-size:15px;font-weight:600}
 .gk-starts ul{display:flex;flex-direction:column;gap:6px;margin:8px 0 0;padding:0;list-style:none;font-size:13.5px;color:var(--soft)}
 .gk-starts b{color:var(--ink)}
+.gk-src{margin-top:14px;padding:16px 18px;border-radius:16px;background:var(--paper2)}
+.gk-src h3{font-size:15px;font-weight:600}
+.gk-src h4{margin:10px 0 0;font-family:'Geologica',system-ui,sans-serif;font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--soft)}
+.gk-src-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 24px}
+.gk-src ul{display:flex;flex-direction:column;gap:6px;margin:8px 0 0;padding:0;list-style:none;font-size:13px;line-height:1.4;color:var(--soft)}
+.gk-src b{color:var(--ink)}
+.gk-src p{margin-top:10px;font-size:12.5px;color:var(--soft)}
+.gk-stlink{padding:0;border:0;background:none;font:inherit;font-size:12.5px;font-weight:700;color:var(--dusk)!important;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .gk-print{display:none}
 @media (max-width: 760px){
   .gk-tools{flex-wrap:wrap;gap:6px;max-width:calc(100% - 16px);padding:0;background:none;box-shadow:none}
