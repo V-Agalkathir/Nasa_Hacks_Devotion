@@ -1,6 +1,6 @@
 """Part 2: build per-season vertical motion stacks from radar pairs.
 
-Implements docs/architecture/specs/02-radar-processing.md, steps 1-17:
+Radar processing, steps 1-17:
 read -> ionosphere (NISAR) -> masks -> phase to LOS cm -> warp -> water -> reference (airport)
 -> connectivity flag -> usable season -> closure / 24-day test -> least-squares inversion
 -> min-valid rule -> LOS to vertical -> quality layers -> write + index.json -> sanity checks.

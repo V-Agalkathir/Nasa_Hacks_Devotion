@@ -1,4 +1,4 @@
-# Ground Check: automatic update and deploy (docs/architecture/specs/05-automation.md).
+# Ground Check: automatic update and deploy.
 # Stateless by design: each run restores the team's data release, asks NASA's catalogue for new
 # NISAR passes, fetches any new in-season pair (needs Earthdata secrets), rebuilds radar stacks,
 # models, screening and the web data, validates them, and deploys GitHub Pages. A failed run never

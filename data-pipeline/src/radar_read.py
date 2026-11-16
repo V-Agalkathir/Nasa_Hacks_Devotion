@@ -1,7 +1,7 @@
 """Part 2: readers for Sentinel-1 HyP3 pairs and NISAR GUNW pairs, plus shared-grid helpers.
 
 Everything returned is on the shared grid (common.grid(), EPSG:4326, 900 x 560).
-See docs/architecture/specs/02-radar-processing.md (sections 1, 2, 9).
+Method notes: see the project README (How it works).
 """
 from __future__ import annotations
 

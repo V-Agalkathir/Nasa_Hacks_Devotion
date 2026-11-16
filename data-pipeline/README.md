@@ -2,7 +2,6 @@
 
 Part 1 collects **every input** the other parts need and saves it in a fixed place and format.
 It does no science; it only finds, downloads (or streams) and tidies data.
-Full technical spec: [`docs/architecture/specs/01-data-acquisition.md`](../docs/architecture/specs/01-data-acquisition.md).
 
 ## Get the data (no NASA account needed)
 
