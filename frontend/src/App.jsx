@@ -5,6 +5,7 @@ import * as G from "./lib/tool.js";
 import "./tool.css";
 import Sources from "./components/Sources.jsx";
 import Views from "./components/Views.jsx";
+import Welcome from "./components/Welcome.jsx";
 
 const BASE = "./data/";
 const get = (f) => fetch(BASE + f).then((r) => { if (!r.ok) throw new Error(`${f}: HTTP ${r.status}`); return r.json(); });
@@ -64,6 +65,9 @@ function Tool({ M, manifest, view }) {
   const [mtab, setMtab] = useState("rules");
   const [about, setAbout] = useState(false);
   const [more, setMore] = useState(false);
+  // how-to popup: shown on the first load of a visit, until "I understand"
+  const [welcome, setWelcome] = useState(() => { try { return sessionStorage.getItem("gk-welcome") !== "seen"; } catch (e) { return true; } });
+  const closeWelcome = () => { setWelcome(false); try { sessionStorage.setItem("gk-welcome", "seen"); } catch (e) { /* storage blocked: closes for this page only */ } };
   const simple = view === "simple";
   const [showFlood, setShowFlood] = useState(true);
   const [printing, setPrinting] = useState(null);
@@ -329,7 +333,7 @@ function Tool({ M, manifest, view }) {
 
   // ---------- Simple view (design: map + one Places panel, three rules on the map, the rest behind "More rules") ----------
   if (simple) {
-    const SHORT = { h: "Height", flood: "Storm flood", sea: "From the shore", hw: "To the highway", town: "To town", wet: "Lakes and ponds", cov: "Radar sees", size: "Place size" };
+    const SHORT = { h: "Height above sea", flood: "Storm flood", sea: "Distance from shore", hw: "Distance to the highway", town: "Distance to town", wet: "Lakes and ponds", cov: "Radar sees", size: "Place size" };
     const MAIN = ["h", "sea", "hw"];
     const ruleVal = (c) => (c.kind === "flood" ? `Dry · ${cr.flood.replace("-", " · 1-in-")}` : c.k === "size" ? "At least " + G.ha(cr.size * G.HA) : `${c.lead} ${G.valTxt(T, c.k, cr[c.k])}`);
     const moreRules = G.CRIT.filter((c) => !MAIN.includes(c.k));
@@ -423,9 +427,9 @@ function Tool({ M, manifest, view }) {
                 <div className="gk-dt"><span className="gk-let" aria-hidden="true">{selP.letter}</span><div><h3>Place {selP.letter} · {selP.title}</h3><p>{selP.side}</p></div></div>
                 <div className="sp-tiles">
                   <div className="sp-tile"><span className="gk-m">Size</span><b className="num">{G.ha(selP.ha)}</b><small>{selP.n} squares of 240 m</small></div>
-                  <div className="sp-tile"><span className="gk-m">Height</span><b className="num">{selP.h.toFixed(1)} m</b><small>Lowest tenth {selP.low.toFixed(1)} m</small></div>
-                  <div className="sp-tile"><span className="gk-m">From the shore</span><b className="num">{G.dist(selP.sea)}</b><small>{G.chgTxt(selP.chg, selP.sea)}</small></div>
-                  <div className="sp-tile"><span className="gk-m">To town</span><b className="num">{G.dist(selP.town)}</b><small>{selP.hw <= 50 ? `On the highway, km ${selP.km}` : `${G.dist(selP.hw)} to the highway`}</small></div>
+                  <div className="sp-tile"><span className="gk-m">Height above sea</span><b className="num">{selP.h.toFixed(1)} m</b><small>Lowest tenth {selP.low.toFixed(1)} m</small></div>
+                  <div className="sp-tile"><span className="gk-m">Distance from shore</span><b className="num">{G.dist(selP.sea)}</b><small>{G.chgTxt(selP.chg, selP.sea)}</small></div>
+                  <div className="sp-tile"><span className="gk-m">Distance to town</span><b className="num">{G.dist(selP.town)}</b><small>{selP.hw <= 50 ? `On the highway, km ${selP.km}` : `${G.dist(selP.hw)} to the highway`}</small></div>
                 </div>
                 <div className="sp-mv sp-fl"><span className="gk-m">Storm flood · estimate</span><b className="num">{ff.val}</b><small>{ff.sub.replace(/ · estimate$/, "")}</small></div>
                 <div className="sp-mv"><span className="gk-m is-un">Summer movement · unconfirmed</span><b className="num">{G.mvTxt(selP.mv)}</b><a className="sp-in" href="#nisar">How good is the radar? Research view<Ic d="M9 6l6 6-6 6" /></a></div>
@@ -446,6 +450,7 @@ function Tool({ M, manifest, view }) {
           </footer>
 
           {about && <About T={T} focus={about} onClose={() => setAbout(false)} />}
+          {welcome && !about && <Welcome onClose={closeWelcome} />}
         </div>
       </div>
     );
@@ -610,6 +615,7 @@ function Tool({ M, manifest, view }) {
         </footer>
 
         {about && <About T={T} focus={about} onClose={() => setAbout(false)} />}
+          {welcome && !about && <Welcome onClose={closeWelcome} />}
       </div>
       {printing && <PrintSheet M={M} kind={printing} place={selP} pins={pinStats} facts={factsOf} cmp={CMP} cr={cr} on={on} scenShort={scenShort} gridTf={gridTf} />}
     </div>

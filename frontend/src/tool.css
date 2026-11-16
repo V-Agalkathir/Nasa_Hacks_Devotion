@@ -357,3 +357,11 @@ body.gk-lock{overflow:hidden}
 .sp-flood{display:flex;flex-direction:column;gap:6px;margin-top:4px}
 .sp-app .sp-rules .gk-fseg > span{width:40px}
 .sp-app .sp-rules .gk-fseg .gk-seg button{padding:0 4px;font-size:12.5px;white-space:nowrap}
+.gk-welcome{width:min(600px,100%)}
+.gk-welcome > p{margin-top:8px}
+.gk-steps{display:flex;flex-direction:column;gap:10px;margin:18px 0 0;padding-left:22px;font-size:14.5px;line-height:1.45;color:var(--soft)}
+.gk-steps b{color:var(--ink)}
+.gk-steps li::marker{font-family:'Geologica',system-ui,sans-serif;font-weight:700;color:var(--dusk)}
+.gk-wnote{margin-top:16px!important;padding:12px 14px;border-radius:14px;background:var(--icyt);font-size:13px!important;color:var(--dusk)!important}
+.gk-wbtn{width:100%;min-height:48px;margin-top:18px;font-size:15px}
+@media (max-width: 760px){ .gk-scrim{padding:12px} .gk-welcome h2{font-size:21px} .gk-steps{gap:8px;margin-top:14px;font-size:14px} .gk-wnote{margin-top:12px!important} .gk-wbtn{margin-top:14px} }
