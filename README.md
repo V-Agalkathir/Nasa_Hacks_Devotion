@@ -179,7 +179,7 @@ AI tools were used to speed up building, as Space Apps allows; the idea, the dec
 | Who | Tool | What it helped with |
 |---|---|---|
 | Agal | Claude (Anthropic) | Repo scaffold, first README, starter pipeline and frontend code |
-| Martin | Claude (Anthropic) | Research on the relocation process and datasets, licence checks; radar processing (Sentinel-1 and NISAR), the thaw model and pre-registered tests, site screening, flood model, data exports, validation gate and update workflow; the website, including the Simple, Advanced and Research views; written explanations |
+| Martin | Claude (Anthropic) | Research on the relocation process and datasets, licence checks; radar processing (Sentinel-1 and NISAR), data exports, validation gate and update workflow |
 | Martin | Claude Design | Layout and visual design of the three views |
 
 No AI-generated images, video or audio are used. Maps and charts are drawn by our code from the data.
