@@ -3,6 +3,7 @@
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import * as G from "./lib/tool.js";
 import "./tool.css";
+import Sources from "./components/Sources.jsx";
 
 const BASE = "./data/";
 const get = (f) => fetch(BASE + f).then((r) => { if (!r.ok) throw new Error(`${f}: HTTP ${r.status}`); return r.json(); });
@@ -471,10 +472,12 @@ function Tool({ M, manifest }) {
           <span>Nothing here is ranked or recommended</span>
           <span className="sep opt" />
           <span className="opt">Student prototype · not endorsed by the Hamlet</span>
+          <button type="button" className="gk-stlink" onClick={() => setAbout("sources")}>Sources</button>
+          <span className="sep" />
           <span className="r">{lp.date ? `Last radar pass used: ${fmtDay(lp.date)}, Sentinel-1. ` : ""}Checks for new passes every 12 days, June to September.</span>
         </footer>
 
-        {about && <About T={T} onClose={() => setAbout(false)} />}
+        {about && <About T={T} focus={about} onClose={() => setAbout(false)} />}
       </div>
       {printing && <PrintSheet M={M} kind={printing} place={selP} pins={pinStats} facts={factsOf} cmp={CMP} cr={cr} on={on} scenShort={scenShort} gridTf={gridTf} />}
     </div>
@@ -541,10 +544,11 @@ function Detail({ M, p, facts, zoomOn, isPin, pinDis, onBack, onZoom, onPin, onP
 const WEIGH = ["Inuvialuit lands and harvesting areas", "Cultural, burial and gathering places", "What families want", "Cost to build and service", "Gravel and water sources", "Knowledge held by Elders and land users"];
 const FINE = "Contains information licensed under the Open Government Licence – Canada. Contains modified Copernicus Sentinel data (2021–2025). Landsat imagery courtesy of the U.S. Geological Survey. NISAR data courtesy of NASA/JPL-Caltech and ISRO, via the Alaska Satellite Facility. Storm-surge levels from Baird (2019) for the Government of the Northwest Territories, as published by Future Tuktoyaktuk. Map data © OpenStreetMap contributors.";
 
-function About({ T, onClose }) {
+function About({ T, focus, onClose }) {
   const x = useRef(null);
   useEffect(() => {
     x.current?.focus();
+    if (focus === "sources") document.getElementById("gk-sources")?.scrollIntoView({ block: "start" });
     const k = (e) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", k);
     return () => window.removeEventListener("keydown", k);
@@ -582,6 +586,7 @@ function About({ T, onClose }) {
           </ul>
         </div>
         <div className="gk-weigh"><h3>What this tool doesn’t weigh</h3><ul>{WEIGH.map((w) => <li key={w}>{w}</li>)}</ul></div>
+        <Sources />
         <p className="gk-fine"><b>A student hackathon prototype.</b> No community consultation yet; not endorsed by the Hamlet of Tuktoyaktuk. Community knowledge belongs to the Hamlet of Tuktoyaktuk and the Inuvialuit and is not in this tool. Places are grouped along each 2 km of highway; town distance is a straight line. {FINE} Open source.</p>
       </div>
     </div>

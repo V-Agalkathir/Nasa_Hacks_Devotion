@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import * as G from "../lib/tool.js";
 import "../tool.css";
 import "../nisar.css";
+import Sources from "./Sources.jsx";
 
 const BASE = "./data/";
 const get = (f) => fetch(BASE + f).then((r) => { if (!r.ok) throw new Error(`${f}: HTTP ${r.status}`); return r.json(); });
@@ -335,6 +336,7 @@ function About({ onClose, dropped, th }) {
           <dt>Thresholds</dt><dd>Coherence ≥ {th.coherence_min ?? CUT} · land median within 2 cm after referencing{th.closure_cm ? ` · closure ${th.closure_cm} cm` : ""}</dd>
           <dt>Comparison</dt><dd>Sentinel-1 C-band, relative orbit 137, 2025 12-day pairs, same map frame and land mask</dd>
         </dl>
+        <Sources />
         <p className="gk-fine">NISAR data courtesy of NASA/JPL-Caltech and ISRO, via the Alaska Satellite Facility DAAC. Contains modified Copernicus Sentinel data, processed with ASF HyP3. Map data © OpenStreetMap contributors. <b>Student prototype</b>, not endorsed by the Hamlet of Tuktoyaktuk.</p>
       </div>
     </div>
