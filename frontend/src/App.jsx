@@ -11,7 +11,7 @@ const get = (f) => fetch(BASE + f).then((r) => { if (!r.ok) throw new Error(`${f
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 export const fmtDay = (iso) => { if (!iso) return ""; const [y, m, d] = iso.slice(0, 10).split("-").map(Number); return `${d} ${MONTHS[m - 1]} ${y}`; };
 
-export default function App({ view = "advanced" }) {
+export default function App({ view = "simple" }) {
   const [M, setM] = useState(null);
   const [manifest, setManifest] = useState(null);
   const [err, setErr] = useState("");

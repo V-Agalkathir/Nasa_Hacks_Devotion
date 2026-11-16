@@ -40,7 +40,7 @@ export default function NisarView() {
     Promise.all([get("nisar/nisar.json"), get("tool.json")]).then(([nz, T]) => setD({ nz, M: G.decode(T) })).catch((e) => setErr(String(e.message || e)));
     return () => document.body.classList.remove("gk-lock");
   }, []);
-  if (err) return <div className="gk"><div className="gk-wait"><h1>The NISAR data didn’t load</h1><p>{err}</p><p><a href="#advanced">Back to the tool</a></p></div></div>;
+  if (err) return <div className="gk"><div className="gk-wait"><h1>The NISAR data didn’t load</h1><p>{err}</p><p><a href="#simple">Back to the tool</a></p></div></div>;
   if (!D) return <div className="gk"><div className="gk-wait" role="status"><p>Loading the NISAR view…</p></div></div>;
   return <Board nz={D.nz} M={D.M} />;
 }

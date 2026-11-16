@@ -2,7 +2,7 @@ import React, { Suspense, lazy, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 
-// Views: #simple, #advanced (default) and #nisar (Research). Research loads on demand so the first load stays small.
+// Views: #simple (default), #advanced and #nisar (Research). Research loads on demand so the first load stays small.
 const NisarView = lazy(() => import("./components/NisarView.jsx"));
 
 function Root() {
@@ -16,7 +16,7 @@ function Root() {
     return <Suspense fallback={<div className="gk"><div className="gk-wait" role="status"><p>Loading the NISAR view…</p></div></div>}><NisarView /></Suspense>;
   }
   // #simple and #advanced share one App, so rules and the open place carry over between them
-  return <App view={hash === "#simple" ? "simple" : "advanced"} />;
+  return <App view={hash === "#advanced" ? "advanced" : "simple"} />;
 }
 
 createRoot(document.getElementById("root")).render(<Root />);
